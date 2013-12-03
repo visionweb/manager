@@ -1,0 +1,184 @@
+.form,
+.view,
+.index {
+    border-left:1px solid #c00737;
+    padding:10px 2%;
+}
+
+table td.actions a {
+    margin: 0px 6px;
+    padding:2px 5px;
+}
+
+form .required {
+    font-weight: bold;
+}
+
+form .required label:after {
+    color: #e32;
+    content: '*';
+    display:inline;
+}
+
+#footer {
+    clear: both;
+    padding: 6px 10px;
+    text-align: right;
+}
+
+/** GoupDetail - UserDetail **/
+.adresse{
+    float:left;
+    width:33%;
+}
+.email{
+    float:left;
+    width:33%;
+}
+.numero{
+    float:left;
+    width:33%;
+}
+
+.display-table{
+    width: 0;
+}
+
+.display-table td{
+    border-bottom: 0px;
+}
+
+.login{
+    margin-left: auto;
+    margin-right: auto;
+    width: 250px;
+    margin-top: 70px;
+    padding-left: 15px;
+}
+
+.activatedStatut{
+    color: darkgreen;
+}
+.disabledStatut{
+    color: darkred;
+}
+#header{
+    background-color: #FFFFFF;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+#content{
+    margin-top: 133px;
+}
+.navbar {
+    margin-bottom: 0px !important;
+}
+.comment{
+    width:600px;
+    margin:20px 50px;
+    padding:20px 50px;
+    border:1px solid black;
+}
+
+
+
+
+
+
+
+
+
+table {
+    border-right:0;
+    clear: both;
+    color: #333;
+    margin-bottom: 10px;
+    width: 100%;
+}
+th {
+    border:0;
+    border-bottom:2px solid #555;
+    text-align: center;
+    padding:4px;
+}
+th a {
+    display: block;
+    padding: 2px 4px;
+    text-decoration: none;
+}
+th a.asc:after {
+    content: ' ⇣';
+}
+th a.desc:after {
+    content: ' ⇡';
+}
+table tr td {
+    padding: 6px;
+    text-align: center;
+    vertical-align: top;
+    border-bottom:1px solid #ddd;
+}
+table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+td.actions {
+    text-align: left;
+    white-space: nowrap;
+}
+table td.actions a {
+    margin: 0px 6px;
+    padding:2px 5px;
+}
+
+
+
+
+
+
+
+
+.paging {
+    background:#fff;
+    color: #ccc;
+    margin-top: 1em;
+    clear:both;
+}
+.paging .current,
+.paging .disabled,
+.paging a {
+    text-decoration: none;
+    padding: 5px 8px;
+    display: inline-block
+}
+.paging > span {
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-left: 0;
+}
+.paging > span:hover {
+    background: #efefef;
+}
+.paging .prev {
+    border-left: 1px solid #ccc;
+    -moz-border-radius: 4px 0 0 4px;
+    -webkit-border-radius: 4px 0 0 4px;
+    border-radius: 4px 0 0 4px;
+}
+.paging .next {
+    -moz-border-radius: 0 4px 4px 0;
+    -webkit-border-radius: 0 4px 4px 0;
+    border-radius: 0 4px 4px 0;
+}
+.paging .disabled {
+    color: #ddd;
+}
+.paging .disabled:hover {
+    background: transparent;
+}
+.paging .current {
+    background: #efefef;
+    color: #c73e14;
+}
