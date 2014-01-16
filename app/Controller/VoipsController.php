@@ -109,10 +109,10 @@ class VoipsController extends AppController {
 
     public function admin_newAccount(){
 		//If there is data send by a form
-        if ($this->request->is('post')) {
-			$this->redirect(array('action' => 'admin_listAccount'));
-			}
+		if ($this->request->is('post')) {
 			
+			}
+		$this->set("title", "Nouveau compte");
     }
 
     public function admin_consommation(){
