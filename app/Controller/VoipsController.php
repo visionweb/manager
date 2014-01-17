@@ -43,6 +43,7 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_add() {
+		
     }
 
     /**
@@ -111,7 +112,7 @@ class VoipsController extends AppController {
 		//If there is data send by a form
 		if ($this->request->is('post')) {
 			
-			}
+		}
 		$this->set("title", "Nouveau compte");
     }
 
