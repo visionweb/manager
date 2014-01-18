@@ -111,35 +111,18 @@ class VoipsController extends AppController {
     public function admin_newAccount(){
 		//If there is data send by a form
 		if ($this->request->is('post')) {
-		$url = 'https://178.33.172.71:50051/';
-		$fields = 
-		   'POST /1.1/users HTTP/1.1
-			Host: xivoserver
-			Accept: application/json
-			Content-Type: application/json
-			{
-				"firstname": "John",
-				"lastname": "Doe",
-				"timezone": "",
-				"language": "en_US",
-				"description": "",
-				"caller_id": "\"John Doe\"",
-				"outgoing_caller_id": "default",
-				"mobile_phone_number": "",
-				"username": "testname",
-				"password": "",
-				"music_on_hold": "default",
-				"preprocess_subroutine": "",
-				"userfield": ""
-			}';
-		$log_pass='managero:UBIBOzULRSuh';
-		$ch = curl_init($url);
-		curl_setopt($ch,CURLOPT_USERPWD, $log_pass);
-		curl_setopt($ch,CURLOPT_URL,$url);
-		curl_setopt($ch,CURLOPT_POST,$fields);
-		curl_exec($ch);
-		curl_close($ch);
-		$this->redirect(array('action' => 'admin_listAccount'));
+			$url = '178.33.172.71/1.1/users';
+			$fields = 'firstname=John';
+			$log_pass='managero:UBIBOzULRSuh'; 
+			$port='50051';
+			$ch = curl_init($url);
+			curl_setopt($ch,CURLOPT_URL,$url);
+			curl_setopt($ch,CURLOPT_PORT,$port);
+			curl_setopt($ch,CURLOPT_USERPWD,$log_pass);
+			curl_setopt($ch,CURLOPT_POSTFIELDS,$fields);
+			$result=curl_exec($ch);
+			curl_close($ch);
+			$this->redirect(array('action' => 'admin_listAccount'));
 		}
 		$this->set("title", "Nouveau compte");
     }
