@@ -111,17 +111,40 @@ class VoipsController extends AppController {
     public function admin_newAccount(){
 		//If there is data send by a form
 		if ($this->request->is('post')) {
-			$url = '178.33.172.71/1.1/users';
-			$fields = 'firstname=John';
-			$log_pass='managero:UBIBOzULRSuh'; 
-			$port='50051';
-			$ch = curl_init($url);
-			curl_setopt($ch,CURLOPT_URL,$url);
-			curl_setopt($ch,CURLOPT_PORT,$port);
-			curl_setopt($ch,CURLOPT_USERPWD,$log_pass);
-			curl_setopt($ch,CURLOPT_POSTFIELDS,$fields);
-			$result=curl_exec($ch);
-			curl_close($ch);
+			$url = 'https://178.33.172.71:50051/1.0/users/';
+			$port = '50051';
+			$access = 'managero:UBIBOzULRSuh';
+			$data = array(
+			 'firstname' => $this->data['User']['firstname'],
+			 'lastname' => $this->data['User']['lastname'],
+			 'username' => $this->data['User']['username'],
+			 'password' => $this->data['User']['password'],
+			 'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
+			 'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
+			 'language'=> $this->data['User']['language'],
+			 'callerid'=> $this->data['User']['callerID'],
+			 'musiconhold'=> $this->data['User']['misic_on_hold'],
+			 'timezone'=> $this->data['User']['timezone'],
+			 'userfield'=> $this->data['User']['ex_ph_num'],
+			);
+			$curlHandler = curl_init();
+
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+
+			$result = curl_exec($curlHandler);
+			//$this->set("curl", curl_getinfo($curlHandler));
+
+			curl_close($curlHandler);
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
 		$this->set("title", "Nouveau compte");
