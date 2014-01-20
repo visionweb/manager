@@ -120,12 +120,11 @@ class VoipsController extends AppController {
 			 'username' => $this->data['User']['username'],
 			 'password' => $this->data['User']['password'],
 			 'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
-			 'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
 			 'language'=> $this->data['User']['language'],
 			 'callerid'=> $this->data['User']['callerID'],
-			 'musiconhold'=> $this->data['User']['misic_on_hold'],
+			 'musiconhold'=> $this->data['User']['music_on_hold'],
 			 'timezone'=> $this->data['User']['timezone'],
-			 'userfield'=> $this->data['User']['ex_ph_num'],
+			 'userfield'=> $this->data['User']['userfield']
 			);
 			$curlHandler = curl_init();
 
