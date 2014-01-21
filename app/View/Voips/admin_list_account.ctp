@@ -17,7 +17,7 @@
 				<td><?php echo $user["lastname"];?></td>
 				<td><?php echo $user["line"]["number"];?></td>
 				<td><?php echo $user["userfield"];?></td>
-				<td><?php echo $user["description"];?></td>
+				<td><?php echo $user["username"];?></td>
 				<td><?php echo $user["password"];?></td>
                 <td class="actions btn-group">
                     <button class="btn">Action</button>

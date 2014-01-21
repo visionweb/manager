@@ -95,7 +95,9 @@ class VoipsController extends AppController {
 				foreach($sip as $sip_l){
 					if ($sip_l["id"]==$link["line_id"] and $dataBrut[$i]["id"]==$link["user_id"]  ){
 						$newName=$sip_l["username"];
-						$dataBrut[$i]["description"]=$newName;
+						$newPass=$sip_l["secret"];
+						$dataBrut[$i]["username"]=$newName;
+						$dataBrut[$i]["password"]=$newPass;
 						break;
 						}
 					}
@@ -110,8 +112,10 @@ class VoipsController extends AppController {
 	
 
     public function admin_newAccount(){
+		
 		//If there is data send by a form
 		if ($this->request->is('post')) {
+			
 			$port = '50051';
 			$access = 'managero:UBIBOzULRSuh';
 			
@@ -120,8 +124,6 @@ class VoipsController extends AppController {
 			$data = array(
 			 'firstname' => $this->data['User']['firstname'],
 			 'lastname' => $this->data['User']['lastname'],
-			 'username' => $this->data['User']['user'],
-			 'password' => $this->data['User']['pass'],
 			 'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
 			 'language'=> $this->data['User']['language'],
 			 'callerid'=> $this->data['User']['callerID'],
@@ -146,8 +148,7 @@ class VoipsController extends AppController {
 			$url = 'https://178.33.172.71:50051/1.1/lines_sip';
 			$data = array(
 			 'context' => 'default',
-			 'device_slot'=> '1'
-			);
+			 'device_slot'=> '1');
 			$curlHandler = curl_init();
 			curl_setopt($curlHandler, CURLOPT_URL, $url);
 			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
@@ -164,7 +165,7 @@ class VoipsController extends AppController {
 			//create extencion
 			$url = 'https://178.33.172.71:50051/1.1/extensions';
 			$data = array(
-			 'exten'=> '1006',
+			 'exten'=> $this->data['User']['short_phone_number'],
 			 'context'=> 'default'
 			);
 			$curlHandler = curl_init();
@@ -180,12 +181,42 @@ class VoipsController extends AppController {
 			$result = curl_exec($curlHandler);
 			curl_close($curlHandler);
 			
+			//find user id
+			exec("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.0/users/'", $users);
+			$users=json_decode($users[0], true);
+			$users=$users['items'];
+			$users_id=array();
+			for($i=0;$i<count($users);$i++){
+			array_push($users_id, $users[$i]['id']);
+			}
+			rsort($users_id);
+			
+			//find line id
+			exec("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/lines'", $line);
+			$line=json_decode($line[0], true);
+			$line=$line['items'];
+			$line_id=array();
+			for($i=0;$i<count($line);$i++){
+			array_push($line_id, $line[$i]['id']);
+			}
+			rsort($line_id);
+			
+			//find extension id
+			exec("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'", $exten);
+			$exten=json_decode($exten[0], true);
+			$exten=$exten['items'];
+			$exten_id=array();
+			for($i=0;$i<count($exten);$i++){
+			array_push($exten_id, $exten[$i]['id']);
+			}
+			rsort($exten_id);
+			
 			//association
 			$url = 'https://178.33.172.71:50051/1.1/user_links';
 			$data = array(
-			 'user_id'=> 27,
-			 'line_id'=> 17,
-			 'extension_id'=>39
+			 'user_id'=>  (int)$users_id[0],
+			 'line_id'=>  (int)$line_id[0],
+			 'extension_id'=>  (int)$exten_id[0]
 			);
 			$curlHandler = curl_init();
 			curl_setopt($curlHandler, CURLOPT_URL, $url);
@@ -202,6 +233,28 @@ class VoipsController extends AppController {
 			curl_close($curlHandler);
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
+		
+		//find avalible short numbers
+		exec("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'", $exten_num);
+		$exten_num=json_decode($exten_num[0], true);
+		$exten_num=$exten_num['items'];
+		$avalible_numbers=array();
+		$unavalible_numbers=array();
+		$short=array();
+		for($i=1000;$i<1099;$i++){
+			array_push($avalible_numbers, $i);
+			}
+		for($i=0;$i<count($exten_num);$i++){
+			array_push($unavalible_numbers, $exten_num[$i]['exten']);
+			}
+		$avalible_numbers=array_diff($avalible_numbers,$unavalible_numbers);
+		for($i=0; $i<=count($avalible_numbers); $i++){
+			if (!empty($avalible_numbers[$i]))
+			$short[$avalible_numbers[$i]]=$avalible_numbers[$i];
+			if (count($short)>=20) break;
+			}
+		$this->set("short", $short);
+		
 		$this->set("title", "Nouveau compte");
     }
 

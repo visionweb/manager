@@ -14,10 +14,9 @@
 			echo $this->Form->input('language',array('options'=>$lang, 'default'=>'French'));
 			echo $this->Form->input('callerID', array('label'=>'Caller ID'));
 			echo $this->Form->input('music_on_hold',array('options'=>$music,'default'=>'Default'));
+			echo $this->Form->input('short_phone_number',array('options'=>$short,'default'=>'Default'));
 			echo $this->Form->input('outgoing_caller_id',array('options'=>$out_call_id,'default'=>'Default'));
 			echo $this->Form->input('mobile_phone_number', array('label'=>'Mobile phone number'));
-			echo $this->Form->input('user', array('label'=>'Username'));
-			echo $this->Form->input('pass', array('label'=>'Password'));
 			echo $this->Form->input('userfield', array('label'=>'External phone number'));
 		?>
 	</fieldset>
