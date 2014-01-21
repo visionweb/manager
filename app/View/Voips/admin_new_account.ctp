@@ -4,7 +4,7 @@
 	<?php echo $this->Form->create('User'); ?>
 		<legend><?php echo __($title); ?></legend>
 		<?php
-			$time = array('eu-fr' => 'Europe/Paris');
+			$time = array('Europe/Paris' => 'Europe/Paris');
 			$lang = array('fr_FR' => 'French');
 			$music = array('default' => 'Default');
 			$out_call_id=array('default' => 'Default','anonymous'=>'Anonymous', 'custom'=>'Custom');
@@ -16,8 +16,8 @@
 			echo $this->Form->input('music_on_hold',array('options'=>$music,'default'=>'Default'));
 			echo $this->Form->input('outgoing_caller_id',array('options'=>$out_call_id,'default'=>'Default'));
 			echo $this->Form->input('mobile_phone_number', array('label'=>'Mobile phone number'));
-			echo $this->Form->input('username', array('label'=>'Username'));
-			echo $this->Form->input('password', array('label'=>'Password'));
+			echo $this->Form->input('user', array('label'=>'Username'));
+			echo $this->Form->input('pass', array('label'=>'Password'));
 			echo $this->Form->input('userfield', array('label'=>'External phone number'));
 		?>
 	</fieldset>
