@@ -11,14 +11,14 @@
 			<th>SIP account</th>
 			<th>Password</th>
         </tr>
-        <?php foreach($listUser as $user): ?>
+        <?php for($i=0; $i<sizeof($listUser); $i++): ?>
             <tr>
-				<td><?php echo $user["firstname"];?></td>
-				<td><?php echo $user["lastname"];?></td>
-				<td><?php echo $user["line"]["number"];?></td>
-				<td><?php echo $user["userfield"];?></td>
-				<td><?php echo $user["username"];?></td>
-				<td><?php echo $user["password"];?></td>
+				<td><?php print $listUser[$i]["firstname"];?></td>
+				<td><?php print $listUser[$i]["lastname"];?></td>
+				<td><?php print $listUser[$i]["line"]["number"];?></td>
+				<td><?php print $listUser[$i]["userfield"];?></td>
+				<td><?php print $listUser[$i]["username"];?></td>
+				<td><?php print $listUser[$i]["password"];?></td>
                 <td class="actions btn-group">
                     <button class="btn">Action</button>
                     <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -30,7 +30,7 @@
                     </ul>	
                 </td>
             </tr>
-        <?php endforeach; ?>
+        <?php endfor; ?>
     </table>
 	<div class="paging">
         
