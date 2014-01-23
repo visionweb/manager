@@ -13,6 +13,7 @@
 			echo $this->Form->input('timezone',array('options'=>$time,'default'=>'Europe/Paris'));
 			echo $this->Form->input('language',array('options'=>$lang, 'default'=>'French'));
 			echo $this->Form->input('callerID', array('label'=>'Caller ID'));
+			echo $this->Form->input('owner',array('options'=>$userlist,'default'=>$this->Session->read('Auth.User.username')));
 			echo $this->Form->input('music_on_hold',array('options'=>$music,'default'=>'Default'));
 			echo $this->Form->input('short_phone_number',array('options'=>$short,'default'=>'Default'));
 			echo $this->Form->input('outgoing_caller_id',array('options'=>$out_call_id,'default'=>'Default'));

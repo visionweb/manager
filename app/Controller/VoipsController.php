@@ -15,7 +15,7 @@ class VoipsController extends AppController {
  * @return void
  */
 	public function index() {
-        $this->set(’voips’, $this->Voip->find(’all’));
+    
 	}
 
 /**
@@ -104,8 +104,7 @@ class VoipsController extends AppController {
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.0/users/
     }
 
-    public function admin_newAccount(){		
-		
+    public function admin_newAccount(){
 		//If there is data send by a form
 		if ($this->request->is('post')) {
 			$port = '50051';
@@ -156,6 +155,10 @@ class VoipsController extends AppController {
 				array_push($line_id, $line[$i]['id']);
 				}
 			rsort($line_id);
+			$owner= array(
+				'user_id'=>$this->data['User']['owner'],
+				'line_id'=>$line_id[0]);
+			$this->Voip->save($owner);
 			
 			//find extension id
 			$exten=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
@@ -194,6 +197,14 @@ class VoipsController extends AppController {
 			if (sizeof($short)>=20) 
 				break;
 			}
+		
+		$this->loadModel("User");
+		$owners=$this->User->find("all");
+		$userlist=array();
+		for ($i=0; $i<sizeof($owners); $i++){
+			$userlist[$owners[$i]['User']['id']]=$owners[$i]['User']['username'];
+			}
+		$this->set("userlist", $userlist);
 		$this->set("short", $short);
 		$this->set("title", "Nouveau compte");
     }
