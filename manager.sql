@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 23, 2014 at 09:20 PM
+-- Generation Time: Jan 24, 2014 at 03:15 AM
 -- Server version: 5.5.35
 -- PHP Version: 5.3.10-1ubuntu3.9
 
@@ -836,6 +836,35 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `numbers`
+--
+
+CREATE TABLE IF NOT EXISTS `numbers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `prefix` int(11) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `owner` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
+
+--
+-- Dumping data for table `numbers`
+--
+
+INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`) VALUES
+(1, 11, 111111111, ''),
+(2, 11, 111111112, ''),
+(3, 11, 111111113, ''),
+(4, 11, 111111114, ''),
+(5, 11, 111111115, ''),
+(6, 11, 111111116, 'test'),
+(7, 11, 111111117, ''),
+(8, 11, 111111118, ''),
+(9, 11, 111111119, '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `passwords`
 --
 
@@ -1162,7 +1191,10 @@ CREATE TABLE IF NOT EXISTS `voips` (
 --
 
 INSERT INTO `voips` (`user_id`, `line_id`) VALUES
-(8, 100);
+(8, 100),
+(12, 101),
+(0, 102),
+(0, 103);
 
 --
 -- Constraints for dumped tables
