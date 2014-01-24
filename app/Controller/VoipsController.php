@@ -120,9 +120,21 @@ class VoipsController extends AppController {
 				'callerid'=> $this->data['User']['callerID'],
 				'musiconhold'=> $this->data['User']['music_on_hold'],
 				'timezone'=> $this->data['User']['timezone'],
-				'userfield'=> $this->data['User']['userfield']
+				'userfield'=> $this->data['User']['external_phone_number']
 				);
 			$this->Voip->send($url,$port,$access, $data);
+			
+			//set owner of number
+			$this->loadModel("Number");
+			$nums_owns=$this->Number->find("all");
+			for($i=0; $i<sizeof($nums_owns); $i++){
+				$value="+".$nums_owns[$i]['Number']['prefix']." ".$nums_owns[$i]['Number']['phone_number'];
+				if($this->data['User']['external_phone_number']==$value){
+					$own=array('owner'=>$this->data['User']['owner']);
+					$this->Number->id=$nums_owns[$i]['Number']['id'];
+					$this->Number->save($own);
+					}
+			}
 			
 			//create line
 			$url = 'https://178.33.172.71:50051/1.1/lines_sip';
@@ -179,6 +191,18 @@ class VoipsController extends AppController {
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
 		
+		//find avalible phone numbers
+		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		$ex_num=array();
+		for($i=0; $i<sizeof($nums_owns); $i++){
+			if(empty($nums_owns[$i]['Number']['owner'])){
+				$value="+".$nums_owns[$i]['Number']['prefix']." ".$nums_owns[$i]['Number']['phone_number'];
+				$ex_num[$value]=$value;
+				}
+			if ($i>20) break;
+			}
+		
 		//find avalible short numbers
 		$exten_num=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
 		$avalible_numbers=array();
@@ -202,8 +226,9 @@ class VoipsController extends AppController {
 		$owners=$this->User->find("all");
 		$userlist=array();
 		for ($i=0; $i<sizeof($owners); $i++){
-			$userlist[$owners[$i]['User']['id']]=$owners[$i]['User']['username'];
+			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
 			}
+		$this->set("ex_num", $ex_num);
 		$this->set("userlist", $userlist);
 		$this->set("short", $short);
 		$this->set("title", "Nouveau compte");
@@ -214,8 +239,24 @@ class VoipsController extends AppController {
     }
 
     public function admin_configuration(){
-
+		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		$this->set("n_o", $nums_owns);
+		$this->set("title", "Configuration");
+		if ($this->request->is('post')) {
+			$new=array();
+			$start=$this->data['User']['start_interval'];
+			$end=$this->data['User']['end_interval'];
+			$prefix=$this->data['User']['prefix'];
+			for($i=(int)$start; $i<(int)$end; $i++){
+				array_push($new,
+				array(
+					'prefix'=>$prefix,
+					'phone_number'=>$i
+					));
+				}
+			$this->Number->saveAll($new);
+			$this->redirect(array('action' => 'admin_configuration'));
+			}
     }
-
-
 }

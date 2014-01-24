@@ -18,7 +18,7 @@
 			echo $this->Form->input('short_phone_number',array('options'=>$short,'default'=>'Default'));
 			echo $this->Form->input('outgoing_caller_id',array('options'=>$out_call_id,'default'=>'Default'));
 			echo $this->Form->input('mobile_phone_number', array('label'=>'Mobile phone number'));
-			echo $this->Form->input('userfield', array('label'=>'External phone number'));
+			echo $this->Form->input('external_phone_number', array('options'=>$ex_num, 'default'=>'+11 111111111'));
 		?>
 	</fieldset>
 	 
