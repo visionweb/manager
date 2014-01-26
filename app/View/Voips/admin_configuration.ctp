@@ -4,7 +4,8 @@
 	<?php echo $this->Form->create('User'); ?>
 		<legend><?php echo __($title); ?></legend>
 		<?php
-			echo $this->Form->input('prefix', array('label'=>'Prefix', 'maxLength'=>'2px', 'default'=>'11'));
+			$pref = array('33' => '33', '44'=>'44');
+			echo $this->Form->input('prefix', array('label'=>'Prefix', 'options'=>$pref, 'default'=>'33'));
 			echo $this->Form->input('start_interval', array('label'=>'Start interval', 'default'=>'111111111', 'maxLength'=>'9px'));
 			echo $this->Form->input('end_interval', array('label'=>'End interval', 'default'=>'111111112', 'maxLength'=>'9px'));
 		?>

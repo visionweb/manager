@@ -180,7 +180,15 @@ class VoipsController extends AppController {
 				}
 			rsort($exten_id);
 			
-			//association
+			/*line extension association			
+			$url = 'https://178.33.172.71:50051/1.1/lines/'.$line_id[0].'/extension';
+			$data = array(
+				'extension_id'=>  (int)$exten_id[0]
+				);
+			$this->Voip->send($url,$port,$access, $data);
+			$this->set("extens", $url); IN PROGRESS*/
+			
+			//user line extension association
 			$url = 'https://178.33.172.71:50051/1.1/user_links';
 			$data = array(
 				'user_id'=>  (int)$users_id[0],
@@ -202,6 +210,7 @@ class VoipsController extends AppController {
 				}
 			if ($i>20) break;
 			}
+		if(empty($ex_num)) $ex_num[0]='No numbers';
 		
 		//find avalible short numbers
 		$exten_num=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
