@@ -252,16 +252,17 @@ class VoipsController extends AppController {
 		$nums_owns=$this->Number->find("all");
 		$this->set("n_o", $nums_owns);
 		$this->set("title", "Configuration");
+		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		if ($this->request->is('post')) {
 			$new=array();
-			$start=$this->data['User']['start_interval'];
-			$end=$this->data['User']['end_interval'];
+			$start="1".$this->data['User']['start_interval'];
+			$end="1".$this->data['User']['end_interval'];
 			$prefix=$this->data['User']['prefix'];
-			for($i=(int)$start; $i<(int)$end; $i++){
+			for($i=$start; $i<=$end; $i++){
 				array_push($new,
 				array(
 					'prefix'=>$prefix,
-					'phone_number'=>$i
+					'phone_number'=>substr($i,-10)
 					));
 				}
 			$this->Number->saveAll($new);
