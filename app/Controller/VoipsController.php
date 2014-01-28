@@ -140,15 +140,7 @@ class VoipsController extends AppController {
 			$url = 'https://178.33.172.71:50051/1.1/lines_sip';
 			$data = array(
 				'context' => 'default',
-				'device_slot'=> '1'
-				);
-			$this->Voip->send($url,$port,$access, $data);
-			
-			//create extencion
-			$url = 'https://178.33.172.71:50051/1.1/extensions';
-			$data = array(
-				'exten'=> $this->data['User']['short_phone_number'],
-				'context'=> 'default'
+				'device_slot'=> 1
 				);
 			$this->Voip->send($url,$port,$access, $data);
 			
@@ -167,10 +159,21 @@ class VoipsController extends AppController {
 				array_push($line_id, $line[$i]['id']);
 				}
 			rsort($line_id);
-			$owner= array(
-				'user_id'=>$this->data['User']['owner'],
-				'line_id'=>$line_id[0]);
-			$this->Voip->save($owner);
+			
+			//user line association
+			$url = 'https://178.33.172.71:50051/1.1/users/'.$users_id[0].'/lines';
+			$data = array(
+				'line_id'=> (int)$line_id[0]
+				);
+			$this->Voip->send($url,$port,$access, $data);
+			
+			//create extencion
+			$url = 'https://178.33.172.71:50051/1.1/extensions';
+			$data = array(
+				'exten'=> $this->data['User']['external_phone_number'],
+				'context'=> 'default'
+				);
+			$this->Voip->send($url,$port,$access, $data);
 			
 			//find extension id
 			$exten=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
@@ -180,22 +183,13 @@ class VoipsController extends AppController {
 				}
 			rsort($exten_id);
 			
-			/*line extension association			
+			//line extension association			
 			$url = 'https://178.33.172.71:50051/1.1/lines/'.$line_id[0].'/extension';
 			$data = array(
 				'extension_id'=>  (int)$exten_id[0]
 				);
 			$this->Voip->send($url,$port,$access, $data);
-			$this->set("extens", $url); IN PROGRESS*/
 			
-			//user line extension association
-			$url = 'https://178.33.172.71:50051/1.1/user_links';
-			$data = array(
-				'user_id'=>  (int)$users_id[0],
-				'line_id'=>  (int)$line_id[0],
-				'extension_id'=>  (int)$exten_id[0]
-				);
-			$this->Voip->send($url,$port,$access, $data);
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
 		
@@ -205,7 +199,7 @@ class VoipsController extends AppController {
 		$ex_num=array();
 		for($i=0; $i<sizeof($nums_owns); $i++){
 			if(empty($nums_owns[$i]['Number']['owner'])){
-				$value="+".$nums_owns[$i]['Number']['prefix']." ".$nums_owns[$i]['Number']['phone_number'];
+				$value="00".substr($nums_owns[$i]['Number']['prefix'],-2).$nums_owns[$i]['Number']['phone_number'];
 				$ex_num[$value]=$value;
 				}
 			if ($i>20) break;
