@@ -29,6 +29,12 @@
                     </li>
                     <li><a href="#">Accès Wiki</a></li>
                     <li><a href="<?php echo $this->Html->url(array('controller'=>'faqs','action' => 'index'));?>">FAQ</a></li>
+			<li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Voip<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'view'));?>">Voir</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <ul class="nav pull-right">
                     <li class="divider-vertical"></li>

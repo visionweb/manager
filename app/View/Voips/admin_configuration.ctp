@@ -5,9 +5,9 @@
 		<legend><?php echo __($title); ?></legend>
 		<?php
 			$pref = array('33' => '33', '44'=>'44');
-			echo $this->Form->input('prefix', array('label'=>'Prefix', 'options'=>$pref, 'default'=>'33'));
-			echo $this->Form->input('start_interval', array('label'=>'Start interval', 'default'=>'111111111', 'maxLength'=>'9px'));
-			echo $this->Form->input('end_interval', array('label'=>'End interval', 'default'=>'111111112', 'maxLength'=>'9px'));
+			print $this->Form->input('prefix', array('label'=>'Prefix', 'options'=>$pref, 'default'=>'33'));
+			print $this->Form->input('start_interval', array('label'=>'Start interval', 'default'=>$str['Number']['phone_number']+1, 'maxLength'=>'10px'));
+			print $this->Form->input('end_interval', array('label'=>'End interval', 'default'=>$str['Number']['phone_number']+2, 'maxLength'=>'10px'));
 		?>
 	</fieldset> 
 	<?php echo $this->Form->end(__('Add new numbers'));?>

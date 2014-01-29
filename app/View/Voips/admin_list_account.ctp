@@ -27,7 +27,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="#"><?php echo __('Action1');?></a></li>
                         <li><a href="#"><?php echo __('Action2');?></a></li>
-                    </ul>	
+                    </ul>
                 </td>
             </tr>
         <?php endfor; ?>

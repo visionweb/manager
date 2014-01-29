@@ -131,6 +131,7 @@
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo $this->Html->url(array('controller'=>'modules','action' => 'index'));?>">Gestion</a></li>
                             <li class="divider"></li>
+                            <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '<!--';?>
                             <li class="dropdown-submenu">
                                 <a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'index'));?>">Voip</a>
                                 <ul class="dropdown-menu">
@@ -140,6 +141,7 @@
                                     <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'configuration'));?>">Configuration</a></li>
                                 </ul>
                             </li>
+                            <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
                         </ul>
                     </li>
                 </ul>
