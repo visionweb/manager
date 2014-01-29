@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jan 24, 2014 at 03:15 AM
+-- Generation Time: Jan 29, 2014 at 10:42 PM
 -- Server version: 5.5.35
 -- PHP Version: 5.3.10-1ubuntu3.9
 
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=357 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=363 ;
 
 --
 -- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(92, NULL, NULL, NULL, 'controllers', 1, 530),
+(92, NULL, NULL, NULL, 'controllers', 1, 542),
 (93, 92, NULL, NULL, 'CategorieFaqs', 2, 23),
 (94, 93, NULL, NULL, 'index', 3, 4),
 (95, 93, NULL, NULL, 'view', 5, 6),
@@ -288,7 +288,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (335, 332, NULL, NULL, 'admin_add', 489, 490),
 (336, 332, NULL, NULL, 'admin_edit', 491, 492),
 (337, 269, NULL, NULL, 'admin_search', 397, 398),
-(338, 92, NULL, NULL, 'Voips', 494, 529),
+(338, 92, NULL, NULL, 'Voips', 494, 531),
 (339, 338, NULL, NULL, 'index', 495, 496),
 (340, 338, NULL, NULL, 'view', 497, 498),
 (341, 338, NULL, NULL, 'admin_index', 499, 500),
@@ -306,7 +306,13 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (353, 338, NULL, NULL, 'account', 523, 524),
 (354, 338, NULL, NULL, 'user_account', 525, 526),
 (355, 338, NULL, NULL, 'voipView', 527, 528),
-(356, 151, NULL, NULL, 'voipList', 279, 280);
+(356, 151, NULL, NULL, 'voipList', 279, 280),
+(357, 92, NULL, NULL, 'Modules', 532, 541),
+(358, 357, NULL, NULL, 'admin_index', 533, 534),
+(359, 357, NULL, NULL, 'enable', 535, 536),
+(360, 357, NULL, NULL, 'admin_disable', 537, 538),
+(361, 357, NULL, NULL, 'admin_enable', 539, 540),
+(362, 338, NULL, NULL, 'admin_server', 529, 530);
 
 -- --------------------------------------------------------
 
@@ -836,31 +842,50 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `modules`
+--
+
+CREATE TABLE IF NOT EXISTS `modules` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `activ` tinyint(1) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=5 ;
+
+--
+-- Dumping data for table `modules`
+--
+
+INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
+(1, 'Voip', 1);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `numbers` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `prefix` int(11) NOT NULL,
-  `phone_number` int(11) NOT NULL,
+  `phone_number` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `owner` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=116 ;
 
 --
 -- Dumping data for table `numbers`
 --
 
 INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`) VALUES
-(1, 11, 111111111, ''),
-(2, 11, 111111112, ''),
-(3, 11, 111111113, ''),
-(4, 11, 111111114, ''),
-(5, 11, 111111115, ''),
-(6, 11, 111111116, 'test'),
-(7, 11, 111111117, ''),
-(8, 11, 111111118, ''),
-(9, 11, 111111119, '');
+(108, 33, '1111111111', 'admin'),
+(109, 33, '1111111112', 'test'),
+(110, 33, '1111111113', 'admin'),
+(111, 33, '1111111114', 'admin'),
+(112, 33, '1111111115', ''),
+(113, 33, '1111111116', ''),
+(114, 33, '1111111117', ''),
+(115, 33, '1111111118', '');
 
 -- --------------------------------------------------------
 
@@ -1182,19 +1207,19 @@ INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_use
 --
 
 CREATE TABLE IF NOT EXISTS `voips` (
-  `user_id` int(11) NOT NULL,
-  `line_id` int(11) NOT NULL
+  `id` int(11) NOT NULL,
+  `login` varchar(30) NOT NULL,
+  `pass` varchar(30) NOT NULL,
+  `ip` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `voips`
 --
 
-INSERT INTO `voips` (`user_id`, `line_id`) VALUES
-(8, 100),
-(12, 101),
-(0, 102),
-(0, 103);
+INSERT INTO `voips` (`id`, `login`, `pass`, `ip`) VALUES
+(1, 'managero', 'UBIBOzULRSuh', '178.33.172.71');
 
 --
 -- Constraints for dumped tables

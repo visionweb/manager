@@ -80,10 +80,14 @@ class VoipsController extends AppController {
 
 	
 	public function admin_listAccount(){
-		$dataBrut=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.0/users/'");
-		$links=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/user_links'");
-		$sip=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/lines_sip'");
-		
+		$voipdata=$this->Voip->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+		$dataBrut=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/'");
+		$links=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/user_links'");
+		$sip=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines_sip'");
+
 		for ($i=0; $i<sizeof($dataBrut); $i++){
 			foreach($links as $link){
 				foreach($sip as $sip_l){
@@ -105,13 +109,17 @@ class VoipsController extends AppController {
     }
 
     public function admin_newAccount(){
+		$voipdata=$this->Voip->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
 		//If there is data send by a form
 		if ($this->request->is('post')) {
 			$port = '50051';
-			$access = 'managero:UBIBOzULRSuh';		
+			$access = $login.':'.$pass;		
 			
 			//create user
-			$url = 'https://178.33.172.71:50051/1.0/users/';
+			$url = 'https://'.$ip.':50051/1.0/users/';
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -135,9 +143,9 @@ class VoipsController extends AppController {
 					$this->Number->save($own);
 					}
 			}
-			
+
 			//create line
-			$url = 'https://178.33.172.71:50051/1.1/lines_sip';
+			$url = 'https://'.$ip.':50051/1.1/lines_sip';
 			$data = array(
 				'context' => 'default',
 				'device_slot'=> 1
@@ -161,14 +169,14 @@ class VoipsController extends AppController {
 			rsort($line_id);
 			
 			//user line association
-			$url = 'https://178.33.172.71:50051/1.1/users/'.$users_id[0].'/lines';
+			$url = 'https://'.$ip.':50051/1.1/users/'.$users_id[0].'/lines';
 			$data = array(
 				'line_id'=> (int)$line_id[0]
 				);
 			$this->Voip->send($url,$port,$access, $data);
 			
 			//create extencion
-			$url = 'https://178.33.172.71:50051/1.1/extensions';
+			$url = 'https://'.$ip.':50051/1.1/extensions';
 			$data = array(
 				'exten'=> $this->data['User']['external_phone_number'],
 				'context'=> 'from-extern'
@@ -184,7 +192,7 @@ class VoipsController extends AppController {
 			rsort($exten_id);
 			
 			//line extension association			
-			$url = 'https://178.33.172.71:50051/1.1/lines/'.$line_id[0].'/extension';
+			$url = 'https://'.$ip.':50051/1.1/lines/'.$line_id[0].'/extension';
 			$data = array(
 				'extension_id'=>  (int)$exten_id[0]
 				);
@@ -235,11 +243,30 @@ class VoipsController extends AppController {
 		$this->set("userlist", $userlist);
 		$this->set("short", $short);
 		$this->set("title", "Nouveau compte");
-    }
+		}
 
     public function admin_consommation(){
-
-    }
+		
+		}
+    
+    public function admin_server(){
+		$voipdata=$this->Voip->find('all');
+		$this->set("voipdata", $voipdata);
+		$this->set("title", "Server parameters");
+		if ($this->request->is('post')) {
+			$new_login=$this->data['User']['old_login'];
+			$new_pass=$this->data['User']['old_pass'];
+			$new_ip=$this->data['User']['old_ip'];
+			$new=array(
+					'login'=>$new_login,
+					'pass'=>$new_pass,
+					'ip'=>$new_ip
+					);
+			$this->Voip->id='1';
+			$this->Voip->save($new);
+			$this->redirect(array('action' => 'admin_configuration'));
+			}
+		}
 
     public function admin_configuration(){
 		$this->loadModel("Number");
@@ -247,6 +274,7 @@ class VoipsController extends AppController {
 		$this->set("n_o", $nums_owns);
 		$this->set("title", "Configuration");
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
+		$this->set("voipdata", $this->Voip->find('all'));
 		if ($this->request->is('post')) {
 			$new=array();
 			$start="1".$this->data['User']['start_interval'];
