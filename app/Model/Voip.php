@@ -9,7 +9,7 @@
 App::uses('AppModel', 'Model');
 
 class Voip extends AppModel {
-	var $name = 'Voip';
+	public $name = 'Voip';
 	
 	//get from $request JSON object and convert to aray
 	function getArray($request){

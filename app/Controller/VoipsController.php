@@ -171,7 +171,7 @@ class VoipsController extends AppController {
 			$url = 'https://178.33.172.71:50051/1.1/extensions';
 			$data = array(
 				'exten'=> $this->data['User']['external_phone_number'],
-				'context'=> 'default'
+				'context'=> 'from-extern'
 				);
 			$this->Voip->send($url,$port,$access, $data);
 			

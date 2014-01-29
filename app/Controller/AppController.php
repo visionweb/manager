@@ -54,7 +54,6 @@ class AppController extends Controller {
         'Paginator'
     );
     public $helpers = array('Html', 'Form', 'Session');
-
     public function beforeFilter() {
         $this->Auth->allow('login','index','logout');
     }

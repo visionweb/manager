@@ -60,12 +60,12 @@ class User extends AppModel {
 		),
 		
 		'start_interval' => array(
-                'rule'    => array('minLength', 9),
+                'rule'    => array('minLength', 10),
                 'message' => '9 digit required',
          ),
 
 		'end_interval' => array(
-                'rule'    => array('minLength', 9),
+                'rule'    => array('minLength', 10),
                 'message' => '9 digit required',
          ),
 
