@@ -25,8 +25,8 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><?php echo __('Action1');?></a></li>
-                        <li><a href="#"><?php echo __('Action2');?></a></li>
+                        <li><a href="<?php print $this->Html->url(array('action' => 'edit', $listUser[$i]['id']));?>"><?php echo __('Edit');?></a></li>
+                        <li><a href="<?php print $this->Html->url(array('action' => 'delete', $listUser[$i]['id']));?>"><?php echo __('Delete');?></a></li>
                     </ul>
                 </td>
             </tr>

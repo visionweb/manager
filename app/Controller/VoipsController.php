@@ -65,8 +65,30 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_edit($id = null) {
-
-    }
+		$voipdata=$this->Voip->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/".$id."'");
+		$this->set('title', 'Set new user data');
+		$this->set('userinfo', $userdata);
+		if ($this->request->is('post')) {
+			$port = '50051';
+			$access = $login.':'.$pass;		
+			$url = 'https://'.$ip.':50051/1.0/users/'.$id;
+			$data = array(
+				'firstname' => $this->data['User']['firstname'],
+				'lastname' => $this->data['User']['lastname'],
+				'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
+				'language'=> $this->data['User']['language'],
+				'callerid'=> $this->data['User']['callerID'],
+				'musiconhold'=> $this->data['User']['music_on_hold'],
+				'timezone'=> $this->data['User']['timezone'],
+				);
+			$this->Voip->put($url,$port,$access, $data);
+			$this->redirect(array('action' => 'admin_listAccount'));
+			}
+		}
 
     /**
      * admin_delete method - Turns the 'actif' field to false
@@ -75,8 +97,16 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
-
-    }
+		$voipdata=$this->Voip->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+		$port = '50051';
+		$access = $login.':'.$pass;		
+		$url = 'https://'.$ip.':50051/1.0/users/'.$id;
+		$this->Voip->delete($url, $port, $access);
+		$this->redirect(array('action' => 'admin_listAccount'));
+		}
 
 	
 	public function admin_listAccount(){
@@ -130,7 +160,7 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
-			$this->Voip->send($url,$port,$access, $data);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//set owner of number
 			$this->loadModel("Number");
@@ -150,7 +180,7 @@ class VoipsController extends AppController {
 				'context' => 'default',
 				'device_slot'=> 1
 				);
-			$this->Voip->send($url,$port,$access, $data);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//find user id
 			$users=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.0/users/'");
@@ -173,7 +203,7 @@ class VoipsController extends AppController {
 			$data = array(
 				'line_id'=> (int)$line_id[0]
 				);
-			$this->Voip->send($url,$port,$access, $data);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//create extencion
 			$url = 'https://'.$ip.':50051/1.1/extensions';
@@ -181,7 +211,7 @@ class VoipsController extends AppController {
 				'exten'=> $this->data['User']['external_phone_number'],
 				'context'=> 'from-extern'
 				);
-			$this->Voip->send($url,$port,$access, $data);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//find extension id
 			$exten=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
@@ -196,7 +226,7 @@ class VoipsController extends AppController {
 			$data = array(
 				'extension_id'=>  (int)$exten_id[0]
 				);
-			$this->Voip->send($url,$port,$access, $data);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
