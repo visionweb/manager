@@ -28,8 +28,12 @@
                         <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#"><?php echo __('Action1');?></a></li>
-                        <li><a href="#"><?php echo __('Action2');?></a></li>
+						<?php 
+							if (!empty($n_o[$i]['Number']['owner']))
+								print '<li>Remove account first</li>';
+							else
+								print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o[$i]['Number']['id'])).'">Delete</a></li>';
+						?>
                     </ul>
                 </td>
             </tr>

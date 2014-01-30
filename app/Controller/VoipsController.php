@@ -58,6 +58,12 @@ class VoipsController extends AppController {
     }
 
 
+	public function admin_removenumber($id = null) {
+		$this->loadModel("Number");
+		$this->Number->delete($id);
+		$this->redirect(array('action' => 'admin_configuration'));
+		}
+
     /**
      * admin_edit method - Edit a Faq
      *
@@ -104,7 +110,20 @@ class VoipsController extends AppController {
 		$port = '50051';
 		$access = $login.':'.$pass;		
 		$url = 'https://'.$ip.':50051/1.0/users/'.$id;
+		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/".$id."'");
 		$this->Voip->delete($url, $port, $access);
+		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		$pref=substr($userdata['userfield'], -12,2);
+		$num=substr($userdata['userfield'], -10);
+		for($i=0;$i<sizeof($nums_owns);$i++){
+			if($nums_owns[$i]['Number']['phone_number']==$num){
+				$this->Number->id=$nums_owns[$i]['Number']['id'];
+				$own=array('owner'=>'');
+				$this->Number->save($own);
+				break;
+				}
+			}
 		$this->redirect(array('action' => 'admin_listAccount'));
 		}
 
@@ -166,7 +185,7 @@ class VoipsController extends AppController {
 			$this->loadModel("Number");
 			$nums_owns=$this->Number->find("all");
 			for($i=0; $i<sizeof($nums_owns); $i++){
-				$value="+".$nums_owns[$i]['Number']['prefix']." ".$nums_owns[$i]['Number']['phone_number'];
+				$value="00".$nums_owns[$i]['Number']['prefix'].$nums_owns[$i]['Number']['phone_number'];
 				if($this->data['User']['external_phone_number']==$value){
 					$own=array('owner'=>$this->data['User']['owner']);
 					$this->Number->id=$nums_owns[$i]['Number']['id'];
