@@ -1,8 +1,106 @@
 <div class="span10 form">
 	<br><br>
+	<h2><?php echo __($title); ?></h2>
+	<br><br>
+	<legend><?php echo __('Numbers'); ?></legend>
+	<div class="actions btn-group">
+		<button class="btn">Display</button>
+		<button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+			<?php 
+				print '<li><a href="'.$this->Html->url(array('action' => 'configuration', '0')).'">All</a></li>';
+				print '<li><a href="'.$this->Html->url(array('action' => 'configuration', '1')).'">Free numbers</a></li>';
+				print '<li><a href="'.$this->Html->url(array('action' => 'configuration', '2')).'">Owned numbers</a></li>';
+			?>
+        </ul>
+      </div>
+	<br><br>
+	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
+        <tr>
+			<th>Prefix</th>
+            <th>Numbers</th>
+            <th>Owners</th>
+        </tr>
+        <?php for($i=0; $i<sizeof($n_o); $i++): ?>
+			<?php switch ($filter){
+				case '0':
+				print '
+					<td>'.$n_o[$i]["Number"]["prefix"].'</td>
+					<td>'.$n_o[$i]["Number"]["phone_number"].'</td>
+					<td>'.$n_o[$i]["Number"]["owner"].'</td>
+					<td class="actions btn-group">
+						<button class="btn">Action</button>
+						<button class="btn dropdown-toggle" data-toggle="dropdown">
+							<span class="caret"></span>
+						</button>
+						<ul class="dropdown-menu">
+                '; 
+				if (!empty($n_o[$i]['Number']['owner']))
+					print '<li>Remove account first</li>';
+				else
+					print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o[$i]['Number']['id'])).'">Delete</a></li>';
+				print '</ul>
+                </td>
+                ';
+                break;
+                
+                case '1':
+                if (empty($n_o[$i]["Number"]["owner"])){
+					print '
+						<td>'.$n_o[$i]["Number"]["prefix"].'</td>
+						<td>'.$n_o[$i]["Number"]["phone_number"].'</td>
+						<td>'.$n_o[$i]["Number"]["owner"].'</td>
+						<td class="actions btn-group">
+							<button class="btn">Action</button>
+							<button class="btn dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+					'; 
+					if (!empty($n_o[$i]['Number']['owner']))
+						print '<li>Remove account first</li>';
+					else
+						print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o[$i]['Number']['id'])).'">Delete</a></li>';
+					print '</ul>
+					</td>
+					';
+					}
+                break;
+                
+                case '2':
+                if (!empty($n_o[$i]["Number"]["owner"])){
+					print '
+						<td>'.$n_o[$i]["Number"]["prefix"].'</td>
+						<td>'.$n_o[$i]["Number"]["phone_number"].'</td>
+						<td>'.$n_o[$i]["Number"]["owner"].'</td>
+						<td class="actions btn-group">
+							<button class="btn">Action</button>
+							<button class="btn dropdown-toggle" data-toggle="dropdown">
+								<span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu">
+					'; 
+					if (!empty($n_o[$i]['Number']['owner']))
+						print '<li>Remove account first</li>';
+					else
+						print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o[$i]['Number']['id'])).'">Delete</a></li>';
+					print '</ul>
+					</td>
+					';
+					}
+                break;
+				}
+				?>
+            
+            </tr>
+		<?php endfor; ?>
+    </table>
+	<br><br>
 	<fieldset>
 	<?php echo $this->Form->create('User'); ?>
-		<legend><?php echo __($title); ?></legend>
+		<legend><?php echo __('Set new numbers'); ?></legend>
 		<?php
 			$pref = array('33' => '33', '44'=>'44');
 			print $this->Form->input('prefix', array('label'=>'Prefix', 'options'=>$pref, 'default'=>'33'));
@@ -11,34 +109,6 @@
 		?>
 	</fieldset>
 	<?php echo $this->Form->end(__('Add new numbers'));?>
-	<br>
-	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
-        <tr>
-			<th>Prefix</th>
-            <th>Numbers</th>
-            <th>Owners</th>
-        </tr>
-        <?php for($i=0; $i<sizeof($n_o); $i++): ?>
-				<td><?php print $n_o[$i]['Number']['prefix'];?></td>
- 				<td><?php print $n_o[$i]['Number']['phone_number'];?></td>
-				<td><?php print $n_o[$i]['Number']['owner'];?></td>
-                <td class="actions btn-group">
-                    <button class="btn">Action</button>
-                    <button class="btn dropdown-toggle" data-toggle="dropdown">
-                        <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-						<?php 
-							if (!empty($n_o[$i]['Number']['owner']))
-								print '<li>Remove account first</li>';
-							else
-								print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o[$i]['Number']['id'])).'">Delete</a></li>';
-						?>
-                    </ul>
-                </td>
-            </tr>
-		<?php endfor; ?>
-    </table>
     <br>
     <br>
     

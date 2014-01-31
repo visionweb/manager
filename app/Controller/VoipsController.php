@@ -297,6 +297,7 @@ class VoipsController extends AppController {
     public function admin_consommation(){
 		
 		}
+	
     
     public function admin_server(){
 		$voipdata=$this->Voip->find('all');
@@ -317,11 +318,13 @@ class VoipsController extends AppController {
 			}
 		}
 
-    public function admin_configuration(){
+    public function admin_configuration($id = null){
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$this->set("n_o", $nums_owns);
 		$this->set("title", "Configuration");
+		if (empty($id)) $id='0';
+		$this->set("filter", $id);
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		$this->set("voipdata", $this->Voip->find('all'));
 		if ($this->request->is('post')) {
