@@ -56,5 +56,8 @@ class AppController extends Controller {
     public $helpers = array('Html', 'Form', 'Session');
     public function beforeFilter() {
         $this->Auth->allow('login','index','logout');
+        $this->loadModel("Module");
+		$modules=$this->Module->find("all");
+		$this->set(compact('modules'));
     }
 }
