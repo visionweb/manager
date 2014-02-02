@@ -59,6 +59,7 @@ class VoipsController extends AppController {
 
 
 	public function admin_removenumber($id = null) {
+		$this->autoRender = false;
 		$this->loadModel("Number");
 		$this->Number->delete($id);
 		$this->redirect(array('action' => 'admin_configuration'));
@@ -103,6 +104,7 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
+		$this->autoRender = false;
 		$voipdata=$this->Voip->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -129,6 +131,8 @@ class VoipsController extends AppController {
 
 	
 	public function admin_listAccount(){
+		$find=$this->data['User']['search'];
+		$by=$this->data['User']['by'];
 		$voipdata=$this->Voip->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -152,6 +156,8 @@ class VoipsController extends AppController {
 					break;
 				}
 			}
+		$this->set("by", $by);
+		$this->set("find", $find);
 		$this->set("listUser", $dataBrut);
 		$this->set("title", "Liste compte");
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.0/users/
@@ -318,12 +324,12 @@ class VoipsController extends AppController {
 			}
 		}
 
-    public function admin_configuration($id = null){
+    public function admin_configuration($id=NULL){
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$this->set("n_o", $nums_owns);
 		$this->set("title", "Configuration");
-		if (empty($id)) $id='0';
+		if (empty($id)) $id=0;
 		$this->set("filter", $id);
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		$this->set("voipdata", $this->Voip->find('all'));
