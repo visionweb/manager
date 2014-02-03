@@ -86,10 +86,8 @@ class VoipsController extends AppController {
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
-				'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
 				'language'=> $this->data['User']['language'],
-				'callerid'=> $this->data['User']['callerID'],
-				'musiconhold'=> $this->data['User']['music_on_hold'],
+				'outcallerid'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				);
 			$this->Voip->put($url,$port,$access, $data);
@@ -131,8 +129,6 @@ class VoipsController extends AppController {
 
 	
 	public function admin_listAccount(){
-		$find=$this->data['User']['search'];
-		$by=$this->data['User']['by'];
 		$voipdata=$this->Voip->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -140,7 +136,6 @@ class VoipsController extends AppController {
 		$dataBrut=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/'");
 		$links=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/user_links'");
 		$sip=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines_sip'");
-
 		for ($i=0; $i<sizeof($dataBrut); $i++){
 			foreach($links as $link){
 				foreach($sip as $sip_l){
@@ -156,9 +151,18 @@ class VoipsController extends AppController {
 					break;
 				}
 			}
-		$this->set("by", $by);
-		$this->set("find", $find);
-		$this->set("listUser", $dataBrut);
+		
+		if (!empty($this->data['search'])){
+			$sResult=array();
+			for ($i=0; $i<sizeof($dataBrut); $i++){
+				if($dataBrut[$i][$this->data['by']]==$this->data['search'])
+					array_push($sResult, $dataBrut[$i]);
+				}
+			$this->set("listUser", $sResult);
+			}
+		else
+			$this->set("listUser", $dataBrut);
+		
 		$this->set("title", "Liste compte");
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.0/users/
     }
@@ -178,10 +182,8 @@ class VoipsController extends AppController {
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
-				'mobilephonenumber' => $this->data['User']['mobile_phone_number'],
 				'language'=> $this->data['User']['language'],
-				'callerid'=> $this->data['User']['callerID'],
-				'musiconhold'=> $this->data['User']['music_on_hold'],
+				'outcallerid'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
@@ -208,7 +210,7 @@ class VoipsController extends AppController {
 			$this->Voip->post($url,$port,$access, $data);
 			
 			//find user id
-			$users=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.0/users/'");
+			$users=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/'");
 			$users_id=array();
 			for($i=0; $i<sizeof($users); $i++){
 				array_push($users_id, $users[$i]['id']);
@@ -216,7 +218,7 @@ class VoipsController extends AppController {
 			rsort($users_id);
 			
 			//find line id
-			$line=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/lines'");
+			$line=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines'");
 			$line_id=array();
 			for($i=0; $i<sizeof($line); $i++){
 				array_push($line_id, $line[$i]['id']);
@@ -239,7 +241,7 @@ class VoipsController extends AppController {
 			$this->Voip->post($url,$port,$access, $data);
 			
 			//find extension id
-			$exten=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
+			$exten=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
 			$exten_id=array();
 			for($i=0; $i<sizeof($exten); $i++){
 				array_push($exten_id, $exten[$i]['id']);
@@ -270,7 +272,7 @@ class VoipsController extends AppController {
 		if(empty($ex_num)) $ex_num[0]='No numbers';
 		
 		//find avalible short numbers
-		$exten_num=$this->Voip->getArray("curl --digest --insecure -u managero:UBIBOzULRSuh 'https://178.33.172.71:50051/1.1/extensions'");
+		$exten_num=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
 		$avalible_numbers=array();
 		$unavalible_numbers=array();
 		$short=array();
@@ -305,7 +307,7 @@ class VoipsController extends AppController {
 		}
 	
     
-    public function admin_server(){
+    public function admin_server($id=NULL){
 		$voipdata=$this->Voip->find('all');
 		$this->set("voipdata", $voipdata);
 		$this->set("title", "Server parameters");
@@ -334,19 +336,27 @@ class VoipsController extends AppController {
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		$this->set("voipdata", $this->Voip->find('all'));
 		if ($this->request->is('post')) {
-			$new=array();
-			$start="1".$this->data['User']['start_interval'];
-			$end="1".$this->data['User']['end_interval'];
-			$prefix=$this->data['User']['prefix'];
-			for($i=$start; $i<=$end; $i++){
-				array_push($new,
-				array(
-					'prefix'=>$prefix,
-					'phone_number'=>substr($i,-10)
-					));
+			switch ($this->data['submit']){
+				case 'Add new numbers':
+					$new=array();
+					$start="1".$this->data['start_interval'];
+					$end="1".$this->data['end_interval'];
+					$prefix=$this->data['prefix'];
+					for($i=$start; $i<=$end; $i++){
+						array_push($new,
+						array(
+							'prefix'=>$prefix,
+							'phone_number'=>substr($i,-10)
+							));
+						}
+					$this->Number->saveAll($new);
+					$this->redirect(array('action' => 'admin_configuration'));
+					break;
+					
+				case 'Modify':
+					$this->redirect(array('action' => 'admin_server'));
+					break;
 				}
-			$this->Number->saveAll($new);
-			$this->redirect(array('action' => 'admin_configuration'));
 			}
     }
 }

@@ -72,5 +72,5 @@ class Voip extends AppModel {
 		$result = curl_exec($curlHandler);
 		curl_close($curlHandler);
 		}
-		
+
 }
