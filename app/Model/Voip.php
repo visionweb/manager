@@ -59,7 +59,7 @@ class Voip extends AppModel {
 		}
 		
 		//delete data from server
-	function delete($url, $port, $access){	
+	function del($url, $port, $access){	
 		$curlHandler = curl_init();
 		curl_setopt($curlHandler, CURLOPT_URL, $url);
 		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
