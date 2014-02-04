@@ -111,7 +111,7 @@ class VoipsController extends AppController {
 		$access = $login.':'.$pass;		
 		$url = 'https://'.$ip.':50051/1.0/users/'.$id;
 		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/".$id."'");
-		$this->Voip->delete($url, $port, $access);
+		$this->Voip->del($url, $port, $access);
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$pref=substr($userdata['userfield'], -12,2);
@@ -187,7 +187,18 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
 			
 			//set owner of number
 			$this->loadModel("Number");
@@ -207,7 +218,19 @@ class VoipsController extends AppController {
 				'context' => 'default',
 				'device_slot'=> 1
 				);
-			$this->Voip->post($url,$port,$access, $data);
+				
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
 			
 			//find user id
 			$users=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/'");
@@ -230,15 +253,37 @@ class VoipsController extends AppController {
 			$data = array(
 				'line_id'=> (int)$line_id[0]
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
 			
 			//create extencion
 			$url = 'https://'.$ip.':50051/1.1/extensions';
 			$data = array(
-				'exten'=> $this->data['User']['external_phone_number'],
+				'exten'=> $this->data['User']['short_phone_number'],
 				'context'=> 'from-extern'
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
 			
 			//find extension id
 			$exten=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
@@ -253,7 +298,18 @@ class VoipsController extends AppController {
 			$data = array(
 				'extension_id'=>  (int)$exten_id[0]
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, $url);
+			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			curl_setopt($curlHandler, CURLOPT_POST, true); 
+			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
 			
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
