@@ -6,8 +6,10 @@ App::uses('AppController', 'Controller');
  * @property Faq $Faq
  */
 class VoipsController extends AppController {
-    public $helpers = array('TinyMCE.TinyMCE');
+   
 	var $name = 'Voips';
+	public $components = array('RequestHandler', 'Paginator');
+	public $helpers = array('Js' => array('Jquery'), 'Paginator','TinyMCE.TinyMCE');
 
 /**
  * index method - Display categories
@@ -178,7 +180,7 @@ class VoipsController extends AppController {
 			$access = $login.':'.$pass;		
 			
 			//create user
-			$url = 'https://'.$ip.':50051/1.0/users/';
+			$url = 'https://'.$ip.':50051/1.1/users/';
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -187,18 +189,7 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
-			$curlHandler = curl_init();
-			curl_setopt($curlHandler, CURLOPT_URL, $url);
-			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($curlHandler, CURLOPT_POST, true); 
-			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-			$result = curl_exec($curlHandler);
-			curl_close($curlHandler);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//set owner of number
 			$this->loadModel("Number");
@@ -218,19 +209,7 @@ class VoipsController extends AppController {
 				'context' => 'default',
 				'device_slot'=> 1
 				);
-				
-			$curlHandler = curl_init();
-			curl_setopt($curlHandler, CURLOPT_URL, $url);
-			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($curlHandler, CURLOPT_POST, true); 
-			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-			$result = curl_exec($curlHandler);
-			curl_close($curlHandler);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//find user id
 			$users=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.0/users/'");
@@ -253,18 +232,7 @@ class VoipsController extends AppController {
 			$data = array(
 				'line_id'=> (int)$line_id[0]
 				);
-			$curlHandler = curl_init();
-			curl_setopt($curlHandler, CURLOPT_URL, $url);
-			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($curlHandler, CURLOPT_POST, true); 
-			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-			$result = curl_exec($curlHandler);
-			curl_close($curlHandler);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//create extencion
 			$url = 'https://'.$ip.':50051/1.1/extensions';
@@ -272,18 +240,7 @@ class VoipsController extends AppController {
 				'exten'=> $this->data['User']['short_phone_number'],
 				'context'=> 'from-extern'
 				);
-			$curlHandler = curl_init();
-			curl_setopt($curlHandler, CURLOPT_URL, $url);
-			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($curlHandler, CURLOPT_POST, true); 
-			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-			$result = curl_exec($curlHandler);
-			curl_close($curlHandler);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			//find extension id
 			$exten=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
@@ -298,18 +255,7 @@ class VoipsController extends AppController {
 			$data = array(
 				'extension_id'=>  (int)$exten_id[0]
 				);
-			$curlHandler = curl_init();
-			curl_setopt($curlHandler, CURLOPT_URL, $url);
-			curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-			curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			curl_setopt($curlHandler, CURLOPT_POST, true); 
-			curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-			$result = curl_exec($curlHandler);
-			curl_close($curlHandler);
+			$this->Voip->post($url,$port,$access, $data);
 			
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
@@ -384,8 +330,17 @@ class VoipsController extends AppController {
 
     public function admin_configuration($id=NULL){
 		$this->loadModel("Number");
+		$this->loadModel("Price");
+		$this->Paginator->settings = array(
+			'Price' => array(
+				'limit' => 30
+			)
+		);
+		$this->Paginator->settings = $this->paginate;
+		$pricelist = $this->Paginator->paginate('Price');
 		$nums_owns=$this->Number->find("all");
-		$this->set("n_o", $nums_owns);
+		$this->set(compact("nums_owns"));
+		$this->set(compact("pricelist"));
 		$this->set("title", "Configuration");
 		if (empty($id)) $id=0;
 		$this->set("filter", $id);
