@@ -9,7 +9,8 @@ class VoipsController extends AppController {
    
 	var $name = 'Voips';
 	public $components = array('RequestHandler', 'Paginator');
-	public $helpers = array('Paginator','TinyMCE.TinyMCE');
+	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js');
+
 
 /**
  * index method - Display categories

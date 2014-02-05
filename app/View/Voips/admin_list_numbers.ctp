@@ -1,3 +1,7 @@
+<?php $this->Paginator->options(array(
+     'update' => '#ajaxdiv',
+       'evalScripts' => true));?>
+<div id='ajaxdiv'>
 <?php print $this->Form->create(false, array('type' => 'file')); ?>
 <div class="span10 form">
 	<br><br>
@@ -71,3 +75,5 @@
     <br>
 	
 	</div>
+	</div>
+<?php echo $this->Js->writeBuffer();?>	

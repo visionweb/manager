@@ -1,9 +1,11 @@
-<?php print $this->Form->create(false, array('type' => 'file')); ?>
+<?php $this->Paginator->options(array(
+     'update' => '#ajaxdiv',
+       'evalScripts' => true));?>
+<div id='ajaxdiv'>
 <div class="span10 form">
 	<br><br>
 	<h2><?php echo __($title); ?></h2>
 	<br><br>
-
 	<ul class="nav nav-tabs">
 		<li class="active"><a href="<?php print $this->Html->url(array('action' => 'configuration'))?>">Price</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'newNumbers'))?>">New numbers</a></li>
@@ -49,4 +51,5 @@
 		<br/>
 		<br/>
 	</div>
-	
+	</div>
+<?php echo $this->Js->writeBuffer();?>	
