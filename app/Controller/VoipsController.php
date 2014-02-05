@@ -64,7 +64,7 @@ class VoipsController extends AppController {
 		$this->autoRender = false;
 		$this->loadModel("Number");
 		$this->Number->delete($id);
-		$this->redirect(array('action' => 'admin_configuration'));
+		$this->redirect(array('action' => 'admin_listNumbers'));
 		}
 
     /**
@@ -322,12 +322,54 @@ class VoipsController extends AppController {
 					);
 			$this->Voip->id='1';
 			$this->Voip->save($new);
-			$this->redirect(array('action' => 'admin_configuration'));
+			$this->redirect(array('action' => 'admin_serverSetting'));
 			}
 		}
 
-    public function admin_configuration($id=NULL){
+	public function admin_listNumbers(){
 		$this->loadModel("Number");
+		$this->Paginator->settings = array(
+			'Number' => array(
+				'limit' => 30
+			)
+		);
+		$this->Paginator->settings = $this->paginate;
+		$nums_owns = $this->Paginator->paginate('Number');
+		$this->set("title", "Configuration");
+		$this->set(compact("nums_owns"));
+		}
+	
+	public function admin_newNumbers(){
+		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
+		$this->set("title", "Configuration");
+		if ($this->request->is('post')) {
+			$new=array();
+			$start="1".$this->data['start_interval'];
+			$end="1".$this->data['end_interval'];
+			$prefix=$this->data['prefix'];
+			for($i=$start; $i<=$end; $i++){
+				array_push($new,
+				array(
+					'prefix'=>$prefix,
+					'phone_number'=>substr($i,-10)
+					));
+				}
+			$this->Number->saveAll($new);
+			$this->redirect(array('action' => 'admin_listNumbers'));
+			}
+		}
+	
+	public function admin_serverSetting(){
+		$this->set("voipdata", $this->Voip->find('all'));
+		$this->set("title", "Configuration");
+		if ($this->request->is('post')) {
+			$this->redirect(array('action' => 'admin_server'));
+			}
+		}
+
+    public function admin_configuration(){
 		$this->loadModel("Price");
 		$this->Paginator->settings = array(
 			'Price' => array(
@@ -336,36 +378,7 @@ class VoipsController extends AppController {
 		);
 		$this->Paginator->settings = $this->paginate;
 		$pricelist = $this->Paginator->paginate('Price');
-		$nums_owns=$this->Number->find("all");
-		$this->set(compact("nums_owns"));
 		$this->set(compact("pricelist"));
 		$this->set("title", "Configuration");
-		if (empty($id)) $id=0;
-		$this->set("filter", $id);
-		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
-		$this->set("voipdata", $this->Voip->find('all'));
-		if ($this->request->is('post')) {
-			switch ($this->data['submit']){
-				case 'Add new numbers':
-					$new=array();
-					$start="1".$this->data['start_interval'];
-					$end="1".$this->data['end_interval'];
-					$prefix=$this->data['prefix'];
-					for($i=$start; $i<=$end; $i++){
-						array_push($new,
-						array(
-							'prefix'=>$prefix,
-							'phone_number'=>substr($i,-10)
-							));
-						}
-					$this->Number->saveAll($new);
-					$this->redirect(array('action' => 'admin_configuration'));
-					break;
-					
-				case 'Modify':
-					$this->redirect(array('action' => 'admin_server'));
-					break;
-				}
-			}
-    }
+		}
 }
