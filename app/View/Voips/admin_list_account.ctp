@@ -12,6 +12,10 @@
 			print $this->Form->end();
 		?>
 		</fieldset>
+		<?php
+			  print '<br><br>Line-Extension:<br>';
+			  print_r($li_ex);
+			  ?>
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
             <th>First name</th>
