@@ -1,6 +1,8 @@
-<?php $this->Paginator->options(array(
+<?php
+ $this->Paginator->options(array(
      'update' => '#ajaxdiv',
-       'evalScripts' => true));?>
+     'evalScripts' => true
+      ))?>
 <div id='ajaxdiv'>
 <div class="span10 form">
 	<br><br>
@@ -13,6 +15,14 @@
 		<li><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
 	</ul>
 		<legend><?php echo __('Price'); ?></legend>
+		<?php
+		print $this->Form->create(false, array('type' => 'file'));
+		echo $this->Form->input("keyword", array(
+        "label" => "",
+        "type" => "search",
+        "placeholder" => "Search"
+    ));
+    echo $this->Form->end(); ?>
 		<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th><?php print $this->Paginator->sort('prefix', 'Prefix');?></th>

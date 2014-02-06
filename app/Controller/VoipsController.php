@@ -372,14 +372,23 @@ class VoipsController extends AppController {
 
     public function admin_configuration(){
 		$this->loadModel("Price");
+		$keyword=$this->data['keyword'];
+		if((int)$keyword!=0)
+			$conditions = array('Price.prefix' => $keyword);
+		else if($keyword==NULL)
+			$conditions=array();
+		else
+			$conditions = array('Price.country_zone' => $keyword);			
 		$this->Paginator->settings = array(
-			'Price' => array(
+				'conditions' => $conditions,
 				'limit' => 30
-			)
-		);
+				);
+		
+		$this->request->is('ajax');
 		$this->Paginator->settings = $this->paginate;
 		$pricelist = $this->Paginator->paginate('Price');
 		$this->set(compact("pricelist"));
+		$this->set(compact("keyword"));
 		$this->set("title", "Configuration");
 		}
 }
