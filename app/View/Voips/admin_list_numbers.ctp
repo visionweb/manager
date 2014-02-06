@@ -2,7 +2,6 @@
      'update' => '#ajaxdiv',
        'evalScripts' => true));?>
 <div id='ajaxdiv'>
-<?php print $this->Form->create(false, array('type' => 'file')); ?>
 <div class="span10 form">
 	<br><br>
 	<h2><?php echo __($title); ?></h2>
@@ -14,7 +13,6 @@
 		<li  class="active"><a href="<?php print $this->Html->url(array('action' => 'listNumbers'))?>">Numbers list</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
 	</ul>
-
 		<legend><?php echo __('Numbers list'); ?></legend>
 	<div class="actions btn-group">
 		<button class="btn">Display</button>
@@ -58,6 +56,10 @@
             </tr>
 		<?php endforeach; ?>
     </table>
+    <?php echo $this->Form->create(false);
+	print $this->Form->submit('Delete selections', array('name' => 'del'));
+	print $this->Form->end(); ?>
+	<br>
     <?php	print $this->Paginator->counter()?><br>
 		
 		<div class="pagination">
@@ -68,7 +70,7 @@
 				<li><?php print $this->Paginator->last('Last >>', null, null, array('class' => 'disabled'))?></li>
 			</ul>
 		</div>
-    <button class="btn">Delete selections</button>
+   
     <br>
     <br>
     <br>

@@ -334,6 +334,21 @@ class VoipsController extends AppController {
 				'limit' => 30
 			)
 		);
+		
+		if (isset($this->request->data['del'])) {
+			$numbers=$this->Number->find("all");
+			$toDel=array();
+			foreach($numbers as $num){
+				if(isset($this->request->data['check'.$num['Number']['id']]) and
+					$this->request->data['check'.$num['Number']['id']]==1 and
+					empty($num['Number']['owner']))
+					array_push($toDel, $num['Number']['id']);
+					$this->set('test', $toDel);
+				}
+			foreach($toDel as $del)
+				$this->Number->delete($del);
+			$this->redirect(array('action' => 'admin_listNumbers'));
+			}
 		$this->Paginator->settings = $this->paginate;
 		$nums_owns = $this->Paginator->paginate('Number');
 		$this->set("title", "Configuration");
@@ -372,23 +387,41 @@ class VoipsController extends AppController {
 
     public function admin_configuration(){
 		$this->loadModel("Price");
-		$keyword=$this->data['keyword'];
+		$keyword=$this->request->data['keyword'];
 		if((int)$keyword!=0)
-			$conditions = array('Price.prefix' => $keyword);
+			$conditions = array('Price.prefix LIKE' => '%'.$keyword.'%');
 		else if($keyword==NULL)
 			$conditions=array();
 		else
-			$conditions = array('Price.country_zone' => $keyword);			
+			$conditions = array('Price.country_zone LIKE' => '%'.$keyword.'%');			
 		$this->Paginator->settings = array(
 				'conditions' => $conditions,
 				'limit' => 30
-				);
-		
+				);	
 		$this->request->is('ajax');
 		$this->Paginator->settings = $this->paginate;
 		$pricelist = $this->Paginator->paginate('Price');
 		$this->set(compact("pricelist"));
 		$this->set(compact("keyword"));
 		$this->set("title", "Configuration");
+		}
+	
+	public function admin_changeprice($id=NULL) {
+		$this->loadModel("Price");
+		$price=$this->Price->find('all');
+		$this->set(compact("price"));
+		$this->set(compact("id"));
+		$this->set("title", "Price");
+		if ($this->request->is('post')) {
+			$new_price=$this->data['old_price'];
+			$new_description=$this->data['old_description'];
+			$new=array(
+					'pp'=>$new_price,
+					'description'=>$new_description
+					);
+			$this->Price->id=$id;
+			$this->Price->save($new);
+			$this->redirect(array('action' => 'admin_configuration'));
+			}
 		}
 }

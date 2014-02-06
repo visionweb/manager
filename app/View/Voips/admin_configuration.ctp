@@ -1,7 +1,10 @@
 <?php
  $this->Paginator->options(array(
+	 'url' => $this->passedArgs,
      'update' => '#ajaxdiv',
-     'evalScripts' => true
+     'evalScripts' => true,
+     'data'=>http_build_query($this->request->data),
+	 'method'=>'POST'
       ))?>
 <div id='ajaxdiv'>
 <div class="span10 form">
@@ -16,13 +19,13 @@
 	</ul>
 		<legend><?php echo __('Price'); ?></legend>
 		<?php
-		print $this->Form->create(false, array('type' => 'file'));
+		print $this->Form->create(false, array('action'=>'configuration'));
 		echo $this->Form->input("keyword", array(
         "label" => "",
         "type" => "search",
         "placeholder" => "Search"
     ));
-    echo $this->Form->end(); ?>
+   echo $this->Form->end(); ?>
 		<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th><?php print $this->Paginator->sort('prefix', 'Prefix');?></th>
