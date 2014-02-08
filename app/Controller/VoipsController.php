@@ -274,7 +274,7 @@ class VoipsController extends AppController {
 				$value="00".substr($nums_owns[$i]['Number']['prefix'],-2).$nums_owns[$i]['Number']['phone_number'];
 				$ex_num[$value]=$value;
 				}
-			if ($i>20) break;
+			if (sizeof($ex_num)>20) break;
 			}
 		if(empty($ex_num)) $ex_num[0]='No numbers';
 		
@@ -373,11 +373,13 @@ class VoipsController extends AppController {
 			$end="1".$this->data['end_interval'];
 			$prefix=$this->data['prefix'];
 			for($i=$start; $i<=$end; $i++){
-				array_push($new,
-				array(
-					'prefix'=>$prefix,
-					'phone_number'=>substr($i,-10)
-					));
+				$exist=0;
+				foreach($nums_owns as $nums)
+					if($nums['Number']['phone_number']==substr($i,-10)){
+						$exist=1;
+						break;
+						}
+				if ($exist==0) array_push($new,	array('prefix'=>$prefix,'phone_number'=>substr($i,-10)));
 				}
 			$this->Number->saveAll($new);
 			$this->redirect(array('action' => 'admin_listNumbers'));

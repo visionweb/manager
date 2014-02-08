@@ -4,11 +4,14 @@
 	<br><br>
 	    <fieldset>
 	    <?php
-			$this->Form->create(false, array('type' => 'file'));
+			print $this->Form->create(false, array('type' => 'file'));
 			$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
 			print $this->Form->input('by', array('label'=>'Find by', 'options'=>$findBy, 'default'=>'First name'));
-			print $this->Form->input('search', array('label'=>false));
-			print $this->Form->submit('Find', array('name' => 'submit'));
+			print $this->Form->input('search', array(
+				"label" => "",
+				"type" => "search",
+				"placeholder" => "Search"
+				));
 			print $this->Form->end();
 		?>
 		</fieldset>

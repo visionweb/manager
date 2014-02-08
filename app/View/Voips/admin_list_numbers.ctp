@@ -28,7 +28,7 @@
         </ul>
       </div>
 	<br><br>
-	
+	<?php echo $this->Form->create(false);?>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
 			<th></th>
@@ -56,12 +56,14 @@
             </tr>
 		<?php endforeach; ?>
     </table>
-    <?php echo $this->Form->create(false);
-	print $this->Form->submit('Delete selections', array('name' => 'del'));
+    
+    <?php print $this->Form->create(false);
+	print $this->Form->submit('Delete selections', array('name'=>'del'));
 	print $this->Form->end(); ?>
+	
 	<br>
+	
     <?php	print $this->Paginator->counter()?><br>
-		
 		<div class="pagination">
 			<ul>
 				<li><?php print $this->Paginator->first('<< First', null, null, array('class' => 'disabled'))?></li>
