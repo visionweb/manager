@@ -85,7 +85,7 @@ class VoipsController extends AppController {
 		if ($this->request->is('post')) {
 			$port = '50051';
 			$access = $login.':'.$pass;		
-			$url = 'https://'.$ip.':50051/1.1/users/'.$id;
+			$url = 'https://'.$ip.':50051/1.0/users/'.$id;
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -112,7 +112,7 @@ class VoipsController extends AppController {
 		$login=$voipdata[0]['Voip']['login'];
 		$port = '50051';
 		$access = $login.':'.$pass;		
-		$url = 'https://'.$ip.':50051/1.1/users/'.$id;
+		$url = 'https://'.$ip.':50051/1.0/users/'.$id;
 		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users/".$id."'");
 		$this->Voip->del($url, $port, $access);
 		$this->loadModel("Number");
@@ -349,6 +349,7 @@ class VoipsController extends AppController {
 				$this->Number->delete($del);
 			$this->redirect(array('action' => 'admin_listNumbers'));
 			}
+
 		$this->Paginator->settings = $this->paginate;
 		$nums_owns = $this->Paginator->paginate('Number');
 		$this->set("title", "Configuration");
@@ -387,13 +388,16 @@ class VoipsController extends AppController {
 
     public function admin_configuration(){
 		$this->loadModel("Price");
-		$keyword=$this->request->data['keyword'];
-		if((int)$keyword!=0)
-			$conditions = array('Price.prefix LIKE' => '%'.$keyword.'%');
-		else if($keyword==NULL)
-			$conditions=array();
-		else
-			$conditions = array('Price.country_zone LIKE' => '%'.$keyword.'%');			
+		$conditions=array();
+		if($this->request->is('post') and isset($this->request->data['keyword'])){
+			$keyword=$this->request->data['keyword'];
+			if((int)$keyword!=0)
+				$conditions = array('Price.prefix LIKE' => '%'.$keyword.'%');
+			else if($keyword==NULL)
+				$conditions=array();
+			else
+				$conditions = array('Price.country_zone LIKE' => '%'.$keyword.'%');		
+			}	
 		$this->Paginator->settings = array(
 				'conditions' => $conditions,
 				'limit' => 30
