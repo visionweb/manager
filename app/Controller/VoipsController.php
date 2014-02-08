@@ -375,7 +375,7 @@ class VoipsController extends AppController {
 			for($i=$start; $i<=$end; $i++){
 				$exist=0;
 				foreach($nums_owns as $nums)
-					if($nums['Number']['phone_number']==substr($i,-10)){
+					if($nums['Number']['prefix'].$nums['Number']['phone_number']==$prefix.substr($i,-10)){
 						$exist=1;
 						break;
 						}
