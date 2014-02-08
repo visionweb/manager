@@ -1,10 +1,10 @@
-<?php print $this->Form->create(false, array('type' => 'file')); ?>
 <div class="span10 form">
 	<br><br>
 	<h2><?php echo __($title); ?></h2>
 	<br><br>
 	    <fieldset>
 	    <?php
+			$this->Form->create(false, array('type' => 'file'));
 			$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
 			print $this->Form->input('by', array('label'=>'Find by', 'options'=>$findBy, 'default'=>'First name'));
 			print $this->Form->input('search', array('label'=>false));
@@ -20,6 +20,7 @@
         <tr>
             <th>First name</th>
             <th>Last name</th>
+            <th>Username</th>
 			<th>Short phone number</th>
 			<th>External phone number</th>
 			<th>SIP account</th>
@@ -29,6 +30,7 @@
 	<tr>
 		<td><?php print $listUser[$i]["firstname"] ?></td>
 		<td><?php print $listUser[$i]["lastname"] ?></td>
+		<td><?php print $listUser[$i]["owner"] ?></td>
 		<td><?php print $listUser[$i]["line"]["number"] ?></td>
 		<td><?php print $listUser[$i]["userfield"] ?></td>
 		<td><?php print $listUser[$i]["username"] ?></td>

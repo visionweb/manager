@@ -132,6 +132,8 @@ class VoipsController extends AppController {
 
 	
 	public function admin_listAccount(){
+		$this->loadModel('Number');
+		$numbers=$this->Number->find('all');
 		$voipdata=$this->Voip->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -146,9 +148,13 @@ class VoipsController extends AppController {
 			foreach($sip as $sip_l){
 				if ($sip_l["id"]==$user_list[0]["line_id"]){
 					$dataBrut[$i]["username"]=$sip_l["username"];
-					$dataBrut[$i]["line"]["number"]='1048';
+					$dataBrut[$i]["line"]["number"]='[under construction]';
 					$dataBrut[$i]["password"]=$sip_l["secret"];
-					break;
+					foreach($numbers as $owner)
+						if ('00'.$owner['Number']['prefix'].$owner['Number']['phone_number']==$dataBrut[$i]['userfield']){
+							$dataBrut[$i]['owner']=$owner['Number']['owner'];
+							break;
+							}
 					}
 				}
 			}
