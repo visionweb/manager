@@ -20,7 +20,7 @@
 		<legend><?php echo __('Price'); ?></legend>
 		<?php
 		print $this->Form->create(false, array('action'=>'configuration'));
-		echo $this->Form->input("keyword", array(
+		print $this->Form->input("keyword", array(
         "label" => "",
         "type" => "search",
         "placeholder" => "Search"
@@ -48,7 +48,7 @@
 				<td class="actions btn-group">
 					<?php print '<a href="'.$this->Html->url(array('action' => 'changeprice', $price['Price']['id'])).'" ><button>Modify</button></a>'?>
 				</td>
-			</tr> 
+			</tr>
 			<?php endforeach; ?>        
 		</table>
 		<?php	print $this->Paginator->counter()?><br>

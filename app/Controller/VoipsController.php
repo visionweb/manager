@@ -396,6 +396,10 @@ class VoipsController extends AppController {
 
     public function admin_configuration(){
 		$this->loadModel("Price");
+		$this->loadModel("Tmp");
+		$position=array( 'variable'=>substr($this->here, 27));
+		$this->Tmp->id='1';
+		$this->Tmp->save($position);
 		$conditions=array();
 		if($this->request->is('post') and isset($this->request->data['keyword'])){
 			$keyword=$this->request->data['keyword'];
@@ -409,8 +413,7 @@ class VoipsController extends AppController {
 		$this->Paginator->settings = array(
 				'conditions' => $conditions,
 				'limit' => 30
-				);	
-		$this->request->is('ajax');
+				);
 		$this->Paginator->settings = $this->paginate;
 		$pricelist = $this->Paginator->paginate('Price');
 		$this->set(compact("pricelist"));
@@ -420,9 +423,19 @@ class VoipsController extends AppController {
 	
 	public function admin_changeprice($id=NULL) {
 		$this->loadModel("Price");
+		$this->loadModel("Tmp");
+		$url=$this->Tmp->find('all');
+		$url=$url[0]['Tmp']['variable'];
+		$par=array();
+		while(strpos($url, '/')!=false){
+			$result=substr($url, 0, strpos($url, '/'));
+			array_push($par, $result);
+			$url=substr($url, strpos($url, '/')+1);
+			}
+		array_push($par, $url);
 		$price=$this->Price->find('all');
 		$this->set(compact("price"));
-		$this->set(compact("id"));
+		$this->set(compact("id"));	
 		$this->set("title", "Price");
 		if ($this->request->is('post')) {
 			$new_price=$this->data['old_price'];
@@ -433,7 +446,17 @@ class VoipsController extends AppController {
 					);
 			$this->Price->id=$id;
 			$this->Price->save($new);
-			$this->redirect(array('action' => 'admin_configuration'));
+			switch(sizeof($par)){
+				case 1:
+				$this->redirect(array('action' => 'admin_configuration', $par[0]));
+				break;
+				case 2:
+				$this->redirect(array('action' => 'admin_configuration', $par[0], $par[1]));
+				break;
+				case 3:
+				$this->redirect(array('action' => 'admin_configuration', $par[0], $par[1], $par[2]));
+				break;
+				}
 			}
 		}
 }
