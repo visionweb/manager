@@ -1,3 +1,14 @@
+<script>
+$(document).ready(function() {
+    $('.delete').click(function() {
+		var agree=confirm("Are you sure you want to delete?");
+		if (agree)
+			return true;
+		else
+			return false;
+		});
+	});
+</script>
 <div class="span10 form">
 	<br><br>
 	<h2><?php echo __($title); ?></h2>
@@ -45,7 +56,7 @@
             </button>
                   <ul class="dropdown-menu">
                         <li><a href="<?php print $this->Html->url(array('action' => 'edit', $listUser[$i]['id'])) ?>">Edit</a></li>
-                        <li><a href="<?php print $this->Html->url(array('action' => 'delete', $listUser[$i]['id'])) ?>">Delete</a></li>
+                        <li><a class="delete" href="<?php print $this->Html->url(array('action' => 'delete', $listUser[$i]['id'])) ?>">Delete</a></li>
                     </ul>
                 </td>
             </tr>         

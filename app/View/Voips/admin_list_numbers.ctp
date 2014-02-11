@@ -1,3 +1,14 @@
+<script>
+$(document).ready(function() {
+    $('.delete').click(function() {
+		var agree=confirm("Are you sure you want to delete?");
+		if (agree)
+			return true;
+		else
+			return false;
+		});
+	});
+</script>
 <?php $this->Paginator->options(array(
      'update' => '#ajaxdiv',
        'evalScripts' => true));?>
@@ -14,6 +25,7 @@
 		<li><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
 	</ul>
 		<legend><?php echo __('Numbers list'); ?></legend>
+		
 	<div class="actions btn-group">
 		<button class="btn">Display</button>
 		<button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -23,7 +35,6 @@
 			<?php 
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '0')).'">All</a></li>';
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '1')).'">Free numbers</a></li>';
-				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '2')).'">Owned numbers</a></li>';
 			?>
         </ul>
       </div>
@@ -50,20 +61,21 @@
 				<?php if (!empty($n_o['Number']['owner']))
 					print '<li>Remove account first</li>';
 				else
-					print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o['Number']['id'])).'">Delete</a></li>';?>
+					print '<li><a href="'.$this->Html->url(array('action' => 'removenumber', $n_o['Number']['id'])).'" class="delete">Delete</a></li>';?>
 				</ul>
                 </td>
             </tr>
 		<?php endforeach; ?>
     </table>
-    
-    <?php print $this->Form->create(false);
-	print $this->Form->submit('Delete selections', array('name'=>'del'));
-	print $this->Form->end(); ?>
-	
+  
+    <?php
+    print $this->Form->create(false, array('type' => 'file'));
+	print $this->Form->submit('Delete selections', array('name'=>'del', 'class'=>'delete'));
+	print $this->Form->end();
+	?>
 	<br>
 	
-    <?php	print $this->Paginator->counter()?><br>
+    <?php print $this->Paginator->counter()?><br>
 		<div class="pagination">
 			<ul>
 				<li><?php print $this->Paginator->first('<< First', null, null, array('class' => 'disabled'))?></li>

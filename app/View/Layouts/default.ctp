@@ -28,11 +28,12 @@
         </title>
         <?php
             echo $this->Html->meta('icon');
-
+            
+			echo $this->Html->css('switch_button');
             echo $this->Html->css('manager');
             echo $this->Html->css('bootstrap.min');
 
-            echo $this->Html->script(array('jquery-1.10.2.min.js','bootstrap.min'));
+            echo $this->Html->script(array('del_confirm.js', 'jquery-1.10.2.min.js','bootstrap.min'));
 
             echo $this->fetch('meta');
             echo $this->fetch('css');
