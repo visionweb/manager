@@ -9,7 +9,7 @@ class VoipsController extends AppController {
    
 	var $name = 'Voips';
 	public $components = array('RequestHandler', 'Paginator');
-	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js');
+	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js' => array('Jquery', 'del_confirm'));
 
 
 /**
@@ -333,10 +333,13 @@ class VoipsController extends AppController {
 			}
 		}
 
-	public function admin_listNumbers(){
+	public function admin_listNumbers($id=NULL){
 		$this->loadModel("Number");
+		$conditions = array();
+		If($id==1) $conditions = array('Number.owner' => '');
 		$this->Paginator->settings = array(
 			'Number' => array(
+			'conditions' => $conditions,
 				'limit' => 30
 			)
 		);
@@ -397,7 +400,7 @@ class VoipsController extends AppController {
     public function admin_configuration(){
 		$this->loadModel("Price");
 		$this->loadModel("Tmp");
-		$position=array( 'variable'=>substr($this->here, 27));
+		$position=array( 'variable'=>urldecode(substr($this->here, 27)));
 		$this->Tmp->id='1';
 		$this->Tmp->save($position);
 		$conditions=array();
@@ -458,5 +461,16 @@ class VoipsController extends AppController {
 				break;
 				}
 			}
+		}
+		
+	public function admin_call_logs() {
+		$voipdata=$this->Voip->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+		$logs=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users'");
+		$logs=$this->Voip->getLog("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs'");
+		$this->set('title','Call log');
+		$this->set(compact('logs'));
 		}
 }
