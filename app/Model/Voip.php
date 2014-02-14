@@ -57,7 +57,7 @@ class Voip extends AppModel {
 	 * 		PUT
 	 * 		GET
 	 * 		DELETE
-	 * $url - target for sending data. Exemple: "/1.1/users"
+	 * $request - target for sending data. Exemple: "/1.1/users"
 	 * $data - data sended to server
 	 * 
 	 */
@@ -85,82 +85,6 @@ class Voip extends AppModel {
 			curl_close($curlHandler);
 			return $result;
 			}
-		}
-	
-	//send data to server
-	function post($url, $port, $access, $data){
-		$curlHandler = curl_init();
-		curl_setopt($curlHandler, CURLOPT_URL, $url);
-		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-		curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-		curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-		curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($curlHandler, CURLOPT_POST, true); 
-		curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-		$result = curl_exec($curlHandler);
-		curl_close($curlHandler);
-		}
-		
-		//put data to server
-	function put($url, $port, $access, $data){
-		$curlHandler = curl_init();
-		curl_setopt($curlHandler, CURLOPT_URL, $url);
-		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-		curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-		curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-		curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, "PUT"); 
-		curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-		$result = curl_exec($curlHandler);
-		curl_close($curlHandler);
-		}
-		
-		//delete data from server
-	function del($url, $port, $access){	
-		$curlHandler = curl_init();
-		curl_setopt($curlHandler, CURLOPT_URL, $url);
-		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-		curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-		curl_setopt($curlHandler, CURLOPT_USERPWD, $access); 
-		curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-		curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, "DELETE");
-		$result = curl_exec($curlHandler);
-		curl_close($curlHandler);
-		}
-		
-	/*
-	 * function operating with XiVO REST API
-	 * methods:
-	 * 		POST
-	 * 		PUT
-	 * 		GET
-	 * 		DELETE
-	 * $url - target for sending data. Exemple: "/1.1/users"
-	 * $data - data sended to server
-	 * 
-	 */
-	function xivotest($method, $url, $data=NULL){
-		$server=$this->getAccess();
-		$curlHandler = curl_init();
-		curl_setopt($curlHandler, CURLOPT_URL, 'https://'.$server['ip'].':50051'.$url);
-		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
-		curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
-		curl_setopt($curlHandler, CURLOPT_USERPWD, $server['login'].':'.$server['pass']); 
-		curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
-		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-		if ($method!='POST') curl_setopt($curlHandler, CURLOPT_POST, true);
-		else curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method); 
-		if ($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
-		$result = curl_exec($curlHandler);
-		curl_close($curlHandler);
-		return $result;
 		}
 	 
 	//get current server access data: ip, password, login
