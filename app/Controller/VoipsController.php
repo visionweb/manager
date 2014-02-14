@@ -392,15 +392,8 @@ class VoipsController extends AppController {
 		$this->loadModel("Price");
 		$this->loadModel("Tmp");
 		$url=$this->Tmp->find('all');
-		$url=$url[0]['Tmp']['variable'];
-		$par=array();
-		while(strpos($url, '/')!=false){
-			$result=substr($url, 0, strpos($url, '/'));
-			array_push($par, $result);
-			$url=substr($url, strpos($url, '/')+1);
-			}
-		array_push($par, $url);
 		$price=$this->Price->find('all');
+		$par = array_filter(explode('/', $url[0]['Tmp']['variable']));
 		$this->set(compact("price"));
 		$this->set(compact("id"));	
 		$this->set("title", "Price");
