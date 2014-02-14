@@ -60,7 +60,7 @@ class VoipsController extends AppController {
 
     }
 
-
+	//remove number from numbers list
 	public function admin_removenumber($id = null) {
 		$this->autoRender = false;
 		$this->loadModel("Number");
@@ -68,24 +68,17 @@ class VoipsController extends AppController {
 		$this->redirect(array('action' => 'admin_listNumbers'));
 		}
 
-    /**
-     * admin_edit method - Edit a Faq
-     *
-     * @param string $id - Id of the Faq
-     * @return void
-     */
+	//edit user account data, ID - current ID of editable user
     public function admin_edit($id = null) {
-		$voipdata=$this->Voip->find('all');
-		$ip=$voipdata[0]['Voip']['ip'];
-		$pass=$voipdata[0]['Voip']['pass'];
-		$login=$voipdata[0]['Voip']['login'];
-		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users/".$id."'");
-		$this->set('title', 'Set new user data');
-		$this->set('userinfo', $userdata);
+		$access=$this->Voip->getAccess();
+		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
+		$this->set(array(
+			'title'=> 'Set new user data',
+			'userinfo'=>$userdata
+			));
 		if ($this->request->is('post')) {
-			$port = '50051';
-			$access = $login.':'.$pass;		
-			$url = 'https://'.$ip.':50051/1.0/users/'.$id;
+			$port = '50051';		
+			$url = 'https://'.$access['ip'].':50051/1.0/users/'.$id;
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -93,7 +86,8 @@ class VoipsController extends AppController {
 				'outcallerid'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				);
-			$this->Voip->put($url,$port,$access, $data);
+			//$this->Voip->put($url,$port,$access['login'].':'.$access['pass'], $data);
+			$this->Voip->xivo("PUT", "/1.0/users/".$id, $data);
 			$this->redirect(array('action' => 'admin_listAccount'));
 			}
 		}
@@ -106,15 +100,8 @@ class VoipsController extends AppController {
      */
     public function admin_delete($id = null) {
 		$this->autoRender = false;
-		$voipdata=$this->Voip->find('all');
-		$ip=$voipdata[0]['Voip']['ip'];
-		$pass=$voipdata[0]['Voip']['pass'];
-		$login=$voipdata[0]['Voip']['login'];
-		$port = '50051';
-		$access = $login.':'.$pass;		
-		$url = 'https://'.$ip.':50051/1.0/users/'.$id;
-		$userdata=$this->Voip->getSingle("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users/".$id."'");
-		$this->Voip->del($url, $port, $access);
+		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
+		$this->Voip->xivo("DELETE", "/1.0/users/".$id);
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$pref=substr($userdata['userfield'], -12,2);
@@ -134,17 +121,13 @@ class VoipsController extends AppController {
 	public function admin_listAccount(){
 		$this->loadModel('Number');
 		$numbers=$this->Number->find('all');
-		$voipdata=$this->Voip->find('all');
-		$ip=$voipdata[0]['Voip']['ip'];
-		$pass=$voipdata[0]['Voip']['pass'];
-		$login=$voipdata[0]['Voip']['login'];
-		$dataBrut=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users'");
-		$sip=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines_sip'");
-		$li_ex='Not work! ☠';//$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines/194/extension'");
-		$extension=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
+		$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
+		$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
+		$li_ex='Not work! ☠';//$this->Voip->xivo("GET", "/1.1/lines/194/extension");
+		$extension=$this->Voip->xivo("GET", "/1.1/extensions");
 		
 		for ($i=0; $i<sizeof($dataBrut); $i++){
-			$user_list=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users/".$dataBrut[$i]['id']."/lines'");
+			$user_list=$this->Voip->xivo("GET", "/1.1/users/".$dataBrut[$i]['id']."/lines");
 			foreach($sip as $sip_l){
 				if ($sip_l["id"]==$user_list[0]["line_id"]){
 					$dataBrut[$i]["username"]=$sip_l["username"];
@@ -167,25 +150,17 @@ class VoipsController extends AppController {
 				}
 			$this->set("listUser", $sResult);
 			}
-		else
-			$this->set("listUser", $dataBrut);
-		$this->set('li_ex',$li_ex);
-		$this->set("title", "Liste compte");
+		else	$this->set("listUser", $dataBrut);
+		$this->set(array(
+			'li_ex'=>$li_ex,
+			'title'=> 'Liste compte'));
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
     }
 
     public function admin_newAccount(){
-		$voipdata=$this->Voip->find('all');
-		$ip=$voipdata[0]['Voip']['ip'];
-		$pass=$voipdata[0]['Voip']['pass'];
-		$login=$voipdata[0]['Voip']['login'];
 		//If there is data send by a form
 		if ($this->request->is('post')) {
-			$port = '50051';
-			$access = $login.':'.$pass;		
-			
 			//create user
-			$url = 'https://'.$ip.':50051/1.1/users';
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -194,7 +169,7 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$this->Voip->xivo("POST", "/1.1/users", $data);
 			
 			//set owner of number
 			$this->loadModel("Number");
@@ -209,58 +184,46 @@ class VoipsController extends AppController {
 			}
 
 			//create line
-			$url = 'https://'.$ip.':50051/1.1/lines_sip';
 			$data = array(
 				'context' => 'default',
 				'device_slot'=> 1
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$this->Voip->xivo("POST", "/1.1/lines_sip", $data);
 			
 			//find user id
-			$users=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users'");
+			$users=$this->Voip->xivo("GET", "/1.1/users");
 			$users_id=array();
-			for($i=0; $i<sizeof($users); $i++){
-				array_push($users_id, $users[$i]['id']);
-				}
+			for($i=0; $i<sizeof($users); $i++)	array_push($users_id, $users[$i]['id']);
 			rsort($users_id);
 			
 			//find line id
-			$line=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/lines'");
+			$line=$this->Voip->xivo("GET", "/1.1/lines");
 			$line_id=array();
-			for($i=0; $i<sizeof($line); $i++){
-				array_push($line_id, $line[$i]['id']);
-				}
+			for($i=0; $i<sizeof($line); $i++) array_push($line_id, $line[$i]['id']);
 			rsort($line_id);
 			
 			//user line association
-			$url = 'https://'.$ip.':50051/1.1/users/'.$users_id[0].'/lines';
 			$data = array(
 				'line_id'=> (int)$line_id[0]
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$this->Voip->xivo("POST", "/1.1/users/".$users_id[0]."/lines", $data);
 			
 			//create extencion
-			$url = 'https://'.$ip.':50051/1.1/extensions';
 			$data = array(
 				'exten'=> $this->data['User']['short_phone_number'],
 				'context'=> 'default'
 				);
-			$this->Voip->post($url,$port,$access, $data);
+			$this->Voip->xivo("POST", "/1.1/extensions", $data);
 			
 			//find extension id
-			$exten=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
+			$exten=$this->Voip->xivo("GET", "/1.1/extensions");
 			$exten_id=array();
-			for($i=0; $i<sizeof($exten); $i++){
-				array_push($exten_id, $exten[$i]['id']);
-				}
+			for($i=0; $i<sizeof($exten); $i++)	array_push($exten_id, $exten[$i]['id']);
 			rsort($exten_id);
 			
 			//line extension association			
-			$url = 'https://'.$ip.':50051/1.1/lines/'.$line_id[0].'/extension';
-			$data = array(
-				'extension_id'=>  (int)$exten_id[0]
-				);
-			$this->Voip->post($url,$port,$access, $data);
+			$data = array('extension_id'=>  (int)$exten_id[0]);
+			$this->Voip->xivo("POST", "/1.1/lines/".$line_id[0]."/extension", $data);
 			
 			$this->redirect(array('action' => 'admin_listAccount'));
 		}
@@ -279,7 +242,7 @@ class VoipsController extends AppController {
 		if(empty($ex_num)) $ex_num[0]='No numbers';
 		
 		//find avalible short numbers
-		$exten_num=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/extensions'");
+		$exten_num=$this->Voip->xivo("GET", "/1.1/extensions");
 		$avalible_numbers=array();
 		$unavalible_numbers=array();
 		$short=array();
@@ -303,10 +266,11 @@ class VoipsController extends AppController {
 		for ($i=0; $i<sizeof($owners); $i++){
 			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
 			}
-		$this->set("ex_num", $ex_num);
-		$this->set("userlist", $userlist);
-		$this->set("short", $short);
-		$this->set("title", "Nouveau compte");
+		$this->set(array(
+			'ex_num' => $ex_num,
+			'userlist' => $userlist,
+			'short' => $short,
+			'title' => 'Nouveau compte'));
 		}
 
     public function admin_consommation(){
@@ -340,7 +304,7 @@ class VoipsController extends AppController {
 		$this->Paginator->settings = array(
 			'Number' => array(
 			'conditions' => $conditions,
-				'limit' => 30
+			'limit' => 30
 			)
 		);
 		
@@ -464,12 +428,7 @@ class VoipsController extends AppController {
 		}
 		
 	public function admin_call_logs() {
-		$voipdata=$this->Voip->find('all');
-		$ip=$voipdata[0]['Voip']['ip'];
-		$pass=$voipdata[0]['Voip']['pass'];
-		$login=$voipdata[0]['Voip']['login'];
-		$logs=$this->Voip->getArray("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/users'");
-		$logs=$this->Voip->getLog("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs'");
+		$logs=$this->Voip->getLog("/1.1/call_logs");
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}

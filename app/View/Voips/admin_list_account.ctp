@@ -1,18 +1,18 @@
-<script>
-$(document).ready(function() {
-    $('.delete').click(function() {
-		var agree=confirm("Are you sure you want to delete?");
-		if (agree)
-			return true;
-		else
-			return false;
-		});
-	});
-</script>
 <div class="span10 form">
 	<br><br>
 	<h2><?php echo __($title); ?></h2>
 	<br><br>
+	<script>
+	$(document).ready(function() {
+		$('.delete').click(function() {
+			var agree=confirm("Are you sure you want to delete?");
+			if (agree)
+				return true;
+			else
+				return false;
+			});
+		});
+	</script>
 	    <fieldset>
 	    <?php
 			print $this->Form->create(false, array('type' => 'file'));

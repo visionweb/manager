@@ -11,17 +11,13 @@ App::uses('AppModel', 'Model');
 class Voip extends AppModel {
 	public $name = 'Voip';
 	
-	//get from $request JSON object and convert to aray
-	function getArray($request){
-		exec($request, $value);
-		$value=json_decode($value[0], true);
-		$value=$value['items'];
-		return $value;
-		}
-		
 	//get logs from $request and convert to aray
 	function getLog($request){
-		exec($request, $value);
+		$voipdata=$this->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+		exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051".$request."'", $value);
 		$logs=array();
 		for($i=2; $i<sizeof($value); $i++){
 			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
@@ -54,11 +50,41 @@ class Voip extends AppModel {
 		return $logs;
 		}
 	
-	//get from $request single object and convert to aray
-	function getSingle($request){
-		exec($request, $value);
-		$value=json_decode($value[0], true);
-		return $value;
+	/*
+	 * function operating with XiVO REST API
+	 * methods:
+	 * 		POST
+	 * 		PUT
+	 * 		GET
+	 * 		DELETE
+	 * $url - target for sending data. Exemple: "/1.1/users"
+	 * $data - data sended to server
+	 * 
+	 */
+	function xivo($method, $request, $data=NULL){
+		$server=$this->getAccess();
+		if($method=='GET'){
+			exec("curl --digest --insecure -u ".$server['login'].":".$server['pass']." 'https://".$server['ip'].":50051".$request."'", $value);
+			$value=json_decode($value[0], true);
+			if(isset($value['items']))	$value=$value['items'];
+			return $value;
+			}
+		else{
+			$curlHandler = curl_init();
+			curl_setopt($curlHandler, CURLOPT_URL, 'https://'.$server['ip'].':50051'.$request);
+			curl_setopt($curlHandler ,CURLOPT_PORT, '50051');
+			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+			curl_setopt($curlHandler, CURLOPT_USERPWD, $server['login'].':'.$server['pass']); 
+			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+			if($method=='POST') curl_setopt($curlHandler, CURLOPT_POST, true); 
+			else curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method); 
+			if($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			$result = curl_exec($curlHandler);
+			curl_close($curlHandler);
+			return $result;
+			}
 		}
 	
 	//send data to server
@@ -106,6 +132,45 @@ class Voip extends AppModel {
 		curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, "DELETE");
 		$result = curl_exec($curlHandler);
 		curl_close($curlHandler);
+		}
+		
+	/*
+	 * function operating with XiVO REST API
+	 * methods:
+	 * 		POST
+	 * 		PUT
+	 * 		GET
+	 * 		DELETE
+	 * $url - target for sending data. Exemple: "/1.1/users"
+	 * $data - data sended to server
+	 * 
+	 */
+	function xivotest($method, $url, $data=NULL){
+		$server=$this->getAccess();
+		$curlHandler = curl_init();
+		curl_setopt($curlHandler, CURLOPT_URL, 'https://'.$server['ip'].':50051'.$url);
+		curl_setopt($curlHandler ,CURLOPT_PORT, $port);
+		curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
+		curl_setopt($curlHandler, CURLOPT_USERPWD, $server['login'].':'.$server['pass']); 
+		curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
+		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+		curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
+		if ($method!='POST') curl_setopt($curlHandler, CURLOPT_POST, true);
+		else curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method); 
+		if ($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+		$result = curl_exec($curlHandler);
+		curl_close($curlHandler);
+		return $result;
+		}
+	 
+	//get current server access data: ip, password, login
+	function getAccess(){
+		$voipdata=$this->find('all');
+		$server=array();
+		$server['ip']=$voipdata[0]['Voip']['ip'];
+		$server['pass']=$voipdata[0]['Voip']['pass'];
+		$server['login']=$voipdata[0]['Voip']['login'];
+		return $server;
 		}
 
 }
