@@ -12,7 +12,7 @@ class Voip extends AppModel {
 	public $name = 'Voip';
 	
 	//get logs from $request and convert to aray
-	function getLog($request){
+	function getLog($request, $numbers, $price){
 		$voipdata=$this->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -46,6 +46,20 @@ class Voip extends AppModel {
 			$logs[$i-1]['user']['firstname']=$array[0];
 			$logs[$i-1]['user']['lastname']=$array[1];
 			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
+			foreach($numbers as $num){
+				if($num['Number']['short']==$logs[$i-1]['call']['called']){
+					$pref=$num['Number']['prefix']; 
+					break;
+					}
+				}
+			foreach($price as $pr){
+				if($pr['Price']['prefix']==$pref){
+					$logs[$i-1]['call']['price']=$pr['Price']['pp']*$logs[$i-1]['call']['duration']; 
+					break;
+					}
+				
+				}
+			if(empty($logs[$i-1]['call']['price']))$logs[$i-1]['call']['price']='undefined country';
 			}
 		return $logs;
 		}

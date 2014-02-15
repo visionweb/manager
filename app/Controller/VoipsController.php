@@ -109,7 +109,7 @@ class VoipsController extends AppController {
 		for($i=0;$i<sizeof($nums_owns);$i++){
 			if($nums_owns[$i]['Number']['phone_number']==$num){
 				$this->Number->id=$nums_owns[$i]['Number']['id'];
-				$own=array('owner'=>'');
+				$own=array('owner'=>'', 'short'=>'');
 				$this->Number->save($own);
 				break;
 				}
@@ -179,7 +179,9 @@ class VoipsController extends AppController {
 			for($i=0; $i<sizeof($nums_owns); $i++){
 				$value="00".$nums_owns[$i]['Number']['prefix'].$nums_owns[$i]['Number']['phone_number'];
 				if($this->data['User']['external_phone_number']==$value){
-					$own=array('owner'=>$this->data['User']['owner']);
+					$own=array(
+						'owner'=>$this->data['User']['owner'],
+						'short'=>$this->data['User']['short_phone_number'],);
 					$this->Number->id=$nums_owns[$i]['Number']['id'];
 					$this->Number->save($own);
 					}
@@ -423,7 +425,11 @@ class VoipsController extends AppController {
 		}
 		
 	public function admin_call_logs() {
-		$logs=$this->Voip->getLog("/1.1/call_logs");
+		$this->loadModel('Number');
+		$this->loadModel('Price');
+		$numbers=$this->Number->find('all');
+		$price=$this->Price->find('all');
+		$logs=$this->Voip->getLog("/1.1/call_logs", $numbers, $price);
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}

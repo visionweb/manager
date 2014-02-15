@@ -16,6 +16,7 @@
             <th>Caller number</th>
 			<th>Called number</th>
 			<th>Duration, sec.</th>
+			<th>Price</th>
         </tr>
         <?php foreach($logs as $log): ?>
 	<tr>
@@ -23,7 +24,8 @@
 		<td><?php print $log["user"]["firstname"].' '.$log["user"]["lastname"] ?></td>
 		<td><?php print $log["call"]["caller"] ?></td> 
 		<td><?php print $log["call"]["called"]?></td>
-		<td><?php print $log["call"]["duration"]?></td>      
+		<td><?php print $log["call"]["duration"]?></td>     
+		<td><?php print $log["call"]["price"]?></td>  
         <?php endforeach; ?>
     </table>
         
