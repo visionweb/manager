@@ -123,15 +123,19 @@ class VoipsController extends AppController {
 		$numbers=$this->Number->find('all');
 		$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
 		$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
-		$li_ex='Not work! ☠';//$this->Voip->xivo("GET", "/1.1/lines/194/extension");
 		$extension=$this->Voip->xivo("GET", "/1.1/extensions");
-		
 		for ($i=0; $i<sizeof($dataBrut); $i++){
 			$user_list=$this->Voip->xivo("GET", "/1.1/users/".$dataBrut[$i]['id']."/lines");
 			foreach($sip as $sip_l){
 				if ($sip_l["id"]==$user_list[0]["line_id"]){
+					
+					$li_ex=$this->Voip->xivo("GET", "/1.1/lines/".$sip_l['id']."/extension");
+					foreach($extension as $ex){
+						if($ex['id']==$li_ex['extension_id']) {$short=$ex['exten']; break;}
+						}
+					
 					$dataBrut[$i]["username"]=$sip_l["username"];
-					$dataBrut[$i]["line"]["number"]='[under construction]';
+					$dataBrut[$i]["line"]["number"]=$short;
 					$dataBrut[$i]["password"]=$sip_l["secret"];
 					foreach($numbers as $owner)
 						if ('00'.$owner['Number']['prefix'].$owner['Number']['phone_number']==$dataBrut[$i]['userfield']){
@@ -151,9 +155,7 @@ class VoipsController extends AppController {
 			$this->set("listUser", $sResult);
 			}
 		else	$this->set("listUser", $dataBrut);
-		$this->set(array(
-			'li_ex'=>$li_ex,
-			'title'=> 'Liste compte'));
+		$this->set('title', 'Liste compte');
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
     }
 
