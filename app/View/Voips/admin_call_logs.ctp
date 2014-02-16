@@ -6,7 +6,8 @@
 	    <?php
 			print $this->Form->create(false, array('type' => 'file'));
 			$filter = array('0' => 'Day', '1' => 'Week', '2' => 'Month', '3'=>'Year');
-			print $this->Form->input('for', array('label'=>'Calls for period', 'options'=>$filter, 'default'=>'Month'));
+			print $this->Form->input('for', array('label'=>'Calls for period', 'options'=>$filter, 'default'=>'3'));
+			print $this->Form->end('Show');
 		?>
 		</fieldset>
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">

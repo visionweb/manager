@@ -12,13 +12,59 @@ class Voip extends AppModel {
 	public $name = 'Voip';
 	
 	//get logs from $request and convert to aray
-	function getLog($request, $numbers, $price){
+	function getLog($period, $numbers, $price){
 		$voipdata=$this->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
 		$login=$voipdata[0]['Voip']['login'];
-		exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051".$request."'", $value);
+		$now=substr(date('c'), 0, 19);
+		switch($period){
+			case '0':
+			$start=date('o').'-'.date('m').'-'.date('j').'T00:00:00';
+			$filter='?start_date='.$start.'&end_date='.$now;
+			break;
+			
+			case 1:
+			if((date('j')-date('w'))<=0){
+				switch(date('m')-1){
+					case 11||9||6||4:
+					$day=30+(date('j')-date('w'));
+					break;
+					case 10||8||7||5||3||1|0:
+					$day=31+(date('j')-date('w'));
+					break;
+					case 2:
+					if(date('L')==1) $day=29+(date('j')-date('w'));
+					else $day=28+(date('j')-date('w'));
+					break;
+					}
+					
+				if(date('m')-1==0){
+					$month=12;
+					$year=date('o')-1;
+					}
+				else{
+					$month=date('m')-1;
+					$year=date('o');
+					if(sizeof($month)==1) $month='0'.$month;
+					}
+				$start=$year.'-'.$month.'-'.$day.'T00:00:00';
+				}
+			//elseif (sizeof(date('j')=1) $start=date('o').'-'.date('m').'-0'.(date('j')-date(w)).'T00:00:00';
+			else $start=date('o').'-'.date('m').'-0'.(date('j')-date('w')).'T00:00:00';
+			break;
+			
+			case '2':
+			$start=date('o').'-'.date('m').'-01T00:00:00';
+			break;
+	
+			case '3':
+			$start=date('o').'-01-01T00:00:00';
+			break;
+			}
+		$filter='?start_date='.$start.'&end_date='.$now;
 		$logs=array();
+		exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
 		for($i=2; $i<sizeof($value); $i++){
 			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
 			switch(substr($value[$i], 5, 2)){
@@ -94,7 +140,7 @@ class Voip extends AppModel {
 			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
 			if($method=='POST') curl_setopt($curlHandler, CURLOPT_POST, true); 
 			else curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method); 
-			if($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			if($method!=='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
 			$result = curl_exec($curlHandler);
 			curl_close($curlHandler);
 			return $result;

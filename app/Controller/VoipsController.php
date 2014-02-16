@@ -429,7 +429,9 @@ class VoipsController extends AppController {
 		$this->loadModel('Price');
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
-		$logs=$this->Voip->getLog("/1.1/call_logs", $numbers, $price);
+		$period='3';
+		if(isset($this->data['for']))$period=$this->data['for'];
+		$logs=$this->Voip->getLog($period, $numbers, $price);
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}
