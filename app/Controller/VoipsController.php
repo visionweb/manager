@@ -427,8 +427,10 @@ class VoipsController extends AppController {
 	public function admin_call_logs() {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
+		
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
+		$this->set(compact('tabDest'));
 		$period='3';
 		if(isset($this->data['for']))$period=$this->data['for'];
 		$logs=$this->Voip->getLog($period, $numbers, $price);

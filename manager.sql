@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Feb 10, 2014 at 01:32 PM
--- Server version: 5.5.35
--- PHP Version: 5.3.10-1ubuntu3.9
+-- Хост: 172.16.0.16
+-- Время создания: Фев 18 2014 г., 22:09
+-- Версия сервера: 5.5.35-0+wheezy1
+-- Версия PHP: 5.4.21-1~dotdeb.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `manager`
+-- База данных: `manager`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acos`
+-- Структура таблицы `acos`
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS `acos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=369 ;
 
 --
--- Dumping data for table `acos`
+-- Дамп данных таблицы `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
@@ -288,7 +288,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (335, 332, NULL, NULL, 'admin_add', 489, 490),
 (336, 332, NULL, NULL, 'admin_edit', 491, 492),
 (337, 269, NULL, NULL, 'admin_search', 397, 398),
-(338, 92, NULL, NULL, 'Voips', 494, 543),
+(338, 92, NULL, NULL, 'Voips', 494, 545),
 (339, 338, NULL, NULL, 'index', 495, 496),
 (340, 338, NULL, NULL, 'view', 497, 498),
 (341, 338, NULL, NULL, 'admin_index', 499, 500),
@@ -307,23 +307,23 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (354, 338, NULL, NULL, 'user_account', 525, 526),
 (355, 338, NULL, NULL, 'voipView', 527, 528),
 (356, 151, NULL, NULL, 'voipList', 279, 280),
-(357, 92, NULL, NULL, 'Modules', 544, 553),
-(358, 357, NULL, NULL, 'admin_index', 545, 546),
-(359, 357, NULL, NULL, 'enable', 547, 548),
-(360, 357, NULL, NULL, 'admin_disable', 549, 550),
-(361, 357, NULL, NULL, 'admin_enable', 551, 552),
-(362, 338, NULL, NULL, 'admin_server', 529, 530),
-(363, 338, NULL, NULL, 'admin_removenumber', 531, 532),
-(364, 338, NULL, NULL, 'admin_filter', 533, 534),
-(365, 338, NULL, NULL, 'admin_listNumbers', 535, 536),
-(366, 338, NULL, NULL, 'admin_newNumbers', 537, 538),
-(367, 338, NULL, NULL, 'admin_serverSetting', 539, 540),
-(368, 338, NULL, NULL, 'admin_changeprice', 541, 542);
+(357, 92, NULL, NULL, 'Modules', 546, 553),
+(358, 357, NULL, NULL, 'admin_index', 547, 548),
+(359, 357, NULL, NULL, 'admin_enable', 549, 550),
+(360, 357, NULL, NULL, 'admin_disable', 551, 552),
+(361, 338, NULL, NULL, 'admin_removenumber', 529, 530),
+(362, 338, NULL, NULL, 'admin_server', 531, 532),
+(363, 338, NULL, NULL, 'admin_listNumbers', 533, 534),
+(364, 338, NULL, NULL, 'admin_newNumbers', 535, 536),
+(365, 338, NULL, NULL, 'admin_serverSetting', 537, 538),
+(366, 338, NULL, NULL, 'admin_changeprice', 539, 540),
+(367, 338, NULL, NULL, 'admin_call_logs', 541, 542),
+(368, 338, NULL, NULL, 'admin_callLogs', 543, 544);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actualites`
+-- Структура таблицы `actualites`
 --
 
 CREATE TABLE IF NOT EXISTS `actualites` (
@@ -336,7 +336,7 @@ CREATE TABLE IF NOT EXISTS `actualites` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `actualites`
+-- Дамп данных таблицы `actualites`
 --
 
 INSERT INTO `actualites` (`id`, `titre_actu`, `contenu_actu`, `created`, `actif_actu`) VALUES
@@ -349,7 +349,7 @@ INSERT INTO `actualites` (`id`, `titre_actu`, `contenu_actu`, `created`, `actif_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros`
+-- Структура таблицы `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
@@ -364,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `aros` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
--- Dumping data for table `aros`
+-- Дамп данных таблицы `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
@@ -404,7 +404,7 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros_acos`
+-- Структура таблицы `aros_acos`
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
@@ -420,7 +420,7 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
 
 --
--- Dumping data for table `aros_acos`
+-- Дамп данных таблицы `aros_acos`
 --
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
@@ -530,7 +530,7 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_faqs`
+-- Структура таблицы `categorie_faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_faqs` (
@@ -542,7 +542,7 @@ CREATE TABLE IF NOT EXISTS `categorie_faqs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `categorie_faqs`
+-- Дамп данных таблицы `categorie_faqs`
 --
 
 INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, `actif_cat_faq`) VALUES
@@ -553,7 +553,7 @@ INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_tickets`
+-- Структура таблицы `categorie_tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_tickets` (
@@ -564,7 +564,7 @@ CREATE TABLE IF NOT EXISTS `categorie_tickets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `categorie_tickets`
+-- Дамп данных таблицы `categorie_tickets`
 --
 
 INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VALUES
@@ -574,7 +574,7 @@ INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentaires`
+-- Структура таблицы `commentaires`
 --
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
@@ -591,7 +591,7 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
 --
--- Dumping data for table `commentaires`
+-- Дамп данных таблицы `commentaires`
 --
 
 INSERT INTO `commentaires` (`id`, `text_commentaire`, `created`, `actif_commentaire`, `ticket_id`, `user_id`, `task_id`) VALUES
@@ -637,7 +637,7 @@ INSERT INTO `commentaires` (`id`, `text_commentaire`, `created`, `actif_commenta
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faqs`
+-- Структура таблицы `faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
@@ -651,7 +651,7 @@ CREATE TABLE IF NOT EXISTS `faqs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `faqs`
+-- Дамп данных таблицы `faqs`
 --
 
 INSERT INTO `faqs` (`id`, `question`, `reponse`, `actif_faq`, `categorie_faq_id`) VALUES
@@ -662,7 +662,7 @@ INSERT INTO `faqs` (`id`, `question`, `reponse`, `actif_faq`, `categorie_faq_id`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Структура таблицы `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -674,7 +674,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `groups`
+-- Дамп данных таблицы `groups`
 --
 
 INSERT INTO `groups` (`id`, `type_group`, `nom_group`, `actif_group`) VALUES
@@ -690,7 +690,7 @@ INSERT INTO `groups` (`id`, `type_group`, `nom_group`, `actif_group`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `group_details`
+-- Структура таблицы `group_details`
 --
 
 CREATE TABLE IF NOT EXISTS `group_details` (
@@ -706,7 +706,7 @@ CREATE TABLE IF NOT EXISTS `group_details` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
 --
--- Dumping data for table `group_details`
+-- Дамп данных таблицы `group_details`
 --
 
 INSERT INTO `group_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_group_detail`, `group_id`) VALUES
@@ -760,7 +760,7 @@ INSERT INTO `group_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_gr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoices`
+-- Структура таблицы `invoices`
 --
 
 CREATE TABLE IF NOT EXISTS `invoices` (
@@ -780,7 +780,7 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
--- Dumping data for table `invoices`
+-- Дамп данных таблицы `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `period_begin`, `period_end`, `created`, `active_invoice`, `group_id`, `invoice_type_id`, `invoice_statut_id`) VALUES
@@ -802,7 +802,7 @@ INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `perio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_statuts`
+-- Структура таблицы `invoice_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_statuts` (
@@ -813,7 +813,7 @@ CREATE TABLE IF NOT EXISTS `invoice_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `invoice_statuts`
+-- Дамп данных таблицы `invoice_statuts`
 --
 
 INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
@@ -824,7 +824,7 @@ INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_types`
+-- Структура таблицы `invoice_types`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_types` (
@@ -835,7 +835,7 @@ CREATE TABLE IF NOT EXISTS `invoice_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `invoice_types`
+-- Дамп данных таблицы `invoice_types`
 --
 
 INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
@@ -848,18 +848,18 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modules`
+-- Структура таблицы `modules`
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `activ` tinyint(1) NOT NULL,
+  `activ` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `modules`
+-- Дамп данных таблицы `modules`
 --
 
 INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
@@ -868,7 +868,7 @@ INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `numbers`
+-- Структура таблицы `numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `numbers` (
@@ -876,36 +876,151 @@ CREATE TABLE IF NOT EXISTS `numbers` (
   `prefix` int(11) NOT NULL,
   `phone_number` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `owner` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=360 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=271 ;
 
 --
--- Dumping data for table `numbers`
+-- Дамп данных таблицы `numbers`
 --
 
-INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`) VALUES
-(124, 33, '1111111112', 'admin'),
-(126, 33, '1111111114', 'admin'),
-(128, 33, '1111111116', 'test'),
-(129, 33, '1111111117', 'babou'),
-(131, 33, '1111111119', 'admin'),
-(132, 33, '1111111120', 'admin'),
-(133, 33, '1111111121', 'admin'),
-(134, 33, '1111111122', 'admin'),
-(351, 33, '1111111111', ''),
-(352, 33, '1111111113', ''),
-(353, 33, '1111111115', ''),
-(354, 33, '1111111118', ''),
-(355, 33, '1111111123', ''),
-(356, 33, '1111111124', ''),
-(357, 33, '1111111125', ''),
-(358, 33, '1111111126', ''),
-(359, 33, '1111111127', '');
+INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
+(27, 33, '0970756112', '', ''),
+(28, 33, '0970756113', '', ''),
+(29, 33, '0970756114', '', ''),
+(30, 33, '0970756115', '', ''),
+(32, 33, '1970756117', '', ''),
+(126, 33, '0970700000', '', ''),
+(127, 33, '0970700001', '', ''),
+(128, 33, '0970700002', '', ''),
+(129, 33, '0970700003', '', ''),
+(130, 33, '0970700004', '', ''),
+(131, 33, '0970700005', '', ''),
+(132, 33, '0970700006', '', ''),
+(133, 33, '0970700007', '', ''),
+(134, 33, '0970700008', '', ''),
+(135, 33, '0970700009', '', ''),
+(136, 33, '0970700010', '', ''),
+(137, 33, '1970700011', '', ''),
+(138, 33, '1970700012', '', ''),
+(139, 33, '1970700013', '', ''),
+(140, 33, '1970700014', '', ''),
+(141, 33, '1970700015', 'admin', '1048'),
+(142, 33, '1970700016', 'admin', '1001'),
+(143, 33, '1970700017', '', ''),
+(144, 33, '1970700018', '', ''),
+(145, 33, '1970700019', '', ''),
+(146, 33, '1970700020', '', ''),
+(147, 33, '1970700021', '', ''),
+(148, 33, '1970700022', '', ''),
+(149, 33, '1970700023', '', ''),
+(150, 33, '1970700024', '', ''),
+(151, 33, '1970700025', '', ''),
+(152, 33, '1970700026', '', ''),
+(153, 33, '1970700027', '', ''),
+(154, 33, '1970700028', '', ''),
+(155, 33, '1970700029', '', ''),
+(157, 33, '1970700030', '', ''),
+(158, 33, '1970700031', '', ''),
+(159, 33, '1970700032', '', ''),
+(160, 33, '1970700033', '', ''),
+(161, 33, '1970700034', '', ''),
+(162, 33, '1970700035', '', ''),
+(163, 33, '1970700036', '', ''),
+(164, 33, '1970700037', '', ''),
+(165, 33, '1970700038', '', ''),
+(166, 33, '1970700039', '', ''),
+(167, 33, '1970700040', '', ''),
+(168, 33, '1970700041', '', ''),
+(169, 33, '1970700042', '', ''),
+(170, 33, '1970700043', '', ''),
+(171, 33, '1970700044', '', ''),
+(172, 33, '1970700045', '', ''),
+(173, 33, '1970700046', '', ''),
+(174, 33, '1970700047', '', ''),
+(175, 33, '1970700048', '', ''),
+(176, 33, '1970700049', '', ''),
+(177, 33, '1970700050', '', ''),
+(178, 33, '1970700051', '', ''),
+(179, 33, '1970700052', '', ''),
+(180, 33, '1970700053', '', ''),
+(181, 33, '1970700054', '', ''),
+(182, 33, '1970700055', '', ''),
+(183, 33, '1970700056', '', ''),
+(184, 33, '1970700057', '', ''),
+(185, 33, '1970700058', '', ''),
+(186, 33, '1970700059', '', ''),
+(187, 33, '1970700060', '', ''),
+(188, 33, '1970700061', '', ''),
+(189, 33, '1970700062', '', ''),
+(190, 33, '1970700063', '', ''),
+(191, 33, '1970700064', '', ''),
+(192, 33, '1970700065', '', ''),
+(193, 33, '1970700066', '', ''),
+(194, 33, '1970700067', '', ''),
+(195, 33, '1970700068', '', ''),
+(196, 33, '1970700069', '', ''),
+(197, 33, '1970700070', '', ''),
+(198, 33, '1970700071', '', ''),
+(199, 33, '1970700072', '', ''),
+(200, 33, '1970700073', '', ''),
+(201, 33, '1970700074', '', ''),
+(202, 33, '1970700075', '', ''),
+(203, 33, '1970700076', '', ''),
+(204, 33, '1970700077', '', ''),
+(205, 33, '1970700078', '', ''),
+(206, 33, '1970700079', '', ''),
+(207, 33, '1970700080', '', ''),
+(208, 33, '1970700081', '', ''),
+(209, 33, '1970700082', '', ''),
+(210, 33, '1970700083', '', ''),
+(211, 33, '1970700084', '', ''),
+(212, 33, '1970700085', '', ''),
+(213, 33, '1970700086', '', ''),
+(214, 33, '1970700087', '', ''),
+(215, 33, '1970700088', '', ''),
+(216, 33, '1970700089', '', ''),
+(217, 33, '1970700090', '', ''),
+(218, 33, '1970700091', '', ''),
+(219, 33, '1970700092', '', ''),
+(220, 33, '1970700093', '', ''),
+(221, 33, '1970700094', '', ''),
+(222, 33, '1970700095', '', ''),
+(223, 33, '1970700096', '', ''),
+(224, 33, '1970700097', '', ''),
+(225, 33, '1970700098', '', ''),
+(226, 33, '1970700099', '', ''),
+(227, 33, '1970700100', '', ''),
+(228, 33, '1970700101', '', ''),
+(229, 33, '1970700102', '', ''),
+(230, 33, '1970700103', '', ''),
+(231, 33, '1970700104', '', ''),
+(232, 33, '1970700105', '', ''),
+(233, 33, '1970700106', '', ''),
+(234, 33, '1970700107', '', ''),
+(235, 33, '1970700108', '', ''),
+(236, 33, '1970700109', '', ''),
+(237, 33, '1970700110', '', ''),
+(238, 33, '1970700111', '', ''),
+(239, 33, '1970700112', '', ''),
+(240, 33, '1970700113', '', ''),
+(241, 33, '1970700114', '', ''),
+(242, 33, '1970700115', '', ''),
+(243, 33, '1970700116', '', ''),
+(244, 33, '1970700117', '', ''),
+(245, 33, '1970700118', '', ''),
+(246, 33, '1970700119', '', ''),
+(247, 33, '1970700120', '', ''),
+(248, 33, '1970700121', '', ''),
+(249, 33, '1970700122', '', ''),
+(250, 33, '1970700123', '', ''),
+(251, 33, '973737373', 'admin', '1099'),
+(252, 33, '972727272', 'test', '1098');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `passwords`
+-- Структура таблицы `passwords`
 --
 
 CREATE TABLE IF NOT EXISTS `passwords` (
@@ -921,7 +1036,7 @@ CREATE TABLE IF NOT EXISTS `passwords` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `passwords`
+-- Дамп данных таблицы `passwords`
 --
 
 INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`, `password_service_id`, `password_type_id`, `group_id`) VALUES
@@ -942,7 +1057,7 @@ INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_services`
+-- Структура таблицы `password_services`
 --
 
 CREATE TABLE IF NOT EXISTS `password_services` (
@@ -953,7 +1068,7 @@ CREATE TABLE IF NOT EXISTS `password_services` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_services`
+-- Дамп данных таблицы `password_services`
 --
 
 INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUES
@@ -962,7 +1077,7 @@ INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_types`
+-- Структура таблицы `password_types`
 --
 
 CREATE TABLE IF NOT EXISTS `password_types` (
@@ -973,7 +1088,7 @@ CREATE TABLE IF NOT EXISTS `password_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_types`
+-- Дамп данных таблицы `password_types`
 --
 
 INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
@@ -982,7 +1097,7 @@ INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prices`
+-- Структура таблицы `prices`
 --
 
 CREATE TABLE IF NOT EXISTS `prices` (
@@ -998,14 +1113,14 @@ CREATE TABLE IF NOT EXISTS `prices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5058 ;
 
 --
--- Dumping data for table `prices`
+-- Дамп данных таблицы `prices`
 --
 
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
 (1, 1201, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (2, 1202, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (3, 1203, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
-(4, 1204, 'CAN', 'CANA', 'Etats-Unis', 0.02, 0, 0),
+(4, 1204, 'CAN', 'CANA', 'Canada', 0.02, 0, 0),
 (5, 1205, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (6, 1206, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (7, 1207, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
@@ -1025,7 +1140,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (21, 1223, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (22, 1224, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (23, 1225, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
-(24, 1226, 'CAN', 'CANA', 'Etats-Unis', 0.02, 0, 0),
+(24, 1226, 'CAN', 'CANA', 'Canada', 0.02, 0, 0),
 (25, 1227, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (26, 1228, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (27, 1229, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
@@ -1055,7 +1170,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (51, 1262, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (52, 1264, 'AIA', 'ANGU', 'Anguille', 0.29, 0, 0),
 (53, 1267, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
-(54, 1268, 'ATG', 'ANBA', 'Antigua-et-Barbuda', 0.22, 0, 0),
+(54, 1268, 'ATG', 'ANBA', 'Etats-Unis', 0.02, 0, 0),
 (55, 1269, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (56, 1270, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (57, 1271, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
@@ -1066,7 +1181,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (62, 1281, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (63, 1282, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (64, 1283, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
-(65, 1284, 'VGB', 'BVIS', 'Etats-Unis', 0.02, 0, 0),
+(65, 1284, 'VGB', 'BVIS', 'Iles Vierges Britanniques', 0, 0, 0),
 (66, 1285, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (67, 1286, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
 (68, 1287, 'USA', 'USA', 'Etats-Unis', 0.02, 0, 0),
@@ -2452,7 +2567,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (1447, 26133, 'MDG', 'MADM', 'Madagascar - Mobile', 0, 0, 0),
 (1448, 262, 'REU', 'REUN', 'Réunion', 0.05, 0, 0),
 (1449, 262692, 'REU', 'REUMO', 'Réunion - Mobile', 0.15, 0, 0),
-(1450, 263, 'ZWE', 'ZIMB', 'Zimbabwe - Mobile', 0, 0, 0),
+(1450, 263, 'ZWE', 'ZIMB', 'Zimbabwe', 0.15, 0, 0),
 (1451, 26311, 'ZWE', 'ZWEMOOT', 'Zimbabwe - Mobile', 0, 0, 0),
 (1452, 26323, 'ZWE', 'ZWEMOTE', 'Zimbabwe - Mobile', 0, 0, 0),
 (1453, 26391, 'ZWE', 'ZWEMOEC', 'Zimbabwe - Mobile', 0, 0, 0),
@@ -2741,7 +2856,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (1735, 35122, 'PRT', 'POPO', 'Portugal', 0.03, 0, 0),
 (1736, 351291, 'PRT', 'MADE', 'Portugal', 0.03, 0, 0),
 (1737, 351292, 'AZR', 'AZOR', 'Açores', 0, 0, 0),
-(1738, 351295, 'AZR', 'AZOR', 'Açores', 0, 0, 0),
+(1738, 351295, 'AZR', 'AZOR', 'Portugal - Mobile', 0.14, 0, 0),
 (1739, 351296, 'AZR', 'AZOR', 'Portugal - Mobile', 0.14, 0, 0),
 (1740, 3516093, 'PRT', 'PRTMOOP', 'Portugal - Mobile', 0.14, 0, 0),
 (1741, 3516096, 'PRT', 'PRTMOTM', 'Portugal - Mobile', 0.14, 0, 0),
@@ -3104,7 +3219,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (2098, 43512, 'AUT', 'AUTIN', 'Autriche', 0.05, 0, 0),
 (2099, 43517, 'AUT', 'AUTPN', 'Autriche', 0.05, 0, 0),
 (2100, 4357, 'AUT', 'AUTPN', 'Autriche', 0.05, 0, 0),
-(2101, 4359, 'AUT', 'AUTPN', 'Autriche', 0.05, 0, 0),
+(2101, 4359, 'AUT', 'AUTPN', 'Autriche - Mobile', 0.36, 0, 0),
 (2102, 43650, 'AUT', 'AUTMOTE', 'Autriche - Mobile', 0.36, 0, 0),
 (2103, 43660, 'AUT', 'AUTMOHU', 'Autriche - Mobile', 0.36, 0, 0),
 (2104, 43662, 'AUT', 'AUTSA', 'Autriche', 0.05, 0, 0),
@@ -3475,9 +3590,9 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (2469, 45257, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
 (2470, 45258, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
 (2471, 452590, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
-(2472, 452591, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
-(2473, 452592, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0);
+(2472, 452591, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
+(2473, 452592, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
 (2474, 452593, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
 (2475, 452594, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
 (2476, 452595, 'DNK', 'DEMO', 'Danemark - Mobile', 0.32, 0, 0),
@@ -3855,7 +3970,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (2848, 49158, 'DEU', 'GERO', 'Allemagne - Mobile', 0.12, 0, 0),
 (2849, 49159, 'DEU', 'GEMOO2', 'Allemagne - Mobile', 0.53, 0, 0),
 (2850, 49160, 'DEU', 'GEMOTM', 'Allemagne - Mobile', 0.53, 0, 0),
-(2851, 49161, 'DEU', 'GERO', 'Allemagne - Mobile', 0.53, 0, 0),
+(2851, 49161, 'DEU', 'GERO', 'Allemagne - Mobile', 0.12, 0, 0),
 (2852, 49162, 'DEU', 'GEMOVO', 'Allemagne - Mobile', 0.53, 0, 0),
 (2853, 49163, 'DEU', 'GEMOEP', 'Allemagne - Mobile', 0.53, 0, 0),
 (2854, 49164, 'DEU', 'GERO', 'Allemagne - Mobile', 0.12, 0, 0),
@@ -4142,7 +4257,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (3135, 55307, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3136, 55308, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3137, 55309, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
-(3138, 5531, 'BRA', 'BRBELO', 'Brésil', 0.05, 0, 0),
+(3138, 5531, 'BRA', 'BRBELO', 'Brésil - Mobile', 0.27, 0, 0),
 (3139, 55317, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3140, 553178, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3141, 55318, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
@@ -4306,10 +4421,10 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (3299, 55667, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3300, 55668, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3301, 556681, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
-(3302, 556684, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
-(3303, 556688, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
-(3304, 556689, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0);
+(3302, 556684, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
+(3303, 556688, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
+(3304, 556689, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3305, 55669, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3306, 55677, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
 (3307, 55678, 'BRA', 'BRMO', 'Brésil - Mobile', 0.27, 0, 0),
@@ -4950,7 +5065,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (3942, 87476, 'SAT', 'INMMINIM', 'Satellite - Inmarsat - Mini M', 0, 0, 0),
 (3943, 874811, 'SAT', 'INMADAT', 'Satellite - Inmarsat - A', 0, 0, 0),
 (3944, 880, 'BGD', 'BANG', 'Bangladesh', 0.18, 0, 0),
-(3945, 8801, 'BGD', 'BAMO', 'Bangladesh', 0.18, 0, 0),
+(3945, 8801, 'BGD', 'BAMO', 'Bangladesh - Mobile', 0.18, 0, 0),
 (3946, 8802, 'BGD', 'BADH', 'Bangladesh', 0.18, 0, 0),
 (3947, 88031, 'BGD', 'BACH', 'Bangladesh', 0.18, 0, 0),
 (3948, 880821, 'BGD', 'BASY', 'Bangladesh', 0.18, 0, 0),
@@ -5180,10 +5295,10 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (4172, 6023, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
 (4173, 6026, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
 (4174, 6027, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4175, 6028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4176, 6029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4177, 603, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0);
+(4175, 6028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
+(4176, 6029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4177, 603, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
 (4178, 6040, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
 (4179, 6041, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
 (4180, 6042, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
@@ -5919,10 +6034,10 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (4910, 75071, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
 (4911, 75072, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
 (4912, 7508, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4913, 7509, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4914, 7510, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4915, 7511, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0);
+(4913, 7509, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
+(4914, 7510, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4915, 7511, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
 (4916, 7512, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
 (4917, 7513, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
 (4918, 7514, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
@@ -6068,7 +6183,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tasks`
+-- Структура таблицы `tasks`
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
@@ -6085,7 +6200,7 @@ CREATE TABLE IF NOT EXISTS `tasks` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
--- Dumping data for table `tasks`
+-- Дамп данных таблицы `tasks`
 --
 
 INSERT INTO `tasks` (`id`, `description`, `subject`, `created`, `last_update`, `task_project_id`, `task_type_id`, `task_statut_id`, `active_task`) VALUES
@@ -6107,7 +6222,7 @@ INSERT INTO `tasks` (`id`, `description`, `subject`, `created`, `last_update`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_projects`
+-- Структура таблицы `task_projects`
 --
 
 CREATE TABLE IF NOT EXISTS `task_projects` (
@@ -6118,7 +6233,7 @@ CREATE TABLE IF NOT EXISTS `task_projects` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_projects`
+-- Дамп данных таблицы `task_projects`
 --
 
 INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
@@ -6129,7 +6244,7 @@ INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_statuts`
+-- Структура таблицы `task_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `task_statuts` (
@@ -6140,7 +6255,7 @@ CREATE TABLE IF NOT EXISTS `task_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_statuts`
+-- Дамп данных таблицы `task_statuts`
 --
 
 INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
@@ -6151,7 +6266,7 @@ INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_types`
+-- Структура таблицы `task_types`
 --
 
 CREATE TABLE IF NOT EXISTS `task_types` (
@@ -6162,7 +6277,7 @@ CREATE TABLE IF NOT EXISTS `task_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `task_types`
+-- Дамп данных таблицы `task_types`
 --
 
 INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
@@ -6174,7 +6289,7 @@ INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Структура таблицы `tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `tickets` (
@@ -6193,7 +6308,7 @@ CREATE TABLE IF NOT EXISTS `tickets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `tickets`
+-- Дамп данных таблицы `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `titre`, `flag`, `status`, `created`, `actif_ticket`, `categorie_ticket_id`, `group_id`, `user_id`) VALUES
@@ -6215,7 +6330,7 @@ INSERT INTO `tickets` (`id`, `titre`, `flag`, `status`, `created`, `actif_ticket
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmps`
+-- Структура таблицы `tmps`
 --
 
 CREATE TABLE IF NOT EXISTS `tmps` (
@@ -6225,16 +6340,16 @@ CREATE TABLE IF NOT EXISTS `tmps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tmps`
+-- Дамп данных таблицы `tmps`
 --
 
 INSERT INTO `tmps` (`id`, `variable`) VALUES
-(1, 'sort:country_zone/direction:asc/page:2');
+(1, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -6251,7 +6366,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `password`, `actif_user`, `group_id`) VALUES
@@ -6272,7 +6387,7 @@ INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `passwo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_details`
+-- Структура таблицы `user_details`
 --
 
 CREATE TABLE IF NOT EXISTS `user_details` (
@@ -6288,7 +6403,7 @@ CREATE TABLE IF NOT EXISTS `user_details` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
 --
--- Dumping data for table `user_details`
+-- Дамп данных таблицы `user_details`
 --
 
 INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_user_detail`, `user_id`) VALUES
@@ -6323,62 +6438,62 @@ INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_use
 -- --------------------------------------------------------
 
 --
--- Table structure for table `voips`
+-- Структура таблицы `voips`
 --
 
 CREATE TABLE IF NOT EXISTS `voips` (
-  `id` int(11) NOT NULL,
-  `login` varchar(30) NOT NULL,
-  `pass` varchar(30) NOT NULL,
-  `ip` varchar(30) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `login` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pass` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `ip` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `voips`
+-- Дамп данных таблицы `voips`
 --
 
 INSERT INTO `voips` (`id`, `login`, `pass`, `ip`) VALUES
-(1, 'managero', 'UBIBOzULRSuh', '176.16.1.2');
+(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2');
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `commentaires`
+-- Ограничения внешнего ключа таблицы `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `fk_commentaires_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_commentaires_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `faqs`
+-- Ограничения внешнего ключа таблицы `faqs`
 --
 ALTER TABLE `faqs`
   ADD CONSTRAINT `fk_faqs_categorie_faqs1` FOREIGN KEY (`categorie_faq_id`) REFERENCES `categorie_faqs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `group_details`
+-- Ограничения внешнего ключа таблицы `group_details`
 --
 ALTER TABLE `group_details`
   ADD CONSTRAINT `fk_group_details_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tickets`
+-- Ограничения внешнего ключа таблицы `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `fk_tickets_categorie_tickets1` FOREIGN KEY (`categorie_ticket_id`) REFERENCES `categorie_tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tickets_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `users`
+-- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_details`
+-- Ограничения внешнего ключа таблицы `user_details`
 --
 ALTER TABLE `user_details`
   ADD CONSTRAINT `fk_user_details_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

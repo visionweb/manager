@@ -10,6 +10,50 @@ App::uses('AppModel', 'Model');
 
 class Voip extends AppModel {
 	public $name = 'Voip';
+
+	//find information about number
+	function testNumber($number, $tabDest){
+		if((strlen($number) == 4)||(strlen($number) > 5)){
+			$num = $number;
+			$toCheck=true;
+			}	
+		elseif((substr($number,0,2) == "00") || ((substr($number,0,2) != 33) && strlen($number) > 10)){
+			if(substr($number,0,2) == "00") $num = substr($number,2);
+			else $num = $number;
+			$toCheck=true;
+			}
+		elseif((substr($number,0,1) == "0") || ((substr($number,0,2) == 33) && strlen($number) > 10)) {
+			if(substr($number,0,1) == "0") $num = substr($number,1,3);
+			else $num=substr($number,0,3);
+			$toCheck=true;
+			}
+		else{
+			$dest = 'Autre';
+			$price = 0;
+			$priceMer=0;
+			$destType = 0;
+			$toCheck=false;
+			}
+
+		if($toCheck){
+			while(!empty($num)){
+				if(isset($tabDest["FR"][$num])){
+					$dest = $tabDest["FR"][$num]["description"];
+					$price = $tabDest["FR"][$num]["pp"];
+					$priceMer = $tabDest["FR"][$num]["mer"];
+					$destType = $tabDest["FR"][$num]["local_zone"];
+					break;
+					} 
+				else $num = substr($num,0,-1);
+				}
+			}
+			
+		$tab=array('dest'=>$dest,
+					'price'=>$price,
+					'priceMer'=>$priceMer,
+					'destType'=>$destType);
+		return $tab;
+		}      
 	
 	//get logs from $request and convert to aray
 	function getLog($period, $numbers, $price){
@@ -17,6 +61,12 @@ class Voip extends AppModel {
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
 		$login=$voipdata[0]['Voip']['login'];
+				
+		foreach($price as $row){
+			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
+			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
+			}	
+			
 		$now=substr(date('c'), 0, 19);
 		switch($period){
 			case '0':
@@ -62,6 +112,7 @@ class Voip extends AppModel {
 			$start=date('o').'-01-01T00:00:00';
 			break;
 			}
+			
 		$filter='?start_date='.$start.'&end_date='.$now;
 		$logs=array();
 		exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
@@ -94,18 +145,11 @@ class Voip extends AppModel {
 			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['called']){
-					$pref=$num['Number']['prefix']; 
+					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest); 
+					$logs[$i-1]['call']['price']=$tab['price']*$logs[$i-1]['call']['duration'];
 					break;
 					}
 				}
-			foreach($price as $pr){
-				if($pr['Price']['prefix']==$pref){
-					$logs[$i-1]['call']['price']=$pr['Price']['pp']*$logs[$i-1]['call']['duration']; 
-					break;
-					}
-				
-				}
-			if(empty($logs[$i-1]['call']['price']))$logs[$i-1]['call']['price']='undefined country';
 			}
 		return $logs;
 		}
