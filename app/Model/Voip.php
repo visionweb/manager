@@ -66,7 +66,6 @@ class Voip extends AppModel {
 			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
 			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
 			}	
-			
 		$now=substr(date('c'), 0, 19);
 		switch($period){
 			case '0':
@@ -100,7 +99,7 @@ class Voip extends AppModel {
 					}
 				$start=$year.'-'.$month.'-'.$day.'T00:00:00';
 				}
-			//elseif (sizeof(date('j')=1) $start=date('o').'-'.date('m').'-0'.(date('j')-date(w)).'T00:00:00';
+			elseif (sizeof(date('j'))==1) $start=date('o').'-'.date('m').'-0'.(date('j')-date('w')).'T00:00:00';
 			else $start=date('o').'-'.date('m').'-0'.(date('j')-date('w')).'T00:00:00';
 			break;
 			

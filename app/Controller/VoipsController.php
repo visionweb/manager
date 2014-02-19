@@ -84,7 +84,6 @@ class VoipsController extends AppController {
 				'outcallerid'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				);
-			//$this->Voip->put($url,$port,$access['login'].':'.$access['pass'], $data);
 			$this->Voip->xivo("PUT", "/1.1/users/".$id, $data);
 			$this->redirect(array('action' => 'admin_listAccount'));
 			}
@@ -99,7 +98,7 @@ class VoipsController extends AppController {
     public function admin_delete($id = null) {
 		$this->autoRender = false;
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
-		$this->Voip->xivo("DELETE", "/1.0/users/".$id);
+		$this->Voip->xivo("DELETE", "/1.1/users/".$id);
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$pref=substr($userdata['userfield'], -12,2);
