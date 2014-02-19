@@ -77,8 +77,6 @@ class VoipsController extends AppController {
 			'userinfo'=>$userdata
 			));
 		if ($this->request->is('post')) {
-			$port = '50051';		
-			$url = 'https://'.$access['ip'].':50051/1.0/users/'.$id;
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -87,7 +85,7 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				);
 			//$this->Voip->put($url,$port,$access['login'].':'.$access['pass'], $data);
-			$this->Voip->xivo("PUT", "/1.0/users/".$id, $data);
+			$this->Voip->xivo("PUT", "/1.1/users/".$id, $data);
 			$this->redirect(array('action' => 'admin_listAccount'));
 			}
 		}
