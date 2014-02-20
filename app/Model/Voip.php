@@ -145,7 +145,7 @@ class Voip extends AppModel {
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['called']){
 					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest); 
-					$logs[$i-1]['call']['price']=$tab['price']*$logs[$i-1]['call']['duration'];
+					$logs[$i-1]['call']['price']=substr($tab['price']*$logs[$i-1]['call']['duration']/60, 0,4);
 					break;
 					}
 				}

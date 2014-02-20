@@ -312,13 +312,19 @@ class VoipsController extends AppController {
 		if (isset($this->request->data['del'])) {
 			$numbers=$this->Number->find("all");
 			$toDel=array();
+			$error="<br>";
 			foreach($numbers as $num){
 				if(isset($this->request->data['check'.$num['Number']['id']]) and
 					$this->request->data['check'.$num['Number']['id']]==1 and
-					empty($num['Number']['owner']))
+					empty($num['Number']['owner'])){
 					array_push($toDel, $num['Number']['id']);
-					$this->set('test', $toDel);
+					}
+				if(isset($this->request->data['check'.$num['Number']['id']]) and
+					$this->request->data['check'.$num['Number']['id']]==1 and
+					!empty($num['Number']['owner'])) 
+					$error.=$num['Number']['phone_number'].'<br>';
 				}
+			if($error!='<br>') $this->Session->setFlash("You can not remove".$error."Remove they accounts first");
 			foreach($toDel as $del)
 				$this->Number->delete($del);
 			$this->redirect(array('action' => 'admin_listNumbers'));
@@ -335,6 +341,7 @@ class VoipsController extends AppController {
 		$nums_owns=$this->Number->find("all");
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		$this->set("title", "Configuration");
+		$error='<br>';
 		if ($this->request->is('post')) {
 			$new=array();
 			$start="1".$this->data['start_interval'];
@@ -343,12 +350,14 @@ class VoipsController extends AppController {
 			for($i=$start; $i<=$end; $i++){
 				$exist=0;
 				foreach($nums_owns as $nums)
-					if($nums['Number']['prefix'].$nums['Number']['phone_number']==$prefix.substr($i,-10)){
+					if($nums['Number']['prefix'].$nums['Number']['phone_number']==$prefix.substr($i,1)){
 						$exist=1;
+						$error.=$nums['Number']['phone_number'].'<br>';
 						break;
 						}
-				if ($exist==0) array_push($new,	array('prefix'=>$prefix,'phone_number'=>substr($i,-10)));
+				if ($exist==0) array_push($new,	array('prefix'=>$prefix,'phone_number'=>substr($i,1)));
 				}
+			if($error!='<br>') $this->Session->setFlash("This numbers alredy exist:".$error);
 			$this->Number->saveAll($new);
 			$this->redirect(array('action' => 'admin_listNumbers'));
 			}
