@@ -212,6 +212,8 @@ class Voip extends AppModel {
 		$server['ip']=$voipdata[0]['Voip']['ip'];
 		$server['pass']=$voipdata[0]['Voip']['pass'];
 		$server['login']=$voipdata[0]['Voip']['login'];
+		$server['proxy_adress']=$voipdata[0]['Voip']['pr_adress'];
+		$server['proxy_port']=$voipdata[0]['Voip']['pr_port'];
 		return $server;
 		}
 

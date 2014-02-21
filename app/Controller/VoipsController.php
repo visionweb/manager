@@ -18,8 +18,38 @@ class VoipsController extends AppController {
  * @return void
  */
 	public function index() {
-    
-	}
+	$this->loadModel('Number');
+	$numbers=$this->Number->find('all');
+	$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
+	$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
+	$extension=$this->Voip->xivo("GET", "/1.1/extensions");
+	for ($i=0; $i<sizeof($dataBrut); $i++){
+		$user_list=$this->Voip->xivo("GET", "/1.1/users/".$dataBrut[$i]['id']."/lines");
+		foreach($sip as $sip_l){
+			if ($sip_l["id"]==$user_list[0]["line_id"]){
+				
+				$li_ex=$this->Voip->xivo("GET", "/1.1/lines/".$sip_l['id']."/extension");
+				foreach($extension as $ex){
+					if($ex['id']==$li_ex['extension_id']) {$short=$ex['exten']; break;}
+					}
+				
+				$dataBrut[$i]["username"]=$sip_l["username"];
+				$dataBrut[$i]["line"]["number"]=$short;
+				$dataBrut[$i]["password"]=$sip_l["secret"];
+				foreach($numbers as $owner)
+					if ('00'.$owner['Number']['prefix'].$owner['Number']['phone_number']==$dataBrut[$i]['userfield']){
+						$dataBrut[$i]['owner']=$owner['Number']['owner'];
+						break;
+						}
+				}
+			}
+		}
+	$arr=array();
+	for($i=0; $i<sizeof($dataBrut); $i++)
+		if($dataBrut[$i]['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $dataBrut[$i]);
+	$this->set("listUser", $arr);
+	$this->set('title', 'Liste compte');
+}
 
 /**
  * view method - Display faqs
@@ -312,12 +342,16 @@ class VoipsController extends AppController {
 		$this->set("title", "Server parameters");
 		if ($this->request->is('post')) {
 			$new_login=$this->data['User']['old_login'];
+			$new_proxy=$this->data['User']['old_proxy'];
+			$new_port=$this->data['User']['old_port'];
 			$new_pass=$this->data['User']['old_pass'];
 			$new_ip=$this->data['User']['old_ip'];
 			$new=array(
 					'login'=>$new_login,
 					'pass'=>$new_pass,
-					'ip'=>$new_ip
+					'ip'=>$new_ip,
+					'pr_adress' =>$new_proxy,
+					'pr_port' =>$new_port
 					);
 			$this->Voip->id='1';
 			$this->Voip->save($new);
