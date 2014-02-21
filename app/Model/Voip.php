@@ -204,7 +204,7 @@ class Voip extends AppModel {
 			return $result;
 			}
 		}
-	 
+	
 	//get current server access data: ip, password, login
 	function getAccess(){
 		$voipdata=$this->find('all');

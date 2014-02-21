@@ -510,4 +510,22 @@ class VoipsController extends AppController {
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}
+	
+	public function call_logs() {
+		$this->loadModel('Number');
+		$this->loadModel('Price');
+		
+		$numbers=$this->Number->find('all');
+		$price=$this->Price->find('all');
+		$this->set(compact('tabDest'));
+		$period='3';
+		if(isset($this->data['for']))$period=$this->data['for'];
+		$logs=$this->Voip->getLog($period, $numbers, $price);
+		$arr=array();
+		foreach($logs as $log)
+			if($log['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $log);
+		$logs=$arr;
+		$this->set('title','Call log');
+		$this->set(compact('logs'));
+		}
 }
