@@ -72,11 +72,38 @@ class VoipsController extends AppController {
     public function admin_edit($id = null) {
 		$access=$this->Voip->getAccess();
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
+		$this->loadModel("User");
+		$this->loadModel("Number");
+		$numbers=$this->Number->find("all");
+		$owners=$this->User->find("all");
+		$line_id=$this->Voip->xivo("GET", "/1.1/users/".$id."/lines");
+		$line_id=$line_id[0]['line_id'];
+		$extension_id=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
+		$extension_id=$extension_id['extension_id'];
+		$short=$this->Voip->xivo("GET", "/1.1/extensions/".$extension_id);
+		$short=$short['exten'];
+		foreach($numbers as $num){
+			if($num['Number']['short']==$short){
+				$owner=$num['Number']['owner'];
+				$db_id=$num['Number']['id'];
+				$owner=$num['Number']['owner'];
+				$this->set(compact('owner'));
+				break;
+				}
+			}
+		$userlist=array();
+		for ($i=0; $i<sizeof($owners); $i++){
+			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
+			}
 		$this->set(array(
 			'title'=> 'Set new user data',
+			'userlist' => $userlist,
 			'userinfo'=>$userdata
 			));
 		if ($this->request->is('post')) {
+			$this->Number->id=$db_id;
+				$own=array('owner'=>$this->data['User']['owner']);
+				$this->Number->save($own);
 			$data = array(
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
@@ -440,6 +467,12 @@ class VoipsController extends AppController {
 		$period='3';
 		if(isset($this->data['for']))$period=$this->data['for'];
 		$logs=$this->Voip->getLog($period, $numbers, $price);
+		if (isset($this->data['acc']) and !empty($this->data['acc'])){
+			$arr=array();
+			foreach($logs as $log)
+				if($log['owner']==$this->data['acc']) array_push($arr, $log);
+			$logs=$arr;
+			}
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}

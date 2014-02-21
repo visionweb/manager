@@ -7,6 +7,7 @@
 			print $this->Form->create(false, array('type' => 'file'));
 			$filter = array('0' => 'Day', '1' => 'Week', '2' => 'Month', '3'=>'Year');
 			print $this->Form->input('for', array('label'=>'Calls for period', 'options'=>$filter, 'default'=>'3'));
+			print $this->Form->input('acc', array('label'=>'Show accounts'));
 			print $this->Form->end('Show');
 		?>
 		</fieldset>
@@ -14,6 +15,7 @@
         <tr>
             <th>Date</th>
             <th>Name</th>
+            <th>Account</th>
             <th>Caller number</th>
 			<th>Called number</th>
 			<th>Duration, sec.</th>
@@ -23,6 +25,7 @@
 	<tr>
 		<td><?php print $log["date"]["month"].' '.$log["date"]["day"].', '.$log["date"]["year"] ?></td>
 		<td><?php print $log["user"]["firstname"].' '.$log["user"]["lastname"] ?></td>
+		<td><?php print $log["owner"] ?></td> 
 		<td><?php print $log["call"]["caller"] ?></td> 
 		<td><?php print $log["call"]["called"]?></td>
 		<td><?php print $log["call"]["duration"]?></td>     

@@ -143,14 +143,29 @@ class Voip extends AppModel {
 			$logs[$i-1]['user']['lastname']=$array[1];
 			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
 			foreach($numbers as $num){
+				if($num['Number']['short']==$logs[$i-1]['call']['caller']){
+					$logs[$i-1]['owner']=$num['Number']['owner'];
+					$logs[$i-1]['call']['caller']=$num['Number']['prefix'].$num['Number']['phone_number'];
+					break;
+					}
+				}
+			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['called']){
-					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest); 
+					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest);
+					$logs[$i-1]['call']['called']=$num['Number']['prefix'].$num['Number']['phone_number'];
 					$logs[$i-1]['call']['price']=substr($tab['price']*$logs[$i-1]['call']['duration']/60, 0,4);
 					break;
 					}
 				}
 			}
-		return $logs;
+		$owners=array();
+		$sorted=array();
+		foreach($logs as $log) array_push($owners, $log['owner']);
+		$owners=array_unique($owners);
+		foreach($owners as $owner)
+			foreach($logs as $log)
+				if($log['owner']==$owner) array_push($sorted, $log);
+		return $sorted;
 		}
 	
 	/*
