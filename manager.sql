@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 172.16.0.16
--- Generation Time: Feb 22, 2014 at 12:48 PM
+-- Generation Time: Feb 22, 2014 at 05:21 PM
 -- Server version: 5.5.35-0+wheezy1
 -- PHP Version: 5.4.21-1~dotdeb.1
 
@@ -6427,6 +6427,7 @@ CREATE TABLE IF NOT EXISTS `voips` (
   `login` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pass` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `port` int(11) NOT NULL,
   `pr_adress` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pr_port` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
@@ -6436,8 +6437,8 @@ CREATE TABLE IF NOT EXISTS `voips` (
 -- Dumping data for table `voips`
 --
 
-INSERT INTO `voips` (`id`, `login`, `pass`, `ip`, `pr_adress`, `pr_port`) VALUES
-(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2', '000.000.000.000', '0001');
+INSERT INTO `voips` (`id`, `login`, `pass`, `ip`, `port`, `pr_adress`, `pr_port`) VALUES
+(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2', 5060, '000.000.000.000', '5065');
 
 --
 -- Constraints for dumped tables
