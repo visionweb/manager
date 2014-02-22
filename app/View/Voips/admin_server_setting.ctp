@@ -1,6 +1,5 @@
-<?php print $this->Form->create(false, array('type' => 'file')); ?>
 <div class="span10 form">
-	<br><br>
+	<br><br><?php print $this->Form->create(false, array('type' => 'file')); ?>
 	<h2><?php echo __($title); ?></h2>
 	<br><br>
 
@@ -17,12 +16,18 @@
 			<th>Login</th>
             <th>Password</th>
             <th>IP adress</th>
+            <th>Port</th>
+            <th>Proxy adress</th>
+            <th>Proxy port</th>
         </tr>
 				<td><?php print $voipdata[0]['Voip']['login'];?></td>
  				<td><?php print $voipdata[0]['Voip']['pass'];?></td>
 				<td><?php print $voipdata[0]['Voip']['ip'];?></td>
+				<td><?php print $voipdata[0]['Voip']['port'];?></td>
+				<td><?php print $voipdata[0]['Voip']['pr_adress'];?></td>
+				<td><?php print $voipdata[0]['Voip']['pr_port'];?></td>
                 <td class="actions btn-group">
-                    <?php print $this->Form->submit('Modify', array('name' => 'submit'));
+                    <?php print $this->Form->submit('Edit', array('name' => 'submit'));
 					print $this->Form->end();?>
                 </td>
         </tr>

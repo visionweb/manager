@@ -353,12 +353,14 @@ class VoipsController extends AppController {
 			$new_login=$this->data['User']['old_login'];
 			$new_proxy=$this->data['User']['old_proxy'];
 			$new_port=$this->data['User']['old_port'];
+			$new_s_port=$this->data['User']['old_s_port'];
 			$new_pass=$this->data['User']['old_pass'];
 			$new_ip=$this->data['User']['old_ip'];
 			$new=array(
 					'login'=>$new_login,
 					'pass'=>$new_pass,
 					'ip'=>$new_ip,
+					'port'=>$new_s_port,
 					'pr_adress' =>$new_proxy,
 					'pr_port' =>$new_port
 					);
@@ -394,7 +396,7 @@ class VoipsController extends AppController {
 					!empty($num['Number']['owner'])) 
 					$error.=$num['Number']['phone_number'].'<br>';
 				}
-			if($error!='<br>') $this->Session->setFlash("You can not remove".$error."Remove they accounts first");
+			if($error!='<br>') $this->Session->setFlash(("You can not remove".$error."Remove they accounts first"), 'flash_warning');
 			foreach($toDel as $del)
 				$this->Number->delete($del);
 			$this->redirect(array('action' => 'admin_listNumbers'));
@@ -427,7 +429,7 @@ class VoipsController extends AppController {
 						}
 				if ($exist==0) array_push($new,	array('prefix'=>$prefix,'phone_number'=>substr($i,1)));
 				}
-			if($error!='<br>') $this->Session->setFlash("This numbers alredy exist:".$error);
+			if($error!='<br>') $this->Session->setFlash(("This numbers alredy exist:".$error),'flash_warning');
 			$this->Number->saveAll($new);
 			$this->redirect(array('action' => 'admin_listNumbers'));
 			}
@@ -520,10 +522,9 @@ class VoipsController extends AppController {
 		$this->set(compact('logs'));
 		}
 	
-	public function call_logs() {
+	public function call_logs($id=NULL) {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
-		
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
@@ -532,7 +533,7 @@ class VoipsController extends AppController {
 		$logs=$this->Voip->getLog($period, $numbers, $price);
 		$arr=array();
 		foreach($logs as $log)
-			if($log['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $log);
+			if($log['short']==$id) array_push($arr, $log);
 		$logs=$arr;
 		$this->set('title','Call log');
 		$this->set(compact('logs'));

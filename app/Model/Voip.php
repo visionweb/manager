@@ -142,6 +142,7 @@ class Voip extends AppModel {
 			$logs[$i-1]['user']['firstname']=$array[0];
 			$logs[$i-1]['user']['lastname']=$array[1];
 			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
+			$logs[$i-1]['short']=substr($array[2],1,4);
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['caller']){
 					$logs[$i-1]['owner']=$num['Number']['owner'];
@@ -210,6 +211,7 @@ class Voip extends AppModel {
 		$voipdata=$this->find('all');
 		$server=array();
 		$server['ip']=$voipdata[0]['Voip']['ip'];
+		$server['port']=$voipdata[0]['Voip']['port'];
 		$server['pass']=$voipdata[0]['Voip']['pass'];
 		$server['login']=$voipdata[0]['Voip']['login'];
 		$server['proxy_adress']=$voipdata[0]['Voip']['pr_adress'];

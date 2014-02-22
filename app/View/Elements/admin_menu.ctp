@@ -139,9 +139,12 @@
                                     <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'newAccount'));?>">Nouveau compte</a></li>
                                     <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'consommation'));?>">Consommation</a></li>
                                     <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'configuration'));?>">Configuration</a></li>
+									<li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'call_logs'));?>">Call log</a></li>
                                 </ul>
                             </li>
-                            <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
+
+                            <?php 
+                            if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
                         </ul>
                     </li>
                 </ul>
