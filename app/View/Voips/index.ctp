@@ -3,6 +3,11 @@
 	<h2><?php echo __($title); ?></h2>
 	<br><br>
 	</script>
+	<b>Username:</b> <?php print $this->Session->read('Auth.User.username')?><br>
+	<b>Password:</b> <?php print $server['pass']?><br>
+	<b>Server IP:</b> <?php print $server['ip']?><br>
+	<b>Proxy IP:</b> <?php print $server['proxy_adress']?><br>
+	<b>Proxy port:</b> <?php print $server['proxy_port']?><br><br>
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
             <th>First name</th>

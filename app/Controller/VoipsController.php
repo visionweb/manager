@@ -18,11 +18,19 @@ class VoipsController extends AppController {
  * @return void
  */
 	public function index() {
+	$this->loadModel('Password');
+	$server=$this->Voip->getAccess();
 	$this->loadModel('Number');
 	$numbers=$this->Number->find('all');
+	$password=$this->Password->find('all');
 	$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
 	$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
 	$extension=$this->Voip->xivo("GET", "/1.1/extensions");
+	foreach($password as $pass)
+		if($pass['Password']['login']=$this->Session->read('Auth.User.username')){
+			$server['pass']=$pass['Password']['password'];
+			break;
+			}
 	for ($i=0; $i<sizeof($dataBrut); $i++){
 		$user_list=$this->Voip->xivo("GET", "/1.1/users/".$dataBrut[$i]['id']."/lines");
 		foreach($sip as $sip_l){
@@ -48,6 +56,7 @@ class VoipsController extends AppController {
 	for($i=0; $i<sizeof($dataBrut); $i++)
 		if($dataBrut[$i]['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $dataBrut[$i]);
 	$this->set("listUser", $arr);
+	$this->set(compact('server'));
 	$this->set('title', 'Liste compte');
 }
 
