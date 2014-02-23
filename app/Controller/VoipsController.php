@@ -528,9 +528,12 @@ class VoipsController extends AppController {
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
-		$period='3';
-		if(isset($this->data['for']))$period=$this->data['for'];
-		$logs=$this->Voip->getLog($period, $numbers, $price);
+		if(isset($this->data['start']) and isset($this->data['end'])){
+			$start=$this->data['start'];
+			$end=$this->data['end'];
+			$logs=$this->Voip->getUserLog($start, $end, $numbers, $price);
+			}
+		else $logs=$this->Voip->getUserLog($numbers, $price);
 		$arr=array();
 		foreach($logs as $log)
 			if($log['short']==$id) array_push($arr, $log);

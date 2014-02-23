@@ -169,6 +169,84 @@ class Voip extends AppModel {
 		return $sorted;
 		}
 	
+	function getUserLog($numbers, $price, $start=NULL, $end=NULL){
+		$voipdata=$this->find('all');
+		$ip=$voipdata[0]['Voip']['ip'];
+		$pass=$voipdata[0]['Voip']['pass'];
+		$login=$voipdata[0]['Voip']['login'];
+				
+		foreach($price as $row){
+			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
+			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
+			}	
+		
+		if(isset($start) and isset($end)){
+			$array = array_filter(explode('/', $start));
+			$start=$array[0].'-'.$array[1].'-'.$array[2].'T00:00:00';
+			$array = array_filter(explode('/', $end));
+			$end=$array[0].'-'.$array[1].'-'.$array[2].'T00:00:00';
+			$filter='?start_date='.$start.'&end_date='.$end;
+			exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
+			}
+		else{
+			exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs", $value);
+			}
+		
+		$logs=array();
+		for($i=2; $i<sizeof($value); $i++){
+			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
+			switch(substr($value[$i], 5, 2)){
+				case '01': $logs[$i-1]['date']['month']='January'; break;
+				case '02': $logs[$i-1]['date']['month']='February'; break;
+				case '03': $logs[$i-1]['date']['month']='March'; break;
+				case '04': $logs[$i-1]['date']['month']='April'; break;
+				case '05': $logs[$i-1]['date']['month']='May'; break;
+				case '06': $logs[$i-1]['date']['month']='June'; break;
+				case '07': $logs[$i-1]['date']['month']='July'; break;
+				case '08': $logs[$i-1]['date']['month']='August'; break;
+				case '09': $logs[$i-1]['date']['month']='September'; break;
+				case '10': $logs[$i-1]['date']['month']='October'; break;
+				case '11': $logs[$i-1]['date']['month']='Novenber'; break;
+				case '12': $logs[$i-1]['date']['month']='December'; break;
+				}
+			$logs[$i-1]['date']['day']=substr($value[$i], 8, 2);
+			$logs[$i-1]['date']['hour']=substr($value[$i], 11, 2);
+			$logs[$i-1]['date']['minute']=substr($value[$i], 14, 2);
+			$logs[$i-1]['date']['second']=substr($value[$i], 17, 2);
+			$array = array_filter(explode(',', $value[$i-1])); 
+			$logs[$i-1]['call']['called']=$array[2];
+			$logs[$i-1]['call']['duration']=$array[3];
+			$array = array_filter(explode(' ', $array[1])); 
+			$logs[$i-1]['user']['firstname']=$array[0];
+			$logs[$i-1]['user']['lastname']=$array[1];
+			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
+			$logs[$i-1]['short']=substr($array[2],1,4);
+			foreach($numbers as $num){
+				if($num['Number']['short']==$logs[$i-1]['call']['caller']){
+					$logs[$i-1]['owner']=$num['Number']['owner'];
+					$logs[$i-1]['call']['caller']=$num['Number']['prefix'].$num['Number']['phone_number'];
+					break;
+					}
+				}
+			foreach($numbers as $num){
+				if($num['Number']['short']==$logs[$i-1]['call']['called']){
+					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest);
+					$logs[$i-1]['call']['called']=$num['Number']['prefix'].$num['Number']['phone_number'];
+					$logs[$i-1]['call']['price']=substr($tab['price']*$logs[$i-1]['call']['duration']/60, 0,4);
+					break;
+					}
+				}
+			}
+		$owners=array();
+		$sorted=array();
+		foreach($logs as $log) array_push($owners, $log['owner']);
+		$owners=array_unique($owners);
+		foreach($owners as $owner)
+			foreach($logs as $log)
+				if($log['owner']==$owner) array_push($sorted, $log);
+		return $sorted;
+		}
+	
 	/*
 	 * function operating with XiVO REST API
 	 * methods:
