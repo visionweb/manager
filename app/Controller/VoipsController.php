@@ -505,19 +505,36 @@ class VoipsController extends AppController {
 	public function admin_call_logs() {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
-		
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
 		$period='3';
+		$show_name=false;
 		if(isset($this->data['for']))$period=$this->data['for'];
 		$logs=$this->Voip->getLog($period, $numbers, $price);
+		$user=array('All');
+		$setname='All';
+		if(isset($this->data['name'])) $setname=$this->data['name'];
 		if (isset($this->data['acc']) and !empty($this->data['acc'])){
 			$arr=array();
 			foreach($logs as $log)
-				if($log['owner']==$this->data['acc']) array_push($arr, $log);
+				if($log['owner']==$this->data['acc']){
+					array_push($arr, $log);
+					array_push($user, $log['user']['firstname'].' '.$log['user']['lastname']);
+					$show_name=true;
+					}
 			$logs=$arr;
 			}
+		if ($show_name==true and $setname!='All'){
+			foreach($logs as $log)
+				if($log['user']['firstname'].' '.$log['user']['lastname']==$setname){
+					array_push($arr, $log);
+					}
+			$logs=$arr;
+			}
+		$user=array_unique($user);
+		$this->set(compact('user'));	
+		$this->set(compact('show_name'));
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
 		}
@@ -538,7 +555,7 @@ class VoipsController extends AppController {
 			if(sizeof($array_s)==3 and sizeof($array_e)==3 and
 				(int)$array_s[2]>0 and (int)$array_s[2]<9999 and
 				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
-				(int)$array_s[0]>0 and (int)$array_s[0]<31
+				(int)$array_s[0]>0 and (int)$array_s[0]<32
 				)
 				$logs=$this->Voip->getUserLog($numbers, $price, $start, $end);
 			else
