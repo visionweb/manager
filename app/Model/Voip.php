@@ -182,14 +182,14 @@ class Voip extends AppModel {
 		
 		if(isset($start) and isset($end)){
 			$array = array_filter(explode('/', $start));
-			$start=$array[0].'-'.$array[1].'-'.$array[2].'T00:00:00';
+			$start=$array[2].'-'.$array[1].'-'.$array[0].'T00:00:00';
 			$array = array_filter(explode('/', $end));
-			$end=$array[0].'-'.$array[1].'-'.$array[2].'T00:00:00';
+			$end=$array[2].'-'.$array[1].'-'.($array[0]+1).'T00:00:00';
 			$filter='?start_date='.$start.'&end_date='.$end;
 			exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
 			}
 		else{
-			exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs", $value);
+			exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs'", $value);
 			}
 		
 		$logs=array();

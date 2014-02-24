@@ -528,10 +528,24 @@ class VoipsController extends AppController {
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
-		if(isset($this->data['start']) and isset($this->data['end'])){
+		if(isset($this->data['start']) and isset($this->data['end']) and
+		!empty($this->data['start']) and !empty($this->data['end'])){
 			$start=$this->data['start'];
 			$end=$this->data['end'];
-			$logs=$this->Voip->getUserLog($start, $end, $numbers, $price);
+			$array_s = array_filter(explode('/', $start));
+			$array_e = array_filter(explode('/', $end));
+			//date validation
+			if(sizeof($array_s)==3 and sizeof($array_e)==3 and
+				(int)$array_s[2]>0 and (int)$array_s[2]<9999 and
+				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
+				(int)$array_s[0]>0 and (int)$array_s[0]<31
+				)
+				$logs=$this->Voip->getUserLog($numbers, $price, $start, $end);
+			else
+				{
+				$this->Session->setFlash(("Invalid date"), 'flash_warning');
+				$logs=$this->Voip->getUserLog($numbers, $price);
+				}
 			}
 		else $logs=$this->Voip->getUserLog($numbers, $price);
 		$arr=array();
