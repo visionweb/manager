@@ -56,7 +56,7 @@ class Voip extends AppModel {
 		}      
 	
 	//get logs from $request and convert to aray
-	function getLog($period, $numbers, $price){
+	function getLog($numbers, $price, $start=NULL, $end=NULL){
 		$voipdata=$this->find('all');
 		$ip=$voipdata[0]['Voip']['ip'];
 		$pass=$voipdata[0]['Voip']['pass'];
@@ -66,55 +66,18 @@ class Voip extends AppModel {
 			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
 			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
 			}	
-		$now=substr(date('c'), 0, 19);
-		switch($period){
-			case '0':
-			$start=date('o').'-'.date('m').'-'.date('j').'T00:00:00';
-			$filter='?start_date='.$start.'&end_date='.$now;
-			break;
-			
-			case 1:
-			if((date('j')-date('w'))<=0){
-				switch(date('m')-1){
-					case 11||9||6||4:
-					$day=30+(date('j')-date('w'));
-					break;
-					case 10||8||7||5||3||1|0:
-					$day=31+(date('j')-date('w'));
-					break;
-					case 2:
-					if(date('L')==1) $day=29+(date('j')-date('w'));
-					else $day=28+(date('j')-date('w'));
-					break;
-					}
-					
-				if(date('m')-1==0){
-					$month=12;
-					$year=date('o')-1;
-					}
-				else{
-					$month=date('m')-1;
-					$year=date('o');
-					if(sizeof($month)==1) $month='0'.$month;
-					}
-				$start=$year.'-'.$month.'-'.$day.'T00:00:00';
-				}
-			elseif (sizeof(date('j'))==1) $start=date('o').'-'.date('m').'-0'.(date('j')-date('w')).'T00:00:00';
-			else $start=date('o').'-'.date('m').'-0'.(date('j')-date('w')).'T00:00:00';
-			break;
-			
-			case '2':
-			$start=date('o').'-'.date('m').'-01T00:00:00';
-			break;
-	
-			case '3':
-			$start=date('o').'-01-01T00:00:00';
-			break;
+			if(isset($start) and isset($end)){
+				$array = array_filter(explode('/', $start));
+				$start=$array[2].'-'.$array[1].'-'.$array[0].'T00:00:00';
+				$array = array_filter(explode('/', $end));
+				$end=$array[2].'-'.$array[1].'-'.($array[0]+1).'T00:00:00';
+				$filter='?start_date='.$start.'&end_date='.$end;
+				exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
 			}
-			
-		$filter='?start_date='.$start.'&end_date='.$now;
+		else{
+				exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs'", $value);
+			}
 		$logs=array();
-		exec("curl --digest --insecure -u ".$login.":".$pass." 'https://".$ip.":50051/1.1/call_logs".$filter."'", $value);
 		for($i=2; $i<sizeof($value); $i++){
 			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
 			switch(substr($value[$i], 5, 2)){
@@ -146,14 +109,14 @@ class Voip extends AppModel {
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['caller']){
 					$logs[$i-1]['owner']=$num['Number']['owner'];
-					$logs[$i-1]['call']['caller']=$num['Number']['prefix'].$num['Number']['phone_number'];
+					$logs[$i-1]['call']['caller']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
 					break;
 					}
 				}
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['call']['called']){
-					$tab=$this->testNumber($num['Number']['prefix'].$num['Number']['phone_number'],$tabDest);
-					$logs[$i-1]['call']['called']=$num['Number']['prefix'].$num['Number']['phone_number'];
+					$tab=$this->testNumber($num['Number']['prefix'].substr($num['Number']['phone_number'],1),$tabDest);
+					$logs[$i-1]['call']['called']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
 					$logs[$i-1]['call']['price']=substr($tab['price']*$logs[$i-1]['call']['duration']/60, 0,4);
 					break;
 					}

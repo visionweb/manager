@@ -45,10 +45,10 @@ class VoipsController extends AppController {
 				$dataBrut[$i]["line"]["number"]=$short;
 				$dataBrut[$i]["password"]=$sip_l["secret"];
 				foreach($numbers as $owner)
-					if ('00'.$owner['Number']['prefix'].$owner['Number']['phone_number']==$dataBrut[$i]['userfield']){
-						$dataBrut[$i]['owner']=$owner['Number']['owner'];
-						break;
-						}
+						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield']){
+							$dataBrut[$i]['owner']=$owner['Number']['owner'];
+							break;
+							}
 				}
 			}
 		}
@@ -201,7 +201,7 @@ class VoipsController extends AppController {
 					$dataBrut[$i]["line"]["number"]=$short;
 					$dataBrut[$i]["password"]=$sip_l["secret"];
 					foreach($numbers as $owner)
-						if ('00'.$owner['Number']['prefix'].$owner['Number']['phone_number']==$dataBrut[$i]['userfield']){
+						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield']){
 							$dataBrut[$i]['owner']=$owner['Number']['owner'];
 							break;
 							}
@@ -240,7 +240,7 @@ class VoipsController extends AppController {
 			$this->loadModel("Number");
 			$nums_owns=$this->Number->find("all");
 			for($i=0; $i<sizeof($nums_owns); $i++){
-				$value="00".$nums_owns[$i]['Number']['prefix'].$nums_owns[$i]['Number']['phone_number'];
+				$value="00".$nums_owns[$i]['Number']['prefix'].substr($nums_owns[$i]['Number']['phone_number'],1);
 				if($this->data['User']['external_phone_number']==$value){
 					$own=array(
 						'owner'=>$this->data['User']['owner'],
@@ -301,7 +301,7 @@ class VoipsController extends AppController {
 		$ex_num=array();
 		for($i=0; $i<sizeof($nums_owns); $i++){
 			if(empty($nums_owns[$i]['Number']['owner'])){
-				$value="00".substr($nums_owns[$i]['Number']['prefix'],-2).$nums_owns[$i]['Number']['phone_number'];
+				$value="00".substr($nums_owns[$i]['Number']['prefix'],-2).substr($nums_owns[$i]['Number']['phone_number'],1);
 				$ex_num[$value]=$value;
 				}
 			if (sizeof($ex_num)>20) break;
@@ -508,10 +508,27 @@ class VoipsController extends AppController {
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
-		$period='3';
 		$show_name=false;
-		if(isset($this->data['for']))$period=$this->data['for'];
-		$logs=$this->Voip->getLog($period, $numbers, $price);
+		if(isset($this->data['start']) and isset($this->data['end']) and
+		!empty($this->data['start']) and !empty($this->data['end'])){
+			$start=$this->data['start'];
+			$end=$this->data['end'];
+			$array_s = array_filter(explode('/', $start));
+			$array_e = array_filter(explode('/', $end));
+			//date validation
+			if(sizeof($array_s)==3 and sizeof($array_e)==3 and
+				(int)$array_s[2]>0 and (int)$array_s[2]<9999 and
+				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
+				(int)$array_s[0]>0 and (int)$array_s[0]<32
+				)
+				$logs=$this->Voip->getLog($numbers, $price, $start, $end);
+			else
+				{
+				$this->Session->setFlash(("Invalid date"), 'flash_warning');
+				$logs=$this->Voip->getLog($numbers, $price);
+				}
+			}
+		else $logs=$this->Voip->getLog($numbers, $price);
 		$user=array('All');
 		$setname='All';
 		if(isset($this->data['name'])) $setname=$this->data['name'];

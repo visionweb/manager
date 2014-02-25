@@ -5,8 +5,8 @@
 	    <fieldset>
 	    <?php
 			print $this->Form->create(false, array('type' => 'file'));
-			$filter = array('0' => 'Day', '1' => 'Week', '2' => 'Month', '3'=>'Year');
-			print $this->Form->input('for', array('label'=>'Calls for period', 'options'=>$filter, 'default'=>'3'));
+			print $this->Form->input('start', array('label'=>'Start date. DD/MM/YYYY'));
+			print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
 			print $this->Form->input('acc', array('label'=>'Show accounts'));
 			if($show_name==true) print $this->Form->input('name', array('label'=>'Show SIP', 'options'=>$user));
 			print $this->Form->end('Show');
