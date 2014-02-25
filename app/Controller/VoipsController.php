@@ -529,7 +529,7 @@ class VoipsController extends AppController {
 				}
 			}
 		else $logs=$this->Voip->getLog($numbers, $price);
-		$user=array('All');
+		$user=array('All'=>'All');
 		$setname='All';
 		if(isset($this->data['name'])) $setname=$this->data['name'];
 		if (isset($this->data['acc']) and !empty($this->data['acc'])){
@@ -537,11 +537,12 @@ class VoipsController extends AppController {
 			foreach($logs as $log)
 				if($log['owner']==$this->data['acc']){
 					array_push($arr, $log);
-					array_push($user, $log['user']['firstname'].' '.$log['user']['lastname']);
+					$user[$log['user']['firstname'].' '.$log['user']['lastname']]=$log['user']['firstname'].' '.$log['user']['lastname'];
 					$show_name=true;
 					}
 			$logs=$arr;
 			}
+		$arr=array();
 		if ($show_name==true and $setname!='All'){
 			foreach($logs as $log)
 				if($log['user']['firstname'].' '.$log['user']['lastname']==$setname){
@@ -550,7 +551,7 @@ class VoipsController extends AppController {
 			$logs=$arr;
 			}
 		$user=array_unique($user);
-		$this->set(compact('user'));	
+		$this->set(compact('user'));
 		$this->set(compact('show_name'));
 		$this->set('title','Call log');
 		$this->set(compact('logs'));
@@ -574,14 +575,14 @@ class VoipsController extends AppController {
 				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
 				(int)$array_s[0]>0 and (int)$array_s[0]<32
 				)
-				$logs=$this->Voip->getUserLog($numbers, $price, $start, $end);
+				$logs=$this->Voip->getLog($numbers, $price, $start, $end);
 			else
 				{
 				$this->Session->setFlash(("Invalid date"), 'flash_warning');
-				$logs=$this->Voip->getUserLog($numbers, $price);
+				$logs=$this->Voip->getLog($numbers, $price);
 				}
 			}
-		else $logs=$this->Voip->getUserLog($numbers, $price);
+		else $logs=$this->Voip->getLog($numbers, $price);
 		$arr=array();
 		foreach($logs as $log)
 			if($log['short']==$id) array_push($arr, $log);
