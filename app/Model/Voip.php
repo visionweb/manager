@@ -153,8 +153,14 @@ class Voip extends AppModel {
 					$logs[$i-1]['call']['price']=0;
 					}
 			}
-			
-		return $logs;
+		$owners=array();
+		$sorted=array();
+		foreach($logs as $log) array_push($owners, $log['owner']);
+		$owners=array_unique($owners);
+		foreach($owners as $owner)
+			foreach($logs as $log)
+				if($log['owner']==$owner) array_push($sorted, $log);
+		return $sorted;
 		}
 
 	
