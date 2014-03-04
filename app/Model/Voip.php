@@ -13,20 +13,20 @@ class Voip extends AppModel {
 
 	//find information about number
 	function testNumber($number, $tabDest){
-		if((strlen($number) == 4)||(strlen($number) > 5)){
-			$num = $number;
+		if((substr($number,0,1) == "0") || ((substr($number,0,2) == 33) && strlen($number) > 10)) {
+			if(substr($number,0,1) == "0") $num = substr($number,1,3);
+			else $num=substr($number,0,3);
 			$toCheck=true;
-			}	
+			}
 		elseif((substr($number,0,2) == "00") || ((substr($number,0,2) != 33) && strlen($number) > 10)){
 			if(substr($number,0,2) == "00") $num = substr($number,2);
 			else $num = $number;
 			$toCheck=true;
 			}
-		elseif((substr($number,0,1) == "0") || ((substr($number,0,2) == 33) && strlen($number) > 10)) {
-			if(substr($number,0,1) == "0") $num = substr($number,1,3);
-			else $num=substr($number,0,3);
+		elseif((strlen($number) == 4)||(strlen($number) > 5)){
+			$num = $number;
 			$toCheck=true;
-			}
+			}	
 		else{
 			$dest = 'Autre';
 			$price = 0;
@@ -58,10 +58,13 @@ class Voip extends AppModel {
 	//get logs from $request and convert to aray
 	function getLog($numbers, $price, $start=NULL, $end=NULL){
 		$server=$this->getAccess();				
+		$users=$this->xivo("GET", "/1.1/users");
 		foreach($price as $row){
 			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
 			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
-			}	
+			}
+			
+		//begin of date filter	
 			if(isset($start) and isset($end)){
 				$array = array_filter(explode('/', $start));
 				$start=$array[2].'-'.$array[1].'-'.$array[0].'T00:00:00';
@@ -73,6 +76,8 @@ class Voip extends AppModel {
 		else{
 				exec("curl --digest --insecure -u ".$server['login'].":".$server['pass']." 'https://".$server['ip'].":50051/1.1/call_logs'", $value);
 			}
+		//end of date filter
+		
 		$logs=array();
 		for($i=2; $i<sizeof($value); $i++){
 			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
@@ -90,42 +95,66 @@ class Voip extends AppModel {
 				case '11': $logs[$i-1]['date']['month']='Novenber'; break;
 				case '12': $logs[$i-1]['date']['month']='December'; break;
 				}
+			$array = array_filter(explode(',', $value[$i-1]));
+			if (isset($array[4])){ 
+				$logs[$i-1]['direction']='outcoming';
+				$logs[$i-1]['call']['caller']=$array[4];
+				}
+			else $logs[$i-1]['direction']='incoming';
+			$array = array_filter(explode(' ', $array[1]));
 			$logs[$i-1]['date']['day']=substr($value[$i], 8, 2);
 			$logs[$i-1]['date']['hour']=substr($value[$i], 11, 2);
 			$logs[$i-1]['date']['minute']=substr($value[$i], 14, 2);
 			$logs[$i-1]['date']['second']=substr($value[$i], 17, 2);
 			$array = array_filter(explode(',', $value[$i-1])); 
 			$logs[$i-1]['call']['called']=$array[2];
-			$logs[$i-1]['call']['duration']=$array[3];
-			$array = array_filter(explode(' ', $array[1])); 
+			if(isset($array[3])) $logs[$i-1]['call']['duration']=$array[3];
+			else $logs[$i-1]['call']['duration']=0;
+			$array = array_filter(explode(' ', $array[1]));
+			$check=1;
+			
+			//check is this our user
+			foreach($users as $user)
+				if($user['firstname'].' '.$user['lastname']==$array[0].' '.$array[1]){
+					$check=0;
+					break;
+					}
+			if($check==1){
+				unset($logs[$i-1]);
+				continue;
+				}
+			
 			$logs[$i-1]['user']['firstname']=$array[0];
 			$logs[$i-1]['user']['lastname']=$array[1];
-			$logs[$i-1]['call']['caller']=substr($array[2],1,4);
+			if(isset($logs[$i-1]['call']['caller'])==0)
+				$logs[$i-1]['call']['caller']=substr($array[2],1,4);
 			$logs[$i-1]['short']=substr($array[2],1,4);
 			foreach($numbers as $num){
-				if($num['Number']['short']==$logs[$i-1]['call']['caller']){
+				if($num['Number']['short']==$logs[$i-1]['short']){
 					$logs[$i-1]['owner']=$num['Number']['owner'];
 					$logs[$i-1]['call']['caller']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
 					break;
 					}
-				}
-			foreach($numbers as $num){
-				if($num['Number']['short']==$logs[$i-1]['call']['called']){
-					$tab=$this->testNumber($num['Number']['prefix'].substr($num['Number']['phone_number'],1),$tabDest);
-					$logs[$i-1]['call']['called']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
-					$logs[$i-1]['call']['price']=substr($tab['price']*$logs[$i-1]['call']['duration']/60, 0,4);
-					break;
+				}	
+				foreach($numbers as $num)
+					if($num['Number']['short']==$logs[$i-1]['call']['called']){	
+						$logs[$i-1]['call']['called']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
+						break;
+						}
+				if($logs[$i-1]['direction']=='outcoming'){
+					$tab=$this->testNumber($logs[$i-1]['call']['called'], $tabDest);
+					$logs[$i-1]['call']['price']=round($tab['price']*$logs[$i-1]['call']['duration']/60,2);
+					$logs[$i-1]['call']['destination']=$tab['dest'];
 					}
-				}
+				else if($logs[$i-1]['direction']=='incoming'){
+					$number=$logs[$i-1]['call']['called'];
+					$logs[$i-1]['call']['called']=$logs[$i-1]['call']['caller'];
+					$logs[$i-1]['call']['caller']=$number;
+					$logs[$i-1]['call']['price']=0;
+					}
 			}
-		$owners=array();
-		$sorted=array();
-		foreach($logs as $log) array_push($owners, $log['owner']);
-		$owners=array_unique($owners);
-		foreach($owners as $owner)
-			foreach($logs as $log)
-				if($log['owner']==$owner) array_push($sorted, $log);
-		return $sorted;
+			
+		return $logs;
 		}
 
 	
