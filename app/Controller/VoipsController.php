@@ -162,23 +162,13 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
-		//$this->autoRender = false;
+		$this->autoRender = false;
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
 		$user_line=$this->Voip->xivo("GET", "/1.1/users/".$id."/lines");
 		$line_id=$user_line[0]['line_id'];
 		$line_extension=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
 		$extens=$this->Voip->xivo("GET", "/1.1/extensions");
 		$extension_id=$line_extension['extension_id'];
-		/*$testarr=array();
-		foreach($extens as $ex){
-			if($ex['exten']!=1099 and
-			$ex['exten']!=1001 and
-			$ex['exten']!=1098 and
-			substr($ex['exten'],0,1)!='_' and
-			substr($ex['exten'],0,1)!='*' 
-			)
-			$this->Voip->xivo("DELETE", "/1.1/extensions/".$ex['id']);
-			}*/
 		$this->Voip->xivo("DELETE", "/1.1/lines/".$line_id."/extension");
 		$this->Voip->xivo("DELETE", "/1.1/users/".$id."/lines/".$line_id);
 		$this->Voip->xivo("DELETE", "/1.1/lines_sip/".$line_id);
