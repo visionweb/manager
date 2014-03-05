@@ -147,7 +147,7 @@ class VoipsController extends AppController {
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
 				'language'=> $this->data['User']['language'],
-				'outcallerid'=> 'custom',
+				'outgoing_caller_id'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				);
 			$this->Voip->xivo("PUT", "/1.1/users/".$id, $data);
@@ -162,15 +162,33 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
-		$this->autoRender = false;
+		//$this->autoRender = false;
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
+		$user_line=$this->Voip->xivo("GET", "/1.1/users/".$id."/lines");
+		$line_id=$user_line[0]['line_id'];
+		$line_extension=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
+		$extens=$this->Voip->xivo("GET", "/1.1/extensions");
+		$extension_id=$line_extension['extension_id'];
+		/*$testarr=array();
+		foreach($extens as $ex){
+			if($ex['exten']!=1099 and
+			$ex['exten']!=1001 and
+			$ex['exten']!=1098 and
+			substr($ex['exten'],0,1)!='_' and
+			substr($ex['exten'],0,1)!='*' 
+			)
+			$this->Voip->xivo("DELETE", "/1.1/extensions/".$ex['id']);
+			}*/
+		$this->Voip->xivo("DELETE", "/1.1/lines/".$line_id."/extension");
+		$this->Voip->xivo("DELETE", "/1.1/users/".$id."/lines/".$line_id);
+		$this->Voip->xivo("DELETE", "/1.1/lines_sip/".$line_id);
+		$this->Voip->xivo("DELETE", "/1.1/extensions/".$extension_id);
 		$this->Voip->xivo("DELETE", "/1.1/users/".$id);
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
-		$pref=substr($userdata['userfield'], -12,2);
-		$num=substr($userdata['userfield'], -10);
+		$num=substr($userdata['userfield'], -9);
 		for($i=0;$i<sizeof($nums_owns);$i++){
-			if($nums_owns[$i]['Number']['phone_number']==$num){
+			if(substr($nums_owns[$i]['Number']['phone_number'],-9)==$num){
 				$this->Number->id=$nums_owns[$i]['Number']['id'];
 				$own=array('owner'=>'', 'short'=>'');
 				$this->Number->save($own);
