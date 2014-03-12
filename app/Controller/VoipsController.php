@@ -321,7 +321,7 @@ class VoipsController extends AppController {
 		$avalible_numbers=array();
 		$unavalible_numbers=array();
 		$short=array();
-		for($i=1000;$i<1099;$i++){
+		for($i=1000;$i<1999;$i++){
 			array_push($avalible_numbers, $i);
 			}
 		for($i=0;$i<sizeof($exten_num);$i++){
@@ -449,6 +449,15 @@ class VoipsController extends AppController {
 		if ($this->request->is('post')) {
 			$this->redirect(array('action' => 'admin_server'));
 			}
+		}
+		
+	public function admin_logo(){
+		if($this->request->is('post')){
+			$filename = WWW_ROOT. DS . 'img'.DS.'logo.png'; 
+			move_uploaded_file($this->data['file']['tmp_name'],$filename);
+			$this->redirect(array('action' => 'admin_logo'));
+			}
+		$this->set("title", "Logotype");
 		}
 
     public function admin_configuration(){

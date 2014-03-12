@@ -1,5 +1,6 @@
 <?php echo $this->Html->image('logo.png', array(
     'alt' => 'Manager',
+    'width'=>'206',
     'url' => array('controller' => 'actualites','action' => 'index'),
     'style' => 'padding-top:10px; padding-left:15px'
 )); ?>

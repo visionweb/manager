@@ -16,6 +16,7 @@
 		<li><a href="<?php print $this->Html->url(array('action' => 'newNumbers'))?>">New numbers</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'listNumbers'))?>">Numbers list</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
+		<li><a href="<?php print $this->Html->url(array('action' => 'logo'))?>">Logotype</a></li>
 	</ul>
 		<legend><?php echo __('Price'); ?></legend>
 		<?php
