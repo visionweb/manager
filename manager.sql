@@ -2,10 +2,10 @@
 -- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: 172.16.0.16
--- Generation Time: Mar 04, 2014 at 10:59 PM
--- Server version: 5.5.35-0+wheezy1
--- PHP Version: 5.4.21-1~dotdeb.1
+-- Хост: 172.16.8.17
+-- Время создания: Мар 12 2014 г., 16:54
+-- Версия сервера: 5.5.35-0+wheezy1
+-- Версия PHP: 5.4.26-1~dotdeb.1
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `manager`
+-- База данных: `managero`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acos`
+-- Структура таблицы `acos`
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=370 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=371 ;
 
 --
--- Dumping data for table `acos`
+-- Дамп данных таблицы `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(92, NULL, NULL, NULL, 'controllers', 1, 556),
+(92, NULL, NULL, NULL, 'controllers', 1, 558),
 (93, 92, NULL, NULL, 'CategorieFaqs', 2, 23),
 (94, 93, NULL, NULL, 'index', 3, 4),
 (95, 93, NULL, NULL, 'view', 5, 6),
@@ -288,7 +288,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (335, 332, NULL, NULL, 'admin_add', 489, 490),
 (336, 332, NULL, NULL, 'admin_edit', 491, 492),
 (337, 269, NULL, NULL, 'admin_search', 397, 398),
-(338, 92, NULL, NULL, 'Voips', 494, 547),
+(338, 92, NULL, NULL, 'Voips', 494, 549),
 (339, 338, NULL, NULL, 'index', 495, 496),
 (340, 338, NULL, NULL, 'view', 497, 498),
 (341, 338, NULL, NULL, 'admin_index', 499, 500),
@@ -307,10 +307,10 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (354, 338, NULL, NULL, 'user_account', 525, 526),
 (355, 338, NULL, NULL, 'voipView', 527, 528),
 (356, 151, NULL, NULL, 'voipList', 279, 280),
-(357, 92, NULL, NULL, 'Modules', 548, 555),
-(358, 357, NULL, NULL, 'admin_index', 549, 550),
-(359, 357, NULL, NULL, 'admin_enable', 551, 552),
-(360, 357, NULL, NULL, 'admin_disable', 553, 554),
+(357, 92, NULL, NULL, 'Modules', 550, 557),
+(358, 357, NULL, NULL, 'admin_index', 551, 552),
+(359, 357, NULL, NULL, 'admin_enable', 553, 554),
+(360, 357, NULL, NULL, 'admin_disable', 555, 556),
 (361, 338, NULL, NULL, 'admin_removenumber', 529, 530),
 (362, 338, NULL, NULL, 'admin_server', 531, 532),
 (363, 338, NULL, NULL, 'admin_listNumbers', 533, 534),
@@ -319,12 +319,13 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (366, 338, NULL, NULL, 'admin_changeprice', 539, 540),
 (367, 338, NULL, NULL, 'admin_call_logs', 541, 542),
 (368, 338, NULL, NULL, 'admin_callLogs', 543, 544),
-(369, 338, NULL, NULL, 'call_logs', 545, 546);
+(369, 338, NULL, NULL, 'admin_logo', 545, 546),
+(370, 338, NULL, NULL, 'call_logs', 547, 548);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actualites`
+-- Структура таблицы `actualites`
 --
 
 CREATE TABLE IF NOT EXISTS `actualites` (
@@ -336,21 +337,10 @@ CREATE TABLE IF NOT EXISTS `actualites` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
---
--- Dumping data for table `actualites`
---
-
-INSERT INTO `actualites` (`id`, `titre_actu`, `contenu_actu`, `created`, `actif_actu`) VALUES
-(1, 'Lancement du manager', '<p>Ceci est la 1&egrave;re news du manager</p>', '2013-04-22 14:57:29', 1),
-(2, 'Information', '<p>A titre d''information, j''utilise un <strong>plugin</strong> <span style="text-decoration: underline;">Tinymce</span> pour <em>&eacute;diter</em> mes actualit&eacute;s</p>', '2013-04-22 15:08:46', 1),
-(3, 'test', '<p>test tset</p>', '2013-05-30 11:00:14', 0),
-(4, 'Plus d''actualité', '<p>euhh</p>', '2013-07-01 17:53:36', 1),
-(5, 'Flash', '<p>Couleur en fond vert du message vert</p>', '2013-07-08 16:58:42', 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros`
+-- Структура таблицы `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
@@ -362,10 +352,10 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
--- Dumping data for table `aros`
+-- Дамп данных таблицы `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
@@ -376,37 +366,36 @@ INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (5, NULL, 'Group', 4, NULL, 19, 20),
 (6, NULL, 'Group', 5, NULL, 21, 26),
 (7, NULL, 'Group', 6, NULL, 27, 28),
-(8, NULL, 'Group', 7, NULL, 29, 38),
-(9, NULL, 'Group', 8, NULL, 39, 40),
+(8, NULL, 'Group', 7, NULL, 29, 36),
+(9, NULL, 'Group', 8, NULL, 37, 38),
 (10, 3, 'User', 4, NULL, 16, 17),
 (11, 6, 'User', 5, NULL, 22, 23),
 (12, 6, 'User', 6, NULL, 24, 25),
-(13, NULL, 'Group', 9, NULL, 41, 42),
+(13, NULL, 'Group', 9, NULL, 39, 40),
 (14, 8, 'User', 7, NULL, 30, 31),
 (15, 8, 'User', 8, NULL, 32, 33),
 (16, 1, 'User', 9, NULL, 4, 5),
 (17, 1, 'User', 10, NULL, 6, 7),
 (18, 1, 'User', 11, NULL, 8, 9),
 (19, 1, 'User', 12, NULL, 10, 11),
-(20, NULL, 'Group', 10, NULL, 43, 44),
-(21, NULL, 'Group', 11, NULL, 45, 46),
-(22, NULL, 'Group', 12, NULL, 47, 48),
-(23, NULL, 'Group', 13, NULL, 49, 50),
-(24, NULL, 'Group', 14, NULL, 51, 52),
-(25, NULL, 'Group', 15, NULL, 53, 54),
-(26, NULL, 'Group', 16, NULL, 55, 56),
-(27, NULL, 'Group', 17, NULL, 57, 58),
-(28, NULL, 'Group', 18, NULL, 59, 60),
-(29, NULL, 'Group', 19, NULL, 61, 62),
-(30, NULL, 'Group', 20, NULL, 63, 64),
+(20, NULL, 'Group', 10, NULL, 41, 42),
+(21, NULL, 'Group', 11, NULL, 43, 44),
+(22, NULL, 'Group', 12, NULL, 45, 46),
+(23, NULL, 'Group', 13, NULL, 47, 48),
+(24, NULL, 'Group', 14, NULL, 49, 50),
+(25, NULL, 'Group', 15, NULL, 51, 52),
+(26, NULL, 'Group', 16, NULL, 53, 54),
+(27, NULL, 'Group', 17, NULL, 55, 56),
+(28, NULL, 'Group', 18, NULL, 57, 58),
+(29, NULL, 'Group', 19, NULL, 59, 60),
+(30, NULL, 'Group', 20, NULL, 61, 62),
 (31, 8, 'User', 13, NULL, 34, 35),
-(32, NULL, 'Group', 10, NULL, 65, 66),
-(33, 8, 'User', 14, NULL, 36, 37);
+(32, NULL, 'Group', 10, NULL, 63, 64);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros_acos`
+-- Структура таблицы `aros_acos`
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
@@ -419,10 +408,10 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
   `_delete` varchar(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=113 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
 
 --
--- Dumping data for table `aros_acos`
+-- Дамп данных таблицы `aros_acos`
 --
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
@@ -527,13 +516,12 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 (107, 32, 157, '1', '1', '1', '1'),
 (108, 32, 158, '1', '1', '1', '1'),
 (109, 32, 136, '1', '1', '1', '1'),
-(111, 10, 193, '-1', '-1', '-1', '-1'),
-(112, 3, 369, '1', '1', '1', '1');
+(111, 10, 193, '-1', '-1', '-1', '-1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_faqs`
+-- Структура таблицы `categorie_faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_faqs` (
@@ -545,7 +533,7 @@ CREATE TABLE IF NOT EXISTS `categorie_faqs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `categorie_faqs`
+-- Дамп данных таблицы `categorie_faqs`
 --
 
 INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, `actif_cat_faq`) VALUES
@@ -556,7 +544,7 @@ INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_tickets`
+-- Структура таблицы `categorie_tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_tickets` (
@@ -567,7 +555,7 @@ CREATE TABLE IF NOT EXISTS `categorie_tickets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `categorie_tickets`
+-- Дамп данных таблицы `categorie_tickets`
 --
 
 INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VALUES
@@ -577,7 +565,7 @@ INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VA
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentaires`
+-- Структура таблицы `commentaires`
 --
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
@@ -593,54 +581,10 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   KEY `fk_commentaires_users1_idx` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
 
---
--- Dumping data for table `commentaires`
---
-
-INSERT INTO `commentaires` (`id`, `text_commentaire`, `created`, `actif_commentaire`, `ticket_id`, `user_id`, `task_id`) VALUES
-(1, 'un test', '2013-05-16 14:16:39', 1, 2, 2, 0),
-(3, 'ticket admin tel', '2013-05-16 14:44:40', 1, 4, 2, 0),
-(4, 'admin ticket autre', '2013-05-16 14:47:20', 1, 5, 2, 0),
-(7, 'sefs', '2013-05-17 10:53:50', 1, 8, 2, 0),
-(8, 'tes new add', '2013-05-17 10:54:33', 0, 9, 2, 0),
-(9, 'test 2', '2013-05-17 15:54:57', 1, 5, 2, 0),
-(10, 'text 3', '2013-05-17 15:55:37', 1, 5, 4, 0),
-(11, 'ser', '2013-05-20 09:29:10', 1, 5, 2, 0),
-(12, 'ert', '2013-05-20 09:30:13', 1, 5, 2, 0),
-(13, 'test commentaire\r\navec un saut ', '2013-05-20 09:48:42', 1, 1, 2, 0),
-(14, 'test commentaire<br />\r\navec un saut<br />\r\nv2', '2013-05-20 09:57:26', 1, 1, 2, 0),
-(15, 'test verif status', '2013-05-20 14:08:12', 0, 11, 2, 0),
-(16, 'fef', '2013-05-20 14:52:37', 1, 12, 2, 0),
-(17, 'comms v3', '2013-05-21 16:40:30', 1, 1, 2, 0),
-(18, 'comment4', '2013-05-21 17:15:02', 1, 1, 2, 0),
-(19, 'comment 5 flag', '2013-05-24 14:59:14', 1, 1, 2, 0),
-(20, 'comment 5 flag', '2013-05-24 15:01:11', 1, 1, 2, 0),
-(21, 'comment 6 flag', '2013-05-24 15:01:28', 1, 1, 2, 0),
-(22, 'rere', '2013-05-24 15:17:32', 1, 5, 2, 0),
-(23, 'titre long', '2013-05-24 15:17:59', 1, 12, 2, 0),
-(24, 'test', '2013-05-24 15:19:45', 1, 11, 2, 0),
-(25, 'comment 7<br />\r\n', '2013-05-24 15:20:33', 1, 1, 2, 0),
-(26, 'comment 8', '2013-05-24 15:20:56', 1, 1, 2, 0),
-(27, 'apre s. comm', '2013-05-28 11:12:22', 0, 13, 2, 0),
-(28, 'reponse', '2013-05-28 11:13:25', 0, 13, 2, 0),
-(29, 'testestsestst', '2013-05-29 16:15:32', 1, 11, 2, 0),
-(30, 'test ticket', '2013-06-04 10:48:09', 1, 14, 3, 0),
-(31, 'ok. ca marche', '2013-06-19 18:03:47', 1, 11, 2, 0),
-(32, 'dsfsd', '2013-07-16 14:20:25', 1, 15, 4, 0),
-(34, 'comment depuis que task int&egrave;gre les commentaires', '2013-07-16 15:32:09', 1, 1, 12, 0),
-(36, 'First commentaire Task', '2013-07-16 15:34:49', 1, 1, 12, 14),
-(37, 'Test', '2013-07-16 15:35:35', 1, 1, 12, 0),
-(39, 'Allez fonctionne', '2013-07-16 15:42:13', 1, NULL, 12, 14),
-(40, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:17', 1, NULL, 12, 14),
-(41, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:37', 1, 1, 12, 0),
-(42, 'Communication coupé', '2013-08-16 09:49:34', 1, 16, 4, 0),
-(43, 'BLABLA', '2013-08-16 10:16:48', 0, 17, 4, 0),
-(44, 'Avec l''id de l''user saved', '2013-08-16 10:56:56', 1, 18, 4, 0);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faqs`
+-- Структура таблицы `faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
@@ -653,19 +597,10 @@ CREATE TABLE IF NOT EXISTS `faqs` (
   KEY `fk_faqs_categorie_faqs1_idx` (`categorie_faq_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
---
--- Dumping data for table `faqs`
---
-
-INSERT INTO `faqs` (`id`, `question`, `reponse`, `actif_faq`, `categorie_faq_id`) VALUES
-(15, 'Qu''est-ce que la téléphonie sur IP ?', '<p><span style="color: #444444; font-family: arial, sans-serif; font-size: small; line-height: 16px;">C''est tout simplement la possibilit&eacute; de passer et de recevoir les appels t&eacute;l&eacute;phoniques via le r&eacute;seau qui sert aux transmissions de donn&eacute;es.</span></p>', 1, 1),
-(16, 'Qu''est-ce que la VoIP ?', '<p><span style="color: #333333; font-family: ''Lucida Grande'', ''Trebuchet MS'', Verdana, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.1875px; background-color: #fefefe;">La Voip c''est du "t&eacute;l&eacute;phone par le modem".</span></p>', 1, 2),
-(18, 'ert', '<p>ert</p>', 0, 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Структура таблицы `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -674,26 +609,19 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `nom_group` varchar(45) NOT NULL,
   `actif_group` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `groups`
+-- Дамп данных таблицы `groups`
 --
 
 INSERT INTO `groups` (`id`, `type_group`, `nom_group`, `actif_group`) VALUES
-(2, 'Administrator', 'Administrator', 1),
-(3, 'Association', 'bo', 1),
-(4, 'Association', 'CakePhp', 1),
-(5, 'Association', 'OVH', 0),
-(6, 'Entreprise', 'venus', 1),
-(7, 'Particulier', 'Test', 1),
-(8, 'Entreprise', 'venus', 1),
-(9, 'Entreprise', 'pluton', 1);
+(2, 'Administrator', 'Administrator', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `group_details`
+-- Структура таблицы `group_details`
 --
 
 CREATE TABLE IF NOT EXISTS `group_details` (
@@ -708,62 +636,10 @@ CREATE TABLE IF NOT EXISTS `group_details` (
   KEY `fk_group_details_groups1_idx` (`group_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
---
--- Dumping data for table `group_details`
---
-
-INSERT INTO `group_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_group_detail`, `group_id`) VALUES
-(1, 'Rue', '25 chemin du bois', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(2, 'NPA', '74000', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(3, 'Ville', 'Annecy', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(4, 'Pays', 'France', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(9, 'Email', 'yt4h@jtg.fr', '', '2013-04-29 14:36:54', 1, 8),
-(11, 'Email', 'abc@fr.fr', '', '2013-04-29 14:39:59', 0, 8),
-(12, 'Rue', '7 rue de la paix', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(13, 'NPA', '74000', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(14, 'Ville', 'Evian', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(15, 'Pays', 'France', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(16, 'NumeroFixe', '0450203040', '', '2013-04-30 09:58:22', 1, 8),
-(17, 'NumeroMobile', '0610252414', '', '2013-04-30 09:58:52', 1, 8),
-(18, 'NumeroFax', '0101010101', '', '2013-04-30 09:59:18', 0, 8),
-(19, 'NumeroFixe', '0450468750', '', '2013-04-30 09:59:29', 0, 8),
-(20, 'Email', 'bobo@jlh.hyu', '', '2013-04-30 10:55:19', 0, 6),
-(21, 'NumeroMobile', '04504587', '', '2013-04-30 14:53:03', 0, 6),
-(22, 'Rue', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(23, 'NPA', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(24, 'Ville', 'bobo', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(25, 'Pays', 'bobob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(26, 'Email', 'admin@admin.fr', '', '2013-05-02 14:41:11', 1, 2),
-(27, 'Email', 'tedrgst@ges.rr', '', '2013-05-02 14:53:57', 1, 2),
-(28, 'Email', 'uy@ihug.fyg', '', '2013-05-02 14:56:56', 0, 2),
-(29, 'Email', 'srg@fgu.gt', '', '2013-05-02 14:57:19', 0, 2),
-(30, 'NumeroFixe', '0450845488', '', '2013-05-02 15:31:41', 1, 2),
-(31, 'NumeroFax', '573434533698', '', '2013-05-02 15:31:58', 0, 2),
-(32, 'Rue', '15 rue d''albigny', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(33, 'NPA', '74000', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(34, 'Ville', 'Annecy', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(35, 'Pays', 'France', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(36, 'Rue', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(37, 'NPA', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(38, 'Ville', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(39, 'Pays', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(40, 'Rue', '15 rue de la jeunesse', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(41, 'NPA', '38000', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(42, 'Ville', 'Grenoble', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(43, 'Pays', 'France', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(44, 'Email', 'dfrg@fj', '', '2013-05-16 16:00:48', 0, 2),
-(45, 'Rue', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(46, 'NPA', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(47, 'Ville', 'sr', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(48, 'Pays', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(49, 'NumeroFixe', '34343141414134314134', '', '2013-06-04 14:57:43', 0, 2),
-(50, 'Email', 'etrg@rtg', '', '2013-06-04 15:28:43', 0, 8),
-(51, 'NumeroFixe', 'rtqrtqzrtzert', '', '2013-06-05 17:16:55', 0, 6);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoices`
+-- Структура таблицы `invoices`
 --
 
 CREATE TABLE IF NOT EXISTS `invoices` (
@@ -783,7 +659,7 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
--- Dumping data for table `invoices`
+-- Дамп данных таблицы `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `period_begin`, `period_end`, `created`, `active_invoice`, `group_id`, `invoice_type_id`, `invoice_statut_id`) VALUES
@@ -805,7 +681,7 @@ INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `perio
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_statuts`
+-- Структура таблицы `invoice_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_statuts` (
@@ -816,7 +692,7 @@ CREATE TABLE IF NOT EXISTS `invoice_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `invoice_statuts`
+-- Дамп данных таблицы `invoice_statuts`
 --
 
 INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
@@ -827,7 +703,7 @@ INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_types`
+-- Структура таблицы `invoice_types`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_types` (
@@ -838,7 +714,7 @@ CREATE TABLE IF NOT EXISTS `invoice_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `invoice_types`
+-- Дамп данных таблицы `invoice_types`
 --
 
 INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
@@ -851,7 +727,7 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modules`
+-- Структура таблицы `modules`
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
@@ -862,7 +738,7 @@ CREATE TABLE IF NOT EXISTS `modules` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `modules`
+-- Дамп данных таблицы `modules`
 --
 
 INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
@@ -871,7 +747,7 @@ INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `numbers`
+-- Структура таблицы `numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `numbers` (
@@ -884,7 +760,7 @@ CREATE TABLE IF NOT EXISTS `numbers` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=275 ;
 
 --
--- Dumping data for table `numbers`
+-- Дамп данных таблицы `numbers`
 --
 
 INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
@@ -903,13 +779,13 @@ INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
 (134, 33, '0970700008', '', ''),
 (135, 33, '0970700009', '', ''),
 (136, 33, '0970700010', '', ''),
-(273, 33, '0970756127', 'test', '1098'),
-(274, 33, '0970756125', 'test', '1099');
+(273, 33, '0970756127', 'admin', '1098'),
+(274, 33, '0970756125', 'admin', '1099');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `passwords`
+-- Структура таблицы `passwords`
 --
 
 CREATE TABLE IF NOT EXISTS `passwords` (
@@ -925,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `passwords` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `passwords`
+-- Дамп данных таблицы `passwords`
 --
 
 INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`, `password_service_id`, `password_type_id`, `group_id`) VALUES
@@ -946,7 +822,7 @@ INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_services`
+-- Структура таблицы `password_services`
 --
 
 CREATE TABLE IF NOT EXISTS `password_services` (
@@ -957,7 +833,7 @@ CREATE TABLE IF NOT EXISTS `password_services` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_services`
+-- Дамп данных таблицы `password_services`
 --
 
 INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUES
@@ -966,7 +842,7 @@ INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_types`
+-- Структура таблицы `password_types`
 --
 
 CREATE TABLE IF NOT EXISTS `password_types` (
@@ -977,7 +853,7 @@ CREATE TABLE IF NOT EXISTS `password_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_types`
+-- Дамп данных таблицы `password_types`
 --
 
 INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
@@ -986,7 +862,7 @@ INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prices`
+-- Структура таблицы `prices`
 --
 
 CREATE TABLE IF NOT EXISTS `prices` (
@@ -1002,7 +878,7 @@ CREATE TABLE IF NOT EXISTS `prices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5058 ;
 
 --
--- Dumping data for table `prices`
+-- Дамп данных таблицы `prices`
 --
 
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
@@ -6072,7 +5948,26 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tasks`
+-- Структура таблицы `supports`
+--
+
+CREATE TABLE IF NOT EXISTS `supports` (
+  `id` int(11) NOT NULL,
+  `mail` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Дамп данных таблицы `supports`
+--
+
+INSERT INTO `supports` (`id`, `mail`) VALUES
+(1, 'test@mail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tasks`
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
@@ -6088,30 +5983,10 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`id`, `description`, `subject`, `created`, `last_update`, `task_project_id`, `task_type_id`, `task_statut_id`, `active_task`) VALUES
-(1, 'Edition de la description de cette tâche', 'Résumé de la tâche', '2013-07-10 14:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(2, 'C''est le premier projet enregistré depuis l''application.', '1er Projet', '2013-07-10 17:43:49', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(3, '', 'ngg', '2013-07-10 17:46:05', '0000-00-00 00:00:00', 1, 1, 2, 0),
-(4, 'C''est le deuxième projet enregistré.', '2eme Projet', '2013-07-10 17:57:43', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(5, 'C''est le troisième projet enregistré', '3eme Projet', '2013-07-10 18:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(6, 'Test Description', 'Test', '2013-07-10 18:02:50', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(7, 'Encore un test, ça fait beaucoup de test comme même', 'Test Again', '2013-07-11 09:17:09', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(8, 'azerty', 'azerty', '2013-07-11 09:40:45', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(9, 'description', 'summary 2', '2013-07-11 09:45:35', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(10, 'Re description', 'Test', '2013-07-11 10:22:01', '2013-07-11 10:22:01', 1, 1, 2, 1),
-(11, 'C''est la 1er tâche VoIP, avec le type Maintenance et aucune valeur de test.\r\nA part la description qui est bidon évidemment', '1er tâche VoIP', '2013-07-11 17:51:23', '2013-07-11 17:51:23', 2, 2, 3, 1),
-(12, 'lalalala', 'First ADSL', '2013-07-12 17:12:03', '2013-07-12 17:12:03', 3, 2, 2, 1),
-(13, 'lolololo', 'Second ADSL', '2013-07-12 17:12:40', '2013-07-12 17:12:40', 3, 3, 1, 1),
-(14, 'lululululu', 'Third ADSL', '2013-07-12 17:13:05', '2013-07-12 17:13:05', 3, 2, 1, 1);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_projects`
+-- Структура таблицы `task_projects`
 --
 
 CREATE TABLE IF NOT EXISTS `task_projects` (
@@ -6122,7 +5997,7 @@ CREATE TABLE IF NOT EXISTS `task_projects` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_projects`
+-- Дамп данных таблицы `task_projects`
 --
 
 INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
@@ -6133,7 +6008,7 @@ INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_statuts`
+-- Структура таблицы `task_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `task_statuts` (
@@ -6144,7 +6019,7 @@ CREATE TABLE IF NOT EXISTS `task_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_statuts`
+-- Дамп данных таблицы `task_statuts`
 --
 
 INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
@@ -6155,7 +6030,7 @@ INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_types`
+-- Структура таблицы `task_types`
 --
 
 CREATE TABLE IF NOT EXISTS `task_types` (
@@ -6166,7 +6041,7 @@ CREATE TABLE IF NOT EXISTS `task_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `task_types`
+-- Дамп данных таблицы `task_types`
 --
 
 INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
@@ -6178,7 +6053,7 @@ INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Структура таблицы `tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `tickets` (
@@ -6196,30 +6071,10 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   KEY `fk_tickets_groups1_idx` (`group_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
---
--- Dumping data for table `tickets`
---
-
-INSERT INTO `tickets` (`id`, `titre`, `flag`, `status`, `created`, `actif_ticket`, `categorie_ticket_id`, `group_id`, `user_id`) VALUES
-(1, 'a', 'admin_answer', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(2, 'testest', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(4, 'ticket admin tel', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 1, 2, 2),
-(5, 'ticket admin autree', 'user_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(8, 'esf', 'admin_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(9, 'new add ', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 1, 2, 2),
-(11, 'test', 'user_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(12, 'créer un ticket avec un titre long pour faire un exemple', 'user_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(13, 'test sans commm', 'admin_answer', 'closed', '0000-00-00 00:00:00', 0, 1, 2, 2),
-(14, 'ticket admin1', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(15, 'sfgs', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 2, 3, 2),
-(16, 'Problème VoIP', 'admin_read', 'opened', '2013-08-16 09:49:34', 1, 1, 3, 2),
-(17, 'BLABLA', 'admin_read', 'closed', '2013-08-16 10:16:48', 0, 2, 3, 0),
-(18, 'New Ticket', 'user_answer', 'opened', '2013-08-16 10:56:56', 1, 2, 3, 4);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmps`
+-- Структура таблицы `tmps`
 --
 
 CREATE TABLE IF NOT EXISTS `tmps` (
@@ -6229,16 +6084,16 @@ CREATE TABLE IF NOT EXISTS `tmps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tmps`
+-- Дамп данных таблицы `tmps`
 --
 
 INSERT INTO `tmps` (`id`, `variable`) VALUES
-(1, 'page:16');
+(1, '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -6252,32 +6107,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_users_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `password`, `actif_user`, `group_id`) VALUES
-(1, 'root', 'root', 'root', 'root', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
-(2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
-(3, 'Monsieur', 'Admin1', 'Admin1', 'admin1', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 0, 2),
-(4, 'Monsieur', 'TEST', 'test', 'test', 'ea4bbbe3a4eb9cf92868a36ca25e57d84f4edb5a', 1, 3),
-(5, 'Monsieur', 'tte', 'teest', 'c', '9b739ec4e41b4a3323925c207d5bde0809408709', 0, 5),
-(6, 'Mademoiselle', 'm', 'm', 'm', '7fbad67f5bfb24fca9b76a706bd0058d256ec5c6', 0, 5),
-(7, 'Monsieur', 'Babou', 'babou', 'babou', '53bc05bd019eec2d2af99326421069a7ebac1665', 0, 7),
-(8, 'Monsieur', 'jht', 'ruyj', 'azerty', '14f9c01c07060c37c7b41f368c8bd6cc4641e370', 0, 7),
-(9, 'Monsieur', 'r', 'dry', 'totototo', '7a953dbaf66ebc9a0827797eb4845f9b3df37aa7', 0, 2),
-(10, 'Monsieur', 'r', 'dry', 'tatatata', 'acac338d555b0013a31dbbc2d52fe6d9ad974ed1', 0, 2),
-(11, 'Monsieur', 'r', 'dry', 'titititi', 'c058554194fb5a5d346a44ad76399f47c8f51146', 0, 2),
-(12, 'Monsieur', 'Jr', 'Jr', 'Chiffe', '5ee78b7948d8fbb1646731133ced20e85bd94b87', 1, 2),
-(13, 'Monsieur', 'Mon nom', 'Mon prénom', 'rayane', 'bf6fbd2fa01ac019dd0214cd8c1b213905315b1c', 1, 7),
-(14, 'Monsieur', 'Lange', 'Olivier', 'olange', '0dd16611ea4b6f74e324c33947924f25430c92e8', 1, 7);
+(2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_details`
+-- Структура таблицы `user_details`
 --
 
 CREATE TABLE IF NOT EXISTS `user_details` (
@@ -6292,43 +6134,10 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   KEY `fk_user_details_users1_idx` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
---
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_user_detail`, `user_id`) VALUES
-(1, 'Email', 'gh@y.gt', '', '2013-05-07 09:11:45', 0, 7),
-(2, 'Email', 'ete@ske.fr', '', '2013-05-07 09:29:18', 0, 7),
-(3, 'Email', 'babou@sfr.fr', '', '2013-05-07 09:39:38', 0, 7),
-(4, 'Email', '1245', '', '2013-05-07 09:39:57', 0, 7),
-(5, 'Email', '528', '', '2013-05-07 09:47:04', 0, 7),
-(6, 'NumeroFixe', '0450121244', '', '2013-05-07 10:37:27', 0, 7),
-(7, 'NumeroFax', '538725', '', '2013-05-07 11:02:02', 0, 7),
-(8, 'NumeroFixe', '4354', '', '2013-05-07 11:04:19', 0, 7),
-(9, 'NumeroFixe', 'e', '', '2013-05-07 11:04:53', 0, 7),
-(10, 'NumeroFixe', 'rt', '', '2013-05-07 11:07:11', 0, 7),
-(11, 'NumeroFixe', '1234536531', '', '2013-05-07 11:23:00', 0, 7),
-(14, 'Rue', '15 rue de la paix', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 0, 7),
-(15, 'NPA', '85350', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 0, 7),
-(16, 'Ville', 'Saint Etienne', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 0, 7),
-(17, 'Pays', 'France', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 0, 7),
-(18, 'Rue', '20 rue mongolfier', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 0, 7),
-(19, 'NPA', '45200', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 0, 7),
-(20, 'Ville', 'Lille', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 0, 7),
-(21, 'Pays', 'France', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 0, 7),
-(22, 'Rue', 'gyj', '3f972fb0ce80ee31cb3b81eb189a863a', '2013-05-10 09:09:45', 0, 7),
-(26, 'Rue', '81 place de Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(27, 'NPA', '74550', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(28, 'Ville', 'Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(29, 'Pays', 'France', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(33, 'Pays', 'France', 'be91821ac2c769990486fd09c729d808', '2013-05-10 10:05:42', 0, 2),
-(34, 'Email', 'ku@drg.fr', '', '2013-05-10 10:19:30', 0, 2),
-(35, 'Email', 'sduret@visionweb-online.fr', '', '2013-05-10 10:19:45', 1, 2);
-
 -- --------------------------------------------------------
 
 --
--- Table structure for table `voips`
+-- Структура таблицы `voips`
 --
 
 CREATE TABLE IF NOT EXISTS `voips` (
@@ -6343,50 +6152,50 @@ CREATE TABLE IF NOT EXISTS `voips` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `voips`
+-- Дамп данных таблицы `voips`
 --
 
 INSERT INTO `voips` (`id`, `login`, `pass`, `ip`, `port`, `pr_adress`, `pr_port`) VALUES
 (1, 'managero', 'UBIBOzULRSuh', '172.16.1.2', 5060, '000.000.000.000', '5065');
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `commentaires`
+-- Ограничения внешнего ключа таблицы `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `fk_commentaires_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_commentaires_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `faqs`
+-- Ограничения внешнего ключа таблицы `faqs`
 --
 ALTER TABLE `faqs`
   ADD CONSTRAINT `fk_faqs_categorie_faqs1` FOREIGN KEY (`categorie_faq_id`) REFERENCES `categorie_faqs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `group_details`
+-- Ограничения внешнего ключа таблицы `group_details`
 --
 ALTER TABLE `group_details`
   ADD CONSTRAINT `fk_group_details_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tickets`
+-- Ограничения внешнего ключа таблицы `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `fk_tickets_categorie_tickets1` FOREIGN KEY (`categorie_ticket_id`) REFERENCES `categorie_tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tickets_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `users`
+-- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_details`
+-- Ограничения внешнего ключа таблицы `user_details`
 --
 ALTER TABLE `user_details`
   ADD CONSTRAINT `fk_user_details_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
