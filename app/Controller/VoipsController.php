@@ -444,10 +444,20 @@ class VoipsController extends AppController {
 		}
 	
 	public function admin_serverSetting(){
+		$this->loadModel("Support");
+		$mail=$this->Support->find('all');
+		$mail=$mail[0]['Support']['mail'];
+		$this->set(compact('mail'));
 		$this->set("voipdata", $this->Voip->find('all'));
 		$this->set("title", "Configuration");
 		if ($this->request->is('post')) {
-			$this->redirect(array('action' => 'admin_server'));
+			if(isset($this->request->data['save'])){
+				$new=array('mail'=>$this->data['mail']);
+				$this->Support->id='1';
+				$this->Support->save($new);
+				$this->redirect(array('action' => 'admin_serverSetting'));
+				}
+			else $this->redirect(array('action' => 'admin_server'));
 			}
 		}
 		

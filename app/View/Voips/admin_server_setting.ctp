@@ -10,7 +10,13 @@
 		<li class="active"><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'logo'))?>">Logotype</a></li>
 	</ul>
-	
+	 <fieldset>
+	    <?php	    
+			print $this->Form->create(false, array('type' => 'file'));
+			print $this->Form->input('mail', array('label'=>'Support mail','default'=>$mail));
+			print $this->Form->submit('Save', array('name' => 'save'));
+		?>
+		</fieldset>
 	<legend><?php echo __('Current server setting'); ?></legend>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
