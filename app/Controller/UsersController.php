@@ -246,11 +246,12 @@ class UsersController extends AppController {
         }
         $this->request->onlyAllow('post', 'delete');
         //User
-        $sql="update users as U set U.actif_user=false where U.id=".$id."; ";
+        $sql="delete from users where users.id={$id};";
         //UserDetails
-        $sql.="update user_details as Ud set Ud.actif_user_detail=false where Ud.user_id=".$id."; ";
+        $sql.="delete from user_details where user_details.user_id={$id};";
         //Execute the request
         $result=$this->User->query($sql);
+        
         if (empty($result)) {
             $this->Session->setFlash(__('L\'utilisateur a été supprimé.'),'flash_success');
             $this->redirect(array('action'=>'index'));
