@@ -25,9 +25,11 @@
                     </button>
                     <ul class="dropdown-menu">
                         <li><a href="<?php echo $this->Html->url(array('action' => 'view', $user['User']['id']));?>"><span class="icon-eye-open"></span> <?php echo __('Voir');?></a></li>
+                        <?php if($user['User']['username']=='superuser') print "<!--";?>
                         <li><a href="<?php echo $this->Html->url(array('action' => 'edit', $user['User']['id']));?>"><span class="icon-edit"></span> <?php echo __('Modifier');?></a></li>
                         <li class="divider"></li>
                         <li><a href="#"><?php echo $this->Form->postLink(__('Supprimer'), array('action' => 'delete', $user['User']['id']), null, __('Etes-vous sûr de vouloir supprimer l\'utilisateur < %s %s > ?', $user['User']['nom_user'],$user['User']['prenom']));?></a></li>
+						<?php if($user['User']['username']=='superuser') print "-->";?>
                     </ul>
                 </td>
             </tr>
