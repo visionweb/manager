@@ -13,45 +13,45 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Actualités <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo Configure::read('root.url')?>admin/actualites">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'actualites','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/actualites/add">Ajouter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Groupes <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'groups','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'groups','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/groups/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/groups/add">Ajouter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Utilisateurs <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'users','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'users','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/users/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/users/add">Ajouter</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Travaux <b class="caret"></b></a>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'tasks','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'tasks','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/tasks/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/tasks/add">Ajouter</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'taskProjects','action' => 'index'));?>">Projets</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/taskProjects/index">Projets</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'taskProjects','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/taskProjects/add">Ajouter</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'taskTypes','action' => 'index'));?>">Types</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/taskTypes/index">Types</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'taskTypes','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/taskTypes/index">Ajouter</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'taskStatuts','action' => 'index'));?>">Statuts</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/taskStatuts/index">Statuts</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'taskStatuts','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/taskStatuts/add">Ajouter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -59,19 +59,19 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Factures <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'invoices','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'invoices','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/invoices/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/invoices/add">Ajouter</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'invoiceStatuts','action' => 'index'));?>">Statuts</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/invoiceStatuts/index">Statuts</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'invoiceStatuts','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/invoiceStatuts/add">Ajouter</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'invoiceTypes','action' => 'index'));?>">Types</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/invoiceTypes/index">Types</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'invoiceTypes','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/invoiceTypes/add">Ajouter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -79,19 +79,19 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Mots de passe <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'passwords','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'passwords','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/passwords/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/passwords/add">Ajouter</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'passwordServices','action' => 'index'));?>">Services</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/passwordServices/index">Services</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'passwordServices','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/passwordServices/add">Ajouter</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'passwordTypes','action' => 'index'));?>">Types</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/passwordTypes/index">Types</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'passwordTypes','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/passwordTypes/add">Ajouter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -99,14 +99,14 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tickets <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'tickets','action' => 'index'));?>">Voir les tickets ouvert</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'tickets','action' => 'index_closed'));?>">Voir les tickets fermé</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'tickets','action' => 'index_all'));?>">Voir tout les tickets</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/tickets/index">Voir les tickets ouvert</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/tickets/index_closed">Voir les tickets fermé</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/tickets/index_all">Voir tout les tickets</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'categorieTickets','action' => 'index'));?>">Catégories</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/categorieTickets/index">Catégories</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'categorieTickets','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/categorieTickets/add">Ajouter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -115,13 +115,13 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">FAQ <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'faqs','action' => 'index'));?>">Voir</a></li>
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'faqs','action' => 'add'));?>">Ajouter</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/faqs/index">Voir</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/faqs/add">Ajouter</a></li>
                             <li class="divider"></li>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'categorieFaqs','action' => 'index'));?>">Catégories</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/categorieFaqs/index">Catégories</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'categorieFaqs','action' => 'add'));?>">Ajouter</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/categorieFaqs/add">Ajouter</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -129,17 +129,17 @@
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="<?php echo $this->Html->url(array('controller'=>'modules','action' => 'index'));?>">Gestion</a></li>
+                            <li><a href="<?php echo Configure::read('root.url')?>admin/modules/index">Gestion</a></li>
                             <li class="divider"></li>
                             <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '<!--';?>
                             <li class="dropdown-submenu">
-                                <a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'index'));?>">Voip</a>
+                                <a href="<?php echo Configure::read('root.url')?>admin/voips">Voip</a>
                                 <ul class="dropdown-menu">
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'listAccount'));?>">Liste compte</a></li>
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'newAccount'));?>">Nouveau compte</a></li>
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'consommation'));?>">Consommation</a></li>
-                                    <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'configuration'));?>">Configuration</a></li>
-									<li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'call_logs'));?>">Call log</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/voips/listAccount">Liste compte</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/voips/newAccount">Nouveau compte</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/voips/consommation">Consommation</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/voips/configuration">Configuration</a></li>
+									<li><a href="<?php echo Configure::read('root.url')?>admin/voips/call_logs">Call log</a></li>
                                 </ul>
                             </li>
 
