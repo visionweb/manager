@@ -21,6 +21,7 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 App::uses('Controller', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 
 /**
  * Application Controller
@@ -60,4 +61,26 @@ class AppController extends Controller {
 		$modules=$this->Module->find("all");
 		$this->set(compact('modules'));
     }
+    
+   public function sendMail($subject, $message){
+	   $this->loadModel('Support');
+	   $support=$this->Support->find('all');
+	   $from=$support[0]['Support']['mail_from'];
+	   $to=$support[0]['Support']['mail_to'];
+	   $host=$support[0]['Support']['host'];
+	   $password=$support[0]['Support']['password'];
+	   $port=$support[0]['Support']['port'];
+		$default = array(
+			'host' => $host,
+			'port' => $port,
+			'username' => $from,
+			'password' => $password,
+			'transport' => 'Smtp'
+			);
+		@$Email = new CakeEmail($default);
+		@$Email->from(array($from => $from));
+		@$Email->to($to);
+		@$Email->subject($subject);
+		@$Email->send($message);
+		}
 }

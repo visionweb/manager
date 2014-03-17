@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('CakeEmail', 'Network/Email');
 /**
  * Faqs Controller
  *
@@ -76,8 +77,6 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_index() {
-
-
     }
 
     /**
@@ -445,14 +444,18 @@ class VoipsController extends AppController {
 	
 	public function admin_serverSetting(){
 		$this->loadModel("Support");
-		$mail=$this->Support->find('all');
-		$mail=$mail[0]['Support']['mail'];
-		$this->set(compact('mail'));
+		$support=$this->Support->find('all');
+		$this->set(compact('support'));
 		$this->set("voipdata", $this->Voip->find('all'));
 		$this->set("title", "Configuration");
 		if ($this->request->is('post')) {
 			if(isset($this->request->data['save'])){
-				$new=array('mail'=>$this->data['mail']);
+				$new=array('mail_from'=>$this->data['mail_from'],
+							'mail_to'=>$this->data['mail_to'],
+							'port'=>$this->data['portmail'],
+							'host'=>$this->data['host'],
+							'password'=>$this->data['pass'],
+							);
 				$this->Support->id='1';
 				$this->Support->save($new);
 				$this->redirect(array('action' => 'admin_serverSetting'));

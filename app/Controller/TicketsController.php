@@ -158,6 +158,7 @@ class TicketsController extends AppController {
             //Save the ticket and his first comment
             if ($this->Ticket->saveAssociated($this->request->data,array('deep'=>true))){
                 $this->Session->setFlash(__('Le ticket a été créé.'),'flash_success');
+                $this->sendMail('New ticket "'.$this->data['Ticket']['titre'].'" has been created.', 'Ticket "'.$this->data['Ticket']['titre'].'" has been created.');
                 $this->redirect(array('controller'=>'tickets','action'=>'index'));
             }else{
                 $this->Session->setFlash(__('Le ticket n\'a pas été créé.'),'flash_error');
@@ -199,12 +200,20 @@ class TicketsController extends AppController {
             $this->request->data['Commentaire']['text_commentaire']=stripslashes(nl2br($texte));
             $this->request->data['Commentaire']['ticket_id']=$id;
             $this->request->data['Commentaire']['user_id']=$this->Auth->user('id');
+            
             //If the comment has been saved
             if ($this->Ticket->Commentaire->save($this->request->data)){
                 $this->Ticket->id=$id;
                 //Indicate if the user has posted a new comment
                 $this->Ticket->savefield('flag','user_answer');
                 $this->Session->setFlash(__('Le commentaire a été sauvegardé.'),'flash_success');
+                $ticketnames=$this->Ticket->find('all');
+                foreach($ticketnames as $ticketname) 
+					if($ticketname['Ticket']['id']==$id){
+						$ticketnames=$ticketname['Ticket']['titre'];
+						break;
+						}
+                $this->sendMail('New comment for ticket "'.$ticketnames.'"', $this->request->data['Commentaire']['text_commentaire']);
                 $this->redirect($this->referer());
             }else{
                 $this->Session->setFlash(__('Le commentaire n\'a pas été sauvegardé.'),'flash_error');
@@ -275,6 +284,13 @@ class TicketsController extends AppController {
         //If the new status has been saved
         if ($this->Ticket->saveField('status','closed')){
             $this->Session->setFlash(__('Le ticket a été fermé.'),'flash_success');
+			$ticketnames=$this->Ticket->find('all');
+                foreach($ticketnames as $ticketname) 
+					if($ticketname['Ticket']['id']==$id){
+						$ticketnames=$ticketname['Ticket']['titre'];
+						break;
+						}
+			$this->sendMail('Ticket '.$id.' has been closed.','Ticket '.$ticketnames.' has been closed.');
         }else{
             $this->Session->setFlash(__('Le ticket n\'a pas été fermé.'),'flash_error');
         }
@@ -288,6 +304,12 @@ class TicketsController extends AppController {
      */
     public function admin_closedToOpened($id = null){
         $this->Ticket->id=$id;
+        $ticketnames=$this->Ticket->find('all');
+                foreach($ticketnames as $ticketname) 
+					if($ticketname['Ticket']['id']==$id){
+						$ticketnames=$ticketname['Ticket']['titre'];
+						break;
+						}
         //If this ticket doesn't exist or if the ticket is not active
         if (!$this->Ticket->exists($id) || $this->Ticket->compare($this->modelClass,$id,'actif_ticket',false)) {
             $this->Session->setFlash(__('Ce ticket n\'existe pas'),'flash_warning');
@@ -296,7 +318,9 @@ class TicketsController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         //If the new status has been saved
         if ($this->Ticket->saveField('status','opened')){
+			$this->sendMail('New status for "'.$ticketnames.'" has been saved.','New status for "'.$ticketnames.'" has been saved.');
             $this->Session->setFlash(__('Le ticket a été ré-ouvert.'),'flash_success');
+            $this->sendMail('Ticket '.$ticketnames.' has been opened.','Ticket '.$ticketnames.' has been opened.');
         }else{
             $this->Session->setFlash(__('Le ticket n\'a pas été ré-ouvert.'),'flash_error');
         }
@@ -517,6 +541,12 @@ class TicketsController extends AppController {
      * @return void
      */
     public function admin_edit($id = null) {
+        $ticketnames=$this->Ticket->find('all');
+                foreach($ticketnames as $ticketname) 
+					if($ticketname['Ticket']['id']==$id){
+						$ticketnames=$ticketname['Ticket']['titre'];
+						break;
+						}
         //If the ticket doesn't exist or if the ticket is not active
         if (!$this->Ticket->exists($id) || $this->Ticket->compare($this->modelClass,$id,'actif_ticket',false)) {
             $this->Session->setFlash(__('Ce ticket n\'existe pas.'),'flash_warning');
@@ -526,7 +556,9 @@ class TicketsController extends AppController {
         if ($this->request->is('post') || $this->request->is('put')) {
             //If the ticket has been saved in the database
             if ($this->Ticket->save($this->request->data)) {
+				
                 $this->Session->setFlash(__('Le ticket a été sauvegardé.'),'flash_success');
+                $this->sendMail('Ticket "'.$ticketnames.'" has been modified.','Ticket "'.$ticketnames.'" has been modified.');
                 $this->redirect(array('action' => 'index'));
             } else {
                 $this->Session->setFlash(__('Le ticket n\'a pas été sauvegardé.'),'flash_error');
@@ -558,6 +590,12 @@ class TicketsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
+        $ticketnames=$this->Ticket->find('all');
+                foreach($ticketnames as $ticketname) 
+					if($ticketname['Ticket']['id']==$id){
+						$ticketnames=$ticketname['Ticket']['titre'];
+						break;
+						}
         $this->Ticket->id = $id;
         //If the tickets doesn't exist or if the ticket is not active
         if (!$this->Ticket->exists() || $this->Ticket->compare($this->modelClass,$id,'actif_ticket',false)) {
@@ -573,6 +611,7 @@ class TicketsController extends AppController {
         //If the query worked
         if (empty($result)){
             $this->Session->setFlash(__('Le ticket a été supprimé.'),'flash_success');
+            $this->sendMail('Ticket "'.$ticketnames.'" has been deleted.','Ticket "'.$ticketnames.'" has been deleted.');
             $this->redirect(array('controller'=>'tickets','action'=>'index'));
         }
         $this->Session->setFlash(__('Le ticket n\'a pas été supprimé.'),'flash_error');
