@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 172.16.8.17
--- Время создания: Мар 12 2014 г., 16:54
+-- Время создания: Мар 17 2014 г., 18:59
 -- Версия сервера: 5.5.35-0+wheezy1
 -- Версия PHP: 5.4.26-1~dotdeb.1
 
@@ -352,45 +352,49 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
 
 --
 -- Дамп данных таблицы `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, 'Group', 2, NULL, 1, 14),
+(1, NULL, 'Group', 2, NULL, 1, 22),
 (2, 1, 'User', 2, NULL, 12, 13),
-(3, NULL, 'Group', 3, NULL, 15, 18),
+(3, NULL, 'Group', 3, NULL, 23, 26),
 (4, 1, 'User', 3, NULL, 2, 3),
-(5, NULL, 'Group', 4, NULL, 19, 20),
-(6, NULL, 'Group', 5, NULL, 21, 26),
-(7, NULL, 'Group', 6, NULL, 27, 28),
-(8, NULL, 'Group', 7, NULL, 29, 36),
-(9, NULL, 'Group', 8, NULL, 37, 38),
-(10, 3, 'User', 4, NULL, 16, 17),
-(11, 6, 'User', 5, NULL, 22, 23),
-(12, 6, 'User', 6, NULL, 24, 25),
-(13, NULL, 'Group', 9, NULL, 39, 40),
-(14, 8, 'User', 7, NULL, 30, 31),
-(15, 8, 'User', 8, NULL, 32, 33),
+(5, NULL, 'Group', 4, NULL, 27, 28),
+(6, NULL, 'Group', 5, NULL, 29, 34),
+(7, NULL, 'Group', 6, NULL, 35, 36),
+(8, NULL, 'Group', 7, NULL, 37, 44),
+(9, NULL, 'Group', 8, NULL, 45, 46),
+(10, 3, 'User', 4, NULL, 24, 25),
+(11, 6, 'User', 5, NULL, 30, 31),
+(12, 6, 'User', 6, NULL, 32, 33),
+(13, NULL, 'Group', 9, NULL, 47, 48),
+(14, 8, 'User', 7, NULL, 38, 39),
+(15, 8, 'User', 8, NULL, 40, 41),
 (16, 1, 'User', 9, NULL, 4, 5),
 (17, 1, 'User', 10, NULL, 6, 7),
 (18, 1, 'User', 11, NULL, 8, 9),
 (19, 1, 'User', 12, NULL, 10, 11),
-(20, NULL, 'Group', 10, NULL, 41, 42),
-(21, NULL, 'Group', 11, NULL, 43, 44),
-(22, NULL, 'Group', 12, NULL, 45, 46),
-(23, NULL, 'Group', 13, NULL, 47, 48),
-(24, NULL, 'Group', 14, NULL, 49, 50),
-(25, NULL, 'Group', 15, NULL, 51, 52),
-(26, NULL, 'Group', 16, NULL, 53, 54),
-(27, NULL, 'Group', 17, NULL, 55, 56),
-(28, NULL, 'Group', 18, NULL, 57, 58),
-(29, NULL, 'Group', 19, NULL, 59, 60),
-(30, NULL, 'Group', 20, NULL, 61, 62),
-(31, 8, 'User', 13, NULL, 34, 35),
-(32, NULL, 'Group', 10, NULL, 63, 64);
+(20, NULL, 'Group', 10, NULL, 49, 50),
+(21, NULL, 'Group', 11, NULL, 51, 52),
+(22, NULL, 'Group', 12, NULL, 53, 54),
+(23, NULL, 'Group', 13, NULL, 55, 56),
+(24, NULL, 'Group', 14, NULL, 57, 58),
+(25, NULL, 'Group', 15, NULL, 59, 60),
+(26, NULL, 'Group', 16, NULL, 61, 62),
+(27, NULL, 'Group', 17, NULL, 63, 64),
+(28, NULL, 'Group', 18, NULL, 65, 66),
+(29, NULL, 'Group', 19, NULL, 67, 68),
+(30, NULL, 'Group', 20, NULL, 69, 70),
+(31, 8, 'User', 13, NULL, 42, 43),
+(32, NULL, 'Group', 10, NULL, 71, 72),
+(33, 1, 'User', 17, NULL, 14, 15),
+(34, 1, 'User', 18, NULL, 16, 17),
+(38, 1, 'User', 22, NULL, 18, 19),
+(39, 1, 'User', 23, NULL, 20, 21);
 
 -- --------------------------------------------------------
 
@@ -798,7 +802,7 @@ CREATE TABLE IF NOT EXISTS `passwords` (
   `password_type_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
 
 --
 -- Дамп данных таблицы `passwords`
@@ -5953,7 +5957,11 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 
 CREATE TABLE IF NOT EXISTS `supports` (
   `id` int(11) NOT NULL,
-  `mail` varchar(30) NOT NULL,
+  `mail_from` varchar(100) NOT NULL,
+  `mail_to` varchar(100) NOT NULL,
+  `host` varchar(100) NOT NULL,
+  `port` varchar(100) NOT NULL,
+  `password` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -5961,8 +5969,8 @@ CREATE TABLE IF NOT EXISTS `supports` (
 -- Дамп данных таблицы `supports`
 --
 
-INSERT INTO `supports` (`id`, `mail`) VALUES
-(1, 'test@mail.com');
+INSERT INTO `supports` (`id`, `mail_from`, `mail_to`, `host`, `port`, `password`) VALUES
+(1, 'evgelit@gmail.com', 'evgelit@gmail.com', 'ssl://smtp.gmail.com', '1248163264El', '465');
 
 -- --------------------------------------------------------
 
@@ -6107,14 +6115,15 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_users_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
 
 --
 -- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `password`, `actif_user`, `group_id`) VALUES
-(2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2);
+(2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
+(17, 'Monsieur', 'Superuser', 'Superuser', 'superuser', '898b83ce5b21ef413c941144d049c17fa8bc049a', 1, 2);
 
 -- --------------------------------------------------------
 

@@ -77,10 +77,10 @@ class AppController extends Controller {
 			'password' => $password,
 			'transport' => 'Smtp'
 			);
-		@$Email = new CakeEmail($default);
-		@$Email->from(array($from => $from));
-		@$Email->to($to);
-		@$Email->subject($subject);
-		@$Email->send($message);
+		$Email = new CakeEmail($default);
+		$Email->from(array($from => $from));
+		$Email->to($to);
+		$Email->subject($subject);
+		$Email->send($message);
 		}
 }

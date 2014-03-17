@@ -290,7 +290,7 @@ class TicketsController extends AppController {
 						$ticketnames=$ticketname['Ticket']['titre'];
 						break;
 						}
-			$this->sendMail('Ticket '.$id.' has been closed.','Ticket '.$ticketnames.' has been closed.');
+			$this->sendMail('Ticket '.$ticketnames.' has been closed.','Ticket '.$ticketnames.' has been closed.');
         }else{
             $this->Session->setFlash(__('Le ticket n\'a pas été fermé.'),'flash_error');
         }
@@ -318,9 +318,8 @@ class TicketsController extends AppController {
         $this->request->onlyAllow('post', 'delete');
         //If the new status has been saved
         if ($this->Ticket->saveField('status','opened')){
-			$this->sendMail('New status for "'.$ticketnames.'" has been saved.','New status for "'.$ticketnames.'" has been saved.');
             $this->Session->setFlash(__('Le ticket a été ré-ouvert.'),'flash_success');
-            $this->sendMail('Ticket '.$ticketnames.' has been opened.','Ticket '.$ticketnames.' has been opened.');
+            $this->sendMail('Ticket "'.$ticketnames.'" has been opened.','Ticket '.$ticketnames.' has been opened.');
         }else{
             $this->Session->setFlash(__('Le ticket n\'a pas été ré-ouvert.'),'flash_error');
         }
