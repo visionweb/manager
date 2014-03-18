@@ -28,4 +28,33 @@ class ModulesController extends AppController {
 	$this->Module->save($act);
 	$this->redirect(array('action' => 'admin_index'));
 	}
+	
+	public function admin_logo(){
+		if($this->request->is('post')){
+			$filename = WWW_ROOT. DS . 'img'.DS.'logo.png'; 
+			move_uploaded_file($this->data['file']['tmp_name'],$filename);
+			$this->redirect($this->request->here);
+			}
+		$this->set("title", "Configuration");
+		}
+	
+	public function admin_mail(){
+		$this->loadModel("Support");
+		$support=$this->Support->find('all');
+		$this->set(compact('support'));
+		$this->set("title", "Configuration");
+		if ($this->request->is('post')) {
+			$new=array('mail_from'=>$this->data['mail_from'],
+						'mail_to'=>$this->data['mail_to'],
+						'port'=>$this->data['portmail'],
+						'host'=>$this->data['host'],
+						'password'=>$this->data['pass'],
+						);
+			$this->Support->id='1';
+			$this->Support->save($new);
+			$this->redirect(array('action' => 'admin_mail'));
+			}	
+		}
+	
+		
 }

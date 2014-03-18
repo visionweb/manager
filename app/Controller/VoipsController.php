@@ -448,29 +448,8 @@ class VoipsController extends AppController {
 		$this->set(compact('support'));
 		$this->set("voipdata", $this->Voip->find('all'));
 		$this->set("title", "Configuration");
-		if ($this->request->is('post')) {
-			if(isset($this->request->data['save'])){
-				$new=array('mail_from'=>$this->data['mail_from'],
-							'mail_to'=>$this->data['mail_to'],
-							'port'=>$this->data['portmail'],
-							'host'=>$this->data['host'],
-							'password'=>$this->data['pass'],
-							);
-				$this->Support->id='1';
-				$this->Support->save($new);
-				$this->redirect(array('action' => 'admin_serverSetting'));
-				}
-			else $this->redirect(array('action' => 'admin_server'));
-			}
-		}
-		
-	public function admin_logo(){
-		if($this->request->is('post')){
-			$filename = WWW_ROOT. DS . 'img'.DS.'logo.png'; 
-			move_uploaded_file($this->data['file']['tmp_name'],$filename);
-			$this->redirect(array('action' => 'admin_logo'));
-			}
-		$this->set("title", "Logotype");
+		if ($this->request->is('post')) 
+			$this->redirect(array('action' => 'admin_server'));
 		}
 
     public function admin_configuration(){
