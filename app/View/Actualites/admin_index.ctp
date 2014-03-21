@@ -1,11 +1,10 @@
-<div class="span10 index">
-    <h2><?php echo __('Actualités'); ?></h2>
-    <br/>
+<?php print $this->element('subheader'); ?>
+
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
-        <tr>
-            <th><?php echo $this->Paginator->sort('titre_actu','Titre Actualité'); ?></th>
-            <th><?php echo $this->Paginator->sort('created','Créé le'); ?></th>
-        </tr>
+        <?php print $this->Html->tableHeaders(array(
+				$this->Paginator->sort('titre_actu','Titre Actualité'),
+				$this->Paginator->sort('created','Créé le')
+				));?>
         <?php foreach ($actualites as $actualite): ?>
             <tr>
                 <td><?php echo h($actualite['Actualite']['titre_actu']); ?>&nbsp;</td>
@@ -37,4 +36,5 @@
         echo $this->Paginator->next(__('Suivant') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

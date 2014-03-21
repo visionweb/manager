@@ -7,4 +7,3 @@
 		<?php echo __($title)?>
 	</h2>
 
-	<br/>

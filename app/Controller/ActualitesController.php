@@ -23,7 +23,8 @@ class ActualitesController extends AppController {
         //Retrieves actualities
         $actualites=$this->Actualite->find('all',$options);
         //Send the data to the view
-		$this->set('actualites', $actualites);
+		$this->set(compact('actualites'));
+		$this->set('title','Actualités');
 	}
 
 
@@ -43,6 +44,7 @@ class ActualitesController extends AppController {
         $this->paginate = $options;
         $actualites = $this->Paginator->paginate();
         $this->set(compact('actualites'));
+        $this->set('title','Actualités');
     }
 
     /**
@@ -62,6 +64,8 @@ class ActualitesController extends AppController {
                 $this->Session->setFlash(__('L\'actualité n\'a pas pu être sauvegardé. Veuillez réessayer ultérieurement.'),'flash_error');
             }
         }
+        $this->set('title','Actualités');
+        $this->set('legend','Ajouter une actualitée');
     }
 
     /**

@@ -7,8 +7,6 @@
 		<?php echo __($title); ?>
 	</h2>
 	
-	<br>
-	
 	<legend>
 		<?php echo __($legend); ?>
 	</legend>
