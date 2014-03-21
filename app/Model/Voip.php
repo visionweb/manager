@@ -190,11 +190,13 @@ class Voip extends AppModel {
 			curl_setopt($curlHandler, CURLOPT_HTTPAUTH, CURLAUTH_DIGEST);
 			curl_setopt($curlHandler, CURLOPT_USERPWD, $server['login'].':'.$server['pass']); 
 			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
-			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER , 0);
+			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER, 0);
+			curl_setopt($curlHandler, CURLOPT_BINARYTRANSFER, 1);
+			curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);
-			if($method=='POST') curl_setopt($curlHandler, CURLOPT_POST, true); 
+			if($method=='POST') curl_setopt($curlHandler, CURLOPT_POST, 1); 
 			else curl_setopt($curlHandler, CURLOPT_CUSTOMREQUEST, $method); 
-			if($method!=='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
+			if($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
 			$result = curl_exec($curlHandler);
 			curl_close($curlHandler);
 			return $result;

@@ -17,7 +17,7 @@
 			echo $this->Form->input('external_phone_number', array('options'=>$ex_num));
 		?>
 	</fieldset>
-	 
+	 <?php //print_r($test)?>
 	 
 <?php echo $this->Form->end(__('Ajouter'));?>
 </div>

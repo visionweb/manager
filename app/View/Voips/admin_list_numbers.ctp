@@ -1,14 +1,4 @@
-<script>
-$(document).ready(function() {
-    $('.delete').click(function() {
-		var agree=confirm("Are you sure you want to delete?");
-		if (agree)
-			return true;
-		else
-			return false;
-		});
-	});
-</script>
+
 <?php $this->Paginator->options(array(
      'update' => '#ajaxdiv',
        'evalScripts' => true));?>
@@ -21,7 +11,7 @@ $(document).ready(function() {
 	<ul class="nav nav-tabs">
 		<li><a href="<?php print $this->Html->url(array('action' => 'configuration'))?>">Price</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'newNumbers'))?>">New numbers</a></li>
-		<li  class="active"><a href="<?php print $this->Html->url(array('action' => 'listNumbers'))?>">Numbers list</a></li>
+		<li class="active"><a href="<?php print $this->Html->url(array('action' => 'listNumbers'))?>">Numbers list</a></li>
 		<li><a href="<?php print $this->Html->url(array('action' => 'serverSetting'))?>">Server settings</a></li>
 	</ul>
 		<legend><?php echo __('Numbers list'); ?></legend>

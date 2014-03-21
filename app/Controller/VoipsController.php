@@ -241,8 +241,8 @@ class VoipsController extends AppController {
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
-			$this->Voip->xivo("POST", "/1.1/users", $data);
-			
+			$test=$this->Voip->xivo("POST", "/1.1/users", $data);
+			$this->set(compact('test'));
 			//set owner of number
 			$this->loadModel("Number");
 			$nums_owns=$this->Number->find("all");
@@ -256,6 +256,9 @@ class VoipsController extends AppController {
 					$this->Number->save($own);
 					}
 			}
+
+ //exec("curl --digest --insecure -u managero:UBIBOzULRStps --header 'Content-type: application/json' --request POST --data '".json_encode($data)."' https://172.16.1.2:50051/1.1/users", $test);
+ //$this->set(compact('test'));
 
 			//create line
 			$data = array(
@@ -406,7 +409,7 @@ class VoipsController extends AppController {
 			if($error!='<br>') $this->Session->setFlash(("You can not remove".$error."Remove they accounts first"), 'flash_warning');
 			foreach($toDel as $del)
 				$this->Number->delete($del);
-			$this->redirect(array('action' => 'admin_listNumbers'));
+			$this->redirect($this->request->here);
 			}
 
 		$this->Paginator->settings = $this->paginate;
