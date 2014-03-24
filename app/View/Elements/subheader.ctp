@@ -1,9 +1,15 @@
-<div class="span10 index">
+<div class="span10 form">
 	
 	<br/>
 	<br/>
 	
 	<h2>
-		<?php echo __($title)?>
+		<?php echo __($title); ?>
 	</h2>
-
+	
+	<?php if(isset($legend))
+	print "
+	<legend>
+		{$legend}
+	</legend>
+	";?>

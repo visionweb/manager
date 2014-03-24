@@ -1,14 +1,12 @@
-<div class="span10 form">
-	<br><br>
+<?php print $this->element('subheader'); ?>
+
 	<fieldset>
-	<?php print $this->Form->create(false, array('type' => 'file'));?>
-		<legend><?php echo __($title); ?></legend>
 		<?php
+			print $this->Form->create(false, array('type' => 'file'));
 			print $this->Form->input('old_price', array('label'=>'Price', 'default'=>$price[$id]['Price']['pp']));
-			print $this->Form->input('old_description', array('label'=>'Description', 'type'=>'textfield', 'default'=>$price[$id]['Price']['description']));
+			print $this->Form->input('old_description', array('label'=>'Description', 'type'=>'textfield', 'default'=>$price[$id]['Price']['description'])).'<br>';
+			print $this->Form->end(__('Set new price parameters'));
 		?>
 	</fieldset>
-	<br>
-	<?php echo $this->Form->end(__('Set new price parameters'));?>
-	<br>
-</div>
+
+<?php print $this->element('end_view'); ?>
