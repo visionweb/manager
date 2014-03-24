@@ -58,7 +58,8 @@ class VoipsController extends AppController {
 		if($dataBrut[$i]['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $dataBrut[$i]);
 	$this->set("listUser", $arr);
 	$this->set(compact('server'));
-	$this->set('title', 'Liste compte');
+	$this->set('title','VoIP');
+	$this->set('legend','Liste compte');
 }
 
 /**
@@ -134,7 +135,8 @@ class VoipsController extends AppController {
 			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
 			}
 		$this->set(array(
-			'title'=> 'Set new user data',
+			'title'=> 'Liste compte',
+			'legend'=> 'Set new user data',
 			'userlist' => $userlist,
 			'userinfo'=>$userdata
 			));
@@ -155,9 +157,9 @@ class VoipsController extends AppController {
 		}
 
     /**
-     * admin_delete method - Turns the 'actif' field to false
+     * admin_delete method - delete user account and all information about it
      *
-     * @param string $id - Id of the Faq
+     * @param string $id - Id of the user
      * @return void
      */
     public function admin_delete($id = null) {
@@ -225,7 +227,8 @@ class VoipsController extends AppController {
 			$this->set("listUser", $sResult);
 			}
 		else	$this->set("listUser", $dataBrut);
-		$this->set('title', 'Liste compte');
+		$this->set('title','VoIP');
+		$this->set('legend','Liste compte');
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
     }
 
@@ -258,7 +261,7 @@ class VoipsController extends AppController {
 			}
 
  //exec("curl --digest --insecure -u managero:UBIBOzULRStps --header 'Content-type: application/json' --request POST --data '".json_encode($data)."' https://172.16.1.2:50051/1.1/users", $test);
- //$this->set(compact('test'));
+ $this->set(compact('test'));
 
 			//create line
 			$data = array(
@@ -346,8 +349,9 @@ class VoipsController extends AppController {
 		$this->set(array(
 			'ex_num' => $ex_num,
 			'userlist' => $userlist,
-			'short' => $short,
-			'title' => 'Nouveau compte'));
+			'short' => $short));
+		$this->set('title','VoIP');
+		$this->set('legend','Nouveau compte');
 		}
 
     public function admin_consommation(){
@@ -358,7 +362,8 @@ class VoipsController extends AppController {
     public function admin_server($id=NULL){
 		$voipdata=$this->Voip->find('all');
 		$this->set("voipdata", $voipdata);
-		$this->set("title", "Server parameters");
+		$this->set("title", "Server settings");
+		$this->set("legend", "Change settings");
 		if ($this->request->is('post')) {
 			$new_login=$this->data['User']['old_login'];
 			$new_proxy=$this->data['User']['old_proxy'];
@@ -414,7 +419,8 @@ class VoipsController extends AppController {
 
 		$this->Paginator->settings = $this->paginate;
 		$nums_owns = $this->Paginator->paginate('Number');
-		$this->set("title", "Configuration");
+		$this->set('title','Configuration');
+		$this->set('legend','List numbers');
 		$this->set(compact("nums_owns"));
 		}
 	
@@ -422,7 +428,8 @@ class VoipsController extends AppController {
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
-		$this->set("title", "Configuration");
+		$this->set('title','Configuration');
+		$this->set('legend','New numbers');
 		$error='<br>';
 		if ($this->request->is('post')) {
 			$new=array();
@@ -450,7 +457,8 @@ class VoipsController extends AppController {
 		$support=$this->Support->find('all');
 		$this->set(compact('support'));
 		$this->set("voipdata", $this->Voip->find('all'));
-		$this->set("title", "Configuration");
+		$this->set('title','Configuration');
+		$this->set('legend','Server settings');
 		if ($this->request->is('post')) 
 			$this->redirect(array('action' => 'admin_server'));
 		}
@@ -479,7 +487,8 @@ class VoipsController extends AppController {
 		$pricelist = $this->Paginator->paginate('Price');
 		$this->set(compact("pricelist"));
 		$this->set(compact("keyword"));
-		$this->set("title", "Configuration");
+		$this->set('title','Configuration');
+		$this->set('legend','Price list');
 		}
 	
 	public function admin_changeprice($id=NULL) {
@@ -490,7 +499,8 @@ class VoipsController extends AppController {
 		$par = array_filter(explode('/', $url[0]['Tmp']['variable']));
 		$this->set(compact("price"));
 		$this->set(compact("id"));	
-		$this->set("title", "Price");
+		$this->set("title", "Price list");
+		$this->set('legend','Change price');
 		if ($this->request->is('post')) {
 			$new_price=$this->data['old_price'];
 			$new_description=$this->data['old_description'];
@@ -565,10 +575,11 @@ class VoipsController extends AppController {
 		$user=array_unique($user);
 		$this->set(compact('user'));
 		$this->set(compact('show_name'));
-		$this->set('title','Call log');
+		$this->set('title','VoIP');
+		$this->set('legend','Call log');
 		$this->set(compact('logs'));
 		}
-	
+
 	public function call_logs($id=NULL) {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
@@ -599,7 +610,8 @@ class VoipsController extends AppController {
 		foreach($logs as $log)
 			if($log['short']==$id) array_push($arr, $log);
 		$logs=$arr;
-		$this->set('title','Call log');
+		$this->set('title','VoIP');
+		$this->set('legend','Call log');
 		$this->set(compact('logs'));
 		}
 }
