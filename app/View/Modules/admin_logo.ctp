@@ -3,7 +3,7 @@
 	<fieldset>
 		<?php
 			print $this->Form->create(false, array( 'type' => 'file'));
-			print $this->Form->input('file',array('label'=>'Select new logotype', 'type' => 'file'))."<br><br>";
+			print $this->Form->input('file',array('label'=>'Select new logotype', 'type' => 'file'))."<br>";
 			print $this->Form->end('Submit');
 		?>
 	</fieldset>
