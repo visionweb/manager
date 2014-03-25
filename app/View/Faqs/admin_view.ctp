@@ -1,8 +1,8 @@
-<div class="span10 view">
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Html->link('Editez cette FAQ',array('action' => 'edit', $faq['Faq']['id'])); ?><br/>
     <?php echo $this->Form->postLink('Supprimez cette FAQ',array('action' => 'delete', $faq['Faq']['id']), null, __('Etes-vous sûr de vouloir supprimer la FAQ < %s >?', $faq['Faq']['question'])); ?>
-    <br/><br/>
-    <h2><?php  echo __('FAQ'); ?></h2>
     <dl>
         <dt><?php echo __('Catégorie Faq'); ?></dt>
         <dd>
@@ -20,4 +20,5 @@
             &nbsp;
         </dd>
     </dl>
-</div>
+    
+<?php print $this->element('end_view'); ?>

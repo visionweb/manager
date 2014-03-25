@@ -60,6 +60,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('ticketsOld',$this->Paginator->paginate());
+        $this->set('title','Tickets en cours');
     }
 
     /**
@@ -89,6 +90,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('tickets',$this->Paginator->paginate());
+        $this->set('title','Tickets fermés');
     }
 
     /**
@@ -144,6 +146,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('ticketsClosed',$this->Paginator->paginate());
+        $this->set('title','Tous les tickets');
     }
 
 /**
@@ -178,6 +181,8 @@ class TicketsController extends AppController {
         $infos=array('id'=>$this->Auth->user('id'),'idgroupe'=>$this->Auth->user('group_id'));
         //Sends the data to the view
 		$this->set(compact('categorieTickets','infos'));
+		$this->set('title','Tickets');
+		$this->set('legend','Créez un ticket');
 	}
 
 
@@ -265,6 +270,7 @@ class TicketsController extends AppController {
             )
         );
         $this->set('commentaires',$this->Ticket->Commentaire->find('all',$options));
+        $this->set('title','Ticket - '.$result['Ticket']['titre']);
 
     }
 
@@ -387,6 +393,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('ticketsOld',$this->Paginator->paginate());
+        $this->set('title','Tickets en cours');
     }
 
     /**
@@ -420,6 +427,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('tickets',$this->Paginator->paginate());
+        $this->set('title','Tickets fermés');
     }
 
     /**
@@ -453,6 +461,7 @@ class TicketsController extends AppController {
         );
         $this->paginate=$options;
         $this->set('tickets',$this->Paginator->paginate());
+        $this->set('title','Tous les tickets');
     }
 
     /**
@@ -531,6 +540,7 @@ class TicketsController extends AppController {
             )
         );
         $this->set('commentaires',$this->Ticket->Commentaire->find('all',$options));
+        $this->set('title','Ticket - '.$result['Ticket']['titre']);
     }
 
     /**
@@ -580,6 +590,8 @@ class TicketsController extends AppController {
         $options=array('fields'=>array('CategorieTicket.id','CategorieTicket.titre_categorie'));
         $categorieTickets = $this->Ticket->CategorieTicket->find('list',$options);
         $this->set('categorieTickets',$categorieTickets);
+        $this->set('title','Tickets');
+        $this->set('legend','Editez ce ticket');
     }
 
     /**

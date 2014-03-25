@@ -1,5 +1,6 @@
-<div class="span10 view">
-    <h2><?php echo __('Ticket - ').h($ticket['Ticket']['titre']);?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <h3><?php echo __('Catégorie - ').h($ticket['CategorieTicket']['titre_categorie']);?></h3>
     <?php echo __('Crée le : ').h($this->Time->Format('d/m/y - h:i',$ticket['Ticket']['created'])).__(' par ').$this->Html->link($ticket['User']['username'],array('controller'=>'users','action'=>'view',$ticket['Ticket']['user_id']));?><br/>
     <span class="btn-group">
@@ -49,4 +50,5 @@
         ?>
     </fieldset>
     <?php endif;?>
-</div>
+
+<?php print $this->element('end_view'); ?>

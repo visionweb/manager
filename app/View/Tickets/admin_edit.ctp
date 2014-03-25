@@ -1,12 +1,14 @@
-<div class="span10 form">
-<?php echo $this->Form->create('Ticket'); ?>
+
+<?php print $this->element('subheader'); ?>
+
 	<fieldset>
-		<legend><?php echo __('Editez ce ticket'); ?></legend>
-	<?php
-        echo $this->Form->input('id');
-        echo $this->Form->input('categorie_ticket_id',array('label'=>'Catégorie Ticket'));
-		echo $this->Form->input('titre',array('label'=>'Titre'));
-	?>
+		<?php
+			echo $this->Form->create('Ticket');
+			echo $this->Form->input('id');
+			echo $this->Form->input('categorie_ticket_id',array('label'=>'Catégorie Ticket'));
+			echo $this->Form->input('titre',array('label'=>'Titre')).'<br>';
+			echo $this->Form->end(__('Editez'));
+		?>
 	</fieldset>
-<?php echo $this->Form->end(__('Editez')); ?>
-</div>
+	
+<?php print $this->element('end_view'); ?>

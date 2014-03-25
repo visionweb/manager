@@ -1,5 +1,6 @@
-<div class="span10 index">
-    <h2><?php echo __('Tous les tickets'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php if(!empty($tickets)):?>
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
@@ -74,4 +75,5 @@
             endif;
         ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

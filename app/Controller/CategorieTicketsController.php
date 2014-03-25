@@ -21,6 +21,7 @@ class CategorieTicketsController extends AppController {
         );
         $this->paginate=$options;
 		$this->set('categorieTickets', $this->paginate());
+		$this->set('title', 'Catégorie Ticket');
 	}
 
 /**
@@ -51,6 +52,8 @@ class CategorieTicketsController extends AppController {
 				$this->Session->setFlash(__('La catégorie n\'a pas été sauvegardé.'),'flash_error');
 			}
 		}
+		$this->set('title', 'Catégorie Ticket');
+		$this->set('legend', 'Ajouter une catégorie');
 	}
 
 
@@ -77,6 +80,7 @@ class CategorieTicketsController extends AppController {
             ),
         );
         $this->set('categorieTicket', $this->CategorieTicket->find('first', $options));
+        $this->set('title', 'Catégorie Ticket');
     }
 
 /**
@@ -116,6 +120,8 @@ class CategorieTicketsController extends AppController {
 			$options = array('conditions' => array('CategorieTicket.' . $this->CategorieTicket->primaryKey => $id));
 			$this->request->data = $this->CategorieTicket->find('first', $options);
 		}
+		$this->set('title', 'Catégorie Ticket');
+		$this->set('legend', 'Modifier cette catégorie');
 	}
 
 /**

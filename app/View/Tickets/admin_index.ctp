@@ -1,5 +1,6 @@
-<div class="span10 index">
-    <h2><?php echo __('Tickets en cours'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Html->image('flag.png', array('alt' => 'new')).__('Nouveau Message');?><br/><br/>
     <?php if(!empty($ticketsNew) || !empty($ticketsOld)):?>
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
@@ -89,4 +90,5 @@
             endif;
         ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

@@ -1,5 +1,6 @@
-<div class="span10 view">
-<h2><?php  echo __('Catégorie FAQ'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Html->link('Editez cette catégorie',array('action' => 'edit', $categorieFaq['CategorieFaq']['id'])); ?><br/>
     <?php echo $this->Form->postLink('Supprimez cette catégorie',array('action' => 'delete', $categorieFaq['CategorieFaq']['id']), null, __('Etes-vous sûr de vouloir supprimer la catégorie < %s >?', $categorieFaq['CategorieFaq']['titre_categorie'])); ?>
     <br/><br/>
@@ -56,4 +57,5 @@
             </ul>
         </div>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

@@ -1,5 +1,5 @@
-<div class="span10 view">
-<h2><?php  echo __('Ticket - ').h($ticket['Ticket']['titre']); ?></h2>
+<?php print $this->element('subheader'); ?>
+
     <h3><?php echo __('Catégorie - ').h($ticket['CategorieTicket']['titre_categorie']);?></h3>
     <?php echo __('Crée le : ').h($this->Time->Format('d/m/y - h:i',$ticket['Ticket']['created'])).__(' par ').$ticket['User']['username'];?><br/>
     <?php
@@ -36,4 +36,5 @@
         ?>
     </fieldset>
     <?php endif;?>
-</div>
+
+<?php print $this->element('end_view'); ?>

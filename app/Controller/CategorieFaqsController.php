@@ -22,6 +22,7 @@ class CategorieFaqsController extends AppController {
         $this->paginate = $options;
         $categorieFaqs = $this->Paginator->paginate();
         $this->set(compact('categorieFaqs'));
+        $this->set('title','CategorieFaq');
     }
 
     /**
@@ -52,6 +53,8 @@ class CategorieFaqsController extends AppController {
                 $this->Session->setFlash(__('La catégorie n\'a pas pu ête sauvegardé.'),'flash_error');
             }
         }
+        $this->set('title','CategorieFaq');
+        $this->set('legend','Ajouter une catégorie');
     }
 
     /**
@@ -72,6 +75,7 @@ class CategorieFaqsController extends AppController {
             )
         );
         $this->set('categorieFaq', $this->CategorieFaq->find('first', $options));
+        $this->set('title','CategorieFaq');
     }
 
 
@@ -113,6 +117,8 @@ class CategorieFaqsController extends AppController {
             $options = array('conditions' => array('CategorieFaq.' . $this->CategorieFaq->primaryKey => $id));
             $this->request->data = $this->CategorieFaq->find('first', $options);
         }
+        $this->set('title','CategorieFaq');
+        $this->set('legend','Modifier cette catégorie');
     }
 
     /**

@@ -20,7 +20,9 @@ class FaqsController extends AppController {
             'conditions'=>array('actif_cat_faq'=>'1'),
             'order'=> array('CategorieFaq.titre_categorie'=>'asc')
         );
-        $this->set('faqs',$this->Faq->CategorieFaq->find('all',$options));
+        $faq=$this->Faq->CategorieFaq->find('all',$options);
+        $this->set('faqs',$faq);
+        $this->set('title','Foire aux Questions - Catégories');
     }
 
 /**
@@ -50,6 +52,7 @@ class FaqsController extends AppController {
             $this->Session->setFlash(__('Il y a actuellement aucune question pour cette catégorie.'),'flash_warning');
             $this->redirect(array('action' => 'index'));
         }
+        $this->set('title','Foire aux Questions - '.$result[0]['CategorieFaq']['titre_categorie']);
 	}
 
     /**
@@ -68,6 +71,7 @@ class FaqsController extends AppController {
         $this->paginate = $options;
         $faqs = $this->Paginator->paginate();
         $this->set(compact('faqs'));
+        $this->set('title','FAQs');
     }
 
     /**
@@ -94,6 +98,8 @@ class FaqsController extends AppController {
             'order'=>array('CategorieFaq.titre_categorie'=>'asc')
         ));
         $this->set(compact('categorieFaqs'));
+        $this->set('title','FAQs');
+        $this->set('legend','Ajouter une FAQ');
     }
 
     /**
@@ -110,6 +116,7 @@ class FaqsController extends AppController {
         }
         $options = array('conditions' => array('Faq.' . $this->Faq->primaryKey => $id));
         $this->set('faq', $this->Faq->find('first', $options));
+        $this->set('title','FAQs');
     }
 
     /**
@@ -143,6 +150,8 @@ class FaqsController extends AppController {
             'order'=>array('CategorieFaq.titre_categorie'=>'asc')
         ));
         $this->set(compact('categorieFaqs'));
+        $this->set('title','FAQs');
+        $this->set('legend','Modifier cette FAQ');
     }
 
     /**
