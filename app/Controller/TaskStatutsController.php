@@ -18,6 +18,7 @@ class TaskStatutsController extends AppController {
         $this->Paginator->settings = $options;
         $taskStatuts = $this->Paginator->paginate();
         $this->set(compact('taskStatuts'));
+        $this->set('title','Liste des statuts');
     }
 
     public function admin_edit($id=null){
@@ -51,6 +52,8 @@ class TaskStatutsController extends AppController {
             );
             $this->request->data = $this->TaskStatut->find('first', $options);
         }
+        $this->set('title','Liste des statuts');
+        $this->set('legend','Modifier ce statut');
     }
 
     public function admin_add(){
@@ -72,6 +75,8 @@ class TaskStatutsController extends AppController {
                 $this->Session->setFlash(__('Le statut n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Liste des statuts');
+        $this->set('legend','Ajouter un statut');
     }
 
     public function admin_switchActive($id,$flag = null){

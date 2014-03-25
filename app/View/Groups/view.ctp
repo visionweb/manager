@@ -1,6 +1,7 @@
-<div class="span10 view">
-    <h2><?php  echo __('Groupe'); ?></h2>
-    <br/>
+
+<br>
+<?php print $this->element('subheader'); ?>
+
     <dl>
         <dt><?php echo __('Type du Groupe'); ?></dt>
         <dd>
@@ -120,4 +121,5 @@
             <div class="blocNumero"><?php echo __('Aucun numéro n\'est renseigné pour ce groupe.');?></div>
         <?php endif; ?>
     </div>
-</div>
+    
+<?php print $this->element('end_view'); ?>

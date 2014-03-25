@@ -1,5 +1,6 @@
-<div class="span10 index">
-    <h2><?php  echo __('Utilisateur'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php
     echo $this->Html->link(__('Modifiez les informations ci-dessous'),array('controller'=>'users','action'=>'edit'));?>
     <br/><br/>
@@ -133,4 +134,5 @@
             <div class="blocNumero"><?php echo __('Aucun numéro n\'est renseigné pour cet utilisateur.');?></div>
         <?php endif; ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

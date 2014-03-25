@@ -1,5 +1,6 @@
-<div class="span10 view">
-    <h2><?php  echo __('Travaux'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Form->postLink(__('Supprimez cette tâche'), array('action' => 'delete', $task['Task']['id']), null, __('Etes-vous sûr de vouloir supprimer la tâche < %s >?', $task['Task']['subject'])); ?>
     <br/><br/>
 
@@ -44,4 +45,5 @@
         echo $this->Form->end('Ajouter');
         ?>
     </fieldset>
-</div>
+
+<?php print $this->element('end_view'); ?>

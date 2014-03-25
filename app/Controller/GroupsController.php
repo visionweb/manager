@@ -27,6 +27,7 @@ class GroupsController extends AppController {
         //Sort information
         $data['GroupDetail']=$this->Group->parseData($data['GroupDetail']);
         $this->set('group', $data);
+        $this->set('title', 'Groups');
 	}
 
 /**
@@ -45,6 +46,7 @@ class GroupsController extends AppController {
         //Sort informations
         $data['GroupDetail']=$this->Group->parseData($data['GroupDetail']);
         $this->set('group', $data);
+        $this->set('title', 'Groups');
 	}
 
     /**
@@ -61,6 +63,7 @@ class GroupsController extends AppController {
         $this->paginate = $options;
         $groups = $this->Paginator->paginate();
         $this->set(compact('groups'));
+        $this->set('title', 'Groups');
     }
 
     /**
@@ -148,6 +151,8 @@ class GroupsController extends AppController {
                 $this->Session->setFlash(__('Le groupe n\'a pas été sauvegardé.'),'flash_error');
             }
         }
+		$this->set('title', 'Groups');
+		$this->set('legend', 'Ajouter un Groupe');
     }
 
     /**
@@ -173,6 +178,7 @@ class GroupsController extends AppController {
         //Sort informations
         $data['GroupDetail']=$this->Group->parseData($data['GroupDetail']);
         $this->set('group', $data);
+        $this->set('title', 'Groups');
     }
 
     /**
@@ -223,6 +229,8 @@ class GroupsController extends AppController {
             $options = array('conditions' => array('Group.' . $this->Group->primaryKey => $id));
             $this->request->data = $this->Group->find('first', $options);
         }
+		$this->set('title', 'Groups');
+		$this->set('legend', 'Edit group');
     }
 
     /**

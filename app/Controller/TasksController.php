@@ -56,6 +56,7 @@ class TasksController extends AppController{
         $this->Paginator->settings = $options;
         $tasks = $this->Paginator->paginate();
         $this->set(compact('tasks','taskProjects','taskStatuts','taskTypes','search'));
+        $this->set('title','Travaux');
     }
 
     public function admin_add(){
@@ -86,6 +87,8 @@ class TasksController extends AppController{
         ));
 
         $this->set(compact('taskTypes','taskStatuts','taskProjects'));
+        $this->set('title','Travaux');
+        $this->set('legend','Ajouter des travaux');
     }
 
     public function admin_edit($id = null){
@@ -124,6 +127,7 @@ class TasksController extends AppController{
             $this->request->data = $this->Task->find('first', $options);
             $this->set(compact('taskProjects','taskTypes','taskStatuts'));
         }
+		$this->set('title','Travaux');
     }
 
     public function admin_view($id = null){
@@ -169,6 +173,7 @@ class TasksController extends AppController{
         $task= $this->Task->findById($id);
         $this->set('task',$task);
         $this->set('commentaires',$this->Task->Commentaire->find('all',$options));
+        $this->set('title','Travaux');
     }
 
     public function admin_delete($id = null){
@@ -236,6 +241,7 @@ class TasksController extends AppController{
         $this->Paginator->settings = $options;
         $tasks = $this->Paginator->paginate();
         $this->set(compact('tasks','taskProjects','taskStatuts','taskTypes','search'));
+        $this->set('title','Travaux');
     }
 
     public function view($id = null){
@@ -265,6 +271,7 @@ class TasksController extends AppController{
         $this->set('commentaires',$this->Task->Commentaire->find('all',$options));
         $task= $this->Task->findById($id);
         $this->set('task',$task);
+        $this->set('title','Travaux');
     }
 
     /**
@@ -308,5 +315,6 @@ class TasksController extends AppController{
         ));
         $task=$this->Task->findById($id,array('recursive' => 0));
         $this->set(compact('task','taskStatuts'));
+		$this->set('title','Travaux');
     }
 }

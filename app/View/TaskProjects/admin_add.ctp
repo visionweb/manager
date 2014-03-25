@@ -1,11 +1,12 @@
-<div class="span10 form">
-    <?php echo $this->Form->create('TaskProject'); ?>
+
+<?php print $this->element('subheader'); ?>
+  
     <fieldset>
-        <legend><?php echo __('Ajouter un projet'); ?></legend>
         <?php
-        echo $this->Form->input('label', array('label' => 'Nom du projet'));
-        echo $this->Form->input('active_task_project', array('type' => 'hidden', 'default' => true));
+			echo $this->Form->create('TaskProject');
+			echo $this->Form->input('label', array('label' => 'Nom du projet'));
+			echo $this->Form->input('active_task_project', array('type' => 'hidden', 'default' => true)).'<br>';
+			echo $this->Form->end(__('Ajouter'));
         ?>
-    </fieldset>
-    <?php echo $this->Form->end(__('Ajouter')); ?>
-</div>
+
+<?php print $this->element('end_view'); ?>

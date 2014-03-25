@@ -1,7 +1,8 @@
-<div class="span10 form">
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Form->create('Task',array('class' => 'form-horizontal')); ?>
     <fieldset>
-        <legend><?php echo __('Ajouter des travaux'); ?></legend>
         <div class="control-group">
             <?php echo $this->Form->label('TaskProjectId','Projet',array('class' => 'control-label required')); ?>
             <div class="controls">
@@ -62,4 +63,5 @@
         );?>
     </fieldset>
     <?php echo $this->Form->end($options) ?>
-</div>
+
+<?php print $this->element('end_view'); ?>

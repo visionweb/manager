@@ -1,6 +1,6 @@
-<div class="span10 index">
-    <h2><?php echo __('Utilisateurs'); ?></h2>
-    <br/>
+
+<?php print $this->element('subheader'); ?>
+
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
             <th><?php echo $this->Paginator->sort('Civilité'); ?></th>
@@ -48,4 +48,5 @@
         echo $this->Paginator->next(__('Suivant') . ' >', array(), null, array('class' => 'next disabled'));
         ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

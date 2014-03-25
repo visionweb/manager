@@ -1,5 +1,6 @@
-<div class="span10 view">
-    <h2><?php  echo __('Utilisateur'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <span class="btn-group">
         <button class="btn">Action</button>
         <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -140,4 +141,5 @@
             <div class="blocNumero"><?php echo __('Aucun numéro n\'est renseigné pour cet utilisateur.');?></div>
         <?php endif; ?>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

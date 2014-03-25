@@ -18,6 +18,7 @@ class TaskProjectsController extends AppController {
         $this->Paginator->settings = $options;
         $taskProjects = $this->Paginator->paginate();
         $this->set(compact('taskProjects'));
+        $this->set('title','Liste des projets');
     }
 
     public function admin_edit($id=null){
@@ -51,6 +52,8 @@ class TaskProjectsController extends AppController {
             );
             $this->request->data = $this->TaskProject->find('first', $options);
         }
+        $this->set('title','Liste des projets');
+        $this->set('legend','Modifier ce projet');
     }
 
     public function admin_add(){
@@ -72,6 +75,8 @@ class TaskProjectsController extends AppController {
                 $this->Session->setFlash(__('Le projet n\'a pas été crée.'),'flash_warning');
             }
         }
+        $this->set('title','Liste des projets');
+        $this->set('legend','Ajouter un projet');
     }
 
     public function admin_switchActive($id,$flag = null){

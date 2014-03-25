@@ -26,6 +26,7 @@ class UsersController extends AppController {
         //Sort details
         $data['UserDetail']=$this->User->parseData($data['UserDetail']);
         $this->set('user', $data);
+        $this->set('title', 'Utilisateur');
 	}
 
     /**
@@ -59,6 +60,8 @@ class UsersController extends AppController {
                 $this->Session->setFlash(__('L\'utilisateur n\'a pas été sauvegardé'),'flash_error');
             }
         }
+        $this->set('title', 'Utilisateur');
+        $this->set('legend', 'Ajouter un utilisateur à mon groupe');
     }
 
     /**
@@ -99,6 +102,8 @@ class UsersController extends AppController {
             unset($result['User']['password']);
             $this->request->data = $result;
         }
+        $this->set('title', 'Utilisateur');
+        $this->set('legend', 'Editez cet utilisateur');
     }
 
     /**
@@ -115,6 +120,7 @@ class UsersController extends AppController {
         $this->paginate = $options;
         $users = $this->Paginator->paginate();
         $this->set(compact('users'));
+        $this->set('title', 'Utilisateur');
     }
 
     /**
@@ -153,6 +159,7 @@ class UsersController extends AppController {
             'order'=>array('Group.nom_group'=>'asc')
         ));
         $this->set(compact('groups'));
+        $this->set('title', 'Utilisateur');
     }
 
     /**
@@ -176,6 +183,7 @@ class UsersController extends AppController {
         //Sort details
         $data['UserDetail']=$this->User->parseData($data['UserDetail']);
         $this->set('user', $data);
+        $this->set('title', 'Utilisateur');
     }
 
     /**
@@ -229,6 +237,8 @@ class UsersController extends AppController {
             'order'=>array('Group.nom_group'=>'asc')
         ));
         $this->set(compact('groups'));
+        $this->set('title', 'Utilisateur');
+        $this->set('legend', 'Editez cet utilisateur');
     }
 
     /**

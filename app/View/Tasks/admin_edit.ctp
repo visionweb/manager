@@ -1,4 +1,6 @@
-<div class="span10 form">
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Form->create('Task'); ?>
     <fieldset>
         <legend><?php echo __('Modifier cette tâche'); ?></legend>
@@ -11,4 +13,5 @@
         ?>
     </fieldset>
     <?php echo $this->Form->end(__('Modifier')); ?>
-</div>
+
+<?php print $this->element('end_view'); ?>

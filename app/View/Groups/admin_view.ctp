@@ -1,5 +1,6 @@
-<div class="span10 view">
-    <h2><?php  echo __('Groupe'); ?></h2>
+<br>
+<?php print $this->element('subheader'); ?>
+
     <span class="btn-group">
         <button class="btn">Action</button>
         <button class="btn dropdown-toggle" data-toggle="dropdown">
@@ -260,4 +261,5 @@
         </div>
         <br/>
     </div>
-</div>
+
+<?php print $this->element('end_view'); ?>

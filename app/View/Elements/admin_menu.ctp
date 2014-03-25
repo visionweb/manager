@@ -130,6 +130,13 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">Modules <b class="caret"></b></a>
                         <ul class="dropdown-menu">
                             <li><a href="<?php echo Configure::read('root.url')?>admin/modules/index">Gestion</a></li>
+                            <li class="dropdown-submenu">
+                                <a>Configuration</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/modules/mail">Support mail</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/modules/logo">Logotype</a></li>
+                                </ul>
+                            </li>
                             <li class="divider"></li>
                             <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '<!--';?>
                             <li class="dropdown-submenu">

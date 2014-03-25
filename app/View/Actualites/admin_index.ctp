@@ -1,10 +1,14 @@
 <?php print $this->element('subheader'); ?>
 
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
-        <?php print $this->Html->tableHeaders(array(
-				$this->Paginator->sort('titre_actu','Titre Actualité'),
-				$this->Paginator->sort('created','Créé le')
-				));?>
+        <tr>
+			<th>
+				<?php print $this->Paginator->sort('titre_actu','Titre Actualité')?>
+			</th>
+			<th>
+				<?php print $this->Paginator->sort('created','Créé le');?>
+			</th>
+		</tr>
         <?php foreach ($actualites as $actualite): ?>
             <tr>
                 <td><?php echo h($actualite['Actualite']['titre_actu']); ?>&nbsp;</td>

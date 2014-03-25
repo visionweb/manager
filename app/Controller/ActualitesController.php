@@ -59,7 +59,7 @@ class ActualitesController extends AppController {
             //If the actuality has been saved in the database
             if ($this->Actualite->save($this->request->data)) {
                 $this->Session->setFlash(__('L\'actualité a été sauvegardé.'),'flash_success');
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'admin_index'));
             } else {
                 $this->Session->setFlash(__('L\'actualité n\'a pas pu être sauvegardé. Veuillez réessayer ultérieurement.'),'flash_error');
             }
@@ -78,10 +78,12 @@ class ActualitesController extends AppController {
         //If the actuality doesn't exist in the database or if the actuality is not active
         if (!$this->Actualite->exists($id) || $this->Actualite->compare($this->modelClass,$id,'actif_actu',false) ){
             $this->Session->setFlash(__('Cette actualité n\'existe pas.'),'flash_warning');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'admin_index'));
         }
         $options = array('conditions' => array('Actualite.' . $this->Actualite->primaryKey => $id));
         $this->set('actualite', $this->Actualite->find('first', $options));
+        $this->set('title', 'Actualites');
+        $this->set('legend', 'Voir actualitée');
     }
 
     /**
@@ -94,14 +96,14 @@ class ActualitesController extends AppController {
         //If the actuality doesn't exist in the database or if the actuality is not active
         if (!$this->Actualite->exists($id) || $this->Actualite->compare($this->modelClass,$id,'actif_actu',false)) {
             $this->Session->setFlash(__('Cette actualité n\'existe pas.'),'flash_warning');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'admin_index'));
         }
         //If there is data send by a form
         if ($this->request->is('post') || $this->request->is('put')) {
             //If the actuality has been saved in the database
             if ($this->Actualite->save($this->request->data)) {
                 $this->Session->setFlash(__('Les changements ont été sauvegardé.'),'flash_success');
-                $this->redirect(array('action' => 'index'));
+                $this->redirect(array('action' => 'admin_index'));
             } else {
                 $this->Session->setFlash(__('Les changements n\'ont pas été sauvegardé.'),'flash_error');
             }
@@ -109,6 +111,8 @@ class ActualitesController extends AppController {
             $options = array('conditions' => array('Actualite.' . $this->Actualite->primaryKey => $id));
             $this->request->data = $this->Actualite->find('first', $options);
         }
+        $this->set('title', 'Actualites');
+        $this->set('legend', 'Editez cette actualitée');
     }
 
     /**
@@ -122,7 +126,7 @@ class ActualitesController extends AppController {
         //If the actuality doesn't exist in the database or if the actuality is not active
         if (!$this->Actualite->exists() || $this->Actualite->compare($this->modelClass,$id,'actif_actu',false)) {
             $this->Session->setFlash(__('Cette actualité n\'existe pas.'),'flash_warning');
-            $this->redirect(array('action' => 'index'));
+            $this->redirect(array('action' => 'admin_index'));
         }
         $this->request->onlyAllow('post', 'delete');
         //If the 'actif' field has been changed
@@ -131,7 +135,9 @@ class ActualitesController extends AppController {
             $this->redirect(array('action' => 'index'));
         }
         $this->Session->setFlash(__('L\'actualité n\'a pas été supprimé'),'flash_error');
-        $this->redirect(array('action' => 'index'));
+        $this->redirect(array('action' => 'admin_index'));
+        $this->set('title', 'Actualites');
+        $this->set('legend', 'Editez cette actualitée');
     }
 
 }

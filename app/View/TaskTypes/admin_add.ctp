@@ -1,11 +1,13 @@
-<div class="span10 form">
-    <?php echo $this->Form->create('TaskType'); ?>
+
+<?php print $this->element('subheader'); ?>
+
     <fieldset>
-        <legend><?php echo __('Ajouter un type'); ?></legend>
         <?php
-        echo $this->Form->input('label', array('label' => 'Nom du type'));
-        echo $this->Form->input('active_task_type', array('type' => 'hidden', 'default' => true));
+			echo $this->Form->create('TaskType');
+			echo $this->Form->input('label', array('label' => 'Nom du type'));
+			echo $this->Form->input('active_task_type', array('type' => 'hidden', 'default' => true)).'<br>';
+			echo $this->Form->end(__('Ajouter'));
         ?>
     </fieldset>
-    <?php echo $this->Form->end(__('Ajouter')); ?>
-</div>
+    
+<?php print $this->element('end_view'); ?>

@@ -1,7 +1,7 @@
 <div class="span2 actions">
     <h3><?php echo __('Menu'); ?></h3>
     <ul class="navbar-inner:after">
-        <li><?php echo $this->Html->link(__('Gestion Actualités'), '/admin/actualites'); ?></li>
+        <li>ggg<?php echo $this->Html->link(__('Gestion Actualités'), '/admin/actualites'); ?></li>
         <li><?php echo $this->Html->link(__('Gestion Groupes'), '/admin/groups'); ?> </li>
         <li><?php echo $this->Html->link(__('Gestion Utilisateurs'),'/admin/users/index');?></li>
         <li><?php echo $this->Html->link(__('Gestion Factures'), array('controller' => 'invoices', 'action' => 'admin_index')); ?> </li>

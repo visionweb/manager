@@ -1,6 +1,5 @@
-<div class="span10 view">
-    <h2><?php  echo __('Travaux'); ?></h2>
-    <br/>
+
+<?php print $this->element('subheader'); ?>
 
     <table class="table">
         <tr>
@@ -32,4 +31,5 @@
         <?php echo $commentaire['Commentaire']['text_commentaire'];?>
     </div>
     <?php endforeach;?>
-</div>
+
+<?php print $this->element('end_view'); ?>

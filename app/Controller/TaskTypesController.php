@@ -18,6 +18,7 @@ class TaskTypesController extends AppController {
         $this->Paginator->settings = $options;
         $taskTypes = $this->Paginator->paginate();
         $this->set(compact('taskTypes'));
+        $this->set('title','Liste des types');
     }
 
     public function admin_edit($id=null){
@@ -51,6 +52,8 @@ class TaskTypesController extends AppController {
             );
             $this->request->data = $this->TaskType->find('first', $options);
         }
+        $this->set('title','Liste des types');
+        $this->set('legend','Editez ce type');
     }
 
     public function admin_add(){
@@ -72,6 +75,8 @@ class TaskTypesController extends AppController {
                 $this->Session->setFlash(__('Le type n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Liste des types');
+        $this->set('legend','Ajouter un type');
     }
 
     public function admin_switchActive($id,$flag = null){

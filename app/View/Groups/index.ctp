@@ -1,5 +1,6 @@
-<div class="span10">
-    <h2><?php  echo __('Groupe'); ?></h2>
+<br>
+<?php print $this->element('subheader'); ?>
+
 	<?php echo $this->Html->link('Modifiez les informations de ce groupe',array('controller'=>'groups','action'=>'view'));?>
 	<br/><br/>
     <dl>
@@ -107,5 +108,5 @@
         </div>
     </div>
   </div>
-</div>
+<?php print $this->element('end_view'); ?>
 
