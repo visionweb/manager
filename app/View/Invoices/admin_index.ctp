@@ -1,5 +1,5 @@
-<div class="span10 index"><br/>
-    <h2><?php echo __('Factures'); ?></h2><br/>
+<?php print $this->element('subheader'); ?>
+
     <? if(empty($invoices) && !$search): echo 'Aucune facture enregistrée' ?>
     <?else :?>
         <?php echo $this->Form->create('Search',array('class' => 'form-search')); ?>

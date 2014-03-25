@@ -1,5 +1,5 @@
-<div class="span10 index">
-    <h2><?php echo __('Types de facture'); ?></h2>
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Html->link(__('Ajouter'),array('action'=>'add'));?>
     <br/><br/>
     <?php if(empty($invoiceTypes)): echo __('Aucun type');?>
@@ -54,4 +54,5 @@
             ?>
         </div>
     <?php endif;?>
-</div>
+
+<?php print $this->element('end_view'); ?>

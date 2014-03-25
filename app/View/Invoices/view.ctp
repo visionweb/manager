@@ -1,5 +1,5 @@
-<div class="span10 view">
-    <h2><?php  echo __('Facture'); ?></h2>
+<?php print $this->element('subheader'); ?>
+
     <a class="pull-right"><?php echo $this->Form->postButton(__('Telecharger'), array('action' => 'sendFile', $invoice['Invoice']['id']));?></a>
     <br/>
     <table class="display-table">
@@ -37,4 +37,5 @@
             <td style="text-align: left"><?php echo h($invoice['InvoiceStatut']['label']);?></td>
         </tr>
     </table>
-</div>
+    
+<?php print $this->element('end_view'); ?>

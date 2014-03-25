@@ -18,6 +18,7 @@ class PasswordServicesController extends AppController{
         $this->Paginator->settings = $options;
         $passwordServices = $this->Paginator->paginate();
         $this->set(compact('passwordServices'));
+        $this->set('title','Service');
     }
 
     public function admin_switchActive($id,$flag = null){
@@ -63,6 +64,8 @@ class PasswordServicesController extends AppController{
                 $this->Session->setFlash(__('Le service n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Service');
+        $this->set('legend','Ajouter un service');
     }
 
     public function admin_edit($id){
@@ -96,5 +99,7 @@ class PasswordServicesController extends AppController{
             );
             $this->request->data = $this->PasswordService->find('first', $options);
         }
+        $this->set('title','Service');
+        $this->set('legend','Editez ce service');
     }
 }

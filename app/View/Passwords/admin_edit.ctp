@@ -1,3 +1,5 @@
+<?php print $this->element('subheader'); ?>
+
 <div class="span10 form">
     <?php echo $this->Form->create('Password'); ?>
     <fieldset>

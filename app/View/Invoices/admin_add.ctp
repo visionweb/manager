@@ -1,8 +1,9 @@
 <?php echo $this->Html->css('jquery-ui-1.10.3.custom.min');?>
-<div class="span10 form">
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Form->create('Invoice',array('class' => 'form-horizontal', 'type' => 'file')); ?>
     <fieldset>
-        <legend><?php echo __('Ajouter une facture'); ?></legend>
         <div class="control-group">
             <?php echo $this->Form->label('InvoiceLink','Inporter un fichier',array('class' => 'control-label required')); ?>
             <div class="controls">
@@ -88,6 +89,7 @@
         );?>
     </fieldset>
     <?php echo $this->Form->end($options) ?>
-</div>
+
+<?php print $this->element('end_view'); ?>
 
 <?php echo $this->Html->script(array('jquery-ui.custom.min','jquery.ui.datepicker-fr.min','date'));?>

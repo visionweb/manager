@@ -1,5 +1,6 @@
-<div class="span10 index">
-    <h2><?php echo __('Mots de passe'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <?php echo $this->Html->link(__('Ajouter'),array('action'=>'add'));?>
     <br/><br/>
     <?php if(empty($passwords)): echo __('Aucun mot de passe');?>

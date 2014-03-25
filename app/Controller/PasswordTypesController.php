@@ -18,6 +18,7 @@ class PasswordTypesController extends AppController{
         $this->Paginator->settings = $options;
         $passwordTypes = $this->Paginator->paginate();
         $this->set(compact('passwordTypes'));
+        $this->set('title','Types de password');
     }
 
     public function admin_switchActive($id,$flag = null){
@@ -63,6 +64,8 @@ class PasswordTypesController extends AppController{
                 $this->Session->setFlash(__('Le type n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Types de password');
+        $this->set('legend','Ajouter un type');
     }
 
     public function admin_edit($id){
@@ -96,5 +99,7 @@ class PasswordTypesController extends AppController{
             );
             $this->request->data = $this->PasswordType->find('first', $options);
         }
+        $this->set('title','Types de password');
+        $this->set('legend','Editez ce type');
     }
 }

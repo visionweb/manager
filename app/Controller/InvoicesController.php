@@ -110,6 +110,7 @@ class InvoicesController extends AppController{
         $this->Paginator->settings = $options;
         $invoices = $this->Paginator->paginate();
         $this->set(compact('invoices','invoiceStatuts','search'));
+        $this->set('title','Factures');
     }
 
     /**
@@ -126,6 +127,7 @@ class InvoicesController extends AppController{
         }
         $invoice= $this->Invoice->findById($id);
         $this->set('invoice',$invoice);
+        $this->set('title','Factures');
     }
 
     public function admin_index(){
@@ -169,6 +171,7 @@ class InvoicesController extends AppController{
         $this->Paginator->settings = $options;
         $invoices = $this->Paginator->paginate();
         $this->set(compact('invoices','invoiceStatuts','groups','search'));
+        $this->set('title','Factures');
     }
 
     public function admin_add(){
@@ -235,6 +238,8 @@ class InvoicesController extends AppController{
         ));
 
         $this->set(compact('invoiceTypes','invoiceStatuts','groups'));
+        $this->set('title','Factures');
+        $this->set('legend','Ajouter une facture');
     }
 
     public function admin_view($id = null){
@@ -244,6 +249,7 @@ class InvoicesController extends AppController{
         }
         $invoice= $this->Invoice->findById($id);
         $this->set('invoice',$invoice);
+        $this->set('title','Factures');
     }
 
     public function admin_delete($id = null) {
@@ -296,5 +302,6 @@ class InvoicesController extends AppController{
         ));
         $invoice=$this->Invoice->findById($id,array('recursive' => 0));
         $this->set(compact('invoice','invoiceStatuts'));
+        $this->set('title','Factures');
     }
 }

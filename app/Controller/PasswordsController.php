@@ -32,6 +32,7 @@ class PasswordsController extends AppController{
         $this->Paginator->settings = $options;
         $passwords = $this->Paginator->paginate();
         $this->set(compact('passwords','passwordService','passwordType'));
+        $this->set('title','Mots de passe');
     }
 
     public function admin_index(){
@@ -70,6 +71,7 @@ class PasswordsController extends AppController{
         $this->Paginator->settings = $options;
         $passwords = $this->Paginator->paginate();
         $this->set(compact('passwords','passwordService','passwordType','groups'));
+        $this->set('title','Mots de passe');
     }
 
     public function add(){
@@ -97,6 +99,8 @@ class PasswordsController extends AppController{
         ));
         $group_id=$this->Auth->user('group_id');
         $this->set(compact('passwordTypes','passwordServices','group_id'));
+        $this->set('title','Mots de passe');
+        $this->set('legend','Ajouter un mot de passe');
     }
 
     public function admin_add(){
@@ -128,6 +132,8 @@ class PasswordsController extends AppController{
             'order'=>array('Group.nom_group'=>'asc')
         ));
         $this->set(compact('passwordTypes','passwordServices','groups'));
+        $this->set('title','Mots de passe');
+        $this->set('legend','Ajouter un mot de passe');
     }
 
     public function edit($id){
@@ -149,6 +155,8 @@ class PasswordsController extends AppController{
             $options = array('conditions' => array('Password.' . $this->Password->primaryKey => $id),'recursive' => -1);
             $this->request->data = $this->Password->find('first', $options);
         }
+        $this->set('title','Mots de passe');
+        $this->set('legend','Modifier ce mot de passe');
     }
 
     public function admin_edit($id){
@@ -176,6 +184,8 @@ class PasswordsController extends AppController{
             $this->request->data = $this->Password->find('first', $options);
             $this->set(compact('groups'));
         }
+        $this->set('title','Mots de passe');
+        $this->set('legend','Modifier ce mot de passe');
     }
 
     public function admin_delete($id){

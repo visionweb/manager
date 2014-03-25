@@ -23,6 +23,7 @@ class InvoiceTypesController extends AppController {
         $this->Paginator->settings = $options;
         $invoiceTypes = $this->Paginator->paginate();
         $this->set(compact('invoiceTypes'));
+        $this->set('title','Types de facture');
     }
 
     public function admin_switchActive($id,$flag = null){
@@ -68,6 +69,8 @@ class InvoiceTypesController extends AppController {
                 $this->Session->setFlash(__('Le type n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Types de facture');
+        $this->set('legend','Ajouter un type');
     }
 
     public function admin_edit($id){
@@ -101,5 +104,7 @@ class InvoiceTypesController extends AppController {
             );
             $this->request->data = $this->InvoiceType->find('first', $options);
         }
+        $this->set('title','Types de facture');
+        $this->set('legend','Editez ce type');
     }
 }

@@ -1,5 +1,6 @@
-<div class="span10 index">
-    <h2><?php echo __('Factures'); ?></h2>
+
+<?php print $this->element('subheader'); ?>
+
     <? if(empty($invoices) && !$search): echo 'Aucune facture enregistrée' ?>
     <?else :?>
         <?php echo $this->Form->create('Search',array('class' => 'form-search')); ?>
@@ -64,5 +65,6 @@
             <?endif?>
         </div>
     <?endif;?>
-</div>
+
+<?php print $this->element('end_view'); ?>
 

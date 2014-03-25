@@ -19,6 +19,7 @@ class InvoiceStatutsController extends AppController{
         $this->Paginator->settings = $options;
         $invoiceStatuts = $this->Paginator->paginate();
         $this->set(compact('invoiceStatuts'));
+        $this->set('title','Statuts de facture');
     }
 
     public function admin_switchActive($id,$flag = null){
@@ -64,6 +65,8 @@ class InvoiceStatutsController extends AppController{
                 $this->Session->setFlash(__('Le statut n\'a pas été crée.'),'flash_error');
             }
         }
+        $this->set('title','Statuts de facture');
+        $this->set('legend','Ajouter un statut');
     }
 
     public function admin_edit($id){
@@ -97,5 +100,7 @@ class InvoiceStatutsController extends AppController{
             );
             $this->request->data = $this->InvoiceStatut->find('first', $options);
         }
+        $this->set('title','Statuts de facture');
+        $this->set('legend','Modifier ce statut');
     }
 }
