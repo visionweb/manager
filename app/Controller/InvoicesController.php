@@ -95,7 +95,7 @@ class InvoicesController extends AppController{
             $search=true;
         }else{
             $options=array(
-                'fields'=>array('id','name','created','invoice_statut_id','period_begin','period_end'),
+                'fields'=>array('id','link', 'name','created','invoice_statut_id','period_begin','period_end'),
                 'recursive' => 1,
                 'conditions'=>array('active_invoice'=>true, 'group_id' =>$this->Auth->user('group_id')),
                 'order'=> array('created'=>'desc'),
@@ -110,6 +110,11 @@ class InvoicesController extends AppController{
         ));
         $this->Paginator->settings = $options;
         $invoices = $this->Paginator->paginate();
+        $extest=array();
+        for($i=0; $i<sizeof($invoices); $i++)
+			if(file_exists($invoices[$i]['Invoice']['link']))
+				array_push($extest,$invoices[$i]);
+		$invoices=$extest;
         $this->set(compact('invoices','invoiceStatuts','search'));
         $this->set('title','Factures');
     }
