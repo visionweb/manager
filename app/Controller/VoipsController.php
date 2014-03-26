@@ -218,15 +218,43 @@ class VoipsController extends AppController {
 				}
 			}
 		
-		if (!empty($this->data['search'])){
-			$sResult=array();
-			for ($i=0; $i<sizeof($dataBrut); $i++){
-				if($dataBrut[$i][$this->data['by']]==$this->data['search'])
-					array_push($sResult, $dataBrut[$i]);
-				}
-			$this->set("listUser", $sResult);
-			}
-		else	$this->set("listUser", $dataBrut);
+		$conditions = array('Number.owner NOT LIKE' => '');
+		$this->Paginator->settings = array(
+			'Number' => array(
+			'conditions' => $conditions,
+			'limit' => 30,
+			'fields'=>array('short')
+			)
+		);
+		$this->Paginator->settings = $this->paginate;
+		$users = $this->Paginator->paginate('Number');
+		for ($i=0; $i<sizeof($users); $i++)
+			foreach($dataBrut as $single)
+				if($users[$i]['Number']['short']==$single['line']['number']){
+					if(isset($this->data['by']) and $single[$this->data['by']]==$this->data['search']){
+						$users[$i]['Number']['firstname']=$single['firstname'];
+						$users[$i]['Number']['lastname']=$single['lastname'];
+						$users[$i]['Number']['owner']=$single['owner'];
+						$users[$i]['Number']['userfield']=$single['userfield'];
+						$users[$i]['Number']['username']=$single['username'];
+						$users[$i]['Number']['password']=$single['password'];
+						break;
+						}
+					elseif(!isset($this->data['by']) or empty($this->data['search'])){
+						$users[$i]['Number']['firstname']=$single['firstname'];
+						$users[$i]['Number']['lastname']=$single['lastname'];
+						$users[$i]['Number']['owner']=$single['owner'];
+						$users[$i]['Number']['userfield']=$single['userfield'];
+						$users[$i]['Number']['username']=$single['username'];
+						$users[$i]['Number']['password']=$single['password'];
+						}
+					}
+		$show=array();
+		for ($i=0; $i<sizeof($users); $i++)
+			if(sizeof($users[$i]['Number'])>2)
+				array_push($show,$users[$i]);
+		
+		$this->set('listUser',$show);
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
@@ -388,13 +416,14 @@ class VoipsController extends AppController {
 	public function admin_listNumbers($id=NULL){
 		$this->loadModel("Number");
 		$conditions = array();
-		If($id==1) $conditions = array('Number.owner' => '');
+		if($id==1) $conditions = array('Number.owner' => '');
+		elseif($id==2) $conditions = array('Number.owner NOT LIKE'=> '');
 		$this->Paginator->settings = array(
-			'Number' => array(
-			'conditions' => $conditions,
-			'limit' => 30
-			)
-		);
+				'Number' => array(
+				'conditions' => $conditions,
+				'limit' => 30
+				)
+			);
 		
 		if (isset($this->request->data['del'])) {
 			$numbers=$this->Number->find("all");

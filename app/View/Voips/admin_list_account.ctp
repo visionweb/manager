@@ -1,5 +1,9 @@
+<?php $this->Paginator->options(array(
+     'update' => '#ajaxdiv',
+       'evalScripts' => true));?>
+<div id='ajaxdiv'>
+	
 <?php print $this->element('subheader'); ?>
-
 	    <fieldset>
 			<?php
 				print $this->Form->create(false, array('type' => 'file'));
@@ -38,41 +42,41 @@
 				Password
 			</th>
         </tr>
-        <?php for($i=0; $i<sizeof($listUser); $i++): ?>
+        <?php foreach($listUser as $user): ?>
 		<tr>
 			<td>
 				<?php 
-					print $listUser[$i]["firstname"] 
+					print $user["Number"]["firstname"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["lastname"] 
+					print $user["Number"]["lastname"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["owner"] 
+					print $user["Number"]["owner"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["line"]["number"] 
+					print $user["Number"]["short"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["userfield"] 
+					print $user["Number"]["userfield"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["username"] 
+					print $user["Number"]["username"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $listUser[$i]["password"] 
+					print $user["Number"]["password"] 
 				?>
 			</td>
 			<td class="actions btn-group">
@@ -88,7 +92,35 @@
 				</ul>
 			</td>
         </tr>         
-		<?php endfor; ?>
+		<?php endforeach; ?>
     </table>
 	
+	<?php print $this->Paginator->counter()?><br>
+		<div class="pagination">
+			<ul>
+				<li>
+					<?php 
+						print $this->Paginator->first('<< First', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->prev('< Previous', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->next('Next >', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->last('Last >>', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+			</ul>
+		</div>
+	
 	<?php print $this->element('end_view'); ?>
+</div>
+<?php echo $this->Js->writeBuffer();?>

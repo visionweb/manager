@@ -40,6 +40,7 @@
 			<?php 
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '0')).'">All</a></li>';
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '1')).'">Free numbers</a></li>';
+				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '2')).'">Owned numbers</a></li>';
 			?>
         </ul>
       </div>
