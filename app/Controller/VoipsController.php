@@ -241,6 +241,7 @@ class VoipsController extends AppController {
 						break;
 						}
 					elseif(!isset($this->data['by']) or empty($this->data['search'])){
+						$users[$i]['Number']['id']=$single['id'];
 						$users[$i]['Number']['firstname']=$single['firstname'];
 						$users[$i]['Number']['lastname']=$single['lastname'];
 						$users[$i]['Number']['owner']=$single['owner'];
@@ -252,7 +253,7 @@ class VoipsController extends AppController {
 		$show=array();
 		for ($i=0; $i<sizeof($users); $i++)
 			if(sizeof($users[$i]['Number'])>2)
-				array_push($show,$users[$i]);
+				array_push($show,$users[$i]['Number']);
 		
 		$this->set('listUser',$show);
 		$this->set('title','VoIP');

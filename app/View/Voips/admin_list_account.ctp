@@ -46,37 +46,37 @@
 		<tr>
 			<td>
 				<?php 
-					print $user["Number"]["firstname"] 
+					print $user["firstname"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["lastname"] 
+					print $user["lastname"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["owner"] 
+					print $user["owner"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["short"] 
+					print $user["short"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["userfield"] 
+					print $user["userfield"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["username"] 
+					print $user["username"] 
 				?>
 			</td>
 			<td>
 				<?php 
-					print $user["Number"]["password"] 
+					print $user["password"] 
 				?>
 			</td>
 			<td class="actions btn-group">
@@ -87,8 +87,8 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="<?php print $this->Html->url(array('action' => 'edit', $listUser[$i]['id'])) ?>">Edit</a></li>
-					<li><a class="delete" href="<?php print $this->Html->url(array('action' => 'delete', $listUser[$i]['id'])) ?>">Delete</a></li>
+					<li><a href="<?php print $this->Html->url(array('action' => 'edit', $user['id'])) ?>">Edit</a></li>
+					<li><a class="delete" href="<?php print $this->Html->url(array('action' => 'delete', $user['id'])) ?>">Delete</a></li>
 				</ul>
 			</td>
         </tr>         
