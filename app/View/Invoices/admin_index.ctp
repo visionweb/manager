@@ -1,5 +1,4 @@
 <?php print $this->element('subheader'); ?>
-
     <? if(empty($invoices) && !$search): echo 'Aucune facture enregistrée' ?>
     <?else :?>
         <?php echo $this->Form->create('Search',array('class' => 'form-search')); ?>

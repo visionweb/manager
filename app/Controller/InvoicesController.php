@@ -20,6 +20,7 @@ class InvoicesController extends AppController{
      * @return file
      */
     public function admin_sendFile($id) {
+		$this->autoRender = false;
         //Si la facture n'existe pas ou si elle n'est pas active
         if (!$this->Invoice->exists($id) || $this->Invoice->compare($this->modelClass,$id,'active_invoice',false) ){
             $this->Session->setFlash(__('Cette facture n\'existe pas.'),'flash_warning');
@@ -149,7 +150,7 @@ class InvoicesController extends AppController{
             $search=true;
         }else{
             $options=array(
-                'fields'=>array('id','name','name_file','created','invoice_statut_id','period_begin','period_end'),
+                'fields'=>array('id','name','name_file','created', 'link','invoice_statut_id','period_begin','period_end'),
                 'recursive' => -1,
                 'conditions'=>array('active_invoice'=>true),
                 'order'=> array('created'=>'desc'),
@@ -170,7 +171,12 @@ class InvoicesController extends AppController{
 
         $this->Paginator->settings = $options;
         $invoices = $this->Paginator->paginate();
-        $this->set(compact('invoices','invoiceStatuts','groups','search'));
+        $extest=array();
+        for($i=0; $i<sizeof($invoices); $i++)
+			if(file_exists($invoices[$i]['Invoice']['link']))
+				array_push($extest,$invoices[$i]);
+		$invoices=$extest;
+        $this->set(compact('extest','invoices','invoiceStatuts','groups','search'));
         $this->set('title','Factures');
     }
 
