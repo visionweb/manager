@@ -8,7 +8,7 @@
 			print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
 			print $this->Form->input('acc', array('label'=>'Show accounts'));
 			if($show_name==true) print $this->Form->input('name', array('label'=>'Show SIP', 'options'=>$user));
-			print $this->Js->submit('Show', array('update'=>'#ajaxdiv'));
+			print $this->Js->submit('Show', array('update'=>'#content'));
 			print $this->Form->end();
 		?>
 	</fieldset>

@@ -43,4 +43,3 @@
     </div>
 
 <?php print $this->element('end_view'); ?>
-<?php echo $this->Js->writeBuffer();?>

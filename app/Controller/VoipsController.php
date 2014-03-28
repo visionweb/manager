@@ -11,6 +11,15 @@ class VoipsController extends AppController {
 	var $name = 'Voips';
 	public $components = array('RequestHandler', 'Paginator');
 	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js' => array('Jquery', 'del_confirm'));
+
+	public function beforeFilter() {
+        $this->Auth->allow('login','index','logout');
+        $this->loadModel("Module");
+		$modules=$this->Module->find("all");
+		$this->set(compact('modules'));
+		$this->set('ajax',true);
+    }
+
 /**
  * index method - Display categories
  *
@@ -257,6 +266,7 @@ class VoipsController extends AppController {
 		$this->set('listUser',$show);
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');
+		$this->set('ajax_on',true);
         //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
     }
 
@@ -451,6 +461,7 @@ class VoipsController extends AppController {
 		$this->set('title','Configuration');
 		$this->set('legend','List numbers');
 		$this->set(compact("nums_owns"));
+		$this->set('ajax_on',true);
 		}
 	
 	public function admin_newNumbers(){

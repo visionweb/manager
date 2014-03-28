@@ -1,7 +1,7 @@
 	
 <?php print $this->element('subheader'); ?>
+
 	    <fieldset>
-			
 			<?php
 				print $this->Form->create(false, array('type' => 'file'));
 				$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
@@ -12,7 +12,7 @@
 					"type" => "search",
 					"placeholder" => "Search"
 					));
-				print $this->Js->submit('Show', array('update'=>'#ajaxdiv'));
+				print $this->Js->submit('Show', array('update'=>'#content'));
 				print $this->Form->end();
 			?>
 	
