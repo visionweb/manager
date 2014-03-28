@@ -1,9 +1,4 @@
 
-<?php $this->Paginator->options(array(
-     'update' => '#ajaxdiv',
-       'evalScripts' => true));?>
-<div id='ajaxdiv'>
-
 <?php print $this->element('subheader'); ?>
 
 	<ul class="nav nav-tabs">

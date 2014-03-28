@@ -1,3 +1,7 @@
+<?php $this->Paginator->options(array(
+     'update' => '#content',
+       'evalScripts' => true));?>
+
 <div class="span10 form">
 	
 	<br/>

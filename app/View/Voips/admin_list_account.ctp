@@ -1,7 +1,3 @@
-<?php $this->Paginator->options(array(
-     'update' => '#ajaxdiv',
-       'evalScripts' => true));?>
-<div id='ajaxdiv'>
 	
 <?php print $this->element('subheader'); ?>
 	    <fieldset>
@@ -126,5 +122,3 @@
 		</div>
 	
 	<?php print $this->element('end_view'); ?>
-</div>
-<?php echo $this->Js->writeBuffer();?>

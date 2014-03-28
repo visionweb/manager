@@ -1,3 +1,4 @@
+       
 <?php print $this->element('subheader'); ?>
 
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
@@ -42,3 +43,4 @@
     </div>
 
 <?php print $this->element('end_view'); ?>
+<?php echo $this->Js->writeBuffer();?>
