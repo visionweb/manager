@@ -36,10 +36,12 @@
 		<?php
 			print $this->Form->create(false, array('action'=>'configuration'));
 			print $this->Form->input("keyword", array(
+				'div'=>false,
 				"label" => "",
 				"type" => "search",
 				"placeholder" => "Search"
-				));
+				)).' ';
+			print $this->Js->submit('Find', array('div'=>false, 'style'=>'height:30px; vertical-align:top;', 'update'=>'#ajaxdiv'));
 			print $this->Form->end();
 		?>
 		

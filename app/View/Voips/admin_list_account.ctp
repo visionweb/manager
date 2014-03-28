@@ -5,17 +5,21 @@
 	
 <?php print $this->element('subheader'); ?>
 	    <fieldset>
+			
 			<?php
 				print $this->Form->create(false, array('type' => 'file'));
 				$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
-				print $this->Form->input('by', array('label'=>'Find by', 'options'=>$findBy, 'default'=>'First name'));
+				print $this->Form->input('by', array('label'=>'Find by',  'options'=>$findBy, 'default'=>'First name'));
+				print '&nbsp;';
 				print $this->Form->input('search', array(
-					"label" => "",
+					'label' => false,
 					"type" => "search",
 					"placeholder" => "Search"
 					));
+				print $this->Js->submit('Show', array('update'=>'#ajaxdiv'));
 				print $this->Form->end();
 			?>
+	
 		</fieldset>
 		
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">

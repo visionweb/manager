@@ -1,5 +1,6 @@
-<?php print $this->element('subheader'); ?>
 
+<div id='ajaxdiv'>
+<?php print $this->element('subheader'); ?>
    <fieldset>
 		<?php    
 			print $this->Form->create(false, array('type' => 'file'));
@@ -7,7 +8,8 @@
 			print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
 			print $this->Form->input('acc', array('label'=>'Show accounts'));
 			if($show_name==true) print $this->Form->input('name', array('label'=>'Show SIP', 'options'=>$user));
-			print $this->Form->end('Show');
+			print $this->Js->submit('Show', array('update'=>'#ajaxdiv'));
+			print $this->Form->end();
 		?>
 	</fieldset>
 
@@ -50,3 +52,5 @@
     </table>
     
 <?php print $this->element('end_view'); ?>
+</div>
+<?php echo $this->Js->writeBuffer();?>

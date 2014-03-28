@@ -11,8 +11,6 @@ class VoipsController extends AppController {
 	var $name = 'Voips';
 	public $components = array('RequestHandler', 'Paginator');
 	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js' => array('Jquery', 'del_confirm'));
-
-
 /**
  * index method - Display categories
  *
@@ -192,6 +190,7 @@ class VoipsController extends AppController {
 	
 	public function admin_listAccount(){
 		$this->loadModel('Number');
+		$this->request->is('ajax');
 		$numbers=$this->Number->find('all');
 		$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
 		$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
@@ -557,6 +556,7 @@ class VoipsController extends AppController {
 	public function admin_call_logs() {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
+		$this->request->is('ajax');
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
 		$this->set(compact('tabDest'));
