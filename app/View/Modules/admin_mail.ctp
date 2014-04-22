@@ -1,5 +1,5 @@
 
-<?php print $this->element('subheader_legend'); ?>
+<?php print $this->element('subheader'); ?>
 
 	<fieldset>
 	    <?php	    
