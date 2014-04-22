@@ -1,9 +1,6 @@
-	
-<<<<<<< HEAD
+
+
 <?php print $this->element('subheader');?>
-=======
-<?php print $this->element('subheader'); ?>
->>>>>>> 64b234663d0f66a1581752efe47ab917ade5e674
 
 	    <fieldset>
 			<?php
