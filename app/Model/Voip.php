@@ -191,6 +191,7 @@ class Voip extends AppModel {
 			curl_setopt($curlHandler, CURLOPT_USERPWD, $server['login'].':'.$server['pass']); 
 			curl_setopt($curlHandler, CURLOPT_HTTPHEADER, array("Content-Type: application/json", "Accept: application/json"));
 			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYPEER, 0);
+			curl_setopt($curlHandler, CURLOPT_HEADER, true); 
 			curl_setopt($curlHandler, CURLOPT_BINARYTRANSFER, 1);
 			curl_setopt($curlHandler, CURLOPT_RETURNTRANSFER, 1);
 			curl_setopt($curlHandler, CURLOPT_SSL_VERIFYHOST, 0);

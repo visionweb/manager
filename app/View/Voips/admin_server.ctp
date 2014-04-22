@@ -9,7 +9,6 @@
 			print $this->Form->input('old_s_port', array('label'=>'Port', 'default'=>$voipdata[0]['Voip']['port'], 'maxLength'=>'15px'));
 			print $this->Form->input('old_proxy', array('label'=>'Proxy adress', 'maxLength'=>'15px', 'default'=>$voipdata[0]['Voip']['pr_adress']));
 			print $this->Form->input('old_port', array('label'=>'Proxy port', 'default'=>$voipdata[0]['Voip']['pr_port']));
-			print $this->Form->end(__('Set new server parameters'));
 		?>
 	</fieldset>
 

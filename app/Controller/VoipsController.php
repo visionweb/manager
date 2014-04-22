@@ -13,6 +13,13 @@ class VoipsController extends AppController {
 	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js' => array('Jquery', 'del_confirm'));
 
 	public function beforeFilter() {
+<<<<<<< HEAD
+=======
+        $this->Auth->allow('login','index','logout');
+        $this->loadModel("Module");
+		$modules=$this->Module->find("all");
+		$this->set(compact('modules'));
+>>>>>>> 64b234663d0f66a1581752efe47ab917ade5e674
 		$this->set('ajax',true);
     }
 
@@ -248,6 +255,10 @@ class VoipsController extends AppController {
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');
 		$this->set('ajax_on',true);
+<<<<<<< HEAD
+=======
+        //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
+>>>>>>> 64b234663d0f66a1581752efe47ab917ade5e674
     }
 
     public function admin_newAccount(){
