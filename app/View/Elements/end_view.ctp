@@ -4,5 +4,4 @@
     <br>
 	
 </div>
-</div>
 <?php echo $this->Js->writeBuffer();?>

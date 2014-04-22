@@ -1,12 +1,3 @@
-<?php
- $this->Paginator->options(array(
-	 'url' => $this->passedArgs,
-     'update' => '#ajaxdiv',
-     'evalScripts' => true,
-     'data'=>http_build_query($this->request->data),
-	 'method'=>'POST'
-      ))?>
-<div id='ajaxdiv'>
 
 	<?php print $this->element('subheader'); ?>
 
@@ -119,4 +110,3 @@
 
 <?php print $this->element('end_view'); ?>
 
-<?php echo $this->Js->writeBuffer();?>	

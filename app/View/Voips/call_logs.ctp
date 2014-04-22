@@ -5,7 +5,8 @@
 				print $this->Form->create(false, array('type' => 'file'));
 				print $this->Form->input('start', array('label'=>'Start date. DD/MM/YYYY'));
 				print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
-				print $this->Form->end('Show');
+				print $this->Js->submit('Show', array('update'=>'#content'));
+				print $this->Form->end();
 			?>
 		</fieldset>
 		

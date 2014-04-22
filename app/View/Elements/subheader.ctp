@@ -1,6 +1,13 @@
-<?php $this->Paginator->options(array(
-     'update' => '#content',
-       'evalScripts' => true));?>
+<?php 
+	if(isset($ajax) and $ajax==true)
+		$this->Paginator->options(array(
+		 'url' => $this->passedArgs,
+		 'update' => '#content',
+		 'evalScripts' => true,
+		 'data'=>http_build_query($this->request->data),
+		 'method'=>'POST'
+		  ))
+?>
 
 <div class="span10 form">
 	

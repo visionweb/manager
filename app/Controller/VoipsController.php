@@ -11,6 +11,11 @@ class VoipsController extends AppController {
 	var $name = 'Voips';
 	public $components = array('RequestHandler', 'Paginator');
 	public $helpers = array('Paginator','TinyMCE.TinyMCE', 'Js' => array('Jquery', 'del_confirm'));
+
+	public function beforeFilter() {
+		$this->set('ajax',true);
+    }
+
 /**
  * index method - Display categories
  *
@@ -192,72 +197,57 @@ class VoipsController extends AppController {
 		$this->loadModel('Number');
 		$this->request->is('ajax');
 		$numbers=$this->Number->find('all');
-		$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
-		$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
-		$extension=$this->Voip->xivo("GET", "/1.1/extensions");
-		for ($i=0; $i<sizeof($dataBrut); $i++){
-			$user_list=$this->Voip->xivo("GET", "/1.1/users/".$dataBrut[$i]['id']."/lines");
-			foreach($sip as $sip_l){
-				if ($sip_l["id"]==$user_list[0]["line_id"]){
-					
-					$li_ex=$this->Voip->xivo("GET", "/1.1/lines/".$sip_l['id']."/extension");
-					foreach($extension as $ex){
-						if($ex['id']==$li_ex['extension_id']) {$short=$ex['exten']; break;}
-						}
-					
-					$dataBrut[$i]["username"]=$sip_l["username"];
-					$dataBrut[$i]["line"]["number"]=$short;
-					$dataBrut[$i]["password"]=$sip_l["secret"];
-					foreach($numbers as $owner)
-						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield']){
-							$dataBrut[$i]['owner']=$owner['Number']['owner'];
-							break;
-							}
+		$users=$this->Voip->xivo("GET", "/1.1/users");
+		$lines=$this->Voip->xivo("GET", "/1.1/lines_sip");
+		$links=$this->Voip->xivo("GET", "/1.1/user_links");
+		$extensions=$this->Voip->xivo("GET", "/1.1/extensions");
+		$listUser=array();
+		$i=0;
+		foreach($users as $user){
+			$listUser[$i]['firstname']=$user['firstname'];
+			$listUser[$i]['lastname']=$user['lastname'];
+			$listUser[$i]['userfield']=$user['userfield'];
+			$listUser[$i]['id']=$user['id'];
+			foreach($links as $link){
+				if ($listUser[$i]['id']==$link['user_id']){
+					$line_id=$link['line_id'];
+					$exten_id=$link['extension_id'];
+					break;
 					}
 				}
-			}
-		
-		$conditions = array('Number.owner NOT LIKE' => '');
-		$this->Paginator->settings = array(
-			'Number' => array(
-			'conditions' => $conditions,
-			'limit' => 30,
-			'fields'=>array('short')
-			)
-		);
-		$this->Paginator->settings = $this->paginate;
-		$users = $this->Paginator->paginate('Number');
-		for ($i=0; $i<sizeof($users); $i++)
-			foreach($dataBrut as $single)
-				if($users[$i]['Number']['short']==$single['line']['number']){
-					if(isset($this->data['by']) and $single[$this->data['by']]==$this->data['search']){
-						$users[$i]['Number']['firstname']=$single['firstname'];
-						$users[$i]['Number']['lastname']=$single['lastname'];
-						$users[$i]['Number']['owner']=$single['owner'];
-						$users[$i]['Number']['userfield']=$single['userfield'];
-						$users[$i]['Number']['username']=$single['username'];
-						$users[$i]['Number']['password']=$single['password'];
-						break;
-						}
-					elseif(!isset($this->data['by']) or empty($this->data['search'])){
-						$users[$i]['Number']['id']=$single['id'];
-						$users[$i]['Number']['firstname']=$single['firstname'];
-						$users[$i]['Number']['lastname']=$single['lastname'];
-						$users[$i]['Number']['owner']=$single['owner'];
-						$users[$i]['Number']['userfield']=$single['userfield'];
-						$users[$i]['Number']['username']=$single['username'];
-						$users[$i]['Number']['password']=$single['password'];
-						}
+			foreach($lines as $line){
+				if ($line_id==$line['id']){
+					$listUser[$i]['username']=$line['username'];
+					$listUser[$i]['password']=$line['secret'];
+					break;
 					}
-		$show=array();
-		for ($i=0; $i<sizeof($users); $i++)
-			if(sizeof($users[$i]['Number'])>2)
-				array_push($show,$users[$i]['Number']);
-		
-		$this->set('listUser',$show);
+				}
+			foreach($extensions as $extension){
+				if ($exten_id==$extension['id']){
+					$listUser[$i]['short']=$extension['exten'];
+					break;
+					}
+				}
+			foreach($numbers as $number){
+				if ($listUser[$i]['short']==$number['Number']['short']){
+					$listUser[$i]['owner']=$number['Number']['owner'];
+					break;
+					}
+				}
+			if(!isset($listUser[$i]['owner'])) $listUser[$i]['owner']='No account';
+			$i++;
+			}
+		if ($this->request->is('post') and !empty($this->data['search'])){
+			$tmp=array();
+			foreach($listUser as $single)
+				if(isset($this->data['by']) and $single[$this->data['by']]==$this->data['search'])
+					array_push($tmp,$single);
+			$listUser=$tmp;
+			}
+		$this->set(compact('listUser'));
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');
-        //debug();curl --digest --insecure -u managero:UBIBOzULRSuh https://178.33.172.71:50051/1.1/users/
+		$this->set('ajax_on',true);
     }
 
     public function admin_newAccount(){
@@ -287,9 +277,6 @@ class VoipsController extends AppController {
 					$this->Number->save($own);
 					}
 			}
-
- //exec("curl --digest --insecure -u managero:UBIBOzULRStps --header 'Content-type: application/json' --request POST --data '".json_encode($data)."' https://172.16.1.2:50051/1.1/users", $test);
- $this->set(compact('test'));
 
 			//create line
 			$data = array(
@@ -451,12 +438,16 @@ class VoipsController extends AppController {
 		$this->set('title','Configuration');
 		$this->set('legend','List numbers');
 		$this->set(compact("nums_owns"));
+		$this->set('ajax_on',true);
 		}
 	
 	public function admin_newNumbers(){
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
-		$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
+		if(sizeof($nums_owns)!=0)
+			$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
+		else
+			$this->set("str", 1);// default start if this first number.
 		$this->set('title','Configuration');
 		$this->set('legend','New numbers');
 		$error='<br>';

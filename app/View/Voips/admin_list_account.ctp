@@ -1,7 +1,7 @@
 	
-<?php print $this->element('subheader'); ?>
+<?php print $this->element('subheader');?>
+
 	    <fieldset>
-			
 			<?php
 				print $this->Form->create(false, array('type' => 'file'));
 				$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
@@ -12,7 +12,7 @@
 					"type" => "search",
 					"placeholder" => "Search"
 					));
-				print $this->Js->submit('Show', array('update'=>'#ajaxdiv'));
+				print $this->Js->submit('Show', array('update'=>'#content'));
 				print $this->Form->end();
 			?>
 	
@@ -94,31 +94,5 @@
         </tr>         
 		<?php endforeach; ?>
     </table>
-	
-	<?php print $this->Paginator->counter()?><br>
-		<div class="pagination">
-			<ul>
-				<li>
-					<?php 
-						print $this->Paginator->first('<< First', null, null, array('class' => 'disabled'))
-					?>
-				</li>
-				<li>
-					<?php 
-						print $this->Paginator->prev('< Previous', null, null, array('class' => 'disabled'))
-					?>
-				</li>
-				<li>
-					<?php 
-						print $this->Paginator->next('Next >', null, null, array('class' => 'disabled'))
-					?>
-				</li>
-				<li>
-					<?php 
-						print $this->Paginator->last('Last >>', null, null, array('class' => 'disabled'))
-					?>
-				</li>
-			</ul>
-		</div>
 	
 	<?php print $this->element('end_view'); ?>
