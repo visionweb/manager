@@ -96,4 +96,5 @@
 		<?php endforeach; ?>
     </table>
 	
+	
 	<?php print $this->element('end_view'); ?>

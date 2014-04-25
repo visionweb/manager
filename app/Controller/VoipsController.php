@@ -545,12 +545,38 @@ class VoipsController extends AppController {
 		}
 		
 	public function admin_call_logs() {
-		$this->loadModel('Number');
-		$this->loadModel('Price');
+		$this->loadModel('Call');
 		$this->request->is('ajax');
-		$numbers=$this->Number->find('all');
-		$price=$this->Price->find('all');
-		$this->set(compact('tabDest'));
+		$logs = $this->Call->find('all');
+		if(empty($logs)){
+			$this->loadModel('Number');
+			$numbers=$this->Number->find('all');
+			$logs=$this->Voip->getLog($numbers);
+			$this->Call->saveAll($logs);
+			$this->redirect($this->request->here);
+			}
+		$toCheck=false;
+		foreach($logs as $log)
+			if($log['Call']['direction']=='outcoming' and $log['Call']['price']==''){
+				$toCheck=true;
+				break;
+				}
+		if($toCheck){
+			$this->loadModel('Price');
+			$price=$this->Price->find('all');
+			$tabDest=$this->Voip->dest($price);
+			for($i=0; $i<count($logs); $i++){
+				if(isset($logs[$i]) and $logs[$i]['Call']['direction']=='outcoming'){
+					$test=$logs[$i]['Call']['called'];
+					$tab=$this->Voip->testNumber($logs[$i]['Call']['called'], $tabDest);
+					$logs[$i]['Call']['destination']=$tab['dest'];
+					$logs[$i]['Call']['price']=round($tab['price']*$logs[$i]['Call']['duration']/60,2);
+					}
+				}
+			$this->Call->deleteAll(array('1 = 1'));
+			$this->Call->saveAll($logs);
+			$this->redirect($this->request->here);
+			}
 		$show_name=false;
 		if(isset($this->data['start']) and isset($this->data['end']) and
 		!empty($this->data['start']) and !empty($this->data['end'])){
@@ -571,16 +597,15 @@ class VoipsController extends AppController {
 				$logs=$this->Voip->getLog($numbers, $price);
 				}
 			}
-		else $logs=$this->Voip->getLog($numbers, $price);
 		$user=array('All'=>'All');
 		$setname='All';
 		if(isset($this->data['name'])) $setname=$this->data['name'];
 		if (isset($this->data['acc']) and !empty($this->data['acc'])){
 			$arr=array();
 			foreach($logs as $log)
-				if($log['owner']==$this->data['acc']){
+				if($log['Call']['owner']==$this->data['acc']){
 					array_push($arr, $log);
-					$user[$log['user']['firstname'].' '.$log['user']['lastname']]=$log['user']['firstname'].' '.$log['user']['lastname'];
+					$user[$log['Call']['name']]=$log['Call']['name'];
 					$show_name=true;
 					}
 			$logs=$arr;
@@ -588,7 +613,7 @@ class VoipsController extends AppController {
 		$arr=array();
 		if ($show_name==true and $setname!='All'){
 			foreach($logs as $log)
-				if($log['user']['firstname'].' '.$log['user']['lastname']==$setname){
+				if($log['Call']['name']==$setname){
 					array_push($arr, $log);
 					}
 			$logs=$arr;
@@ -604,9 +629,13 @@ class VoipsController extends AppController {
 	public function call_logs($id=NULL) {
 		$this->loadModel('Number');
 		$this->loadModel('Price');
+		$this->loadModel('Call');
+		$calls=$this->Call->find('all');
 		$numbers=$this->Number->find('all');
 		$price=$this->Price->find('all');
-		$this->set(compact('tabDest'));
+		if(empty($calls))
+			$logs=$this->Voip->getLog($numbers, $start, $end);
+			
 		if(isset($this->data['start']) and isset($this->data['end']) and
 		!empty($this->data['start']) and !empty($this->data['end'])){
 			$start=$this->data['start'];
@@ -619,11 +648,11 @@ class VoipsController extends AppController {
 				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
 				(int)$array_s[0]>0 and (int)$array_s[0]<32
 				)
-				$logs=$this->Voip->getLog($numbers, $price, $start, $end);
+				$logs=$this->Voip->getLog($numbers, $start, $end);
 			else
 				{
 				$this->Session->setFlash(("Invalid date"), 'flash_warning');
-				$logs=$this->Voip->getLog($numbers, $price);
+				$logs=$this->Voip->getLog($numbers);
 				}
 			}
 		else $logs=$this->Voip->getLog($numbers, $price);

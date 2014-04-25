@@ -47,7 +47,10 @@ class Voip extends AppModel {
 				else $num = substr($num,0,-1);
 				}
 			}
-			
+		if(!isset($dest)) $dest='error';
+		if(!isset($price)) $price='error';
+		if(!isset($priceMer)) $priceMer='error';
+		if(!isset($destType)) $destType='error';
 		$tab=array('dest'=>$dest,
 					'price'=>$price,
 					'priceMer'=>$priceMer,
@@ -55,14 +58,20 @@ class Voip extends AppModel {
 		return $tab;
 		}      
 	
-	//get logs from $request and convert to aray
-	function getLog($numbers, $price, $start=NULL, $end=NULL){
-		$server=$this->getAccess();				
-		$users=$this->xivo("GET", "/1.1/users");
-		foreach($price as $row){
+	function dest($price){
+		foreach($price as $row)
 			if($row['Price']['country_zone'] == 'FR') $tabDest['FR'][$row['Price']['prefix']] = $row['Price']; 
 			else $tabDest['other'][$row['Price']['prefix']] = $row['Price'];
-			}
+		return $tabDest;
+		}
+	
+	//get logs from $request and convert to aray
+	function getLog($numbers, $start=NULL, $end=NULL){
+		$server=$this->getAccess();				
+		$users=$this->xivo("GET", "/1.1/users");
+		$links=$this->xivo("GET", "/1.1/user_links");
+		$extensions=$this->xivo("GET", "/1.1/extensions");
+		/**/
 			
 		//begin of date filter	
 			if(isset($start) and isset($end)){
@@ -80,36 +89,37 @@ class Voip extends AppModel {
 		
 		$logs=array();
 		for($i=2; $i<sizeof($value); $i++){
-			$logs[$i-1]['date']['year']=substr($value[$i], 0, 4);
-			switch(substr($value[$i], 5, 2)){
-				case '01': $logs[$i-1]['date']['month']='January'; break;
-				case '02': $logs[$i-1]['date']['month']='February'; break;
-				case '03': $logs[$i-1]['date']['month']='March'; break;
-				case '04': $logs[$i-1]['date']['month']='April'; break;
-				case '05': $logs[$i-1]['date']['month']='May'; break;
-				case '06': $logs[$i-1]['date']['month']='June'; break;
-				case '07': $logs[$i-1]['date']['month']='July'; break;
-				case '08': $logs[$i-1]['date']['month']='August'; break;
-				case '09': $logs[$i-1]['date']['month']='September'; break;
-				case '10': $logs[$i-1]['date']['month']='October'; break;
-				case '11': $logs[$i-1]['date']['month']='Novenber'; break;
-				case '12': $logs[$i-1]['date']['month']='December'; break;
-				}
+			$logs[$i-1]['year']=substr($value[$i], 0, 4);
 			$array = array_filter(explode(',', $value[$i-1]));
 			if (isset($array[4])){ 
 				$logs[$i-1]['direction']='outcoming';
-				$logs[$i-1]['call']['caller']=$array[4];
+				$logs[$i-1]['caller']=$array[4];
 				}
 			else $logs[$i-1]['direction']='incoming';
 			$array = array_filter(explode(' ', $array[1]));
-			$logs[$i-1]['date']['day']=substr($value[$i], 8, 2);
-			$logs[$i-1]['date']['hour']=substr($value[$i], 11, 2);
-			$logs[$i-1]['date']['minute']=substr($value[$i], 14, 2);
-			$logs[$i-1]['date']['second']=substr($value[$i], 17, 2);
+			$logs[$i-1]['day']=substr($value[$i], 8, 2);
+			$logs[$i-1]['hour']=substr($value[$i], 11, 2);
+			$logs[$i-1]['minute']=substr($value[$i], 14, 2);
+			$logs[$i-1]['second']=substr($value[$i], 17, 2);
+			$logs[$i-1]['update']='?start_date='.$logs[$i-1]['year'].'-'.$logs[$i-1]['month'].'-'.$logs[$i-1]['day'].'T'.$logs[$i-1]['hour'].':'.$logs[$i-1]['minute'].':'..$logs[$i-1]['second']'&end_date='
+			switch(substr($value[$i], 5, 2)){
+				case '01': $logs[$i-1]['month']='January'; break;
+				case '02': $logs[$i-1]['month']='February'; break;
+				case '03': $logs[$i-1]['month']='March'; break;
+				case '04': $logs[$i-1]['month']='April'; break;
+				case '05': $logs[$i-1]['month']='May'; break;
+				case '06': $logs[$i-1]['month']='June'; break;
+				case '07': $logs[$i-1]['month']='July'; break;
+				case '08': $logs[$i-1]['month']='August'; break;
+				case '09': $logs[$i-1]['month']='September'; break;
+				case '10': $logs[$i-1]['month']='October'; break;
+				case '11': $logs[$i-1]['month']='Novenber'; break;
+				case '12': $logs[$i-1]['month']='December'; break;
+				}
 			$array = array_filter(explode(',', $value[$i-1])); 
-			$logs[$i-1]['call']['called']=$array[2];
-			if(isset($array[3])) $logs[$i-1]['call']['duration']=$array[3];
-			else $logs[$i-1]['call']['duration']=0;
+			$logs[$i-1]['called']=$array[2];
+			if(isset($array[3])) $logs[$i-1]['duration']=$array[3];
+			else $logs[$i-1]['duration']=0;
 			$array = array_filter(explode(' ', $array[1]));
 			$check=1;
 			
@@ -124,33 +134,53 @@ class Voip extends AppModel {
 				continue;
 				}
 			
-			$logs[$i-1]['user']['firstname']=$array[0];
-			$logs[$i-1]['user']['lastname']=$array[1];
-			if(isset($logs[$i-1]['call']['caller'])==0)
-				$logs[$i-1]['call']['caller']=substr($array[2],1,4);
+			$logs[$i-1]['name']=$array[0].' '.$array[1];
+			if(isset($logs[$i-1]['caller'])==0)
+				$logs[$i-1]['caller']=substr($array[2],1,4);
 			$logs[$i-1]['short']=substr($array[2],1,4);
 			foreach($numbers as $num){
 				if($num['Number']['short']==$logs[$i-1]['short']){
 					$logs[$i-1]['owner']=$num['Number']['owner'];
-					$logs[$i-1]['call']['caller']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
+					$logs[$i-1]['caller']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
 					break;
 					}
-				}	
-				foreach($numbers as $num)
-					if($num['Number']['short']==$logs[$i-1]['call']['called']){	
-						$logs[$i-1]['call']['called']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
+				}
+			if(!isset($logs[$i-1]['owner'])){
+				$logs[$i-1]['owner']='No account';
+				}
+				foreach($extensions as $extension)
+					if($extension['exten']==$logs[$i-1]['called']){
+						foreach($links as $link)
+							if($extension['id']==$link['extension_id']){
+								foreach($users as $user)
+									if($link['user_id']==$user['id']){
+										$logs[$i-1]['called']=$user['userfield'];
+										break;
+										}
+								break;
+								}
 						break;
 						}
-				if($logs[$i-1]['direction']=='outcoming'){
-					$tab=$this->testNumber($logs[$i-1]['call']['called'], $tabDest);
-					$logs[$i-1]['call']['price']=round($tab['price']*$logs[$i-1]['call']['duration']/60,2);
-					$logs[$i-1]['call']['destination']=$tab['dest'];
-					}
-				else if($logs[$i-1]['direction']=='incoming'){
-					$number=$logs[$i-1]['call']['called'];
-					$logs[$i-1]['call']['called']=$logs[$i-1]['call']['caller'];
-					$logs[$i-1]['call']['caller']=$number;
-					$logs[$i-1]['call']['price']=0;
+				
+				foreach($extensions as $extension)
+					if($extension['exten']==$logs[$i-1]['caller']){
+						foreach($links as $link)
+							if($extension['id']==$link['extension_id']){
+								foreach($users as $user)
+									if($link['user_id']==$user['id']){
+										$logs[$i-1]['caller']=$user['userfield'];
+										break;
+										}
+								break;
+								}
+						break;
+						}
+						
+				if($logs[$i-1]['direction']=='incoming'){
+					$number=$logs[$i-1]['called'];
+					$logs[$i-1]['called']=$logs[$i-1]['caller'];
+					$logs[$i-1]['caller']=$number;
+					$logs[$i-1]['price']=0;
 					}
 			}
 		$owners=array();
@@ -160,7 +190,8 @@ class Voip extends AppModel {
 		foreach($owners as $owner)
 			foreach($logs as $log)
 				if($log['owner']==$owner) array_push($sorted, $log);
-		return $sorted;
+		$logs=array_reverse($logs);
+		return $logs;
 		}
 
 	

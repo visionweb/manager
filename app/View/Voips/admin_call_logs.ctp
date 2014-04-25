@@ -2,7 +2,7 @@
 <div id='ajaxdiv'>
 <?php print $this->element('subheader'); ?>
    <fieldset>
-		<?php    
+		<?php
 			print $this->Form->create(false, array('type' => 'file'));
 			print $this->Form->input('start', array('label'=>'Start date. DD/MM/YYYY'));
 			print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
@@ -22,35 +22,37 @@
 
 	<tr>
 		<td>
-			<?php print $log["date"]["month"].' '.$log["date"]["day"].', '.$log["date"]["year"] ?>
+			<?php print $log['Call']["month"].' '.$log['Call']["day"].', '.$log['Call']["year"] ?>
 		</td>
 		<td>
-			<?php print $log["user"]["firstname"].' '.$log["user"]["lastname"] ?>
+			<?php print $log['Call']["name"]?>
 		</td>
 		<td>
-			<?php print $log["owner"]?>
+			<?php print $log['Call']["owner"]?>
 		</td> 
 		<td>
-			<?php print $log["direction"]?>
+			<?php print $log['Call']["direction"]?>
 		</td>
 		<td>
-			<?php print $log["call"]["caller"]?>
+			<?php print $log['Call']["caller"]?>
 		</td> 
 		<td>
-			<?php print $log["call"]["called"]?>
+			<?php print $log['Call']["called"]?>
 		</td>
 		<td>
-			<?php if(isset($log["call"]["destination"])) print $log["call"]["destination"]?>
+			<?php if(isset($log['Call']["destination"])) print $log['Call']["destination"]?>
 		</td>   
 		<td>
-			<?php print $log["call"]["duration"]?>
+			<?php print $log['Call']["duration"]?>
 		</td>     
 		<td>
-			<?php print $log["call"]["price"]?>
+			<?php print $log['Call']["price"]?>
 		</td>  
         <?php endforeach; ?>
     </table>
     
+    <?php print $this->Paginator->counter()?><br>
+		
+    
 <?php print $this->element('end_view'); ?>
-</div>
 <?php echo $this->Js->writeBuffer();?>
