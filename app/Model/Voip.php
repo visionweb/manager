@@ -85,7 +85,6 @@ class Voip extends AppModel {
 		//end of date filter
 		$logs=array();
 		for($i=2; $i<sizeof($value); $i++){
-			$logs[$i-1]['year']=substr($value[$i], 0, 4);
 			$array = array_filter(explode(',', $value[$i-1]));
 			if (isset($array[4])){ 
 				$logs[$i-1]['direction']='outcoming';
@@ -93,27 +92,14 @@ class Voip extends AppModel {
 				}
 			else $logs[$i-1]['direction']='incoming';
 			$array = array_filter(explode(' ', $array[1]));
-			$logs[$i-1]['day']=substr($value[$i], 8, 2);
-			$logs[$i-1]['hour']=substr($value[$i], 11, 2);
-			$logs[$i-1]['minute']=substr($value[$i], 14, 2);
-			$logs[$i-1]['second']=substr($value[$i], 17, 2);
-			$logs[$i-1]['update']='?start_date='.$logs[$i-1]['year'].'-'.substr($value[$i], 5, 2).'-'.$logs[$i-1]['day'].'T'.$logs[$i-1]['hour'].':'.$logs[$i-1]['minute'].':'.$logs[$i-1]['second'].'&end_date=';
-			
-			switch(substr($value[$i], 5, 2)){
-				case '01': $logs[$i-1]['month']='January'; break;
-				case '02': $logs[$i-1]['month']='February'; break;
-				case '03': $logs[$i-1]['month']='March'; break;
-				case '04': $logs[$i-1]['month']='April'; break;
-				case '05': $logs[$i-1]['month']='May'; break;
-				case '06': $logs[$i-1]['month']='June'; break;
-				case '07': $logs[$i-1]['month']='July'; break;
-				case '08': $logs[$i-1]['month']='August'; break;
-				case '09': $logs[$i-1]['month']='September'; break;
-				case '10': $logs[$i-1]['month']='October'; break;
-				case '11': $logs[$i-1]['month']='Novenber'; break;
-				case '12': $logs[$i-1]['month']='December'; break;
-				}
-
+			$logs[$i-1]['date']=substr($value[$i], 0, 4).'/'.substr($value[$i], 5, 2).'/'.substr($value[$i], 8, 2);
+			$logs[$i-1]['update']='?start_date='.
+				substr($value[$i], 0, 4).'-'.
+				substr($value[$i], 5, 2).'-'.
+				substr($value[$i], 8, 2).'T'.
+				substr($value[$i], 11, 2).':'.
+				substr($value[$i], 14, 2).':'.
+				substr($value[$i], 17, 2).'&end_date=';
 			$array = array_filter(explode(',', $value[$i-1])); 
 			$logs[$i-1]['called']=$array[2];
 			if(isset($array[3])) $logs[$i-1]['duration']=$array[3];
@@ -190,7 +176,35 @@ class Voip extends AppModel {
 				if($log['owner']==$owner) array_push($sorted, $log);
 		return $logs;
 		}
-
+	
+	function month_converter($value){
+		switch($value){
+				case '01': return 'January';
+				case '02': return 'February';
+				case '03': return 'March';
+				case '04': return 'April';
+				case '05': return 'May';
+				case '06': return 'June';
+				case '07': return 'July';
+				case '08': return 'August';
+				case '09': return 'September';
+				case '10': return 'October';
+				case '11': return 'Novenber';
+				case '12': return 'December';
+				case 'January': return '01';
+				case 'February': return '02';
+				case 'March': return '03';
+				case 'April': return '04';
+				case 'May': return '05';
+				case 'June': return '06';
+				case 'July': return '07';
+				case 'August': return '08';
+				case 'September': return '09';
+				case 'October': return '10';
+				case 'Novenber': return '11';
+				case 'December': return '12';
+				}
+		}
 	
 	/*
 	 * function operating with XiVO REST API

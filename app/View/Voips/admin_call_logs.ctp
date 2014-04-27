@@ -2,7 +2,7 @@
 <div id='ajaxdiv'>
 <?php print $this->element('subheader'); ?>
    <fieldset>
-		<?php
+		<?php 
 			print $this->Form->create(false, array('type' => 'file'));
 			print $this->Form->input('start', array('type'=>'date','selected'=>$begin,'label'=>'Start date'));
 			print $this->Form->input('end', array('type'=>'date', 'label'=>'End date'));

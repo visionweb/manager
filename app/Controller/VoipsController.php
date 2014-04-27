@@ -576,22 +576,6 @@ class VoipsController extends AppController {
 				}
 			}
 		$logs = $this->Call->find('all');
-		switch($logs[0]['Call']['month']){
-				case 'January': $month='01'; break;
-				case 'February': $month='02'; break;
-				case 'March': $month='03'; break;
-				case 'April': $month='04'; break;
-				case 'May': $month='05'; break;
-				case 'June': $month='06'; break;
-				case 'July': $month='07'; break;
-				case 'August': $month='08'; break;
-				case 'September': $month='09'; break;
-				case 'October': $month='10'; break;
-				case 'Novenber': $month='11'; break;
-				case 'December': $month='12'; break;
-				}
-		
-		$begin=$logs[0]['Call']['year'].'-'.$month.'-'.$logs[0]['Call']['day'];
 		$accounts=array('All'=>'All');
 		$user=array('All'=>'All');
 		foreach($logs as $log){
@@ -647,6 +631,18 @@ class VoipsController extends AppController {
 			$show_name=true;
 			}
 			
+		$date = array_filter(explode('-', $logs[0]['Call']['date']));
+		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
+			
+		if(isset($this->data['start']) and isset($this->data['end'])){
+			$start=$this->data['start'];
+			$end=$this->data['end'];
+			$start=$start['year'].'-'.$start['month'].'-'.$start['day'];
+			$end=$end['year'].'-'.$end['month'].'-'.$end['day'];
+			array_push($conditions, "Call.date BETWEEN '".$start."' AND '".$end."'");
+			$begin=$start;
+			}
+		
 		$this->Paginator->settings = array(
 				'Call' => array(
 				'conditions'=>$conditions,
@@ -658,8 +654,12 @@ class VoipsController extends AppController {
 			);
 		$this->Paginator->settings = $this->paginate;
 		$logs = $this->Paginator->paginate('Call');
-		
-		$arr=array();
+		for($i=0; $i<count($logs); $i++){
+			$date=array_filter(explode('-', $logs[$i]['Call']['date']));
+			$logs[$i]['Call']['year']=$date[0];
+			$logs[$i]['Call']['month']=$this->Voip->month_converter($date[1]);
+			$logs[$i]['Call']['day']=$date[2];
+			}
 		$user=array_unique($user);
 		$this->set('title','VoIP');
 		$this->set('legend','Call log');
