@@ -66,7 +66,7 @@ class Voip extends AppModel {
 		}
 	
 	//get logs from $request and convert to aray
-	function getLog($numbers, $start=NULL, $end=NULL){
+	function getLog($numbers, $update=NULL){
 		$server=$this->getAccess();				
 		$users=$this->xivo("GET", "/1.1/users");
 		$links=$this->xivo("GET", "/1.1/user_links");
@@ -74,19 +74,15 @@ class Voip extends AppModel {
 		/**/
 			
 		//begin of date filter	
-			if(isset($start) and isset($end)){
-				$array = array_filter(explode('/', $start));
-				$start=$array[2].'-'.$array[1].'-'.$array[0].'T00:00:00';
-				$array = array_filter(explode('/', $end));
-				$end=$array[2].'-'.$array[1].'-'.($array[0]+1).'T00:00:00';
-				$filter='?start_date='.$start.'&end_date='.$end;
+			if(isset($update)){
+				$filter=$update.substr(date('c'),0,14).(date('i')+1).':00';
 				exec("curl --digest --insecure -u ".$server['login'].":".$server['pass']." 'https://".$server['ip'].":50051/1.1/call_logs".$filter."'", $value);
+				if(count($value)<2) return 0;
 			}
 		else{
 				exec("curl --digest --insecure -u ".$server['login'].":".$server['pass']." 'https://".$server['ip'].":50051/1.1/call_logs'", $value);
 			}
 		//end of date filter
-		
 		$logs=array();
 		for($i=2; $i<sizeof($value); $i++){
 			$logs[$i-1]['year']=substr($value[$i], 0, 4);
@@ -101,7 +97,8 @@ class Voip extends AppModel {
 			$logs[$i-1]['hour']=substr($value[$i], 11, 2);
 			$logs[$i-1]['minute']=substr($value[$i], 14, 2);
 			$logs[$i-1]['second']=substr($value[$i], 17, 2);
-			$logs[$i-1]['update']='?start_date='.$logs[$i-1]['year'].'-'.$logs[$i-1]['month'].'-'.$logs[$i-1]['day'].'T'.$logs[$i-1]['hour'].':'.$logs[$i-1]['minute'].':'..$logs[$i-1]['second']'&end_date='
+			$logs[$i-1]['update']='?start_date='.$logs[$i-1]['year'].'-'.substr($value[$i], 5, 2).'-'.$logs[$i-1]['day'].'T'.$logs[$i-1]['hour'].':'.$logs[$i-1]['minute'].':'.$logs[$i-1]['second'].'&end_date=';
+			
 			switch(substr($value[$i], 5, 2)){
 				case '01': $logs[$i-1]['month']='January'; break;
 				case '02': $logs[$i-1]['month']='February'; break;
@@ -116,6 +113,7 @@ class Voip extends AppModel {
 				case '11': $logs[$i-1]['month']='Novenber'; break;
 				case '12': $logs[$i-1]['month']='December'; break;
 				}
+
 			$array = array_filter(explode(',', $value[$i-1])); 
 			$logs[$i-1]['called']=$array[2];
 			if(isset($array[3])) $logs[$i-1]['duration']=$array[3];
@@ -190,7 +188,6 @@ class Voip extends AppModel {
 		foreach($owners as $owner)
 			foreach($logs as $log)
 				if($log['owner']==$owner) array_push($sorted, $log);
-		$logs=array_reverse($logs);
 		return $logs;
 		}
 

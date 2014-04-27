@@ -4,9 +4,9 @@
    <fieldset>
 		<?php
 			print $this->Form->create(false, array('type' => 'file'));
-			print $this->Form->input('start', array('label'=>'Start date. DD/MM/YYYY'));
-			print $this->Form->input('end', array('label'=>'End date. DD/MM/YYYY'));
-			print $this->Form->input('acc', array('label'=>'Show accounts'));
+			print $this->Form->input('start', array('type'=>'date','selected'=>$begin,'label'=>'Start date'));
+			print $this->Form->input('end', array('type'=>'date', 'label'=>'End date'));
+			print $this->Form->input('acc', array('label'=>'Show accounts', 'default'=>'All', 'options'=>$accounts));
 			if($show_name==true) print $this->Form->input('name', array('label'=>'Show SIP', 'options'=>$user));
 			print $this->Js->submit('Show', array('update'=>'#content'));
 			print $this->Form->end();
@@ -16,7 +16,15 @@
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 
 		<?php print $this->Html->tableHeaders(array(
-		'Date','Name','Account','Direction','Caller number','Called number','Destination','Duration, sec.','Price',''
+		$this->Paginator->sort('id', 'Date'),
+		$this->Paginator->sort('name', 'Name'),
+		$this->Paginator->sort('owner', 'Account'),
+		$this->Paginator->sort('direction', 'direction'),
+		$this->Paginator->sort('caller', 'Caller'),
+		$this->Paginator->sort('called', 'Called'),
+		$this->Paginator->sort('destination', 'Destination'),
+		$this->Paginator->sort('duration', 'Duration, sec.'),
+		$this->Paginator->sort('price', 'Price')
 		));
         foreach($logs as $log): ?>
 
@@ -51,7 +59,31 @@
         <?php endforeach; ?>
     </table>
     
-    <?php print $this->Paginator->counter()?><br>
+<?php print $this->Paginator->counter()?><br>
+		<div class="pagination">
+			<ul>
+				<li>
+					<?php 
+						print $this->Paginator->first('<< First', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->prev('< Previous', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->next('Next >', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+				<li>
+					<?php 
+						print $this->Paginator->last('Last >>', null, null, array('class' => 'disabled'))
+					?>
+				</li>
+			</ul>
+		</div>
 		
     
 <?php print $this->element('end_view'); ?>

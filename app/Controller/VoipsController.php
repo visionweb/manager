@@ -555,12 +555,59 @@ class VoipsController extends AppController {
 			$this->Call->saveAll($logs);
 			$this->redirect($this->request->here);
 			}
-		$toCheck=false;
-		foreach($logs as $log)
-			if($log['Call']['direction']=='outcoming' and $log['Call']['price']==''){
-				$toCheck=true;
-				break;
+		else{
+			$this->loadModel('Number');
+			$numbers=$this->Number->find('all');
+			$update=$logs[count($logs)-1]['Call']['update'];
+			$logs=$this->Voip->getLog($numbers, $update);
+			if($logs!=0){
+				$this->loadModel('Price');
+				$price=$this->Price->find('all');
+				$tabDest=$this->Voip->dest($price);
+				for($i=0; $i<count($logs); $i++){
+					if(isset($logs[$i]) and $logs[$i]['direction']=='outcoming'){
+						$tab=$this->Voip->testNumber($logs[$i]['called'], $tabDest);
+						$logs[$i]['destination']=$tab['dest'];
+						$logs[$i]['price']=round($tab['price']*$logs[$i]['duration']/60,2);
+						}
+					}
+				$this->set('test',$logs);
+				$this->Call->saveAll($logs);
 				}
+			}
+		$logs = $this->Call->find('all');
+		switch($logs[0]['Call']['month']){
+				case 'January': $month='01'; break;
+				case 'February': $month='02'; break;
+				case 'March': $month='03'; break;
+				case 'April': $month='04'; break;
+				case 'May': $month='05'; break;
+				case 'June': $month='06'; break;
+				case 'July': $month='07'; break;
+				case 'August': $month='08'; break;
+				case 'September': $month='09'; break;
+				case 'October': $month='10'; break;
+				case 'Novenber': $month='11'; break;
+				case 'December': $month='12'; break;
+				}
+		
+		$begin=$logs[0]['Call']['year'].'-'.$month.'-'.$logs[0]['Call']['day'];
+		$accounts=array('All'=>'All');
+		$user=array('All'=>'All');
+		foreach($logs as $log){
+			$accounts[$log['Call']['owner']]=$log['Call']['owner'];
+			if (isset($this->data['acc']) and $this->data['acc']!='All')
+				$user[$log['Call']['name']]=$log['Call']['name'];
+			}
+		$accounts=@array_unique($accounts);
+		$user=@array_unique($user);
+		$toCheck=false;
+		if(isset($logs))
+			foreach($logs as $log)
+				if($log['Call']['direction']=='outcoming' and $log['Call']['price']==''){
+					$toCheck=true;
+					break;
+					}
 		if($toCheck){
 			$this->loadModel('Price');
 			$price=$this->Price->find('all');
@@ -577,53 +624,46 @@ class VoipsController extends AppController {
 			$this->Call->saveAll($logs);
 			$this->redirect($this->request->here);
 			}
+		
 		$show_name=false;
-		if(isset($this->data['start']) and isset($this->data['end']) and
-		!empty($this->data['start']) and !empty($this->data['end'])){
+		if(isset($this->data['start']) and isset($this->data['end'])){
 			$start=$this->data['start'];
 			$end=$this->data['end'];
-			$array_s = array_filter(explode('/', $start));
-			$array_e = array_filter(explode('/', $end));
-			//date validation
-			if(sizeof($array_s)==3 and sizeof($array_e)==3 and
-				(int)$array_s[2]>0 and (int)$array_s[2]<9999 and
-				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
-				(int)$array_s[0]>0 and (int)$array_s[0]<32
-				)
-				$logs=$this->Voip->getLog($numbers, $price, $start, $end);
-			else
-				{
-				$this->Session->setFlash(("Invalid date"), 'flash_warning');
-				$logs=$this->Voip->getLog($numbers, $price);
-				}
 			}
-		$user=array('All'=>'All');
 		$setname='All';
+		$conditions=array();
 		if(isset($this->data['name'])) $setname=$this->data['name'];
-		if (isset($this->data['acc']) and !empty($this->data['acc'])){
-			$arr=array();
-			foreach($logs as $log)
-				if($log['Call']['owner']==$this->data['acc']){
-					array_push($arr, $log);
-					$user[$log['Call']['name']]=$log['Call']['name'];
-					$show_name=true;
-					}
-			$logs=$arr;
+		if (isset($this->data['acc']) and $this->data['acc']!='All'){
+			if(isset($this->data['name']) and $this->data['name']!='All')
+				$conditions = array( 
+						'Call.name LIKE' => $this->data['name'],
+						'Call.owner LIKE' => $this->data['acc']
+						);
+			else
+				$conditions = array(
+					'Call.owner LIKE' => $this->data['acc']
+					);
+					
+			$show_name=true;
 			}
+			
+		$this->Paginator->settings = array(
+				'Call' => array(
+				'conditions'=>$conditions,
+				'limit' => 100,
+				'order' => array(
+					'Call.id' => 'desc'
+					)
+				)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$logs = $this->Paginator->paginate('Call');
+		
 		$arr=array();
-		if ($show_name==true and $setname!='All'){
-			foreach($logs as $log)
-				if($log['Call']['name']==$setname){
-					array_push($arr, $log);
-					}
-			$logs=$arr;
-			}
 		$user=array_unique($user);
-		$this->set(compact('user'));
-		$this->set(compact('show_name'));
 		$this->set('title','VoIP');
 		$this->set('legend','Call log');
-		$this->set(compact('logs'));
+		$this->set(compact('begin','accounts', 'logs', 'show_name', 'user'));
 		}
 
 	public function call_logs($id=NULL) {
