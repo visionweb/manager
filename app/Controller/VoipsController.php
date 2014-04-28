@@ -58,7 +58,7 @@ class VoipsController extends AppController {
 		}
 	$arr=array();
 	for($i=0; $i<sizeof($dataBrut); $i++)
-		if($dataBrut[$i]['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $dataBrut[$i]);
+		if(isset($dataBrut[$i]['owner']) and $dataBrut[$i]['owner']==$this->Session->read('Auth.User.username')) array_push($arr, $dataBrut[$i]);
 	$this->set("listUser", $arr);
 	$this->set(compact('server'));
 	$this->set('title','VoIP');

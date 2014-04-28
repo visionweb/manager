@@ -69,7 +69,7 @@ class Voip extends AppModel {
 	function getLog($numbers, $update=NULL){
 		$server=$this->getAccess();				
 		$users=$this->xivo("GET", "/1.1/users");
-		$links=$this->xivo("GET", "/1.1/user_links");
+		$lines=$this->xivo("GET", "/1.1/lines_sip");
 		$extensions=$this->xivo("GET", "/1.1/extensions");
 		/**/
 			
@@ -132,33 +132,47 @@ class Voip extends AppModel {
 			if(!isset($logs[$i-1]['owner'])){
 				$logs[$i-1]['owner']='No account';
 				}
+				
 				foreach($extensions as $extension)
 					if($extension['exten']==$logs[$i-1]['called']){
-						foreach($links as $link)
-							if($extension['id']==$link['extension_id']){
-								foreach($users as $user)
-									if($link['user_id']==$user['id']){
+						foreach($lines as $line){
+							$links=$this->xivo("GET", "/1.1/lines/".$line['id']."/extension");
+							$exten_id=$links['extension_id'];
+							if($extension['id']==$exten_id){
+								$line_id=$links['line_id'];
+								foreach($users as $user){
+									$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
+									if($links['user_id']==$user_id){
 										$logs[$i-1]['called']=$user['userfield'];
 										break;
 										}
-								break;
+									break;
+									}
 								}
 						break;
 						}
-				
-				foreach($extensions as $extension)
+					}
+					
+					foreach($extensions as $extension)
 					if($extension['exten']==$logs[$i-1]['caller']){
-						foreach($links as $link)
-							if($extension['id']==$link['extension_id']){
-								foreach($users as $user)
-									if($link['user_id']==$user['id']){
+						foreach($lines as $line){
+							$links=$this->xivo("GET", "/1.1/lines/".$line['id']."/extension");
+							$exten_id=$links['extension_id'];
+							if($extension['id']==$exten_id){
+								$line_id=$links['line_id'];
+								foreach($users as $user){
+									$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
+									if($links['user_id']==$user_id){
 										$logs[$i-1]['caller']=$user['userfield'];
 										break;
 										}
-								break;
+									break;
+									}
 								}
 						break;
 						}
+					}
+				
 						
 				if($logs[$i-1]['direction']=='incoming'){
 					$number=$logs[$i-1]['called'];
