@@ -258,7 +258,7 @@ class VoipsController extends AppController {
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
 				'language'=> $this->data['User']['language'],
-				'outgoing_caller_id'=> 'custom',
+				'outcallerid'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
