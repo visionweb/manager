@@ -199,7 +199,6 @@ class VoipsController extends AppController {
 		$numbers=$this->Number->find('all');
 		$users=$this->Voip->xivo("GET", "/1.1/users");
 		$lines=$this->Voip->xivo("GET", "/1.1/lines_sip");
-		$links=$this->Voip->xivo("GET", "/1.1/user_links");
 		$extensions=$this->Voip->xivo("GET", "/1.1/extensions");
 		$listUser=array();
 		$i=0;
@@ -208,13 +207,10 @@ class VoipsController extends AppController {
 			$listUser[$i]['lastname']=$user['lastname'];
 			$listUser[$i]['userfield']=$user['userfield'];
 			$listUser[$i]['id']=$user['id'];
-			foreach($links as $link){
-				if ($listUser[$i]['id']==$link['user_id']){
-					$line_id=$link['line_id'];
-					$exten_id=$link['extension_id'];
-					break;
-					}
-				}
+			$links=$this->Voip->xivo("GET", "/1.1/users/".$user['id']."/lines");
+			$line_id=$links[0]['line_id'];
+			$links=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
+			$exten_id=$links['extension_id'];
 			foreach($lines as $line){
 				if ($line_id==$line['id']){
 					$listUser[$i]['username']=$line['username'];
@@ -258,7 +254,7 @@ class VoipsController extends AppController {
 				'firstname' => $this->data['User']['firstname'],
 				'lastname' => $this->data['User']['lastname'],
 				'language'=> $this->data['User']['language'],
-				'outcallerid'=> 'custom',
+				'outgoing_caller_id'=> 'custom',
 				'timezone'=> $this->data['User']['timezone'],
 				'userfield'=> $this->data['User']['external_phone_number']
 				);
