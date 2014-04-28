@@ -47,10 +47,10 @@ class Voip extends AppModel {
 				else $num = substr($num,0,-1);
 				}
 			}
-		if(!isset($dest)) $dest='error';
-		if(!isset($price)) $price='error';
-		if(!isset($priceMer)) $priceMer='error';
-		if(!isset($destType)) $destType='error';
+		if(!isset($dest)) $dest='Unknown destination';
+		if(!isset($price)) $price='Unknown destination';
+		if(!isset($priceMer)) $priceMer='Unknown destination';
+		if(!isset($destType)) $destType='Unknown destination';
 		$tab=array('dest'=>$dest,
 					'price'=>$price,
 					'priceMer'=>$priceMer,
