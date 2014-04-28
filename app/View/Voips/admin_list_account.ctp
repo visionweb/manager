@@ -7,7 +7,6 @@
 				print $this->Form->create(false, array('type' => 'file'));
 				$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
 				print $this->Form->input('by', array('label'=>'Find by',  'options'=>$findBy, 'default'=>'First name'));
-				print '&nbsp;';
 				print $this->Form->input('search', array(
 					'label' => false,
 					"type" => "search",

@@ -667,41 +667,124 @@ class VoipsController extends AppController {
 		}
 
 	public function call_logs($id=NULL) {
-		$this->loadModel('Number');
-		$this->loadModel('Price');
 		$this->loadModel('Call');
-		$calls=$this->Call->find('all');
-		$numbers=$this->Number->find('all');
-		$price=$this->Price->find('all');
-		if(empty($calls))
-			$logs=$this->Voip->getLog($numbers, $start, $end);
-			
-		if(isset($this->data['start']) and isset($this->data['end']) and
-		!empty($this->data['start']) and !empty($this->data['end'])){
-			$start=$this->data['start'];
-			$end=$this->data['end'];
-			$array_s = array_filter(explode('/', $start));
-			$array_e = array_filter(explode('/', $end));
-			//date validation
-			if(sizeof($array_s)==3 and sizeof($array_e)==3 and
-				(int)$array_s[2]>0 and (int)$array_s[2]<9999 and
-				(int)$array_s[1]>0 and (int)$array_s[1]<13 and
-				(int)$array_s[0]>0 and (int)$array_s[0]<32
-				)
-				$logs=$this->Voip->getLog($numbers, $start, $end);
-			else
-				{
-				$this->Session->setFlash(("Invalid date"), 'flash_warning');
-				$logs=$this->Voip->getLog($numbers);
+		$this->request->is('ajax');
+		$logs = $this->Call->find('all');
+		if(empty($logs)){
+			$this->loadModel('Number');
+			$numbers=$this->Number->find('all');
+			$logs=$this->Voip->getLog($numbers);
+			$this->Call->saveAll($logs);
+			$this->redirect($this->request->here);
+			}
+		else{
+			$this->loadModel('Number');
+			$numbers=$this->Number->find('all');
+			$update=$logs[count($logs)-1]['Call']['update'];
+			$logs=$this->Voip->getLog($numbers, $update);
+			if($logs!=0){
+				$this->loadModel('Price');
+				$price=$this->Price->find('all');
+				$tabDest=$this->Voip->dest($price);
+				for($i=0; $i<count($logs); $i++){
+					if(isset($logs[$i]) and $logs[$i]['direction']=='outcoming'){
+						$tab=$this->Voip->testNumber($logs[$i]['called'], $tabDest);
+						$logs[$i]['destination']=$tab['dest'];
+						$logs[$i]['price']=round($tab['price']*$logs[$i]['duration']/60,2);
+						}
+					}
+				$this->set('test',$logs);
+				$this->Call->saveAll($logs);
 				}
 			}
-		else $logs=$this->Voip->getLog($numbers, $price);
-		$arr=array();
-		foreach($logs as $log)
-			if($log['short']==$id) array_push($arr, $log);
-		$logs=$arr;
+		$logs = $this->Call->find('all');
+		$accounts=array('All'=>'All');
+		$user=array('All'=>'All');
+		foreach($logs as $log){
+			$accounts[$log['Call']['owner']]=$log['Call']['owner'];
+			if (isset($this->data['acc']) and $this->data['acc']!='All')
+				$user[$log['Call']['name']]=$log['Call']['name'];
+			}
+		$accounts=@array_unique($accounts);
+		$user=@array_unique($user);
+		$toCheck=false;
+		if(isset($logs))
+			foreach($logs as $log)
+				if($log['Call']['direction']=='outcoming' and $log['Call']['price']==''){
+					$toCheck=true;
+					break;
+					}
+		if($toCheck){
+			$this->loadModel('Price');
+			$price=$this->Price->find('all');
+			$tabDest=$this->Voip->dest($price);
+			for($i=0; $i<count($logs); $i++){
+				if(isset($logs[$i]) and $logs[$i]['Call']['direction']=='outcoming'){
+					$test=$logs[$i]['Call']['called'];
+					$tab=$this->Voip->testNumber($logs[$i]['Call']['called'], $tabDest);
+					$logs[$i]['Call']['destination']=$tab['dest'];
+					$logs[$i]['Call']['price']=round($tab['price']*$logs[$i]['Call']['duration']/60,2);
+					}
+				}
+			$this->Call->deleteAll(array('1 = 1'));
+			$this->Call->saveAll($logs);
+			$this->redirect($this->request->here);
+			}
+		
+		$show_name=false;
+		if(isset($this->data['start']) and isset($this->data['end'])){
+			$start=$this->data['start'];
+			$end=$this->data['end'];
+			}
+		$setname='All';
+		$conditions=array();
+		if(isset($this->data['name'])) $setname=$this->data['name'];
+		if (isset($this->data['acc']) and $this->data['acc']!='All'){
+			if(isset($this->data['name']) and $this->data['name']!='All')
+				$conditions = array( 
+						'Call.name LIKE' => $this->data['name'],
+						'Call.owner LIKE' => $this->data['acc']
+						);
+			else
+				$conditions = array(
+					'Call.owner LIKE' => $this->data['acc']
+					);
+					
+			$show_name=true;
+			}
+			
+		$date = array_filter(explode('-', $logs[0]['Call']['date']));
+		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
+			
+		if(isset($this->data['start']) and isset($this->data['end'])){
+			$start=$this->data['start'];
+			$end=$this->data['end'];
+			$start=$start['year'].'-'.$start['month'].'-'.$start['day'];
+			$end=$end['year'].'-'.$end['month'].'-'.$end['day'];
+			$conditions=array("Call.date BETWEEN '".$start."' AND '".$end."'");
+			$begin=$start;
+			}
+		
+		$this->Paginator->settings = array(
+				'Call' => array(
+				'conditions'=>$conditions,
+				'limit' => 100,
+				'order' => array(
+					'Call.id' => 'desc'
+					)
+				)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$logs = $this->Paginator->paginate('Call');
+		for($i=0; $i<count($logs); $i++){
+			$date=array_filter(explode('-', $logs[$i]['Call']['date']));
+			$logs[$i]['Call']['year']=$date[0];
+			$logs[$i]['Call']['month']=$this->Voip->month_converter($date[1]);
+			$logs[$i]['Call']['day']=$date[2];
+			}
+		$user=array_unique($user);
 		$this->set('title','VoIP');
 		$this->set('legend','Call log');
-		$this->set(compact('logs'));
+		$this->set(compact('begin','logs'));
 		}
 }
