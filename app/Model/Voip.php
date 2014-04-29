@@ -71,7 +71,6 @@ class Voip extends AppModel {
 		$users=$this->xivo("GET", "/1.1/users");
 		$lines=$this->xivo("GET", "/1.1/lines_sip");
 		$extensions=$this->xivo("GET", "/1.1/extensions");
-		/**/
 			
 		//begin of date filter	
 			if(isset($update)){
@@ -126,14 +125,14 @@ class Voip extends AppModel {
 			if(!isset($logs[$i-1]['owner']))
 				$logs[$i-1]['owner']='No account';
 						
-				if($logs[$i-1]['direction']=='incoming'){
-					$number=$logs[$i-1]['called'];
-					$logs[$i-1]['called']=$logs[$i-1]['caller'];
-					$logs[$i-1]['caller']=$number;
-					$logs[$i-1]['price']=0;
-					}
-			//$logs[$i-1]['caller']=$this->user_links($logs[$i-1]['caller']);
-			$logs[$i-1]['called']=$this->user_links($logs[$i-1]['called']);
+			if($logs[$i-1]['direction']=='incoming'){
+				$number=$this->user_links($logs[$i-1]['called'],$users, $lines, $extensions);
+				$logs[$i-1]['called']=$this->user_links($logs[$i-1]['caller'],$users, $lines, $extensions);
+				$logs[$i-1]['caller']=$number;
+				$logs[$i-1]['price']=0;
+				}
+			else
+				$logs[$i-1]['called']=$this->user_links($logs[$i-1]['called'],$users, $lines, $extensions);
 			}
 			
 		$owners=array();
@@ -146,11 +145,8 @@ class Voip extends AppModel {
 		return $logs;
 		}
 	
-	function user_links($value){
+	function user_links($value,$users, $lines, $extensions){
 		$server=$this->getAccess();				
-		$users=$this->xivo("GET", "/1.1/users");
-		$lines=$this->xivo("GET", "/1.1/lines_sip");
-		$extensions=$this->xivo("GET", "/1.1/extensions");
 		foreach($extensions as $extension)
 			if($extension['exten']==$value){
 				$ex_id=$extension['id'];
