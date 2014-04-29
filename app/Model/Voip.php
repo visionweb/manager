@@ -125,9 +125,6 @@ class Voip extends AppModel {
 
 			if(!isset($logs[$i-1]['owner']))
 				$logs[$i-1]['owner']='No account';
-			
-			$logs[$i-1]['caller']=$this->user_links($logs[$i-1]['caller']);
-//logs[$i-1]['called']=$this->user_links($logs[$i-1]['called']);
 						
 				if($logs[$i-1]['direction']=='incoming'){
 					$number=$logs[$i-1]['called'];
@@ -135,6 +132,8 @@ class Voip extends AppModel {
 					$logs[$i-1]['caller']=$number;
 					$logs[$i-1]['price']=0;
 					}
+			//$logs[$i-1]['caller']=$this->user_links($logs[$i-1]['caller']);
+			$logs[$i-1]['called']=$this->user_links($logs[$i-1]['called']);
 			}
 			
 		$owners=array();
