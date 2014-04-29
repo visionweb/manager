@@ -32,7 +32,7 @@
             <span class="caret"></span>
         </button>
         <ul class="dropdown-menu">
-			<?php  print_r($extens);
+			<?php 
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '0')).'">All</a></li>';
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '1')).'">Free numbers</a></li>';
 				print '<li><a href="'.$this->Html->url(array('action' => 'listNumbers', '2')).'">Owned numbers</a></li>';

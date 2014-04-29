@@ -49,9 +49,9 @@ class VoipsController extends AppController {
 				$dataBrut[$i]["line"]["number"]=$short;
 				$dataBrut[$i]["password"]=$sip_l["secret"];
 				foreach($numbers as $owner)
-						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield'] or
-							'00'.$owner['Number']['prefix'].$number['Number']['phone_number']=='003397'.substr($user['userfield'],3)
-							){
+						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield'] or 
+						'00'.$owner['Number']['prefix'].$owner['Number']['phone_number']=='003397'.substr($dataBrut[$i]['userfield'],3)
+						){
 							$dataBrut[$i]['owner']=$owner['Number']['owner'];
 							break;
 							}
@@ -491,8 +491,7 @@ class VoipsController extends AppController {
 		$nums_owns = $this->Paginator->paginate('Number');
 		$this->set('title','Configuration');
 		$this->set('legend','List numbers');
-		$this->set(compact('nums_owns'));
-		$this->set(compact('extens',$extens[4]));
+		$this->set(compact("nums_owns"));
 		$this->set('ajax_on',true);
 		}
 	
