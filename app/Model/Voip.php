@@ -122,57 +122,12 @@ class Voip extends AppModel {
 			if(isset($logs[$i-1]['caller'])==0)
 				$logs[$i-1]['caller']=substr($array[2],1,4);
 			$logs[$i-1]['short']=substr($array[2],1,4);
-			foreach($numbers as $num){
-				if($num['Number']['short']==$logs[$i-1]['short']){
-					$logs[$i-1]['owner']=$num['Number']['owner'];
-					$logs[$i-1]['caller']='00'.$num['Number']['prefix'].substr($num['Number']['phone_number'],1);
-					break;
-					}
-				}
-			if(!isset($logs[$i-1]['owner'])){
+
+			if(!isset($logs[$i-1]['owner']))
 				$logs[$i-1]['owner']='No account';
-				}
-				
-				foreach($extensions as $extension)
-					if($extension['exten']==$logs[$i-1]['called']){
-						foreach($lines as $line){
-							$links=$this->xivo("GET", "/1.1/lines/".$line['id']."/extension");
-							$exten_id=$links['extension_id'];
-							if($extension['id']==$exten_id){
-								$line_id=$links['line_id'];
-								foreach($users as $user){
-									$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
-									if($links['user_id']==$user_id){
-										$logs[$i-1]['called']=$user['userfield'];
-										break;
-										}
-									break;
-									}
-								}
-						break;
-						}
-					}
-					
-					foreach($extensions as $extension)
-					if($extension['exten']==$logs[$i-1]['caller']){
-						foreach($lines as $line){
-							$links=$this->xivo("GET", "/1.1/lines/".$line['id']."/extension");
-							$exten_id=$links['extension_id'];
-							if($extension['id']==$exten_id){
-								$line_id=$links['line_id'];
-								foreach($users as $user){
-									$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
-									if($links['user_id']==$user_id){
-										$logs[$i-1]['caller']=$user['userfield'];
-										break;
-										}
-									break;
-									}
-								}
-						break;
-						}
-					}
-				
+			
+			$logs[$i-1]['caller']=$this->user_links($logs[$i-1]['caller']);
+//logs[$i-1]['called']=$this->user_links($logs[$i-1]['called']);
 						
 				if($logs[$i-1]['direction']=='incoming'){
 					$number=$logs[$i-1]['called'];
@@ -181,6 +136,7 @@ class Voip extends AppModel {
 					$logs[$i-1]['price']=0;
 					}
 			}
+			
 		$owners=array();
 		$sorted=array();
 		foreach($logs as $log) array_push($owners, $log['owner']);
@@ -189,6 +145,31 @@ class Voip extends AppModel {
 			foreach($logs as $log)
 				if($log['owner']==$owner) array_push($sorted, $log);
 		return $logs;
+		}
+	
+	function user_links($value){
+		$server=$this->getAccess();				
+		$users=$this->xivo("GET", "/1.1/users");
+		$lines=$this->xivo("GET", "/1.1/lines_sip");
+		$extensions=$this->xivo("GET", "/1.1/extensions");
+		foreach($extensions as $extension)
+			if($extension['exten']==$value){
+				$ex_id=$extension['id'];
+				break;
+				}
+		if(!isset($ex_id)) return $value;	
+		foreach($lines as $line){
+				$links=$this->xivo("GET", "/1.1/lines/".$line['id']."/extension");
+				if($links['extension_id']==$ex_id){
+					$line_id=$links['line_id'];
+					break;
+					}
+				}
+		foreach($users as $user){
+				$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
+				if($links[0]['user_id']==$user['id'])
+					return $user['userfield'];
+				}	
 		}
 	
 	function month_converter($value){

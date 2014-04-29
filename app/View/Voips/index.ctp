@@ -80,7 +80,7 @@
 			?>
 		</td>
 		<td>
-			<a href="<?php print $this->Html->url(array('action' => 'call_logs', $user['line']['number'])) ?>">
+			<a href="<?php print $this->Html->url(array('action' => 'call_logs', $user["userfield"])) ?>">
 				<button class="btn">
 					Call log
 				</button>

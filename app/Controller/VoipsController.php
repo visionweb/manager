@@ -757,7 +757,10 @@ class VoipsController extends AppController {
 			$end=$this->data['end'];
 			$start=$start['year'].'-'.$start['month'].'-'.$start['day'];
 			$end=$end['year'].'-'.$end['month'].'-'.$end['day'];
-			$conditions=array("Call.date BETWEEN '".$start."' AND '".$end."'");
+			$conditions=array("Call.date BETWEEN '".$start."' AND '".$end."'",
+			'Call.caller LIKE' => $id,
+			'Call.called LIKE' => $id
+			);
 			$begin=$start;
 			}
 		
