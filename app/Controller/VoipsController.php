@@ -128,15 +128,18 @@ class VoipsController extends AppController {
 			if($num['Number']['short']==$short){
 				$owner=$num['Number']['owner'];
 				$db_id=$num['Number']['id'];
-				$owner=$num['Number']['owner'];
-				$this->set(compact('owner'));
 				break;
 				}
 			}
 		$userlist=array();
+		if($owner=='No account'){
+			$userlist['No account']='No account';
+			}
+		$this->set(compact('owner'));
 		for ($i=0; $i<sizeof($owners); $i++){
 			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
 			}
+		
 		$this->set(array(
 			'title'=> 'Liste compte',
 			'legend'=> 'Set new user data',
@@ -144,7 +147,7 @@ class VoipsController extends AppController {
 			'userinfo'=>$userdata
 			));
 		if ($this->request->is('post')) {
-			$this->Number->id=$db_id;
+				$this->Number->id=$db_id;
 				$own=array('owner'=>$this->data['User']['owner']);
 				$this->Number->save($own);
 			$data = array(
@@ -171,8 +174,8 @@ class VoipsController extends AppController {
 		$user_line=$this->Voip->xivo("GET", "/1.1/users/".$id."/lines");
 		$line_id=$user_line[0]['line_id'];
 		$line_extension=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
-		$extens=$this->Voip->xivo("GET", "/1.1/extensions");
 		$extension_id=$line_extension['extension_id'];
+		$extens=$this->Voip->xivo("GET", "/1.1/extensions/".$extension_id);
 		$this->Voip->xivo("DELETE", "/1.1/lines/".$line_id."/extension");
 		$this->Voip->xivo("DELETE", "/1.1/users/".$id."/lines/".$line_id);
 		$this->Voip->xivo("DELETE", "/1.1/lines_sip/".$line_id);
@@ -180,15 +183,14 @@ class VoipsController extends AppController {
 		$this->Voip->xivo("DELETE", "/1.1/users/".$id);
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
-		$num=substr($userdata['userfield'], -9);
-		for($i=0;$i<sizeof($nums_owns);$i++){
-			if(substr($nums_owns[$i]['Number']['phone_number'],-9)==$num){
-				$this->Number->id=$nums_owns[$i]['Number']['id'];
+		$num=$extens['exten'];
+		foreach($nums_owns as $number)
+			if($number['Number']['short']==$num){
+				$this->Number->id=$number['Number']['id'];
 				$own=array('owner'=>'', 'short'=>'');
 				$this->Number->save($own);
 				break;
 				}
-			}
 		$this->redirect(array('action' => 'admin_listAccount'));
 		}
 
@@ -202,10 +204,24 @@ class VoipsController extends AppController {
 		$extensions=$this->Voip->xivo("GET", "/1.1/extensions");
 		$listUser=array();
 		$i=0;
+		$new_numbers=array();
 		foreach($users as $user){
 			$listUser[$i]['firstname']=$user['firstname'];
 			$listUser[$i]['lastname']=$user['lastname'];
 			$listUser[$i]['userfield']=$user['userfield'];
+			$new=true;
+			foreach($numbers as $number){
+				if('00'.$number['Number']['prefix'].$number['Number']['phone_number']==$user['userfield']){
+					$new=false;
+					break;
+					}
+				if(substr($user['userfield'],0,3)=='097')
+					if('00'.$number['Number']['prefix'].$number['Number']['phone_number']=='003397'.substr($user['userfield'],3)){
+						$new=false;
+						break;
+						}
+				}
+
 			$listUser[$i]['id']=$user['id'];
 			$links=$this->Voip->xivo("GET", "/1.1/users/".$user['id']."/lines");
 			$line_id=$links[0]['line_id'];
@@ -224,6 +240,26 @@ class VoipsController extends AppController {
 					break;
 					}
 				}
+				
+			if($new==true){
+				if(substr($user['userfield'],0 ,3)=='097'){
+					$prefix='3397';
+					$number=substr($user['userfield'],3);
+					}
+				else{
+					$prefix='33';
+					$number=substr($user['userfield'],4);
+					}
+				$new=array(
+					'prefix'=>$prefix,
+					'phone_number'=>$number,
+					'owner'=>'No account',
+					'short'=>$listUser[$i]['short']
+					);
+				array_push($new_numbers, $new);
+				$new=true;
+				}
+			
 			foreach($numbers as $number){
 				if ($listUser[$i]['short']==$number['Number']['short']){
 					$listUser[$i]['owner']=$number['Number']['owner'];
@@ -240,6 +276,8 @@ class VoipsController extends AppController {
 					array_push($tmp,$single);
 			$listUser=$tmp;
 			}
+		$new=@array_unique($new);
+		$this->Number->saveAll($new_numbers);
 		$this->set(compact('listUser'));
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');

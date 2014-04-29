@@ -144,7 +144,6 @@
                                 <ul class="dropdown-menu">
                                     <li><a href="<?php echo Configure::read('root.url')?>admin/voips/listAccount">Liste compte</a></li>
                                     <li><a href="<?php echo Configure::read('root.url')?>admin/voips/newAccount">Nouveau compte</a></li>
-                                    <li><a href="<?php echo Configure::read('root.url')?>admin/voips/consommation">Consommation</a></li>
                                     <li><a href="<?php echo Configure::read('root.url')?>admin/voips/configuration">Configuration</a></li>
 									<li><a href="<?php echo Configure::read('root.url')?>admin/voips/call_logs">Call log</a></li>
                                 </ul>
