@@ -733,21 +733,10 @@ class VoipsController extends AppController {
 			$end=$this->data['end'];
 			}
 		$setname='All';
-		$conditions=array();
-		if(isset($this->data['name'])) $setname=$this->data['name'];
-		if (isset($this->data['acc']) and $this->data['acc']!='All'){
-			if(isset($this->data['name']) and $this->data['name']!='All')
-				$conditions = array( 
-						'Call.name LIKE' => $this->data['name'],
-						'Call.owner LIKE' => $this->data['acc']
-						);
-			else
-				$conditions = array(
-					'Call.owner LIKE' => $this->data['acc']
-					);
-					
-			$show_name=true;
-			}
+		$conditions=array(
+			'Call.caller LIKE' => $id,
+			'Call.called LIKE' => $id
+			);
 			
 		$date = array_filter(explode('-', $logs[0]['Call']['date']));
 		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
