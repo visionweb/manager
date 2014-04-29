@@ -49,7 +49,9 @@ class VoipsController extends AppController {
 				$dataBrut[$i]["line"]["number"]=$short;
 				$dataBrut[$i]["password"]=$sip_l["secret"];
 				foreach($numbers as $owner)
-						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield']){
+						if ('00'.$owner['Number']['prefix'].substr($owner['Number']['phone_number'],1)==$dataBrut[$i]['userfield'] or
+							'00'.$owner['Number']['prefix'].$number['Number']['phone_number']=='003397'.substr($user['userfield'],3)
+							){
 							$dataBrut[$i]['owner']=$owner['Number']['owner'];
 							break;
 							}
@@ -436,6 +438,24 @@ class VoipsController extends AppController {
 
 	public function admin_listNumbers($id=NULL){
 		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		$extens=$this->Voip->xivo("GET", "/1.1/extensions");
+		foreach($nums_owns as $num)
+			if(!empty($num['Number']['owner'])){
+				$free=false;
+				foreach($extens as $exten)
+					if($exten['exten']==$num['Number']['short']) 
+						break;
+					else{
+						$free=true;
+						}
+				if($free==true){
+					$this->Number->id=$num['Number']['id'];
+					$own=array('owner'=>'','short'=>'');
+					$this->Number->save($own);
+					$free=false;
+					}
+				}
 		$conditions = array();
 		if($id==1) $conditions = array('Number.owner' => '');
 		elseif($id==2) $conditions = array('Number.owner NOT LIKE'=> '');
@@ -471,13 +491,15 @@ class VoipsController extends AppController {
 		$nums_owns = $this->Paginator->paginate('Number');
 		$this->set('title','Configuration');
 		$this->set('legend','List numbers');
-		$this->set(compact("nums_owns"));
+		$this->set(compact('nums_owns'));
+		$this->set(compact('extens',$extens[4]));
 		$this->set('ajax_on',true);
 		}
 	
 	public function admin_newNumbers(){
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
+			
 		if(sizeof($nums_owns)!=0)
 			$this->set("str", $nums_owns[sizeof($nums_owns)-1]);// default start. Max exist number+1
 		else

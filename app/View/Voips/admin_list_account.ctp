@@ -1,9 +1,8 @@
 
 
 <?php print $this->element('subheader');?>
-
 	    <fieldset>
-			<?php
+			<?php 
 				print $this->Form->create(false, array('type' => 'file'));
 				$findBy = array('firstname' => 'First name', 'lastname' => 'Last name', 'userfield' => 'Phone number');
 				print $this->Form->input('by', array('label'=>'Find by',  'options'=>$findBy, 'default'=>'First name'));
@@ -15,9 +14,7 @@
 				print $this->Js->submit('Show', array('update'=>'#content'));
 				print $this->Form->end();
 			?>
-	
 		</fieldset>
-		
     <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
         <tr>
             <th>
@@ -95,5 +92,5 @@
 		<?php endforeach; ?>
     </table>
 	
-	
+	<?php print_r($extens);?>
 	<?php print $this->element('end_view'); ?>
