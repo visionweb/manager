@@ -440,22 +440,6 @@ class VoipsController extends AppController {
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
 		$extens=$this->Voip->xivo("GET", "/1.1/extensions");
-		foreach($nums_owns as $num)
-			if(!empty($num['Number']['owner'])){
-				$free=false;
-				foreach($extens as $exten)
-					if($exten['exten']==$num['Number']['short']) 
-						break;
-					else{
-						$free=true;
-						}
-				if($free==true){
-					$this->Number->id=$num['Number']['id'];
-					$own=array('owner'=>'','short'=>'');
-					$this->Number->save($own);
-					$free=false;
-					}
-				}
 		$conditions = array();
 		if($id==1) $conditions = array('Number.owner' => '');
 		elseif($id==2) $conditions = array('Number.owner NOT LIKE'=> '');
@@ -793,8 +777,10 @@ class VoipsController extends AppController {
 			}
 		$setname='All';
 		$conditions=array(
-			'Call.caller LIKE' => $id,
-			'Call.called LIKE' => $id
+			'OR'=>array(
+			 'Call.called LIKE' => '%'.$id.'%',
+			 'Call.caller LIKE' => '%'.$id.'%')
+			
 			);
 			
 		$date = array_filter(explode('-', $logs[0]['Call']['date']));
@@ -806,8 +792,9 @@ class VoipsController extends AppController {
 			$start=$start['year'].'-'.$start['month'].'-'.$start['day'];
 			$end=$end['year'].'-'.$end['month'].'-'.$end['day'];
 			$conditions=array("Call.date BETWEEN '".$start."' AND '".$end."'",
-			'Call.caller LIKE' => $id,
-			'Call.called LIKE' => $id
+			'or'=>array(
+				'Call.caller LIKE' => '%'.$id.'%',
+				'Call.called LIKE' => '%'.$id.'$')
 			);
 			$begin=$start;
 			}
@@ -829,8 +816,12 @@ class VoipsController extends AppController {
 			$logs[$i]['Call']['month']=$this->Voip->month_converter($date[1]);
 			$logs[$i]['Call']['day']=$date[2];
 			}
+		$users=$this->xivo("GET", "/1.1/users");
+		$lines=$this->xivo("GET", "/1.1/lines_sip");
+		$extensions=$this->xivo("GET", "/1.1/extensions");
 		$user=array_unique($user);
 		$this->set('title','VoIP');
+		$this->set('test',$this->user_links('1001',$users, $lines, $extensions));
 		$this->set('legend','Call log');
 		$this->set(compact('begin','logs'));
 		}
