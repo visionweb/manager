@@ -816,12 +816,8 @@ class VoipsController extends AppController {
 			$logs[$i]['Call']['month']=$this->Voip->month_converter($date[1]);
 			$logs[$i]['Call']['day']=$date[2];
 			}
-		$users=$this->xivo("GET", "/1.1/users");
-		$lines=$this->xivo("GET", "/1.1/lines_sip");
-		$extensions=$this->xivo("GET", "/1.1/extensions");
 		$user=array_unique($user);
 		$this->set('title','VoIP');
-		$this->set('test',$this->user_links('1001',$users, $lines, $extensions));
 		$this->set('legend','Call log');
 		$this->set(compact('begin','logs'));
 		}
