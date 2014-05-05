@@ -12,49 +12,128 @@ class Voip extends AppModel {
 	public $name = 'Voip';
 
 	//find information about number
-	function testNumber($number, $tabDest){
-		if((substr($number,0,1) == "0") || ((substr($number,0,2) == 33) && strlen($number) > 10)) {
-			if(substr($number,0,1) == "0") $num = substr($number,1,3);
-			else $num=substr($number,0,3);
-			$toCheck=true;
-			}
-		elseif((substr($number,0,2) == "00") || ((substr($number,0,2) != 33) && strlen($number) > 10)){
-			if(substr($number,0,2) == "00") $num = substr($number,2);
-			else $num = $number;
-			$toCheck=true;
-			}
-		elseif((strlen($number) == 4)||(strlen($number) > 5)){
-			$num = $number;
-			$toCheck=true;
-			}	
-		else{
-			$dest = 'Autre';
-			$price = 0;
-			$priceMer=0;
-			$destType = 0;
-			$toCheck=false;
-			}
+	function testNumber($numero, $tabDest){
+		// Numéro international
+	if(strlen($numero) == "4") {
+        $num = $numero;
+        $toCheck = true;
+        while($toCheck){
+            if(@is_array($tabDest["FR"][$num])){
+                if($tabDest["FR"][$num]["pp"] == 0)
+                    if(@$destFact[$tabDest["FR"][$num]["id"]] != "KO")
+                        $listId[] = $tabDest["FR"][$num]["id"];
 
-		if($toCheck){
-			while(!empty($num)){
-				if(isset($tabDest["FR"][$num])){
-					$dest = $tabDest["FR"][$num]["description"];
-					$price = $tabDest["FR"][$num]["pp"];
-					$priceMer = $tabDest["FR"][$num]["mer"];
-					$destType = $tabDest["FR"][$num]["local_zone"];
-					break;
-					} 
-				else $num = substr($num,0,-1);
-				}
-			}
+                $destFact[$tabDest["FR"][$num]["id"]] = "KO";
+                $toCheck = false;
+                $dest = $tabDest["FR"][$num]["description"];
+                $price = $tabDest["FR"][$num]["pp"];
+                $priceMer = $tabDest["FR"][$num]["mer"];
+                $destType = $tabDest["FR"][$num]["local_zone"];
+            } else {
+                $num = substr($num,0,-1);
+            }
+            if(strlen($num) == 0)
+                $toCheck = false;
+
+        }
+    } else if((substr($numero,0,2) == "00") || ((substr($numero,2,2) != 33) && strlen($numero) > 10)){
+        if(substr($numero,0,2) == "00")
+            $num = substr($numero,2);
+        else
+            $num = $numero;
+
+        $toCheck = true;
+        while($toCheck){
+            if(@is_array($tabDest["other"][$num])) {
+                //On a trouvé le pays
+                //echo $tabDest["other"][$num]["description"] ."\r\n";
+                if($tabDest["other"][$num]["pp"] == 0)
+                    if(@$destFact[$tabDest["other"][$num]["id"]] != "KO")
+                        $listId[] = $tabDest["other"][$num]["id"];
+
+                $destFact[$tabDest["other"][$num]["id"]] = "KO";
+                $toCheck = false;
+                $dest = $tabDest["other"][$num]["description"];
+                $price = $tabDest["other"][$num]["pp"] ;
+                $priceMer = $tabDest["other"][$num]["mer"];
+                $destType = $tabDest["other"][$num]["local_zone"];
+            } else {
+                $num = substr($num,0,-1);
+            }
+            if(strlen($num) == 0)
+                $toCheck = false;
+        }
+
+    } else if((substr($numero,0,1) == "0") || ((substr($numero,2,2) == 33) && strlen($numero) > 10)) {
+        if(substr($numero,0,1) == "0")
+            $num = substr($numero,1);
+        else
+            $num = $numero;
+
+        $num = substr($num,0,3);
+
+        $toCheck = true;
+        while($toCheck){
+            if(@is_array($tabDest["FR"][$num])){
+                if($tabDest["FR"][$num]["pp"] == 0)
+                    if(@$destFact[$tabDest["FR"][$num]["id"]] != "KO")
+                        $listId[] = $tabDest["FR"][$num]["id"];
+
+                $destFact[$tabDest["FR"][$num]["id"]] = "KO";
+                $dest = $tabDest["FR"][$num]["description"];
+                $price = $tabDest["FR"][$num]["pp"];
+                $priceMer = $tabDest["FR"][$num]["mer"];
+                $toCheck = false;
+                $destType = $tabDest["FR"][$num]["local_zone"];
+            } else {
+                $num = substr($num,0,-1);
+            }
+            if(strlen($num) == 0)
+                $toCheck = false;
+
+        }
+
+    } else if(strlen($numero) > "5") {
+        $num = $numero;
+        $toCheck = true;
+        while($toCheck){
+            if(@is_array($tabDest["FR"][$num])){
+                if($tabDest["FR"][$num]["pp"] == 0)
+                    if(@$destFact[$tabDest["FR"][$num]["id"]] != "KO")
+                        $listId[] = $tabDest["FR"][$num]["id"];
+
+                $destFact[$tabDest["FR"][$num]["id"]] = "KO";
+                $toCheck = false;
+                $dest = $tabDest["FR"][$num]["description"];
+                $price = $tabDest["FR"][$num]["pp"];
+                $priceMer = $tabDest["FR"][$num]["mer"];
+                $destType = $tabDest["FR"][$num]["local_zone"];
+            } else {
+                $num = substr($num,0,-1);
+            }
+            if(strlen($num) == 0)
+                $toCheck = false;
+
+        }
+
+    }else {
+        $dest = "Autre";
+        $price = 0;
+        $destType = 0;
+        $priceMer = 0;
+
+    }
 		if(!isset($dest)) $dest='Unknown destination';
 		if(!isset($price)) $price='Unknown destination';
 		if(!isset($priceMer)) $priceMer='Unknown destination';
 		if(!isset($destType)) $destType='Unknown destination';
-		$tab=array('dest'=>$dest,
-					'price'=>$price,
-					'priceMer'=>$priceMer,
-					'destType'=>$destType);
+        
+        @$tab["dest"] = $dest;
+        @$tab["price"] = $price;
+        @$tab["priceMer"] = $priceMer;
+        @$tab["destType"] = $destType;
+
+
 		return $tab;
 		}      
 	

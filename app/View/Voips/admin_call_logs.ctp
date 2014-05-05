@@ -8,6 +8,7 @@
 			print $this->Form->input('end', array('type'=>'date', 'label'=>'End date'));
 			print $this->Form->input('acc', array('label'=>'Show accounts', 'default'=>'All', 'options'=>$accounts));
 			if($show_name==true) print $this->Form->input('name', array('label'=>'Show SIP', 'options'=>$user));
+			print $this->Form->input('dir', array('label'=>'Call direction', 'default'=>'All', 'options'=>$dir));
 			print $this->Js->submit('Show', array('update'=>'#content'));
 			print $this->Form->end();
 		?>

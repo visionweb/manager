@@ -32,7 +32,7 @@
 				"type" => "search",
 				"placeholder" => "Search"
 				)).' ';
-			print $this->Js->submit('Find', array('div'=>false, 'style'=>'height:30px; vertical-align:top;', 'update'=>'#ajaxdiv'));
+			print $this->Js->submit('Find', array('div'=>false, 'style'=>'height:30px; vertical-align:top;', 'update'=>'#content'));
 			print $this->Form->end();
 		?>
 		

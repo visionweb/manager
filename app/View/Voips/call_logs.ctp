@@ -6,6 +6,7 @@
 			print $this->Form->create(false, array('type' => 'file'));
 			print $this->Form->input('start', array('type'=>'date','selected'=>$begin,'label'=>'Start date'));
 			print $this->Form->input('end', array('type'=>'date', 'label'=>'End date'));
+			print $this->Form->input('dir', array('label'=>'Call direction', 'default'=>'All', 'options'=>$dir));
 			print $this->Js->submit('Show', array('update'=>'#content'));
 			print $this->Form->end();
 		?>
