@@ -224,8 +224,8 @@ class Voip extends AppModel {
 		return $logs;
 		}
 	
-	function user_links($value,$users, $lines, $extensions){
-		$server=$this->getAccess();				
+	function user_links($value,$users, $lines, $extensions){			
+		if(strlen($value)>4) return $value;
 		foreach($extensions as $extension)
 			if($extension['exten']==$value){
 				$ex_id=$extension['id'];
@@ -241,8 +241,10 @@ class Voip extends AppModel {
 				}
 		foreach($users as $user){
 				$links=$this->xivo("GET", "/1.1/users/".$user['id']."/lines");
-				if($links[0]['user_id']==$user['id'])
+				if($links[0]['line_id']==$line_id){
+					$user=$this->xivo("GET", "/1.1/users/".$user['id']);
 					return $user['userfield'];
+					}
 				}	
 		}
 	
