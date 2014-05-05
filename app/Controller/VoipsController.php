@@ -781,7 +781,11 @@ class VoipsController extends AppController {
 			$end=$this->data['end'];
 			}
 		$setname='All';
-		$conditions=array('Call.caller LIKE'=>'%'.$id.'%');	
+		$condition=array();
+		if(isset($this->data['dir']) and $this->data['dir']=='Incoming')
+			$conditions['Call.called LIKE']='%'.$id.'%';
+		else
+			$conditions['Call.caller LIKE']='%'.$id.'%';	
 		$date = array_filter(explode('-', $logs[0]['Call']['date']));
 		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
 			
@@ -793,10 +797,6 @@ class VoipsController extends AppController {
 			array_push($conditions, "Call.date BETWEEN '".$start."' AND '".$end."'");
 			$begin=$start;
 			}
-		if(isset($this->data['dir']) and $this->data['dir']=='Incoming')
-			$conditions['Call.called LIKE']='%'.$id.'%';
-		else
-			$conditions['Call.caller LIKE']='%'.$id.'%';
 		$this->Paginator->settings = array(
 				'Call' => array(
 				'conditions'=>$conditions,
