@@ -647,7 +647,6 @@ class VoipsController extends AppController {
 			$this->Call->saveAll($logs);
 			$this->redirect($this->request->here);
 			}
-		
 		$show_name=false;
 		if(isset($this->data['start']) and isset($this->data['end'])){
 			$start=$this->data['start'];
@@ -764,7 +763,6 @@ class VoipsController extends AppController {
 			$tabDest=$this->Voip->dest($price);
 			for($i=0; $i<count($logs); $i++){
 				if(isset($logs[$i]) and $logs[$i]['Call']['direction']=='outcoming'){
-					$test=$logs[$i]['Call']['called'];
 					$tab=$this->Voip->testNumber($logs[$i]['Call']['called'], $tabDest);
 					$logs[$i]['Call']['destination']=$tab['dest'];
 					$logs[$i]['Call']['price']=round($tab['price']*$logs[$i]['Call']['duration']/60,2);

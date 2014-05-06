@@ -220,6 +220,28 @@ class Voip extends AppModel {
 				}
 			else
 				$logs[$i-1]['called']=$this->user_links($logs[$i-1]['called'],$users, $lines, $extensions);
+			
+			if((substr($logs[$i-1]['called'],0,1) == "0") && (strlen($logs[$i-1]['called']) == 10)){
+				$logs[$i-1]['called']= "33".substr($logs[$i-1]['called'],1);
+				} 
+			else if (strlen($logs[$i-1]['called']) > 10){
+				$logs[$i-1]['called']=substr($logs[$i-1]['called'],2);
+				}
+			if((substr($logs[$i-1]['caller'],0,1) == "0") && (strlen($logs[$i-1]['caller']) == 10)){
+				$logs[$i-1]['caller']= "33".substr($logs[$i-1]['caller'],1);
+				} 
+			else if (strlen($logs[$i-1]['caller']) > 10){
+				$logs[$i-1]['caller']=substr($logs[$i-1]['caller'],2);
+				}
+			if(substr($logs[$i-1]['caller'],0,3) == "\"\"\""){
+				$number=substr($logs[$i-1]['caller'],3,strlen($logs[$i-1]['caller']-6));
+				if((substr($number,0,1) == "0") && (strlen($number) == 10)){
+					$logs[$i-1]['caller']= '\"\"\"'.'33'.substr($number,1).'\"\"\"';
+					} 
+				else if (($number) > 10){
+					$logs[$i-1]['caller']='\"\"\"'.substr($number,2).'\"\"\"';
+					}
+				} 
 			}
 			
 		$owners=array();
@@ -231,6 +253,7 @@ class Voip extends AppModel {
 				if($log['owner']==$owner) array_push($sorted, $log);
 		return $logs;
 		}
+
 	
 	function user_links($value,$users, $lines, $extensions){			
 		if(strlen($value)>4) return $value;
