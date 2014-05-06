@@ -15,7 +15,7 @@ class Voip extends AppModel {
 	function testNumber($numero, $tabDest){
 		// Numéro international
 	if(strlen($numero) == "4") {
-        $num = $numero;
+        $num = '33'.$numero;
         $toCheck = true;
         while($toCheck){
             if(@is_array($tabDest["FR"][$num])){
@@ -36,7 +36,8 @@ class Voip extends AppModel {
                 $toCheck = false;
 
         }
-    } else if((substr($numero,0,2) == "00") || ((substr($numero,2,2) != 33) && strlen($numero) > 10)){
+    } 
+    elseif((substr($numero,0,2) == "00") || ((substr($numero,0,2) != 33) && strlen($numero) > 10)){
         if(substr($numero,0,2) == "00")
             $num = substr($numero,2);
         else
@@ -62,9 +63,34 @@ class Voip extends AppModel {
             }
             if(strlen($num) == 0)
                 $toCheck = false;
-        }
+			}
+        
+			if(!isset($price))
+				$toCheck = true;
+			while($toCheck){
+				if(@is_array($tabDest["FR"][$num])) {
+					//On a trouvé le pays
+					//echo $tabDest["other"][$num]["description"] ."\r\n";
+					if($tabDest["FR"][$num]["pp"] == 0)
+						if(@$destFact[$tabDest["FR"][$num]["id"]] != "KO")
+							$listId[] = $tabDest["FR"][$num]["id"];
 
-    } else if((substr($numero,0,1) == "0") || ((substr($numero,2,2) == 33) && strlen($numero) > 10)) {
+					$destFact[$tabDest["FR"][$num]["id"]] = "KO";
+					$toCheck = false;
+					$dest = $tabDest["FR"][$num]["description"];
+					$price = $tabDest["FR"][$num]["pp"] ;
+					$priceMer = $tabDest["FR"][$num]["mer"];
+					$destType = $tabDest["FR"][$num]["local_zone"];
+				} else {
+					$num = substr($num,0,-1);
+				}
+				if(strlen($num) == 0)
+					$toCheck = false;
+				}
+			
+
+    } 
+    elseif((substr($numero,0,1) == "0") || ((substr($numero,2,2) == 33) && strlen($numero) > 10)) {
         if(substr($numero,0,1) == "0")
             $num = substr($numero,1);
         else
@@ -90,10 +116,10 @@ class Voip extends AppModel {
             }
             if(strlen($num) == 0)
                 $toCheck = false;
-
         }
 
-    } else if(strlen($numero) > "5") {
+    } 
+    elseif(strlen($numero) > 5) {
         $num = $numero;
         $toCheck = true;
         while($toCheck){
@@ -116,7 +142,8 @@ class Voip extends AppModel {
 
         }
 
-    }else {
+    }
+    else {
         $dest = "Autre";
         $price = 0;
         $destType = 0;
