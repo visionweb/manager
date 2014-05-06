@@ -200,7 +200,13 @@ class Voip extends AppModel {
 			if(isset($logs[$i-1]['caller'])==0)
 				$logs[$i-1]['caller']=substr($array[2],1,4);
 			$logs[$i-1]['short']=substr($array[2],1,4);
-
+			
+			foreach($numbers as $num)
+				if($num['Number']['short']==$logs[$i-1]['short']){
+					$logs[$i-1]['owmer']=$num['Number']['owner'];
+					break;
+					}
+			
 			if(!isset($logs[$i-1]['owner']))
 				$logs[$i-1]['owner']='No account';
 						
