@@ -203,7 +203,7 @@ class Voip extends AppModel {
 			
 			foreach($numbers as $num)
 				if($num['Number']['short']==$logs[$i-1]['short']){
-					$logs[$i-1]['owmer']=$num['Number']['owner'];
+					$logs[$i-1]['owner']=$num['Number']['owner'];
 					break;
 					}
 			
