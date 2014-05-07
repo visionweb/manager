@@ -14,8 +14,8 @@ class Voip extends AppModel {
 	//find information about number
 	function testNumber($numero, $tabDest){
 		// Numéro international
-	if(strlen($numero) == "4") {
-        $num = '33'.$numero;
+	if(strlen($numero) == 6 && substr($numero,0,2)=='33') {
+        $num = $numero;
         $toCheck = true;
         while($toCheck){
             if(@is_array($tabDest["FR"][$num])){
@@ -268,7 +268,16 @@ class Voip extends AppModel {
 				else if (($number) > 10){
 					$logs[$i-1]['caller']='\"\"\"'.substr($number,2).'\"\"\"';
 					}
-				} 
+				}
+			 if(((substr($logs[$i-1]['called'],0,1) != "0") && (strlen($logs[$i-1]['called']) == 9))||(strlen($logs[$i-1]['called'])==4)){
+				$logs[$i-1]['called']= "33".$logs[$i-1]['called'];
+				}
+				
+			 if(substr($logs[$i-1]['called'],0,1) == "9")
+				$logs[$i-1]['called']= "33".$logs[$i-1]['called'];
+			 elseif(substr($logs[$i-1]['caller'],0,1) == "9")
+				$logs[$i-1]['caller']= "33".$logs[$i-1]['called'];
+			 
 			}
 			
 		$owners=array();
