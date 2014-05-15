@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.6
+-- version 3.4.10.1deb1
 -- http://www.phpmyadmin.net
 --
--- Хост: 172.16.8.17
--- Время создания: Мар 17 2014 г., 18:59
--- Версия сервера: 5.5.35-0+wheezy1
--- Версия PHP: 5.4.26-1~dotdeb.1
+-- Host: localhost
+-- Generation Time: May 15, 2014 at 08:09 AM
+-- Server version: 5.5.37
+-- PHP Version: 5.3.10-1ubuntu3.11
 
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- База данных: `managero`
+-- Database: `manager`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `acos`
+-- Table structure for table `acos`
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
@@ -35,297 +35,325 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=371 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=399 ;
 
 --
--- Дамп данных таблицы `acos`
+-- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(92, NULL, NULL, NULL, 'controllers', 1, 558),
-(93, 92, NULL, NULL, 'CategorieFaqs', 2, 23),
+(92, NULL, NULL, NULL, 'controllers', 1, 614),
+(93, 92, NULL, NULL, 'CategorieFaqs', 2, 25),
 (94, 93, NULL, NULL, 'index', 3, 4),
 (95, 93, NULL, NULL, 'view', 5, 6),
 (96, 93, NULL, NULL, 'add', 7, 8),
 (97, 93, NULL, NULL, 'edit', 9, 10),
 (98, 93, NULL, NULL, 'delete', 11, 12),
-(99, 92, NULL, NULL, 'CategorieTickets', 24, 45),
-(100, 99, NULL, NULL, 'index', 25, 26),
-(101, 99, NULL, NULL, 'view', 27, 28),
-(102, 99, NULL, NULL, 'add', 29, 30),
-(103, 99, NULL, NULL, 'edit', 31, 32),
-(104, 99, NULL, NULL, 'delete', 33, 34),
-(105, 92, NULL, NULL, 'Commentaires', 46, 57),
-(106, 105, NULL, NULL, 'index', 47, 48),
-(107, 105, NULL, NULL, 'view', 49, 50),
-(108, 105, NULL, NULL, 'add', 51, 52),
-(109, 105, NULL, NULL, 'edit', 53, 54),
-(110, 105, NULL, NULL, 'delete', 55, 56),
-(111, 92, NULL, NULL, 'Factures', 58, 69),
-(112, 111, NULL, NULL, 'index', 59, 60),
-(113, 111, NULL, NULL, 'view', 61, 62),
-(114, 111, NULL, NULL, 'add', 63, 64),
-(115, 111, NULL, NULL, 'edit', 65, 66),
-(116, 111, NULL, NULL, 'delete', 67, 68),
-(117, 92, NULL, NULL, 'Faqs', 70, 91),
-(118, 117, NULL, NULL, 'index', 71, 72),
-(119, 117, NULL, NULL, 'view', 73, 74),
-(120, 117, NULL, NULL, 'add', 75, 76),
-(121, 117, NULL, NULL, 'edit', 77, 78),
-(122, 117, NULL, NULL, 'delete', 79, 80),
-(123, 92, NULL, NULL, 'GroupDetails', 92, 143),
-(124, 123, NULL, NULL, 'index', 93, 94),
-(125, 123, NULL, NULL, 'view', 95, 96),
-(126, 123, NULL, NULL, 'add', 97, 98),
-(127, 123, NULL, NULL, 'edit', 99, 100),
-(128, 123, NULL, NULL, 'delete', 101, 102),
-(129, 92, NULL, NULL, 'Groups', 144, 165),
-(130, 129, NULL, NULL, 'index', 145, 146),
-(131, 129, NULL, NULL, 'view', 147, 148),
-(132, 129, NULL, NULL, 'add', 149, 150),
-(133, 129, NULL, NULL, 'edit', 151, 152),
-(134, 129, NULL, NULL, 'delete', 153, 154),
-(135, 92, NULL, NULL, 'Pages', 166, 173),
-(136, 135, NULL, NULL, 'display', 167, 168),
-(137, 135, NULL, NULL, 'accueil', 169, 170),
-(138, 135, NULL, NULL, 'admin_accueil', 171, 172),
-(139, 92, NULL, NULL, 'Tickets', 174, 205),
-(140, 139, NULL, NULL, 'index', 175, 176),
-(141, 139, NULL, NULL, 'view', 177, 178),
-(142, 139, NULL, NULL, 'add', 179, 180),
-(143, 139, NULL, NULL, 'edit', 181, 182),
-(144, 139, NULL, NULL, 'delete', 183, 184),
-(145, 92, NULL, NULL, 'UserDetails', 206, 253),
-(146, 145, NULL, NULL, 'index', 207, 208),
-(147, 145, NULL, NULL, 'view', 209, 210),
-(148, 145, NULL, NULL, 'add', 211, 212),
-(149, 145, NULL, NULL, 'edit', 213, 214),
-(150, 145, NULL, NULL, 'delete', 215, 216),
-(151, 92, NULL, NULL, 'Users', 254, 281),
-(152, 151, NULL, NULL, 'index', 255, 256),
-(153, 151, NULL, NULL, 'view', 257, 258),
-(154, 151, NULL, NULL, 'add', 259, 260),
-(155, 151, NULL, NULL, 'edit', 261, 262),
-(156, 151, NULL, NULL, 'delete', 263, 264),
-(157, 151, NULL, NULL, 'login', 265, 266),
-(158, 151, NULL, NULL, 'logout', 267, 268),
-(159, 92, NULL, NULL, 'Acl', 282, 327),
-(160, 159, NULL, NULL, 'Acos', 283, 290),
-(161, 160, NULL, NULL, 'admin_index', 284, 285),
-(162, 160, NULL, NULL, 'admin_empty_acos', 286, 287),
-(163, 160, NULL, NULL, 'admin_build_acl', 288, 289),
-(164, 159, NULL, NULL, 'Aros', 291, 326),
-(165, 164, NULL, NULL, 'admin_index', 292, 293),
-(166, 164, NULL, NULL, 'admin_check', 294, 295),
-(167, 164, NULL, NULL, 'admin_users', 296, 297),
-(168, 164, NULL, NULL, 'admin_update_user_group', 298, 299),
-(169, 164, NULL, NULL, 'admin_ajax_group_permissions', 300, 301),
-(170, 164, NULL, NULL, 'admin_group_permissions', 302, 303),
-(171, 164, NULL, NULL, 'admin_user_permissions', 304, 305),
-(172, 164, NULL, NULL, 'admin_empty_permissions', 306, 307),
-(173, 164, NULL, NULL, 'admin_clear_user_specific_permissions', 308, 309),
-(174, 164, NULL, NULL, 'admin_grant_all_controllers', 310, 311),
-(175, 164, NULL, NULL, 'admin_deny_all_controllers', 312, 313),
-(176, 164, NULL, NULL, 'admin_get_group_controller_permission', 314, 315),
-(177, 164, NULL, NULL, 'admin_grant_group_permission', 316, 317),
-(178, 164, NULL, NULL, 'admin_deny_group_permission', 318, 319),
-(179, 164, NULL, NULL, 'admin_get_user_controller_permission', 320, 321),
-(180, 164, NULL, NULL, 'admin_grant_user_permission', 322, 323),
-(181, 164, NULL, NULL, 'admin_deny_user_permission', 324, 325),
-(182, 129, NULL, NULL, 'admin_index', 155, 156),
-(183, 129, NULL, NULL, 'admin_view', 157, 158),
-(184, 92, NULL, NULL, 'Actualites', 328, 349),
-(185, 184, NULL, NULL, 'index', 329, 330),
-(186, 184, NULL, NULL, 'view', 331, 332),
-(187, 184, NULL, NULL, 'add', 333, 334),
-(188, 184, NULL, NULL, 'edit', 335, 336),
-(189, 184, NULL, NULL, 'delete', 337, 338),
-(190, 184, NULL, NULL, 'admin_index', 339, 340),
-(191, 184, NULL, NULL, 'admin_add', 341, 342),
-(192, 184, NULL, NULL, 'admin_view', 343, 344),
-(193, 184, NULL, NULL, 'admin_edit', 345, 346),
-(194, 184, NULL, NULL, 'admin_delete', 347, 348),
+(99, 92, NULL, NULL, 'CategorieTickets', 26, 49),
+(100, 99, NULL, NULL, 'index', 27, 28),
+(101, 99, NULL, NULL, 'view', 29, 30),
+(102, 99, NULL, NULL, 'add', 31, 32),
+(103, 99, NULL, NULL, 'edit', 33, 34),
+(104, 99, NULL, NULL, 'delete', 35, 36),
+(105, 92, NULL, NULL, 'Commentaires', 50, 61),
+(106, 105, NULL, NULL, 'index', 51, 52),
+(107, 105, NULL, NULL, 'view', 53, 54),
+(108, 105, NULL, NULL, 'add', 55, 56),
+(109, 105, NULL, NULL, 'edit', 57, 58),
+(110, 105, NULL, NULL, 'delete', 59, 60),
+(111, 92, NULL, NULL, 'Factures', 62, 73),
+(112, 111, NULL, NULL, 'index', 63, 64),
+(113, 111, NULL, NULL, 'view', 65, 66),
+(114, 111, NULL, NULL, 'add', 67, 68),
+(115, 111, NULL, NULL, 'edit', 69, 70),
+(116, 111, NULL, NULL, 'delete', 71, 72),
+(117, 92, NULL, NULL, 'Faqs', 74, 97),
+(118, 117, NULL, NULL, 'index', 75, 76),
+(119, 117, NULL, NULL, 'view', 77, 78),
+(120, 117, NULL, NULL, 'add', 79, 80),
+(121, 117, NULL, NULL, 'edit', 81, 82),
+(122, 117, NULL, NULL, 'delete', 83, 84),
+(123, 92, NULL, NULL, 'GroupDetails', 98, 151),
+(124, 123, NULL, NULL, 'index', 99, 100),
+(125, 123, NULL, NULL, 'view', 101, 102),
+(126, 123, NULL, NULL, 'add', 103, 104),
+(127, 123, NULL, NULL, 'edit', 105, 106),
+(128, 123, NULL, NULL, 'delete', 107, 108),
+(129, 92, NULL, NULL, 'Groups', 152, 175),
+(130, 129, NULL, NULL, 'index', 153, 154),
+(131, 129, NULL, NULL, 'view', 155, 156),
+(132, 129, NULL, NULL, 'add', 157, 158),
+(133, 129, NULL, NULL, 'edit', 159, 160),
+(134, 129, NULL, NULL, 'delete', 161, 162),
+(135, 92, NULL, NULL, 'Pages', 176, 185),
+(136, 135, NULL, NULL, 'display', 177, 178),
+(137, 135, NULL, NULL, 'accueil', 179, 180),
+(138, 135, NULL, NULL, 'admin_accueil', 181, 182),
+(139, 92, NULL, NULL, 'Tickets', 186, 219),
+(140, 139, NULL, NULL, 'index', 187, 188),
+(141, 139, NULL, NULL, 'view', 189, 190),
+(142, 139, NULL, NULL, 'add', 191, 192),
+(143, 139, NULL, NULL, 'edit', 193, 194),
+(144, 139, NULL, NULL, 'delete', 195, 196),
+(145, 92, NULL, NULL, 'UserDetails', 220, 269),
+(146, 145, NULL, NULL, 'index', 221, 222),
+(147, 145, NULL, NULL, 'view', 223, 224),
+(148, 145, NULL, NULL, 'add', 225, 226),
+(149, 145, NULL, NULL, 'edit', 227, 228),
+(150, 145, NULL, NULL, 'delete', 229, 230),
+(151, 92, NULL, NULL, 'Users', 270, 299),
+(152, 151, NULL, NULL, 'index', 271, 272),
+(153, 151, NULL, NULL, 'view', 273, 274),
+(154, 151, NULL, NULL, 'add', 275, 276),
+(155, 151, NULL, NULL, 'edit', 277, 278),
+(156, 151, NULL, NULL, 'delete', 279, 280),
+(157, 151, NULL, NULL, 'login', 281, 282),
+(158, 151, NULL, NULL, 'logout', 283, 284),
+(159, 92, NULL, NULL, 'Acl', 300, 349),
+(160, 159, NULL, NULL, 'Acos', 301, 310),
+(161, 160, NULL, NULL, 'admin_index', 302, 303),
+(162, 160, NULL, NULL, 'admin_empty_acos', 304, 305),
+(163, 160, NULL, NULL, 'admin_build_acl', 306, 307),
+(164, 159, NULL, NULL, 'Aros', 311, 348),
+(165, 164, NULL, NULL, 'admin_index', 312, 313),
+(166, 164, NULL, NULL, 'admin_check', 314, 315),
+(167, 164, NULL, NULL, 'admin_users', 316, 317),
+(168, 164, NULL, NULL, 'admin_update_user_group', 318, 319),
+(169, 164, NULL, NULL, 'admin_ajax_group_permissions', 320, 321),
+(170, 164, NULL, NULL, 'admin_group_permissions', 322, 323),
+(171, 164, NULL, NULL, 'admin_user_permissions', 324, 325),
+(172, 164, NULL, NULL, 'admin_empty_permissions', 326, 327),
+(173, 164, NULL, NULL, 'admin_clear_user_specific_permissions', 328, 329),
+(174, 164, NULL, NULL, 'admin_grant_all_controllers', 330, 331),
+(175, 164, NULL, NULL, 'admin_deny_all_controllers', 332, 333),
+(176, 164, NULL, NULL, 'admin_get_group_controller_permission', 334, 335),
+(177, 164, NULL, NULL, 'admin_grant_group_permission', 336, 337),
+(178, 164, NULL, NULL, 'admin_deny_group_permission', 338, 339),
+(179, 164, NULL, NULL, 'admin_get_user_controller_permission', 340, 341),
+(180, 164, NULL, NULL, 'admin_grant_user_permission', 342, 343),
+(181, 164, NULL, NULL, 'admin_deny_user_permission', 344, 345),
+(182, 129, NULL, NULL, 'admin_index', 163, 164),
+(183, 129, NULL, NULL, 'admin_view', 165, 166),
+(184, 92, NULL, NULL, 'Actualites', 350, 373),
+(185, 184, NULL, NULL, 'index', 351, 352),
+(186, 184, NULL, NULL, 'view', 353, 354),
+(187, 184, NULL, NULL, 'add', 355, 356),
+(188, 184, NULL, NULL, 'edit', 357, 358),
+(189, 184, NULL, NULL, 'delete', 359, 360),
+(190, 184, NULL, NULL, 'admin_index', 361, 362),
+(191, 184, NULL, NULL, 'admin_add', 363, 364),
+(192, 184, NULL, NULL, 'admin_view', 365, 366),
+(193, 184, NULL, NULL, 'admin_edit', 367, 368),
+(194, 184, NULL, NULL, 'admin_delete', 369, 370),
 (195, 93, NULL, NULL, 'admin_index', 13, 14),
-(196, 117, NULL, NULL, 'admin_index', 81, 82),
+(196, 117, NULL, NULL, 'admin_index', 85, 86),
 (197, 93, NULL, NULL, 'admin_add', 15, 16),
 (198, 93, NULL, NULL, 'admin_view', 17, 18),
 (199, 93, NULL, NULL, 'admin_edit', 19, 20),
 (200, 93, NULL, NULL, 'admin_delete', 21, 22),
-(201, 117, NULL, NULL, 'admin_add', 83, 84),
-(202, 117, NULL, NULL, 'admin_view', 85, 86),
-(203, 117, NULL, NULL, 'admin_edit', 87, 88),
-(204, 117, NULL, NULL, 'admin_delete', 89, 90),
-(205, 129, NULL, NULL, 'admin_add', 159, 160),
-(206, 123, NULL, NULL, 'admin_addAdresse', 103, 104),
-(207, 123, NULL, NULL, 'admin_add_adresse', 105, 106),
-(208, 123, NULL, NULL, 'admin_add_email', 107, 108),
-(209, 123, NULL, NULL, 'admin_add_numero', 109, 110),
-(210, 129, NULL, NULL, 'admin_edit', 161, 162),
-(211, 123, NULL, NULL, 'admin_edit', 111, 112),
-(212, 123, NULL, NULL, 'admin_edit_email', 113, 114),
-(213, 123, NULL, NULL, 'admin_edit_numero', 115, 116),
-(214, 123, NULL, NULL, 'admin_delete_email', 117, 118),
-(215, 123, NULL, NULL, 'admin_delete_numero', 119, 120),
-(216, 123, NULL, NULL, 'admin_edit_adresse', 121, 122),
-(217, 123, NULL, NULL, 'admin_delete_adresse', 123, 124),
-(218, 123, NULL, NULL, 'add_email', 125, 126),
-(219, 123, NULL, NULL, 'edit_email', 127, 128),
-(220, 123, NULL, NULL, 'delete_email', 129, 130),
-(221, 123, NULL, NULL, 'add_numero', 131, 132),
-(222, 123, NULL, NULL, 'edit_numero', 133, 134),
-(223, 123, NULL, NULL, 'delete_numero', 135, 136),
-(224, 123, NULL, NULL, 'add_adresse', 137, 138),
-(225, 123, NULL, NULL, 'edit_adresse', 139, 140),
-(226, 123, NULL, NULL, 'delete_adresse', 141, 142),
-(227, 129, NULL, NULL, 'admin_delete', 163, 164),
-(228, 151, NULL, NULL, 'admin_index', 269, 270),
-(229, 151, NULL, NULL, 'admin_add', 271, 272),
-(230, 151, NULL, NULL, 'admin_edit', 273, 274),
-(231, 151, NULL, NULL, 'admin_delete', 275, 276),
-(232, 151, NULL, NULL, 'admin_view', 277, 278),
-(233, 145, NULL, NULL, 'admin_add_email', 217, 218),
-(234, 145, NULL, NULL, 'admin_edit_email', 219, 220),
-(235, 145, NULL, NULL, 'admin_delete_email', 221, 222),
-(236, 145, NULL, NULL, 'admin_add_numero', 223, 224),
-(237, 145, NULL, NULL, 'admin_edit_numero', 225, 226),
-(238, 145, NULL, NULL, 'admin_delete_numero', 227, 228),
-(239, 145, NULL, NULL, 'admin_add_adresse', 229, 230),
-(240, 145, NULL, NULL, 'admin_edit_adresse', 231, 232),
-(241, 145, NULL, NULL, 'admin_delete_adresse', 233, 234),
-(242, 145, NULL, NULL, 'add_adresse', 235, 236),
-(243, 145, NULL, NULL, 'edit_adresse', 237, 238),
-(244, 145, NULL, NULL, 'delete_adresse', 239, 240),
-(245, 145, NULL, NULL, 'add_email', 241, 242),
-(246, 145, NULL, NULL, 'edit_email', 243, 244),
-(247, 145, NULL, NULL, 'delete_email', 245, 246),
-(248, 145, NULL, NULL, 'add_numero', 247, 248),
-(249, 145, NULL, NULL, 'edit_numero', 249, 250),
-(250, 145, NULL, NULL, 'delete_numero', 251, 252),
-(251, 139, NULL, NULL, 'admin_index', 185, 186),
-(252, 99, NULL, NULL, 'admin_index', 35, 36),
-(253, 99, NULL, NULL, 'admin_view', 37, 38),
-(254, 99, NULL, NULL, 'admin_add', 39, 40),
-(255, 99, NULL, NULL, 'admin_edit', 41, 42),
-(256, 99, NULL, NULL, 'admin_delete', 43, 44),
-(257, 139, NULL, NULL, 'admin_view', 187, 188),
-(258, 139, NULL, NULL, 'openedToClosed', 189, 190),
-(259, 139, NULL, NULL, 'index_closed', 191, 192),
-(260, 139, NULL, NULL, 'index_all', 193, 194),
-(261, 139, NULL, NULL, 'admin_closedToOpened', 195, 196),
-(262, 139, NULL, NULL, 'admin_index_closed', 197, 198),
-(263, 139, NULL, NULL, 'admin_index_all', 199, 200),
-(264, 139, NULL, NULL, 'admin_edit', 201, 202),
-(265, 139, NULL, NULL, 'admin_delete', 203, 204),
-(266, 92, NULL, NULL, 'InvoiceTypes', 350, 361),
-(267, 266, NULL, NULL, 'index', 351, 352),
-(268, 92, NULL, NULL, 'InvoiceStatuts', 362, 371),
-(269, 92, NULL, NULL, 'Invoices', 372, 399),
-(270, 269, NULL, NULL, 'index', 373, 374),
-(271, 269, NULL, NULL, 'admin_index', 375, 376),
-(272, 269, NULL, NULL, 'admin_add', 377, 378),
-(273, 269, NULL, NULL, 'admin_view', 379, 380),
-(274, 269, NULL, NULL, 'admin_delete', 381, 382),
-(275, 269, NULL, NULL, 'view', 383, 384),
-(276, 269, NULL, NULL, 'admin_sendFile', 385, 386),
-(277, 269, NULL, NULL, 'sendFile', 387, 388),
-(278, 268, NULL, NULL, 'admin_index', 363, 364),
-(279, 266, NULL, NULL, 'admin_index', 353, 354),
-(280, 266, NULL, NULL, 'admin_switchActive', 355, 356),
-(281, 266, NULL, NULL, 'admin_add', 357, 358),
-(282, 266, NULL, NULL, 'admin_edit', 359, 360),
-(283, 268, NULL, NULL, 'admin_switchActive', 365, 366),
-(284, 268, NULL, NULL, 'admin_add', 367, 368),
-(285, 268, NULL, NULL, 'admin_edit', 369, 370),
-(286, 92, NULL, NULL, 'Passwords', 400, 417),
-(287, 286, NULL, NULL, 'index', 401, 402),
-(288, 286, NULL, NULL, 'admin_index', 403, 404),
-(289, 286, NULL, NULL, 'add', 405, 406),
-(290, 286, NULL, NULL, 'admin_add', 407, 408),
-(291, 286, NULL, NULL, 'edit', 409, 410),
-(292, 286, NULL, NULL, 'admin_edit', 411, 412),
-(293, 286, NULL, NULL, 'delete', 413, 414),
-(294, 286, NULL, NULL, 'admin_delete', 415, 416),
-(295, 269, NULL, NULL, 'popup', 389, 390),
-(296, 269, NULL, NULL, 'admin_popup', 391, 392),
-(297, 269, NULL, NULL, 'admin_switchStatut', 393, 394),
-(298, 269, NULL, NULL, 'admin_formStatut', 395, 396),
-(299, 92, NULL, NULL, 'Tasks', 418, 437),
-(300, 299, NULL, NULL, 'admin_index', 419, 420),
-(301, 299, NULL, NULL, 'admin_add', 421, 422),
-(302, 299, NULL, NULL, 'admin_edit', 423, 424),
-(303, 299, NULL, NULL, 'admin_view', 425, 426),
-(304, 299, NULL, NULL, 'index', 427, 428),
-(305, 299, NULL, NULL, 'view', 429, 430),
-(306, 299, NULL, NULL, 'admin_delete', 431, 432),
-(307, 92, NULL, NULL, 'TaskProjects', 438, 449),
-(308, 307, NULL, NULL, 'admin_index', 439, 440),
-(309, 307, NULL, NULL, 'admin_edit', 441, 442),
-(310, 307, NULL, NULL, 'admin_add', 443, 444),
-(311, 307, NULL, NULL, 'admin_switchActive', 445, 446),
-(312, 307, NULL, NULL, 'admin_delete', 447, 448),
-(313, 92, NULL, NULL, 'TaskStatuts', 450, 461),
-(314, 313, NULL, NULL, 'admin_index', 451, 452),
-(315, 313, NULL, NULL, 'admin_edit', 453, 454),
-(316, 313, NULL, NULL, 'admin_add', 455, 456),
-(317, 313, NULL, NULL, 'admin_switchActive', 457, 458),
-(318, 313, NULL, NULL, 'admin_delete', 459, 460),
-(319, 92, NULL, NULL, 'TaskTypes', 462, 473),
-(320, 319, NULL, NULL, 'admin_index', 463, 464),
-(321, 319, NULL, NULL, 'admin_edit', 465, 466),
-(322, 319, NULL, NULL, 'admin_add', 467, 468),
-(323, 319, NULL, NULL, 'admin_switchActive', 469, 470),
-(324, 319, NULL, NULL, 'admin_delete', 471, 472),
-(325, 299, NULL, NULL, 'admin_switchStatut', 433, 434),
-(326, 299, NULL, NULL, 'admin_formStatut', 435, 436),
-(327, 92, NULL, NULL, 'PasswordServices', 474, 483),
-(328, 327, NULL, NULL, 'admin_index', 475, 476),
-(329, 327, NULL, NULL, 'admin_switchActive', 477, 478),
-(330, 327, NULL, NULL, 'admin_add', 479, 480),
-(331, 327, NULL, NULL, 'admin_edit', 481, 482),
-(332, 92, NULL, NULL, 'PasswordTypes', 484, 493),
-(333, 332, NULL, NULL, 'admin_index', 485, 486),
-(334, 332, NULL, NULL, 'admin_switchActive', 487, 488),
-(335, 332, NULL, NULL, 'admin_add', 489, 490),
-(336, 332, NULL, NULL, 'admin_edit', 491, 492),
-(337, 269, NULL, NULL, 'admin_search', 397, 398),
-(338, 92, NULL, NULL, 'Voips', 494, 549),
-(339, 338, NULL, NULL, 'index', 495, 496),
-(340, 338, NULL, NULL, 'view', 497, 498),
-(341, 338, NULL, NULL, 'admin_index', 499, 500),
-(342, 338, NULL, NULL, 'admin_add', 501, 502),
-(343, 338, NULL, NULL, 'admin_view', 503, 504),
-(344, 338, NULL, NULL, 'admin_edit', 505, 506),
-(345, 338, NULL, NULL, 'admin_delete', 507, 508),
-(346, 338, NULL, NULL, 'admin_listAccount', 509, 510),
-(347, 338, NULL, NULL, 'admin_newAccount', 511, 512),
-(348, 338, NULL, NULL, 'admin_consommation', 513, 514),
-(349, 338, NULL, NULL, 'admin_configuration', 515, 516),
-(350, 338, NULL, NULL, 'user_account_info', 517, 518),
-(351, 338, NULL, NULL, 'user_accountInfo', 519, 520),
-(352, 338, NULL, NULL, 'accountInfo', 521, 522),
-(353, 338, NULL, NULL, 'account', 523, 524),
-(354, 338, NULL, NULL, 'user_account', 525, 526),
-(355, 338, NULL, NULL, 'voipView', 527, 528),
-(356, 151, NULL, NULL, 'voipList', 279, 280),
-(357, 92, NULL, NULL, 'Modules', 550, 557),
-(358, 357, NULL, NULL, 'admin_index', 551, 552),
-(359, 357, NULL, NULL, 'admin_enable', 553, 554),
-(360, 357, NULL, NULL, 'admin_disable', 555, 556),
-(361, 338, NULL, NULL, 'admin_removenumber', 529, 530),
-(362, 338, NULL, NULL, 'admin_server', 531, 532),
-(363, 338, NULL, NULL, 'admin_listNumbers', 533, 534),
-(364, 338, NULL, NULL, 'admin_newNumbers', 535, 536),
-(365, 338, NULL, NULL, 'admin_serverSetting', 537, 538),
-(366, 338, NULL, NULL, 'admin_changeprice', 539, 540),
-(367, 338, NULL, NULL, 'admin_call_logs', 541, 542),
-(368, 338, NULL, NULL, 'admin_callLogs', 543, 544),
-(369, 338, NULL, NULL, 'admin_logo', 545, 546),
-(370, 338, NULL, NULL, 'call_logs', 547, 548);
+(201, 117, NULL, NULL, 'admin_add', 87, 88),
+(202, 117, NULL, NULL, 'admin_view', 89, 90),
+(203, 117, NULL, NULL, 'admin_edit', 91, 92),
+(204, 117, NULL, NULL, 'admin_delete', 93, 94),
+(205, 129, NULL, NULL, 'admin_add', 167, 168),
+(206, 123, NULL, NULL, 'admin_addAdresse', 109, 110),
+(207, 123, NULL, NULL, 'admin_add_adresse', 111, 112),
+(208, 123, NULL, NULL, 'admin_add_email', 113, 114),
+(209, 123, NULL, NULL, 'admin_add_numero', 115, 116),
+(210, 129, NULL, NULL, 'admin_edit', 169, 170),
+(211, 123, NULL, NULL, 'admin_edit', 117, 118),
+(212, 123, NULL, NULL, 'admin_edit_email', 119, 120),
+(213, 123, NULL, NULL, 'admin_edit_numero', 121, 122),
+(214, 123, NULL, NULL, 'admin_delete_email', 123, 124),
+(215, 123, NULL, NULL, 'admin_delete_numero', 125, 126),
+(216, 123, NULL, NULL, 'admin_edit_adresse', 127, 128),
+(217, 123, NULL, NULL, 'admin_delete_adresse', 129, 130),
+(218, 123, NULL, NULL, 'add_email', 131, 132),
+(219, 123, NULL, NULL, 'edit_email', 133, 134),
+(220, 123, NULL, NULL, 'delete_email', 135, 136),
+(221, 123, NULL, NULL, 'add_numero', 137, 138),
+(222, 123, NULL, NULL, 'edit_numero', 139, 140),
+(223, 123, NULL, NULL, 'delete_numero', 141, 142),
+(224, 123, NULL, NULL, 'add_adresse', 143, 144),
+(225, 123, NULL, NULL, 'edit_adresse', 145, 146),
+(226, 123, NULL, NULL, 'delete_adresse', 147, 148),
+(227, 129, NULL, NULL, 'admin_delete', 171, 172),
+(228, 151, NULL, NULL, 'admin_index', 285, 286),
+(229, 151, NULL, NULL, 'admin_add', 287, 288),
+(230, 151, NULL, NULL, 'admin_edit', 289, 290),
+(231, 151, NULL, NULL, 'admin_delete', 291, 292),
+(232, 151, NULL, NULL, 'admin_view', 293, 294),
+(233, 145, NULL, NULL, 'admin_add_email', 231, 232),
+(234, 145, NULL, NULL, 'admin_edit_email', 233, 234),
+(235, 145, NULL, NULL, 'admin_delete_email', 235, 236),
+(236, 145, NULL, NULL, 'admin_add_numero', 237, 238),
+(237, 145, NULL, NULL, 'admin_edit_numero', 239, 240),
+(238, 145, NULL, NULL, 'admin_delete_numero', 241, 242),
+(239, 145, NULL, NULL, 'admin_add_adresse', 243, 244),
+(240, 145, NULL, NULL, 'admin_edit_adresse', 245, 246),
+(241, 145, NULL, NULL, 'admin_delete_adresse', 247, 248),
+(242, 145, NULL, NULL, 'add_adresse', 249, 250),
+(243, 145, NULL, NULL, 'edit_adresse', 251, 252),
+(244, 145, NULL, NULL, 'delete_adresse', 253, 254),
+(245, 145, NULL, NULL, 'add_email', 255, 256),
+(246, 145, NULL, NULL, 'edit_email', 257, 258),
+(247, 145, NULL, NULL, 'delete_email', 259, 260),
+(248, 145, NULL, NULL, 'add_numero', 261, 262),
+(249, 145, NULL, NULL, 'edit_numero', 263, 264),
+(250, 145, NULL, NULL, 'delete_numero', 265, 266),
+(251, 139, NULL, NULL, 'admin_index', 197, 198),
+(252, 99, NULL, NULL, 'admin_index', 37, 38),
+(253, 99, NULL, NULL, 'admin_view', 39, 40),
+(254, 99, NULL, NULL, 'admin_add', 41, 42),
+(255, 99, NULL, NULL, 'admin_edit', 43, 44),
+(256, 99, NULL, NULL, 'admin_delete', 45, 46),
+(257, 139, NULL, NULL, 'admin_view', 199, 200),
+(258, 139, NULL, NULL, 'openedToClosed', 201, 202),
+(259, 139, NULL, NULL, 'index_closed', 203, 204),
+(260, 139, NULL, NULL, 'index_all', 205, 206),
+(261, 139, NULL, NULL, 'admin_closedToOpened', 207, 208),
+(262, 139, NULL, NULL, 'admin_index_closed', 209, 210),
+(263, 139, NULL, NULL, 'admin_index_all', 211, 212),
+(264, 139, NULL, NULL, 'admin_edit', 213, 214),
+(265, 139, NULL, NULL, 'admin_delete', 215, 216),
+(266, 92, NULL, NULL, 'InvoiceTypes', 374, 387),
+(267, 266, NULL, NULL, 'index', 375, 376),
+(268, 92, NULL, NULL, 'InvoiceStatuts', 388, 399),
+(269, 92, NULL, NULL, 'Invoices', 400, 429),
+(270, 269, NULL, NULL, 'index', 401, 402),
+(271, 269, NULL, NULL, 'admin_index', 403, 404),
+(272, 269, NULL, NULL, 'admin_add', 405, 406),
+(273, 269, NULL, NULL, 'admin_view', 407, 408),
+(274, 269, NULL, NULL, 'admin_delete', 409, 410),
+(275, 269, NULL, NULL, 'view', 411, 412),
+(276, 269, NULL, NULL, 'admin_sendFile', 413, 414),
+(277, 269, NULL, NULL, 'sendFile', 415, 416),
+(278, 268, NULL, NULL, 'admin_index', 389, 390),
+(279, 266, NULL, NULL, 'admin_index', 377, 378),
+(280, 266, NULL, NULL, 'admin_switchActive', 379, 380),
+(281, 266, NULL, NULL, 'admin_add', 381, 382),
+(282, 266, NULL, NULL, 'admin_edit', 383, 384),
+(283, 268, NULL, NULL, 'admin_switchActive', 391, 392),
+(284, 268, NULL, NULL, 'admin_add', 393, 394),
+(285, 268, NULL, NULL, 'admin_edit', 395, 396),
+(286, 92, NULL, NULL, 'Passwords', 430, 449),
+(287, 286, NULL, NULL, 'index', 431, 432),
+(288, 286, NULL, NULL, 'admin_index', 433, 434),
+(289, 286, NULL, NULL, 'add', 435, 436),
+(290, 286, NULL, NULL, 'admin_add', 437, 438),
+(291, 286, NULL, NULL, 'edit', 439, 440),
+(292, 286, NULL, NULL, 'admin_edit', 441, 442),
+(293, 286, NULL, NULL, 'delete', 443, 444),
+(294, 286, NULL, NULL, 'admin_delete', 445, 446),
+(295, 269, NULL, NULL, 'popup', 417, 418),
+(296, 269, NULL, NULL, 'admin_popup', 419, 420),
+(297, 269, NULL, NULL, 'admin_switchStatut', 421, 422),
+(298, 269, NULL, NULL, 'admin_formStatut', 423, 424),
+(299, 92, NULL, NULL, 'Tasks', 450, 471),
+(300, 299, NULL, NULL, 'admin_index', 451, 452),
+(301, 299, NULL, NULL, 'admin_add', 453, 454),
+(302, 299, NULL, NULL, 'admin_edit', 455, 456),
+(303, 299, NULL, NULL, 'admin_view', 457, 458),
+(304, 299, NULL, NULL, 'index', 459, 460),
+(305, 299, NULL, NULL, 'view', 461, 462),
+(306, 299, NULL, NULL, 'admin_delete', 463, 464),
+(307, 92, NULL, NULL, 'TaskProjects', 472, 485),
+(308, 307, NULL, NULL, 'admin_index', 473, 474),
+(309, 307, NULL, NULL, 'admin_edit', 475, 476),
+(310, 307, NULL, NULL, 'admin_add', 477, 478),
+(311, 307, NULL, NULL, 'admin_switchActive', 479, 480),
+(312, 307, NULL, NULL, 'admin_delete', 481, 482),
+(313, 92, NULL, NULL, 'TaskStatuts', 486, 499),
+(314, 313, NULL, NULL, 'admin_index', 487, 488),
+(315, 313, NULL, NULL, 'admin_edit', 489, 490),
+(316, 313, NULL, NULL, 'admin_add', 491, 492),
+(317, 313, NULL, NULL, 'admin_switchActive', 493, 494),
+(318, 313, NULL, NULL, 'admin_delete', 495, 496),
+(319, 92, NULL, NULL, 'TaskTypes', 500, 513),
+(320, 319, NULL, NULL, 'admin_index', 501, 502),
+(321, 319, NULL, NULL, 'admin_edit', 503, 504),
+(322, 319, NULL, NULL, 'admin_add', 505, 506),
+(323, 319, NULL, NULL, 'admin_switchActive', 507, 508),
+(324, 319, NULL, NULL, 'admin_delete', 509, 510),
+(325, 299, NULL, NULL, 'admin_switchStatut', 465, 466),
+(326, 299, NULL, NULL, 'admin_formStatut', 467, 468),
+(327, 92, NULL, NULL, 'PasswordServices', 514, 525),
+(328, 327, NULL, NULL, 'admin_index', 515, 516),
+(329, 327, NULL, NULL, 'admin_switchActive', 517, 518),
+(330, 327, NULL, NULL, 'admin_add', 519, 520),
+(331, 327, NULL, NULL, 'admin_edit', 521, 522),
+(332, 92, NULL, NULL, 'PasswordTypes', 526, 537),
+(333, 332, NULL, NULL, 'admin_index', 527, 528),
+(334, 332, NULL, NULL, 'admin_switchActive', 529, 530),
+(335, 332, NULL, NULL, 'admin_add', 531, 532),
+(336, 332, NULL, NULL, 'admin_edit', 533, 534),
+(337, 269, NULL, NULL, 'admin_search', 425, 426),
+(338, 92, NULL, NULL, 'Voips', 538, 593),
+(339, 338, NULL, NULL, 'index', 539, 540),
+(340, 338, NULL, NULL, 'view', 541, 542),
+(341, 338, NULL, NULL, 'admin_index', 543, 544),
+(342, 338, NULL, NULL, 'admin_add', 545, 546),
+(343, 338, NULL, NULL, 'admin_view', 547, 548),
+(344, 338, NULL, NULL, 'admin_edit', 549, 550),
+(345, 338, NULL, NULL, 'admin_delete', 551, 552),
+(346, 338, NULL, NULL, 'admin_listAccount', 553, 554),
+(347, 338, NULL, NULL, 'admin_newAccount', 555, 556),
+(348, 338, NULL, NULL, 'admin_consommation', 557, 558),
+(349, 338, NULL, NULL, 'admin_configuration', 559, 560),
+(350, 338, NULL, NULL, 'user_account_info', 561, 562),
+(351, 338, NULL, NULL, 'user_accountInfo', 563, 564),
+(352, 338, NULL, NULL, 'accountInfo', 565, 566),
+(353, 338, NULL, NULL, 'account', 567, 568),
+(354, 338, NULL, NULL, 'user_account', 569, 570),
+(355, 338, NULL, NULL, 'voipView', 571, 572),
+(356, 151, NULL, NULL, 'voipList', 295, 296),
+(357, 92, NULL, NULL, 'Modules', 594, 607),
+(358, 357, NULL, NULL, 'admin_index', 595, 596),
+(359, 357, NULL, NULL, 'admin_enable', 597, 598),
+(360, 357, NULL, NULL, 'admin_disable', 599, 600),
+(361, 338, NULL, NULL, 'admin_removenumber', 573, 574),
+(362, 338, NULL, NULL, 'admin_server', 575, 576),
+(363, 338, NULL, NULL, 'admin_listNumbers', 577, 578),
+(364, 338, NULL, NULL, 'admin_newNumbers', 579, 580),
+(365, 338, NULL, NULL, 'admin_serverSetting', 581, 582),
+(366, 338, NULL, NULL, 'admin_changeprice', 583, 584),
+(367, 338, NULL, NULL, 'admin_call_logs', 585, 586),
+(368, 338, NULL, NULL, 'admin_callLogs', 587, 588),
+(369, 184, NULL, NULL, 'sendMail', 371, 372),
+(370, 93, NULL, NULL, 'sendMail', 23, 24),
+(371, 99, NULL, NULL, 'sendMail', 47, 48),
+(372, 117, NULL, NULL, 'sendMail', 95, 96),
+(373, 123, NULL, NULL, 'sendMail', 149, 150),
+(374, 129, NULL, NULL, 'sendMail', 173, 174),
+(375, 268, NULL, NULL, 'sendMail', 397, 398),
+(376, 266, NULL, NULL, 'sendMail', 385, 386),
+(377, 269, NULL, NULL, 'sendMail', 427, 428),
+(378, 357, NULL, NULL, 'admin_logo', 601, 602),
+(379, 357, NULL, NULL, 'sendMail', 603, 604),
+(380, 135, NULL, NULL, 'sendMail', 183, 184),
+(381, 327, NULL, NULL, 'sendMail', 523, 524),
+(382, 332, NULL, NULL, 'sendMail', 535, 536),
+(383, 286, NULL, NULL, 'sendMail', 447, 448),
+(384, 307, NULL, NULL, 'sendMail', 483, 484),
+(385, 313, NULL, NULL, 'sendMail', 497, 498),
+(386, 319, NULL, NULL, 'sendMail', 511, 512),
+(387, 299, NULL, NULL, 'sendMail', 469, 470),
+(388, 139, NULL, NULL, 'sendMail', 217, 218),
+(389, 145, NULL, NULL, 'sendMail', 267, 268),
+(390, 151, NULL, NULL, 'sendMail', 297, 298),
+(391, 338, NULL, NULL, 'call_logs', 589, 590),
+(392, 338, NULL, NULL, 'sendMail', 591, 592),
+(393, 160, NULL, NULL, 'sendMail', 308, 309),
+(394, 164, NULL, NULL, 'sendMail', 346, 347),
+(395, 357, NULL, NULL, 'admin_mail', 605, 606),
+(396, 92, NULL, NULL, 'Times', 608, 613),
+(397, 396, NULL, NULL, 'admin_index', 609, 610),
+(398, 396, NULL, NULL, 'sendMail', 611, 612);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `actualites`
+-- Table structure for table `actualites`
 --
 
 CREATE TABLE IF NOT EXISTS `actualites` (
@@ -337,10 +365,21 @@ CREATE TABLE IF NOT EXISTS `actualites` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
+--
+-- Dumping data for table `actualites`
+--
+
+INSERT INTO `actualites` (`id`, `titre_actu`, `contenu_actu`, `created`, `actif_actu`) VALUES
+(1, 'Lancement du manager', '<p>Ceci est la 1&egrave;re news du manager</p>', '2013-04-22 14:57:29', 1),
+(2, 'Information', '<p>A titre d''information, j''utilise un <strong>plugin</strong> <span style="text-decoration: underline;">Tinymce</span> pour <em>&eacute;diter</em> mes actualit&eacute;s</p>', '2013-04-22 15:08:46', 1),
+(3, 'test', '<p>test tset</p>', '2013-05-30 11:00:14', 0),
+(4, 'Plus d''actualité', '<p>euhh</p>', '2013-07-01 17:53:36', 1),
+(5, 'Flash', '<p>Couleur en fond vert du message vert</p>', '2013-07-08 16:58:42', 1);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `aros`
+-- Table structure for table `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
@@ -352,54 +391,50 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
 
 --
--- Дамп данных таблицы `aros`
+-- Dumping data for table `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, 'Group', 2, NULL, 1, 22),
+(1, NULL, 'Group', 2, NULL, 1, 14),
 (2, 1, 'User', 2, NULL, 12, 13),
-(3, NULL, 'Group', 3, NULL, 23, 26),
+(3, NULL, 'Group', 3, NULL, 15, 18),
 (4, 1, 'User', 3, NULL, 2, 3),
-(5, NULL, 'Group', 4, NULL, 27, 28),
-(6, NULL, 'Group', 5, NULL, 29, 34),
-(7, NULL, 'Group', 6, NULL, 35, 36),
-(8, NULL, 'Group', 7, NULL, 37, 44),
-(9, NULL, 'Group', 8, NULL, 45, 46),
-(10, 3, 'User', 4, NULL, 24, 25),
-(11, 6, 'User', 5, NULL, 30, 31),
-(12, 6, 'User', 6, NULL, 32, 33),
-(13, NULL, 'Group', 9, NULL, 47, 48),
-(14, 8, 'User', 7, NULL, 38, 39),
-(15, 8, 'User', 8, NULL, 40, 41),
+(5, NULL, 'Group', 4, NULL, 19, 20),
+(6, NULL, 'Group', 5, NULL, 21, 26),
+(7, NULL, 'Group', 6, NULL, 27, 28),
+(8, NULL, 'Group', 7, NULL, 29, 36),
+(9, NULL, 'Group', 8, NULL, 37, 38),
+(10, 3, 'User', 4, NULL, 16, 17),
+(11, 6, 'User', 5, NULL, 22, 23),
+(12, 6, 'User', 6, NULL, 24, 25),
+(13, NULL, 'Group', 9, NULL, 39, 40),
+(14, 8, 'User', 7, NULL, 30, 31),
+(15, 8, 'User', 8, NULL, 32, 33),
 (16, 1, 'User', 9, NULL, 4, 5),
 (17, 1, 'User', 10, NULL, 6, 7),
 (18, 1, 'User', 11, NULL, 8, 9),
 (19, 1, 'User', 12, NULL, 10, 11),
-(20, NULL, 'Group', 10, NULL, 49, 50),
-(21, NULL, 'Group', 11, NULL, 51, 52),
-(22, NULL, 'Group', 12, NULL, 53, 54),
-(23, NULL, 'Group', 13, NULL, 55, 56),
-(24, NULL, 'Group', 14, NULL, 57, 58),
-(25, NULL, 'Group', 15, NULL, 59, 60),
-(26, NULL, 'Group', 16, NULL, 61, 62),
-(27, NULL, 'Group', 17, NULL, 63, 64),
-(28, NULL, 'Group', 18, NULL, 65, 66),
-(29, NULL, 'Group', 19, NULL, 67, 68),
-(30, NULL, 'Group', 20, NULL, 69, 70),
-(31, 8, 'User', 13, NULL, 42, 43),
-(32, NULL, 'Group', 10, NULL, 71, 72),
-(33, 1, 'User', 17, NULL, 14, 15),
-(34, 1, 'User', 18, NULL, 16, 17),
-(38, 1, 'User', 22, NULL, 18, 19),
-(39, 1, 'User', 23, NULL, 20, 21);
+(20, NULL, 'Group', 10, NULL, 41, 42),
+(21, NULL, 'Group', 11, NULL, 43, 44),
+(22, NULL, 'Group', 12, NULL, 45, 46),
+(23, NULL, 'Group', 13, NULL, 47, 48),
+(24, NULL, 'Group', 14, NULL, 49, 50),
+(25, NULL, 'Group', 15, NULL, 51, 52),
+(26, NULL, 'Group', 16, NULL, 53, 54),
+(27, NULL, 'Group', 17, NULL, 55, 56),
+(28, NULL, 'Group', 18, NULL, 57, 58),
+(29, NULL, 'Group', 19, NULL, 59, 60),
+(30, NULL, 'Group', 20, NULL, 61, 62),
+(31, 8, 'User', 13, NULL, 34, 35),
+(32, NULL, 'Group', 10, NULL, 63, 64);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `aros_acos`
+-- Table structure for table `aros_acos`
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
@@ -415,7 +450,7 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
 
 --
--- Дамп данных таблицы `aros_acos`
+-- Dumping data for table `aros_acos`
 --
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
@@ -525,7 +560,7 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categorie_faqs`
+-- Table structure for table `categorie_faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_faqs` (
@@ -537,7 +572,7 @@ CREATE TABLE IF NOT EXISTS `categorie_faqs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `categorie_faqs`
+-- Dumping data for table `categorie_faqs`
 --
 
 INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, `actif_cat_faq`) VALUES
@@ -548,7 +583,7 @@ INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `categorie_tickets`
+-- Table structure for table `categorie_tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_tickets` (
@@ -559,7 +594,7 @@ CREATE TABLE IF NOT EXISTS `categorie_tickets` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `categorie_tickets`
+-- Dumping data for table `categorie_tickets`
 --
 
 INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VALUES
@@ -569,7 +604,7 @@ INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VA
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `commentaires`
+-- Table structure for table `commentaires`
 --
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
@@ -583,12 +618,97 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id`),
   KEY `fk_commentaires_tickets1_idx` (`ticket_id`),
   KEY `fk_commentaires_users1_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=45 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+
+--
+-- Dumping data for table `commentaires`
+--
+
+INSERT INTO `commentaires` (`id`, `text_commentaire`, `created`, `actif_commentaire`, `ticket_id`, `user_id`, `task_id`) VALUES
+(1, 'un test', '2013-05-16 14:16:39', 1, 2, 2, 0),
+(3, 'ticket admin tel', '2013-05-16 14:44:40', 1, 4, 2, 0),
+(4, 'admin ticket autre', '2013-05-16 14:47:20', 1, 5, 2, 0),
+(7, 'sefs', '2013-05-17 10:53:50', 1, 8, 2, 0),
+(8, 'tes new add', '2013-05-17 10:54:33', 0, 9, 2, 0),
+(9, 'test 2', '2013-05-17 15:54:57', 1, 5, 2, 0),
+(10, 'text 3', '2013-05-17 15:55:37', 1, 5, 4, 0),
+(11, 'ser', '2013-05-20 09:29:10', 1, 5, 2, 0),
+(12, 'ert', '2013-05-20 09:30:13', 1, 5, 2, 0),
+(13, 'test commentaire\r\navec un saut ', '2013-05-20 09:48:42', 1, 1, 2, 0),
+(14, 'test commentaire<br />\r\navec un saut<br />\r\nv2', '2013-05-20 09:57:26', 1, 1, 2, 0),
+(15, 'test verif status', '2013-05-20 14:08:12', 0, 11, 2, 0),
+(16, 'fef', '2013-05-20 14:52:37', 1, 12, 2, 0),
+(17, 'comms v3', '2013-05-21 16:40:30', 1, 1, 2, 0),
+(18, 'comment4', '2013-05-21 17:15:02', 1, 1, 2, 0),
+(19, 'comment 5 flag', '2013-05-24 14:59:14', 1, 1, 2, 0),
+(20, 'comment 5 flag', '2013-05-24 15:01:11', 1, 1, 2, 0),
+(21, 'comment 6 flag', '2013-05-24 15:01:28', 1, 1, 2, 0),
+(22, 'rere', '2013-05-24 15:17:32', 1, 5, 2, 0),
+(23, 'titre long', '2013-05-24 15:17:59', 1, 12, 2, 0),
+(24, 'test', '2013-05-24 15:19:45', 1, 11, 2, 0),
+(25, 'comment 7<br />\r\n', '2013-05-24 15:20:33', 1, 1, 2, 0),
+(26, 'comment 8', '2013-05-24 15:20:56', 1, 1, 2, 0),
+(27, 'apre s. comm', '2013-05-28 11:12:22', 0, 13, 2, 0),
+(28, 'reponse', '2013-05-28 11:13:25', 0, 13, 2, 0),
+(29, 'testestsestst', '2013-05-29 16:15:32', 1, 11, 2, 0),
+(30, 'test ticket', '2013-06-04 10:48:09', 1, 14, 3, 0),
+(31, 'ok. ca marche', '2013-06-19 18:03:47', 1, 11, 2, 0),
+(32, 'dsfsd', '2013-07-16 14:20:25', 1, 15, 4, 0),
+(34, 'comment depuis que task int&egrave;gre les commentaires', '2013-07-16 15:32:09', 1, 1, 12, 0),
+(36, 'First commentaire Task', '2013-07-16 15:34:49', 1, 1, 12, 14),
+(37, 'Test', '2013-07-16 15:35:35', 1, 1, 12, 0),
+(39, 'Allez fonctionne', '2013-07-16 15:42:13', 1, NULL, 12, 14),
+(40, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:17', 1, NULL, 12, 14),
+(41, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:37', 1, 1, 12, 0),
+(42, 'Communication coupé', '2013-08-16 09:49:34', 1, 16, 4, 0),
+(43, 'BLABLA', '2013-08-16 10:16:48', 0, 17, 4, 0),
+(44, 'Avec l''id de l''user saved', '2013-08-16 10:56:56', 1, 18, 4, 0),
+(45, 'testmail', '2014-03-17 17:30:14', 1, 19, 4, 0),
+(46, 'testmail', '2014-03-17 17:31:01', 1, 20, 4, 0),
+(47, 'testmail', '2014-03-17 17:33:46', 1, 21, 4, 0),
+(48, 'testmail', '2014-03-17 17:36:25', 1, 22, 4, 0),
+(49, 'testmail', '2014-03-17 17:38:31', 1, 23, 4, 0),
+(50, 'kjnkjn', '2014-03-17 17:41:38', 0, 24, 4, 0),
+(51, 'kjnkjn', '2014-03-17 17:42:10', 1, 25, 4, 0),
+(52, 'kjnkjn', '2014-03-17 17:44:36', 1, 26, 4, 0),
+(53, 'kjnkjn', '2014-03-17 17:46:01', 1, 27, 4, 0),
+(54, 'kjnkjncxc', '2014-03-17 18:07:59', 1, 28, 4, 0),
+(55, 'kjnkjncxc', '2014-03-17 18:08:21', 1, 29, 4, 0),
+(56, 'kjnkjncxc', '2014-03-17 18:08:47', 1, 30, 4, 0),
+(57, 'kjnkjncxc', '2014-03-17 18:09:28', 1, 31, 4, 0),
+(58, 'kjnkjncxc', '2014-03-17 18:12:41', 1, 32, 4, 0),
+(59, 'kjnkjncxc', '2014-03-17 18:12:45', 1, 33, 4, 0),
+(60, 'zxczxc', '2014-03-17 18:13:21', 1, 34, 4, 0),
+(61, 'zxczxc', '2014-03-17 18:14:13', 1, 35, 4, 0),
+(62, 'zxczxc', '2014-03-17 18:14:23', 1, 36, 4, 0),
+(63, 'zxczxc', '2014-03-17 18:15:17', 1, 37, 4, 0),
+(64, 'zxczxc', '2014-03-17 18:16:29', 1, 38, 4, 0),
+(65, 'zxczxc', '2014-03-17 18:17:11', 1, 39, 4, 0),
+(66, 'zxczxc', '2014-03-17 18:21:44', 1, 40, 4, 0),
+(67, 'zxczxc', '2014-03-17 18:22:22', 1, 41, 4, 0),
+(68, 'xacas', '2014-03-17 18:23:01', 1, 42, 4, 0),
+(69, 'sdcsdc', '2014-03-17 18:41:46', 1, 43, 4, 0),
+(70, 'sdcsdc', '2014-03-17 18:45:29', 1, 44, 4, 0),
+(71, 'Test', '2014-03-17 18:59:11', 1, 45, 4, 0),
+(72, 'lets test', '2014-03-17 18:59:45', 1, 46, 4, 0),
+(73, 'comment', '2014-03-17 19:03:03', 1, 25, 4, 0),
+(74, 'lmkn', '2014-03-17 19:05:56', 1, 25, 4, 0),
+(75, 'km', '2014-03-17 19:13:11', 1, 12, 2, 0),
+(76, 'sdfsdfsdf', '2014-03-17 19:27:26', 1, 25, 2, 0),
+(77, 'xcvxcv', '2014-03-17 19:28:17', 1, 23, 4, 0),
+(78, 'xcvxcv', '2014-03-17 19:28:48', 1, 23, 4, 0),
+(79, 'xcvxcv', '2014-03-17 19:29:12', 1, 23, 4, 0),
+(80, 'asd', '2014-03-17 19:33:42', 1, 23, 4, 0),
+(81, 'asd', '2014-03-17 19:33:59', 1, 23, 4, 0),
+(82, 'asd', '2014-03-17 19:34:34', 1, 23, 4, 0),
+(83, 'asd', '2014-03-17 19:34:48', 1, 23, 4, 0),
+(84, 'fasfasdsdasd', '2014-03-17 19:35:22', 1, 23, 4, 0),
+(85, 'sdfsdfsdfsf', '2014-03-17 19:42:50', 1, 47, 4, 0);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `faqs`
+-- Table structure for table `faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
@@ -601,10 +721,19 @@ CREATE TABLE IF NOT EXISTS `faqs` (
   KEY `fk_faqs_categorie_faqs1_idx` (`categorie_faq_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
+--
+-- Dumping data for table `faqs`
+--
+
+INSERT INTO `faqs` (`id`, `question`, `reponse`, `actif_faq`, `categorie_faq_id`) VALUES
+(15, 'Qu''est-ce que la téléphonie sur IP ?', '<p><span style="color: #444444; font-family: arial, sans-serif; font-size: small; line-height: 16px;">C''est tout simplement la possibilit&eacute; de passer et de recevoir les appels t&eacute;l&eacute;phoniques via le r&eacute;seau qui sert aux transmissions de donn&eacute;es.</span></p>', 1, 1),
+(16, 'Qu''est-ce que la VoIP ?', '<p><span style="color: #333333; font-family: ''Lucida Grande'', ''Trebuchet MS'', Verdana, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.1875px; background-color: #fefefe;">La Voip c''est du "t&eacute;l&eacute;phone par le modem".</span></p>', 1, 2),
+(18, 'ert', '<p>ert</p>', 0, 1);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `groups`
+-- Table structure for table `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -613,19 +742,26 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `nom_group` varchar(45) NOT NULL,
   `actif_group` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Дамп данных таблицы `groups`
+-- Dumping data for table `groups`
 --
 
 INSERT INTO `groups` (`id`, `type_group`, `nom_group`, `actif_group`) VALUES
-(2, 'Administrator', 'Administrator', 1);
+(2, 'Administrator', 'Administrator', 1),
+(3, 'Association', 'bo', 1),
+(4, 'Association', 'CakePhp', 1),
+(5, 'Association', 'OVH', 0),
+(6, 'Entreprise', 'venus', 1),
+(7, 'Particulier', 'Test', 1),
+(8, 'Entreprise', 'venus', 1),
+(9, 'Entreprise', 'pluton', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `group_details`
+-- Table structure for table `group_details`
 --
 
 CREATE TABLE IF NOT EXISTS `group_details` (
@@ -640,10 +776,62 @@ CREATE TABLE IF NOT EXISTS `group_details` (
   KEY `fk_group_details_groups1_idx` (`group_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
 
+--
+-- Dumping data for table `group_details`
+--
+
+INSERT INTO `group_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_group_detail`, `group_id`) VALUES
+(1, 'Rue', '25 chemin du bois', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
+(2, 'NPA', '74000', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
+(3, 'Ville', 'Annecy', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
+(4, 'Pays', 'France', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
+(9, 'Email', 'yt4h@jtg.fr', '', '2013-04-29 14:36:54', 1, 8),
+(11, 'Email', 'abc@fr.fr', '', '2013-04-29 14:39:59', 0, 8),
+(12, 'Rue', '7 rue de la paix', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
+(13, 'NPA', '74000', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
+(14, 'Ville', 'Evian', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
+(15, 'Pays', 'France', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
+(16, 'NumeroFixe', '0450203040', '', '2013-04-30 09:58:22', 1, 8),
+(17, 'NumeroMobile', '0610252414', '', '2013-04-30 09:58:52', 1, 8),
+(18, 'NumeroFax', '0101010101', '', '2013-04-30 09:59:18', 0, 8),
+(19, 'NumeroFixe', '0450468750', '', '2013-04-30 09:59:29', 0, 8),
+(20, 'Email', 'bobo@jlh.hyu', '', '2013-04-30 10:55:19', 0, 6),
+(21, 'NumeroMobile', '04504587', '', '2013-04-30 14:53:03', 0, 6),
+(22, 'Rue', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
+(23, 'NPA', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
+(24, 'Ville', 'bobo', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
+(25, 'Pays', 'bobob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
+(26, 'Email', 'admin@admin.fr', '', '2013-05-02 14:41:11', 1, 2),
+(27, 'Email', 'tedrgst@ges.rr', '', '2013-05-02 14:53:57', 1, 2),
+(28, 'Email', 'uy@ihug.fyg', '', '2013-05-02 14:56:56', 0, 2),
+(29, 'Email', 'srg@fgu.gt', '', '2013-05-02 14:57:19', 0, 2),
+(30, 'NumeroFixe', '0450845488', '', '2013-05-02 15:31:41', 1, 2),
+(31, 'NumeroFax', '573434533698', '', '2013-05-02 15:31:58', 0, 2),
+(32, 'Rue', '15 rue d''albigny', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
+(33, 'NPA', '74000', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
+(34, 'Ville', 'Annecy', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
+(35, 'Pays', 'France', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
+(36, 'Rue', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
+(37, 'NPA', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
+(38, 'Ville', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
+(39, 'Pays', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
+(40, 'Rue', '15 rue de la jeunesse', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
+(41, 'NPA', '38000', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
+(42, 'Ville', 'Grenoble', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
+(43, 'Pays', 'France', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
+(44, 'Email', 'dfrg@fj', '', '2013-05-16 16:00:48', 0, 2),
+(45, 'Rue', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
+(46, 'NPA', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
+(47, 'Ville', 'sr', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
+(48, 'Pays', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
+(49, 'NumeroFixe', '34343141414134314134', '', '2013-06-04 14:57:43', 0, 2),
+(50, 'Email', 'etrg@rtg', '', '2013-06-04 15:28:43', 0, 8),
+(51, 'NumeroFixe', 'rtqrtqzrtzert', '', '2013-06-05 17:16:55', 0, 6);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `invoices`
+-- Table structure for table `invoices`
 --
 
 CREATE TABLE IF NOT EXISTS `invoices` (
@@ -663,7 +851,7 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
--- Дамп данных таблицы `invoices`
+-- Dumping data for table `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `period_begin`, `period_end`, `created`, `active_invoice`, `group_id`, `invoice_type_id`, `invoice_statut_id`) VALUES
@@ -685,7 +873,7 @@ INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `perio
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `invoice_statuts`
+-- Table structure for table `invoice_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_statuts` (
@@ -696,7 +884,7 @@ CREATE TABLE IF NOT EXISTS `invoice_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `invoice_statuts`
+-- Dumping data for table `invoice_statuts`
 --
 
 INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
@@ -707,7 +895,7 @@ INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `invoice_types`
+-- Table structure for table `invoice_types`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_types` (
@@ -718,7 +906,7 @@ CREATE TABLE IF NOT EXISTS `invoice_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Дамп данных таблицы `invoice_types`
+-- Dumping data for table `invoice_types`
 --
 
 INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
@@ -731,7 +919,7 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `modules`
+-- Table structure for table `modules`
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
@@ -739,19 +927,20 @@ CREATE TABLE IF NOT EXISTS `modules` (
   `name` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `activ` tinyint(4) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `modules`
+-- Dumping data for table `modules`
 --
 
 INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
-(1, 'Voip', 1);
+(1, 'Voip', 1),
+(2, 'timeMam', 1);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `numbers`
+-- Table structure for table `numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `numbers` (
@@ -761,10 +950,10 @@ CREATE TABLE IF NOT EXISTS `numbers` (
   `owner` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `short` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=275 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=253 ;
 
 --
--- Дамп данных таблицы `numbers`
+-- Dumping data for table `numbers`
 --
 
 INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
@@ -772,6 +961,7 @@ INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
 (28, 33, '0970756113', '', ''),
 (29, 33, '0970756114', '', ''),
 (30, 33, '0970756115', '', ''),
+(32, 33, '1970756117', '', ''),
 (126, 33, '0970700000', '', ''),
 (127, 33, '0970700001', '', ''),
 (128, 33, '0970700002', '', ''),
@@ -783,13 +973,126 @@ INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
 (134, 33, '0970700008', '', ''),
 (135, 33, '0970700009', '', ''),
 (136, 33, '0970700010', '', ''),
-(273, 33, '0970756127', 'admin', '1098'),
-(274, 33, '0970756125', 'admin', '1099');
+(137, 33, '1970700011', '', ''),
+(138, 33, '1970700012', '', ''),
+(139, 33, '1970700013', '', ''),
+(140, 33, '1970700014', '', ''),
+(141, 33, '1970700015', 'admin', '1048'),
+(142, 33, '1970700016', 'admin', '1001'),
+(143, 33, '1970700017', '', ''),
+(144, 33, '1970700018', '', ''),
+(145, 33, '1970700019', '', ''),
+(146, 33, '1970700020', '', ''),
+(147, 33, '1970700021', '', ''),
+(148, 33, '1970700022', '', ''),
+(149, 33, '1970700023', '', ''),
+(150, 33, '1970700024', '', ''),
+(151, 33, '1970700025', '', ''),
+(152, 33, '1970700026', '', ''),
+(153, 33, '1970700027', '', ''),
+(154, 33, '1970700028', '', ''),
+(155, 33, '1970700029', '', ''),
+(157, 33, '1970700030', '', ''),
+(158, 33, '1970700031', '', ''),
+(159, 33, '1970700032', '', ''),
+(160, 33, '1970700033', '', ''),
+(161, 33, '1970700034', '', ''),
+(162, 33, '1970700035', '', ''),
+(163, 33, '1970700036', '', ''),
+(164, 33, '1970700037', '', ''),
+(165, 33, '1970700038', '', ''),
+(166, 33, '1970700039', '', ''),
+(167, 33, '1970700040', '', ''),
+(168, 33, '1970700041', '', ''),
+(169, 33, '1970700042', '', ''),
+(170, 33, '1970700043', '', ''),
+(171, 33, '1970700044', '', ''),
+(172, 33, '1970700045', '', ''),
+(173, 33, '1970700046', '', ''),
+(174, 33, '1970700047', '', ''),
+(175, 33, '1970700048', '', ''),
+(176, 33, '1970700049', '', ''),
+(177, 33, '1970700050', '', ''),
+(178, 33, '1970700051', '', ''),
+(179, 33, '1970700052', '', ''),
+(180, 33, '1970700053', '', ''),
+(181, 33, '1970700054', '', ''),
+(182, 33, '1970700055', '', ''),
+(183, 33, '1970700056', '', ''),
+(184, 33, '1970700057', '', ''),
+(185, 33, '1970700058', '', ''),
+(186, 33, '1970700059', '', ''),
+(187, 33, '1970700060', '', ''),
+(188, 33, '1970700061', '', ''),
+(189, 33, '1970700062', '', ''),
+(190, 33, '1970700063', '', ''),
+(191, 33, '1970700064', '', ''),
+(192, 33, '1970700065', '', ''),
+(193, 33, '1970700066', '', ''),
+(194, 33, '1970700067', '', ''),
+(195, 33, '1970700068', '', ''),
+(196, 33, '1970700069', '', ''),
+(197, 33, '1970700070', '', ''),
+(198, 33, '1970700071', '', ''),
+(199, 33, '1970700072', '', ''),
+(200, 33, '1970700073', '', ''),
+(201, 33, '1970700074', '', ''),
+(202, 33, '1970700075', '', ''),
+(203, 33, '1970700076', '', ''),
+(204, 33, '1970700077', '', ''),
+(205, 33, '1970700078', '', ''),
+(206, 33, '1970700079', '', ''),
+(207, 33, '1970700080', '', ''),
+(208, 33, '1970700081', '', ''),
+(209, 33, '1970700082', '', ''),
+(210, 33, '1970700083', '', ''),
+(211, 33, '1970700084', '', ''),
+(212, 33, '1970700085', '', ''),
+(213, 33, '1970700086', '', ''),
+(214, 33, '1970700087', '', ''),
+(215, 33, '1970700088', '', ''),
+(216, 33, '1970700089', '', ''),
+(217, 33, '1970700090', '', ''),
+(218, 33, '1970700091', '', ''),
+(219, 33, '1970700092', '', ''),
+(220, 33, '1970700093', '', ''),
+(221, 33, '1970700094', '', ''),
+(222, 33, '1970700095', '', ''),
+(223, 33, '1970700096', '', ''),
+(224, 33, '1970700097', '', ''),
+(225, 33, '1970700098', '', ''),
+(226, 33, '1970700099', '', ''),
+(227, 33, '1970700100', '', ''),
+(228, 33, '1970700101', '', ''),
+(229, 33, '1970700102', '', ''),
+(230, 33, '1970700103', '', ''),
+(231, 33, '1970700104', '', ''),
+(232, 33, '1970700105', '', ''),
+(233, 33, '1970700106', '', ''),
+(234, 33, '1970700107', '', ''),
+(235, 33, '1970700108', '', ''),
+(236, 33, '1970700109', '', ''),
+(237, 33, '1970700110', '', ''),
+(238, 33, '1970700111', '', ''),
+(239, 33, '1970700112', '', ''),
+(240, 33, '1970700113', '', ''),
+(241, 33, '1970700114', '', ''),
+(242, 33, '1970700115', '', ''),
+(243, 33, '1970700116', '', ''),
+(244, 33, '1970700117', '', ''),
+(245, 33, '1970700118', '', ''),
+(246, 33, '1970700119', '', ''),
+(247, 33, '1970700120', '', ''),
+(248, 33, '1970700121', '', ''),
+(249, 33, '1970700122', '', ''),
+(250, 33, '1970700123', '', ''),
+(251, 32, '973737373', 'admin', '1099'),
+(252, 32, '972727272', 'test', '1098');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `passwords`
+-- Table structure for table `passwords`
 --
 
 CREATE TABLE IF NOT EXISTS `passwords` (
@@ -802,10 +1105,10 @@ CREATE TABLE IF NOT EXISTS `passwords` (
   `password_type_id` int(11) NOT NULL,
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Дамп данных таблицы `passwords`
+-- Dumping data for table `passwords`
 --
 
 INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`, `password_service_id`, `password_type_id`, `group_id`) VALUES
@@ -826,7 +1129,7 @@ INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `password_services`
+-- Table structure for table `password_services`
 --
 
 CREATE TABLE IF NOT EXISTS `password_services` (
@@ -837,7 +1140,7 @@ CREATE TABLE IF NOT EXISTS `password_services` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `password_services`
+-- Dumping data for table `password_services`
 --
 
 INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUES
@@ -846,7 +1149,7 @@ INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUE
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `password_types`
+-- Table structure for table `password_types`
 --
 
 CREATE TABLE IF NOT EXISTS `password_types` (
@@ -857,7 +1160,7 @@ CREATE TABLE IF NOT EXISTS `password_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `password_types`
+-- Dumping data for table `password_types`
 --
 
 INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
@@ -866,7 +1169,7 @@ INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `prices`
+-- Table structure for table `prices`
 --
 
 CREATE TABLE IF NOT EXISTS `prices` (
@@ -882,7 +1185,7 @@ CREATE TABLE IF NOT EXISTS `prices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5058 ;
 
 --
--- Дамп данных таблицы `prices`
+-- Dumping data for table `prices`
 --
 
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
@@ -5952,7 +6255,7 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `supports`
+-- Table structure for table `supports`
 --
 
 CREATE TABLE IF NOT EXISTS `supports` (
@@ -5960,22 +6263,23 @@ CREATE TABLE IF NOT EXISTS `supports` (
   `mail_from` varchar(100) NOT NULL,
   `mail_to` varchar(100) NOT NULL,
   `host` varchar(100) NOT NULL,
-  `port` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`)
+  `port` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `id` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Дамп данных таблицы `supports`
+-- Dumping data for table `supports`
 --
 
-INSERT INTO `supports` (`id`, `mail_from`, `mail_to`, `host`, `port`, `password`) VALUES
-(1, 'evgelit@gmail.com', 'evgelit@gmail.com', 'ssl://smtp.gmail.com', '1248163264El', '465');
+INSERT INTO `supports` (`id`, `mail_from`, `mail_to`, `host`, `password`, `port`) VALUES
+(1, 'test@mail.ru', 'test@mail.ru', 'ssl://smtp.gmail.com', 'password', '465');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tasks`
+-- Table structure for table `tasks`
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
@@ -5991,10 +6295,30 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
+--
+-- Dumping data for table `tasks`
+--
+
+INSERT INTO `tasks` (`id`, `description`, `subject`, `created`, `last_update`, `task_project_id`, `task_type_id`, `task_statut_id`, `active_task`) VALUES
+(1, 'Edition de la description de cette tâche', 'Résumé de la tâche', '2013-07-10 14:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(2, 'C''est le premier projet enregistré depuis l''application.', '1er Projet', '2013-07-10 17:43:49', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(3, '', 'ngg', '2013-07-10 17:46:05', '0000-00-00 00:00:00', 1, 1, 2, 0),
+(4, 'C''est le deuxième projet enregistré.', '2eme Projet', '2013-07-10 17:57:43', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(5, 'C''est le troisième projet enregistré', '3eme Projet', '2013-07-10 18:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(6, 'Test Description', 'Test', '2013-07-10 18:02:50', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(7, 'Encore un test, ça fait beaucoup de test comme même', 'Test Again', '2013-07-11 09:17:09', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(8, 'azerty', 'azerty', '2013-07-11 09:40:45', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(9, 'description', 'summary 2', '2013-07-11 09:45:35', '0000-00-00 00:00:00', 1, 1, 2, 1),
+(10, 'Re description', 'Test', '2013-07-11 10:22:01', '2013-07-11 10:22:01', 1, 1, 2, 1),
+(11, 'C''est la 1er tâche VoIP, avec le type Maintenance et aucune valeur de test.\r\nA part la description qui est bidon évidemment', '1er tâche VoIP', '2013-07-11 17:51:23', '2013-07-11 17:51:23', 2, 2, 3, 1),
+(12, 'lalalala', 'First ADSL', '2013-07-12 17:12:03', '2013-07-12 17:12:03', 3, 2, 2, 1),
+(13, 'lolololo', 'Second ADSL', '2013-07-12 17:12:40', '2013-07-12 17:12:40', 3, 3, 1, 1),
+(14, 'lululululu', 'Third ADSL', '2013-07-12 17:13:05', '2013-07-12 17:13:05', 3, 2, 1, 1);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `task_projects`
+-- Table structure for table `task_projects`
 --
 
 CREATE TABLE IF NOT EXISTS `task_projects` (
@@ -6005,7 +6329,7 @@ CREATE TABLE IF NOT EXISTS `task_projects` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `task_projects`
+-- Dumping data for table `task_projects`
 --
 
 INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
@@ -6016,7 +6340,7 @@ INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `task_statuts`
+-- Table structure for table `task_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `task_statuts` (
@@ -6027,7 +6351,7 @@ CREATE TABLE IF NOT EXISTS `task_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Дамп данных таблицы `task_statuts`
+-- Dumping data for table `task_statuts`
 --
 
 INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
@@ -6038,7 +6362,7 @@ INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `task_types`
+-- Table structure for table `task_types`
 --
 
 CREATE TABLE IF NOT EXISTS `task_types` (
@@ -6049,7 +6373,7 @@ CREATE TABLE IF NOT EXISTS `task_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Дамп данных таблицы `task_types`
+-- Dumping data for table `task_types`
 --
 
 INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
@@ -6061,7 +6385,7 @@ INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tickets`
+-- Table structure for table `tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `tickets` (
@@ -6077,12 +6401,72 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   PRIMARY KEY (`id`),
   KEY `fk_tickets_categorie_tickets1_idx` (`categorie_ticket_id`),
   KEY `fk_tickets_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+
+--
+-- Dumping data for table `tickets`
+--
+
+INSERT INTO `tickets` (`id`, `titre`, `flag`, `status`, `created`, `actif_ticket`, `categorie_ticket_id`, `group_id`, `user_id`) VALUES
+(1, 'a', 'admin_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(2, 'testest', 'admin_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(4, 'ticket admin tel', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 1, 2, 2),
+(5, 'ticket admin autree', 'user_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(8, 'esf', 'admin_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(9, 'new add ', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 1, 2, 2),
+(11, 'test', 'user_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(12, 'créer un ticket avec un titre long pour faire un exemple', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(13, 'test sans commm', 'admin_answer', 'closed', '0000-00-00 00:00:00', 0, 1, 2, 2),
+(14, 'ticket admin1', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
+(15, 'sfgs', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 2, 3, 2),
+(16, 'Problème VoIP', 'admin_read', 'opened', '2013-08-16 09:49:34', 1, 1, 3, 2),
+(17, 'BLABLA', 'admin_read', 'closed', '2013-08-16 10:16:48', 0, 2, 3, 0),
+(18, 'New Ticket', 'user_answer', 'opened', '2013-08-16 10:56:56', 1, 2, 3, 4),
+(19, 'Test', 'user_answer', 'opened', '2014-03-17 17:30:14', 1, 2, 3, 4),
+(20, 'Test', 'user_answer', 'opened', '2014-03-17 17:31:01', 1, 2, 3, 4),
+(21, 'Test', 'user_answer', 'opened', '2014-03-17 17:33:46', 1, 2, 3, 4),
+(22, 'Testj', 'user_answer', 'opened', '2014-03-17 17:36:24', 1, 2, 3, 4),
+(23, '888', 'user_answer', 'opened', '2014-03-17 17:38:31', 1, 2, 3, 4),
+(24, '888', 'user_answer', 'closed', '2014-03-17 17:41:38', 0, 2, 3, 4),
+(25, '888', 'admin_answer', 'opened', '2014-03-17 17:42:10', 1, 2, 3, 4),
+(26, '888', 'user_answer', 'closed', '2014-03-17 17:44:36', 1, 2, 3, 4),
+(27, '888k', 'user_answer', 'opened', '2014-03-17 17:46:01', 1, 2, 3, 4),
+(28, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:07:59', 1, 2, 3, 4),
+(29, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:08:21', 1, 2, 3, 4),
+(30, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:08:47', 1, 2, 3, 4),
+(31, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:09:28', 1, 2, 3, 4),
+(32, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:12:41', 1, 2, 3, 4),
+(33, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:12:45', 1, 2, 3, 4),
+(34, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:13:21', 1, 2, 3, 4),
+(35, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:14:13', 1, 2, 3, 4),
+(36, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:14:23', 1, 2, 3, 4),
+(37, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:15:17', 1, 2, 3, 4),
+(38, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:16:29', 1, 2, 3, 4),
+(39, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:17:11', 1, 2, 3, 4),
+(40, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:21:44', 1, 2, 3, 4),
+(41, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:22:22', 1, 2, 3, 4),
+(42, '888k', 'user_answer', 'opened', '2014-03-17 18:23:01', 1, 2, 3, 4),
+(43, 'sdf', 'user_answer', 'opened', '2014-03-17 18:41:46', 1, 2, 3, 4),
+(44, 'sdf', 'user_answer', 'opened', '2014-03-17 18:45:29', 1, 2, 3, 4),
+(45, 'Test', 'user_answer', 'opened', '2014-03-17 18:59:11', 1, 2, 3, 4),
+(46, 'Test ticket alarm', 'user_answer', 'opened', '2014-03-17 18:59:45', 1, 2, 3, 4),
+(47, 'zxczxcddsf', 'user_answer', 'opened', '2014-03-17 19:42:50', 1, 2, 3, 4);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `tmps`
+-- Table structure for table `times`
+--
+
+CREATE TABLE IF NOT EXISTS `times` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tmps`
 --
 
 CREATE TABLE IF NOT EXISTS `tmps` (
@@ -6092,7 +6476,7 @@ CREATE TABLE IF NOT EXISTS `tmps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Дамп данных таблицы `tmps`
+-- Dumping data for table `tmps`
 --
 
 INSERT INTO `tmps` (`id`, `variable`) VALUES
@@ -6101,7 +6485,7 @@ INSERT INTO `tmps` (`id`, `variable`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -6115,20 +6499,31 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_users_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
--- Дамп данных таблицы `users`
+-- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `password`, `actif_user`, `group_id`) VALUES
+(1, 'root', 'root', 'root', 'root', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
 (2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
-(17, 'Monsieur', 'Superuser', 'Superuser', 'superuser', '898b83ce5b21ef413c941144d049c17fa8bc049a', 1, 2);
+(3, 'Monsieur', 'Admin1', 'Admin1', 'admin1', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
+(4, 'Monsieur', 'TEST', 'test', 'test', 'ea4bbbe3a4eb9cf92868a36ca25e57d84f4edb5a', 1, 3),
+(5, 'Monsieur', 'tte', 'teest', 'c', '9b739ec4e41b4a3323925c207d5bde0809408709', 0, 5),
+(6, 'Mademoiselle', 'm', 'm', 'm', '7fbad67f5bfb24fca9b76a706bd0058d256ec5c6', 0, 5),
+(7, 'Monsieur', 'Babou', 'babou', 'babou', '53bc05bd019eec2d2af99326421069a7ebac1665', 1, 7),
+(8, 'Monsieur', 'jht', 'ruyj', 'azerty', '14f9c01c07060c37c7b41f368c8bd6cc4641e370', 0, 7),
+(9, 'Monsieur', 'r', 'dry', 'totototo', '7a953dbaf66ebc9a0827797eb4845f9b3df37aa7', 0, 2),
+(10, 'Monsieur', 'r', 'dry', 'tatatata', 'acac338d555b0013a31dbbc2d52fe6d9ad974ed1', 0, 2),
+(11, 'Monsieur', 'r', 'dry', 'titititi', 'c058554194fb5a5d346a44ad76399f47c8f51146', 0, 2),
+(12, 'Monsieur', 'Jr', 'Jr', 'Chiffe', '5ee78b7948d8fbb1646731133ced20e85bd94b87', 1, 2),
+(13, 'Monsieur', 'Mon nom', 'Mon prénom', 'rayane', 'bf6fbd2fa01ac019dd0214cd8c1b213905315b1c', 1, 7);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `user_details`
+-- Table structure for table `user_details`
 --
 
 CREATE TABLE IF NOT EXISTS `user_details` (
@@ -6143,10 +6538,43 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   KEY `fk_user_details_users1_idx` (`user_id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
 
+--
+-- Dumping data for table `user_details`
+--
+
+INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_user_detail`, `user_id`) VALUES
+(1, 'Email', 'gh@y.gt', '', '2013-05-07 09:11:45', 0, 7),
+(2, 'Email', 'ete@ske.fr', '', '2013-05-07 09:29:18', 0, 7),
+(3, 'Email', 'babou@sfr.fr', '', '2013-05-07 09:39:38', 1, 7),
+(4, 'Email', '1245', '', '2013-05-07 09:39:57', 0, 7),
+(5, 'Email', '528', '', '2013-05-07 09:47:04', 0, 7),
+(6, 'NumeroFixe', '0450121244', '', '2013-05-07 10:37:27', 1, 7),
+(7, 'NumeroFax', '538725', '', '2013-05-07 11:02:02', 0, 7),
+(8, 'NumeroFixe', '4354', '', '2013-05-07 11:04:19', 0, 7),
+(9, 'NumeroFixe', 'e', '', '2013-05-07 11:04:53', 0, 7),
+(10, 'NumeroFixe', 'rt', '', '2013-05-07 11:07:11', 0, 7),
+(11, 'NumeroFixe', '1234536531', '', '2013-05-07 11:23:00', 0, 7),
+(14, 'Rue', '15 rue de la paix', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
+(15, 'NPA', '85350', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
+(16, 'Ville', 'Saint Etienne', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
+(17, 'Pays', 'France', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
+(18, 'Rue', '20 rue mongolfier', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
+(19, 'NPA', '45200', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
+(20, 'Ville', 'Lille', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
+(21, 'Pays', 'France', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
+(22, 'Rue', 'gyj', '3f972fb0ce80ee31cb3b81eb189a863a', '2013-05-10 09:09:45', 0, 7),
+(26, 'Rue', '81 place de Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
+(27, 'NPA', '74550', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
+(28, 'Ville', 'Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
+(29, 'Pays', 'France', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
+(33, 'Pays', 'France', 'be91821ac2c769990486fd09c729d808', '2013-05-10 10:05:42', 0, 2),
+(34, 'Email', 'ku@drg.fr', '', '2013-05-10 10:19:30', 0, 2),
+(35, 'Email', 'sduret@visionweb-online.fr', '', '2013-05-10 10:19:45', 1, 2);
+
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `voips`
+-- Table structure for table `voips`
 --
 
 CREATE TABLE IF NOT EXISTS `voips` (
@@ -6154,57 +6582,54 @@ CREATE TABLE IF NOT EXISTS `voips` (
   `login` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pass` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `port` int(11) NOT NULL,
-  `pr_adress` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `pr_port` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Дамп данных таблицы `voips`
+-- Dumping data for table `voips`
 --
 
-INSERT INTO `voips` (`id`, `login`, `pass`, `ip`, `port`, `pr_adress`, `pr_port`) VALUES
-(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2', 5060, '000.000.000.000', '5065');
+INSERT INTO `voips` (`id`, `login`, `pass`, `ip`) VALUES
+(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2');
 
 --
--- Ограничения внешнего ключа сохраненных таблиц
+-- Constraints for dumped tables
 --
 
 --
--- Ограничения внешнего ключа таблицы `commentaires`
+-- Constraints for table `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `fk_commentaires_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_commentaires_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `faqs`
+-- Constraints for table `faqs`
 --
 ALTER TABLE `faqs`
   ADD CONSTRAINT `fk_faqs_categorie_faqs1` FOREIGN KEY (`categorie_faq_id`) REFERENCES `categorie_faqs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `group_details`
+-- Constraints for table `group_details`
 --
 ALTER TABLE `group_details`
   ADD CONSTRAINT `fk_group_details_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `tickets`
+-- Constraints for table `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `fk_tickets_categorie_tickets1` FOREIGN KEY (`categorie_ticket_id`) REFERENCES `categorie_tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tickets_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `users`
+-- Constraints for table `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Ограничения внешнего ключа таблицы `user_details`
+-- Constraints for table `user_details`
 --
 ALTER TABLE `user_details`
   ADD CONSTRAINT `fk_user_details_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
