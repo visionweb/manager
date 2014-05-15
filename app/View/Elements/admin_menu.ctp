@@ -151,11 +151,8 @@
                             <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
                            
                             <?php if(!empty($modules) and $modules[1]['Module']['activ']==0) print '<!--';?>
-                            <li class="dropdown-submenu">
+                            <li>
                                 <a href="<?php echo Configure::read('root.url')?>admin/times">timeMan</a>
-                                <ul class="dropdown-menu">
-                                    
-                                </ul>
                             </li>
                             <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
                         </ul>

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 15, 2014 at 08:09 AM
+-- Generation Time: May 15, 2014 at 07:55 PM
 -- Server version: 5.5.37
 -- PHP Version: 5.3.10-1ubuntu3.11
 
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=399 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=410 ;
 
 --
 -- Dumping data for table `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(92, NULL, NULL, NULL, 'controllers', 1, 614),
+(92, NULL, NULL, NULL, 'controllers', 1, 636),
 (93, 92, NULL, NULL, 'CategorieFaqs', 2, 25),
 (94, 93, NULL, NULL, 'index', 3, 4),
 (95, 93, NULL, NULL, 'view', 5, 6),
@@ -346,9 +346,20 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (393, 160, NULL, NULL, 'sendMail', 308, 309),
 (394, 164, NULL, NULL, 'sendMail', 346, 347),
 (395, 357, NULL, NULL, 'admin_mail', 605, 606),
-(396, 92, NULL, NULL, 'Times', 608, 613),
+(396, 92, NULL, NULL, 'Times', 608, 635),
 (397, 396, NULL, NULL, 'admin_index', 609, 610),
-(398, 396, NULL, NULL, 'sendMail', 611, 612);
+(398, 396, NULL, NULL, 'sendMail', 611, 612),
+(399, 396, NULL, NULL, 'index', 613, 614),
+(400, 396, NULL, NULL, 'admin_projects', 615, 616),
+(401, 396, NULL, NULL, 'admin_add_categories', 617, 618),
+(402, 396, NULL, NULL, 'admin_categories', 619, 620),
+(403, 396, NULL, NULL, 'admin_del_cat', 621, 622),
+(404, 396, NULL, NULL, 'admin_edit_cat', 623, 624),
+(405, 396, NULL, NULL, 'admin_add_projects', 625, 626),
+(406, 396, NULL, NULL, 'admin_del_projects', 627, 628),
+(407, 396, NULL, NULL, 'admin_edit_projects', 629, 630),
+(408, 396, NULL, NULL, 'admin_edit_project', 631, 632),
+(409, 396, NULL, NULL, 'admin_del_project', 633, 634);
 
 -- --------------------------------------------------------
 
@@ -556,6 +567,28 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 (108, 32, 158, '1', '1', '1', '1'),
 (109, 32, 136, '1', '1', '1', '1'),
 (111, 10, 193, '-1', '-1', '-1', '-1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
+
+--
+-- Dumping data for table `categories`
+--
+
+INSERT INTO `categories` (`id`, `name`, `description`) VALUES
+(3, 'Cat', 'yghjnkl'),
+(4, 'jhnk88', 'jg kjbnhikb bii binkjlmgfrytghbu utfvbukhb ubvb urvygbjhkjhvghdc ygvjhnbjgcvjhbb fchgvjhbn'),
+(5, 'Alexander Block', 'The night. The street. Street-lamp. Drugstore.\r\n\r\nA meaningless dull light about.\r\n\r\nYou may live twenty-five years more;\r\n\r\nAll will still be there. No way out.\r\n\r\n-\r\n\r\nYou die. You start again and all\r\n\r\nWill be repeated as before:\r\n\r\nThe cold rippling of a canal.\r\n\r\nThe night. The street. Street-lamp. Drugstore.');
 
 -- --------------------------------------------------------
 
@@ -6251,6 +6284,26 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (5055, 3931, 'FR', 'FRA', 'France - numéro court', 0.15, 0, 11.2),
 (5056, 6, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0),
 (5057, 7, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `projects`
+--
+
+CREATE TABLE IF NOT EXISTS `projects` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(200) NOT NULL,
+  `description` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `name`, `description`) VALUES
+(2, 'kmh', 'ghjklhutvbkn');
 
 -- --------------------------------------------------------
 
