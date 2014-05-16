@@ -19,13 +19,8 @@ class TimesController extends AppController{
     }
 
 	public function admin_index() {
-		$minutes=array();
-		$hours=array();
-		for($i=0; $i<61;$i++)
-			$minutes[$i]=$i;
-		for($i=0; $i<25;$i++)
-			$hours[$i]=$i;
-		$this->set(compact('minutes', 'hours'));	
+		$times=$this->Time->find('all');
+		$this->set(compact('times'));
 		$this->set('title','TimeMan');
 		}
     
@@ -110,25 +105,31 @@ class TimesController extends AppController{
 		$this->set('title','New project');
 		}
     
-    public function admin_del_project($id=NULL) {
+    public function admin_suspend_project($id=NULL) {
 		$this->autoRender = false;
 		$this->loadModel('Project');
-		$this->Project->delete($id);
-		$this->redirect(array('action' => 'admin_projects'));
+		$project=$this->Time->findById($id);
+		if($project['Time']['activ']==1)
+			$project['Time']['activ']=0;
+		else	
+			$project['Time']['activ']=1;
+		$this->Time->id=$id;
+		$this->Time->save($project);
+		$this->redirect(array('action' => 'admin_index'));
 		}
-		
-		
-	public function admin_edit_project($id=NULL) {
-		$this->loadModel('Project');
-		$current=$this->Project->findById($id);
-		if ($this->request->is('post')) {
-			$new_project=array('name'=>$this->data['Project']['name'], 'description'=>$this->data['Project']['description']);
-			$this->Project->id=$id;
-			$this->Project->save($new_project);
-			$this->redirect(array('action' => 'admin_projects'));
-			}
-		$this->set(compact('current'));
-		$this->set('title','Edit project');
+
+
+	public function admin_view_project($id=NULL) {
+		$this->loadModel('Timesession');
+		$this->Paginator->settings = array(
+				'Timesession' => array(
+				'limit' => 30
+					)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$projects = $this->Paginator->paginate('Timesession');
+		$this->set(compact('projects'));
+		$this->set('title','Vew project');
 		}
 		
 	public function admin_start_projects() {
