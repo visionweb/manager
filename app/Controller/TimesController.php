@@ -130,4 +130,27 @@ class TimesController extends AppController{
 		$this->set(compact('current'));
 		$this->set('title','Edit project');
 		}
+		
+	public function admin_start_projects() {
+		$this->loadModel('User');
+		$this->loadModel('Project');
+		$this->loadModel('Category');
+		$users=$this->User->find('all');
+		$projects=$this->Project->find('all');
+		$categories=$this->Category->find('all');
+		$tmp=array();
+		foreach($users as $user)
+			$tmp[$user['User']['username']]=$user['User']['username'];
+		$users=$tmp;
+		$tmp=array();
+		foreach($projects as $project)
+			$tmp[$project['Project']['name']]=$project['Project']['name'];
+		$projects=$tmp;
+		$tmp=array();
+		foreach($categories as $category)
+			$tmp[$category['Category']['name']]=$category['Category']['name'];
+		$categories=$tmp;
+		$this->set(compact('users','projects','categories'));
+		$this->set('title','Start project');
+		}
 }

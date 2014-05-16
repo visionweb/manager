@@ -18,6 +18,10 @@
 		</li>
 	</ul>
 	
+	<a href="<?php print $this->Html->url(array('action' => 'admin_start_projects'))?>">
+		Start new project
+	</a>
+	
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
