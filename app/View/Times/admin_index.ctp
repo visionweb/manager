@@ -7,11 +7,6 @@
 			</a>
 		</li>
 		<li>
-			<a href="<?php print $this->Html->url(array('action' => 'admin_projects'))?>">
-				Projects
-			</a>
-		</li>
-		<li>
 			<a href="<?php print $this->Html->url(array('action' => 'admin_categories'))?>">
 				Categories
 			</a>
@@ -37,7 +32,10 @@
 					Time
 				</th>
 				<th>
-					Activity
+					Time rest
+				</th>
+				<th>
+					Status
 				</th>
 			</tr>
 			<?php foreach($times as $time):?>
@@ -55,10 +53,13 @@
 					<?php print $time['Time']['time']?>
 				</td>
 				<td>
+					<?php print $timespend[$time['Time']['id']]['left']?>
+				</td>
+				<td>
 					<?php if($time['Time']['activ'])
-						print '<span style=\'color:green\'>Yes</span>';
+						print '<span style=\'color:green\'>Active</span>';
 					else
-						print '<span style=\'color:red\'>No</span>';?>
+						print '<span style=\'color:red\'>Inactive</span>';?>
 					
 				</td>
 				<td class="actions btn-group">

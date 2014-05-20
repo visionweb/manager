@@ -20,7 +20,23 @@ class TimesController extends AppController{
 
 	public function admin_index() {
 		$times=$this->Time->find('all');
-		$this->set(compact('times'));
+		$this->loadModel('Timesession');
+		$sessions=$this->Timesession->find('all');
+		$timespend=array();
+		foreach($times as $time){
+			foreach($sessions as $session)
+				if($session['Timesession']['project_id']==$time['Time']['id']){
+					$array = array_filter(explode(':', $session['Timesession']['total']));
+					if(substr($array[1],0,1)=="0") $array[1]=substr($array[1],1,1);
+					$timespend[$time['Time']['id']]['spend']=$array[0]*60+$array[1];
+					$left=$time['Time']['time']*60-$timespend[$time['Time']['id']]['spend'];
+					$left=intval($left/60).':'.($left-($left-$left%60));
+					$timespend[$time['Time']['id']]['left']=$left;
+					}
+			if(!isset($timespend[$time['Time']['id']]['left']))
+				$timespend[$time['Time']['id']]['left']=$time['Time']['time'];
+			}
+		$this->set(compact('times','timespend'));
 		$this->set('title','TimeMan');
 		}
     
@@ -121,6 +137,19 @@ class TimesController extends AppController{
 
 	public function admin_view_project($id=NULL) {
 		$this->loadModel('Timesession');
+		$pr=$this->Time->findById($id);
+		$time=$pr;
+		$sessions=$this->Timesession->find('all');
+			foreach($sessions as $session)
+				if($session['Timesession']['project_id']==$id){
+					$array = array_filter(explode(':', $session['Timesession']['total']));
+					if(substr($array[1],0,1)=="0") $array[1]=substr($array[1],1,1);
+					$left=$array[0]*60+$array[1];
+					$left=$time['Time']['time']*60-$left;
+					$left=intval($left/60).':'.($left-($left-$left%60));
+					}
+			if(!isset($left))
+				$left=$time['Time']['time'];
 		$this->Paginator->settings = array(
 				'Timesession' => array(
 				'limit' => 30
@@ -128,29 +157,34 @@ class TimesController extends AppController{
 			);
 		$this->Paginator->settings = $this->paginate;
 		$projects = $this->Paginator->paginate('Timesession');
-		$this->set(compact('projects'));
-		$this->set('title','Vew project');
+		$this->set(compact('projects','pr','left'));
+		$this->set('title','View project');
 		}
 		
 	public function admin_start_projects() {
 		$this->loadModel('User');
-		$this->loadModel('Project');
 		$this->loadModel('Category');
 		$users=$this->User->find('all');
-		$projects=$this->Project->find('all');
 		$categories=$this->Category->find('all');
 		$tmp=array();
 		foreach($users as $user)
 			$tmp[$user['User']['username']]=$user['User']['username'];
 		$users=$tmp;
 		$tmp=array();
-		foreach($projects as $project)
-			$tmp[$project['Project']['name']]=$project['Project']['name'];
-		$projects=$tmp;
-		$tmp=array();
 		foreach($categories as $category)
 			$tmp[$category['Category']['name']]=$category['Category']['name'];
 		$categories=$tmp;
+		if ($this->request->is('post')) {
+			$newproject=array(
+				'user'=>$this->data['Time']['user'],
+				'project'=>$this->data['Time']['project'],
+				'category'=>$this->data['Time']['category'],
+				'time'=>$this->data['Time']['time'],
+				'activ'=>true,
+				);
+			$this->Time->save($newproject);
+			$this->redirect(array('action' => 'admin_index'));
+			}
 		$this->set(compact('users','projects','categories'));
 		$this->set('title','Start project');
 		}
