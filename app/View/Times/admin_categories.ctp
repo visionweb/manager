@@ -6,6 +6,11 @@
 				Time
 			</a>
 		</li>
+		<li>
+			<a href="<?php print $this->Html->url(array('action' => 'admin_projects'))?>">
+				Projects
+			</a>
+		</li>
 		<li  class="active">
 			<a href="<?php print $this->Html->url(array('action' => 'admin_categories'))?>">
 				Categories

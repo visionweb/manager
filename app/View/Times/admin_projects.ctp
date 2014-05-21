@@ -18,10 +18,30 @@
 		</li>
 	</ul>
 	
-	<a href="<?php print $this->Html->url(array('action' => 'admin_add_projects'))?>">
-		Add new project
-	</a>
+	<?php
+		print	
+			'<div class="actions btn-group">
+		<button class="btn">
+			Client
+		</button>
+		<button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">';
+		foreach($clients as $client)
+			print '<li><a href="'.$this->Html->url(array('action' => 'admin_projects', $client)).'">'.$client.'</a></li>';
+		print
+        '</ul>
+      </div>';?>
+      <br><br>
 	
+	<a href="<?php print $this->Html->url(array('action' => 'admin_add_projects'))?>">
+		<button class="btn">
+			New project
+		</button>
+	</a>
+	<br>
+	<br>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
@@ -34,6 +54,16 @@
 						print $this->Paginator->sort('description', 'Description');
 					?>
 				</th>
+				<th>
+					<?php 
+						print $this->Paginator->sort('recurent', 'Recurent time');
+					?>
+				</th>
+				<th>
+					<?php 
+						print $this->Paginator->sort('remain', 'Remain time');
+					?>
+				</th>
 			</tr>
 			<?php 
 				foreach($projects as $project): 
@@ -44,6 +74,12 @@
 				</td>
 				<td>
 					<?php print $project['Project']['description'];?>
+				</td>
+				<td>
+					<?php print $project['Project']['recurent'];?>
+				</td>
+				<td>
+					<?php print $project['Project']['remain'];?>
 				</td>
 				<td class="actions btn-group">
 					<button class="btn">Action</button>

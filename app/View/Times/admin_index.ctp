@@ -7,75 +7,100 @@
 			</a>
 		</li>
 		<li>
+			<a href="<?php print $this->Html->url(array('action' => 'admin_projects'))?>">
+				Projects
+			</a>
+		</li>
+		<li>
 			<a href="<?php print $this->Html->url(array('action' => 'admin_categories'))?>">
 				Categories
 			</a>
 		</li>
 	</ul>
-	
-	<a href="<?php print $this->Html->url(array('action' => 'admin_start_projects'))?>">
-		Start new project
-	</a>
+		
+		<div class="actions btn-group">
+		<button class="btn">
+			Client
+		</button>
+		<button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">
+			<?php 
+				foreach($users as $user)
+				print '<li><a href="'.$this->Html->url(array('action' => 'admin_index', $user['User']['username'].'?all')).'">'.$user['User']['username'].'</a></li>';
+			?>
+        </ul>
+      </div>
+		
+		<?php if($display['client']!='0'){
+		print	
+			'<div class="actions btn-group">
+		<button class="btn">
+			Project
+		</button>
+		<button class="btn dropdown-toggle" data-toggle="dropdown">
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu">';
+		foreach($prname as $pr)
+			print '<li><a href="'.$this->Html->url(array('action' => 'admin_index', $display['client'].'?'.$pr)).'">'.$pr.'</a></li>';
+		print
+        '</ul>
+      </div>';}?>
+      <?php if($display['project']!='all')
+		print	
+		'<a href="'.$this->Html->url(array('action' => 'admin_add_session', $current.'?'.$id)).'">
+		<button class="btn">
+			Add
+		</button>
+		</a>';
+		if(isset($time_remain))
+			print '<p align="right">Time remain: '.$time_remain.'</p>';
+		else print '<br><br>'
+		?>
 	
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
-					User
-				</th>
-				<th>
-					Project
+					Description
 				</th>
 				<th>
 					Category
 				</th>
 				<th>
-					Time
+					Start
 				</th>
 				<th>
-					Time rest
+					End
 				</th>
 				<th>
-					Status
+					Duration
 				</th>
 			</tr>
-			<?php foreach($times as $time):?>
+			<?php foreach($sessions as $session):?>
 			<tr>
 				<td>
-					<?php print $time['Time']['user']?>
+					<?php print $session['Timesession']['description']?>
 				</td>
 				<td>
-					<?php print $time['Time']['project']?>
+					<?php print $session['Timesession']['category']?>
 				</td>
 				<td>
-					<?php print $time['Time']['category']?>
+					<?php print $session['Timesession']['start']?>
 				</td>
 				<td>
-					<?php print $time['Time']['time']?>
+					<?php print $session['Timesession']['end']?>
 				</td>
 				<td>
-					<?php print $timespend[$time['Time']['id']]['left']?>
-				</td>
-				<td>
-					<?php if($time['Time']['activ'])
-						print '<span style=\'color:green\'>Active</span>';
-					else
-						print '<span style=\'color:red\'>Inactive</span>';?>
-					
+					<?php print $session['Timesession']['duration']?>
 				</td>
 				<td class="actions btn-group">
-					<button class="btn">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<?php 
-							print '<li><a href="'.$this->Html->url(array('action' => 'admin_view_project', $time['Time']['id'])).'">View</a></li>';
-							if($time['Time']['activ'])
-								print '<li><a href="'.$this->Html->url(array('action' => 'admin_suspend_project', $time['Time']['id'])).'">Suspend</a></li>';
-							else
-								print '<li><a href="'.$this->Html->url(array('action' => 'admin_suspend_project', $time['Time']['id'])).'">Resume</a></li>';
-						;?>
-					</ul>
+					<a href="<?php print $this->Html->url(array('action' => 'admin_edit_session', $session['Timesession']['id'].'?'.$id))?>">
+						<button class="btn">
+							Edit
+						</button>
+					</a>
 				</td>
 			</tr>
 			<?php endforeach?>
