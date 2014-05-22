@@ -183,7 +183,8 @@ class TimesController extends AppController{
 			);
 		$this->Paginator->settings = $this->paginate;
 		$projects = $this->Paginator->paginate('Project');
-		$this->set(compact('projects','clients'));
+		$test=$this->Time->timeProcessor('DURATION', '20:34','22:12');
+		$this->set(compact('projects','clients','test'));
 		$this->set('title','TimeMan');
 		}
 	
@@ -289,27 +290,17 @@ class TimesController extends AppController{
 
 	public function admin_view_project($id=NULL) {
 		$this->loadModel('Timesession');
-		$pr=$this->Time->findById($id);
-		$time=$pr;
-		$sessions=$this->Timesession->find('all');
-			foreach($sessions as $session)
-				if($session['Timesession']['project_id']==$id){
-					$array = array_filter(explode(':', $session['Timesession']['total']));
-					if(substr($array[1],0,1)=="0") $array[1]=substr($array[1],1,1);
-					$left=$array[0]*60+$array[1];
-					$left=$time['Time']['time']*60-$left;
-					$left=intval($left/60).':'.($left-($left-$left%60));
-					}
-			if(!isset($left))
-				$left=$time['Time']['time'];
+		$this->loadModel('Project');
+		$project=$this->Project->findById($id);
+		$conditions = array('Timesession.project_id LIKE' => $id);
 		$this->Paginator->settings = array(
 				'Timesession' => array(
-				'limit' => 30
+				'conditions'=>$conditions,
 					)
 			);
 		$this->Paginator->settings = $this->paginate;
-		$projects = $this->Paginator->paginate('Timesession');
-		$this->set(compact('projects','pr','left'));
+		$sessions = $this->Paginator->paginate('Timesession');
+		$this->set(compact('sessions','project'));
 		$this->set('title','View project');
 		}
 		
@@ -328,24 +319,14 @@ class TimesController extends AppController{
 			$tmp[$category['Category']['name']]=$category['Category']['name'];
 		$categories=$tmp;
 		if ($this->request->is('post')) {
-			$start = array_filter(explode(':', $this->data['Time']['start']));
-			$end = array_filter(explode(':', $this->data['Time']['end']));
-			if(@$start[0]<0 or @$start[0]>23 or strlen(@$start[0])>2 or
-				$start[1]<0 or $start[1]>59 or strlen(@$start[1])>2 or
-				@$end[0]<0 or @$end[0]>23 or strlen(@$end[0])>2 or
-				@$end[1]<0 or @$end[1]>59 or strlen(@$end[1])>2){
+			$start = $this->data['Time']['start'];
+			$end =$this->data['Time']['end'];
+			if($this->Time->timeProcessor('VALIDATE', $start)=='invalid' or 
+				$this->Time->timeProcessor('VALIDATE', $end)=='invalid'){
 				$this->Session->setFlash(('Invalid time!'),'flash_warning');
 				$this->redirect($this->request->here);
 				}
-			if(@$end[0]>=@$start[0])
-				$duration=@($end[0]*60+$end[1])-@($start[0]*60+$start[1]);
-			else
-				$duration=@(24*60-($start[0]*60+$start[1]))+@($end[0]*60+$end[1]);
-			
-			if(strlen($duration-($duration-$duration%60))==1)
-					$duration=intval($duration/60).':0'.($duration-($duration-$duration%60));
-			else
-					$duration=intval($duration/60).':'.($duration-($duration-$duration%60));
+			$duration=$this->Time->timeProcessor('DURATION', $start, $end);
 			
 			$rest=array_filter(explode(':', $project['Project']['remain']));
 			$spent=array_filter(explode(':', $duration));
@@ -407,7 +388,7 @@ class TimesController extends AppController{
 				$duration=intval($duration/60).':'.($duration-($duration-$duration%60));
 			
 			$newsession=array(
-				'project_id'=>$id,
+				'project_id'=>$session['Timesession']['project_id'],
 				'description'=>$this->data['Time']['description'],
 				'category'=>$this->data['Time']['category'],
 				'start'=>$this->data['Time']['start'],

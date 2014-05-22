@@ -1,18 +1,20 @@
 <?php print $this->element('subheader'); ?>
 
 <table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
-	<b>Project:</b> <?php print $pr['Time']['project']?>;<br>
-	<b>Category:</b> <?php print $pr['Time']['category']?>;<br>
-	<b>User:</b> <?php print $pr['Time']['user']?>;<br>
-	<b>Time:</b> <?php print $pr['Time']['time']?>;<br>
-	<b>Time rest:</b> <?php print $left?>;<br>
-	<b>Status: </b> <?php if($pr['Time']['activ']) 
+	<b>Project:</b> <?php print $project['Project']['name']?>;<br>
+	<b>Client:</b> <?php print $project['Project']['client']?>;<br>
+	<b>Time recurent:</b> <?php print $project['Project']['recurent']?>;<br>
+	<b>Time remain:</b> <?php print $project['Project']['remain']?>;<br>
+	<b>Status: </b> <?php if($project['Project']['status']) 
 						print '<span style=\'color:green\'>Active</span>.';
 					else
 						print '<span style=\'color:red\'>Inactive</span>.';?>
 			<tr>
 				<th>
-					Date
+					Description
+				</th>
+				<th>
+					Category
 				</th>
 				<th>
 					Start
@@ -21,22 +23,25 @@
 					End
 				</th>
 				<th>
-					Total time
+					Duration
 				</th>
 			</tr>
-			<?php foreach($projects as $project):?>
+			<?php foreach($sessions as $session):?>
 			<tr>
 				<td>
-					<?php print $project['Timesession']['date_start']?>
+					<?php print $session['Timesession']['description']?>
 				</td>
 				<td>
-					<?php print $project['Timesession']['time_start']?>
+					<?php print $session['Timesession']['category']?>
 				</td>
 				<td>
-					<?php print $project['Timesession']['time_end']?>
+					<?php print $session['Timesession']['start']?>
 				</td>
 				<td>
-					<?php print $project['Timesession']['total']?>
+					<?php print $session['Timesession']['end']?>
+				</td>
+				<td>
+					<?php print $session['Timesession']['duration']?>
 				</td>
 			</tr>
 			<?php endforeach?>

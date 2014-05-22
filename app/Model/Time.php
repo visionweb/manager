@@ -60,5 +60,25 @@ class Time extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		));
+	
+	function timeProcessor($process, $value1,$value2=NULL){
+		switch($process){
+			case 'VALIDATE':
+				if(strtotime($value1)==false)
+					return 'invalid';
+				else
+					return 'valid';
+				break;
+			case 'DURATION':
+				$start=strtotime($value1);
+				$end=strtotime($value2);
+				if($start>$end)
+					$end=strtotime($value2.' +1 day');
+				$duration=ceil(($end-$start)/60);
+				$duration=intval($duration/60).':'.($duration-($duration-$duration%60));
+				return $duration;
+				break;
+			}
+		}
 		
 }

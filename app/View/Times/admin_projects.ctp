@@ -42,6 +42,7 @@
 	</a>
 	<br>
 	<br>
+	<?php print $test;?>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
@@ -99,6 +100,7 @@
 					</button>
 					<ul class="dropdown-menu">
 						<?php 
+							print '<li><a href="'.$this->Html->url(array('action' => 'admin_view_project', $project['Project']['id'])).'">View</a></li>';
 							print '<li><a href="'.$this->Html->url(array('action' => 'admin_edit_project', $project['Project']['id'])).'">Edit</a></li>';
 							if($project['Project']['status']==1)
 								print '<li><a href="'.$this->Html->url(array('action' => 'admin_suspend_project', $project['Project']['id'])).'">Close</a></li>';
