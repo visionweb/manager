@@ -31,6 +31,13 @@
                     <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '<!--';?>
                     <li><a href="<?php echo $this->Html->url(array('controller'=>'voips','action' => 'index'));?>">VoIP</a></li>
                     <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
+                    
+                    <?php if(!empty($modules) and $modules[1]['Module']['activ']==0) print '<!--';?>
+                      <li>
+                        <a href="<?php echo Configure::read('root.url')?>times">timeMan</a>
+                      </li>
+                     <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
+                    
                    </li>
                 </ul>
                 <ul class="nav pull-right">

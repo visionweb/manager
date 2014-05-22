@@ -69,14 +69,51 @@ class TimesController extends AppController{
 		$this->set('title','TimeMan');
 		}
     
-    public function index() {
-		$minutes=array();
-		$hours=array();
-		for($i=0; $i<61;$i++)
-			$minutes[$i]=$i;
-		for($i=0; $i<25;$i++)
-			$hours[$i]=$i;
-		$this->set(compact('minutes', 'hours'));	
+    public function index($id=NULL) {
+		$this->loadModel('Timesession');
+		$this->loadModel('User');
+		$this->loadModel('Project');
+		$users=$this->User->find('all');
+		$projects=$this->Project->find('all');
+		$sessions=$this->Timesession->find('all');
+		$times=$this->Time->find('all');
+		$prname=array();
+		if(empty($id)){
+			$display['project']='all';
+			}
+		else{
+			$display['project']=$id;
+			}
+
+			$projectlist=array();
+			$sessionlist=array();
+			foreach($projects as $project)
+				if($project['Project']['client']==$this->Session->read('Auth.User.username')){
+					array_push($projectlist, $project['Project']['id']);
+					array_push($prname, $project['Project']['name']);
+					}
+			foreach($projectlist as $list)
+				foreach($sessions as $session)
+					if($session['Timesession']['project_id']==$list)
+						array_push($sessionlist, $session);
+			$sessions=$sessionlist;
+			
+		if($display['project']!='all'){	
+			$projectlist=array();
+			$sessionlist=array();
+			foreach($projects as $project)
+				if($project['Project']['name']==$display['project']){
+					$time_remain=$project['Project']['remain'];
+					array_push($projectlist, $project['Project']['id']);
+					$current=$project['Project']['id'];
+					}
+			foreach($projectlist as $list)
+				foreach($sessions as $session)
+					if($session['Timesession']['project_id']==$list)
+						array_push($sessionlist, $session);
+			$sessions=$sessionlist;
+			}
+		$this->set(compact('id','prname','times','users','display','sessions','time_remain','current'));
 		$this->set('title','TimeMan');
 		}
 		
@@ -150,6 +187,21 @@ class TimesController extends AppController{
 		$this->set('title','TimeMan');
 		}
 	
+	public function projects() {
+		$this->loadModel('Project');
+		$conditions = array('Project.client LIKE' => $this->Session->read('Auth.User.username'));
+		$this->Paginator->settings = array(
+				'Project' => array(
+				'conditions'=>$conditions,
+				'limit' => 30
+					)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$projects = $this->Paginator->paginate('Project');
+		$this->set(compact('projects'));
+		$this->set('title','TimeMan');
+		}
+	
 	public function admin_add_projects() {
 		$this->loadModel('Project');
 		$this->loadModel('User');
@@ -174,25 +226,64 @@ class TimesController extends AppController{
 			'client'=>$this->data['Project']['client'], 
 			'remain'=>$time, 
 			'recurent'=>$recurent, 
-			'description'=>$this->data['Project']['description']);
+			'description'=>$this->data['Project']['description'],
+			'status'=>1
+			);
 			$this->Project->save($new_project);
 			$this->redirect(array('action' => 'admin_projects'));
 			}
 		$this->set(compact('clients'));
 		$this->set('title','New project');
 		}
+	
+	public function admin_edit_project($id=NULL) {
+		$this->loadModel('Project');
+		$this->loadModel('User');
+		$clients=$this->User->find('all');
+		$project=$this->Project->findById($id);
+		$tmp=array();
+		foreach($clients as $client)
+			$tmp[$client['User']['username']]=$client['User']['username'];	
+		$clients=$tmp;
+		if ($this->request->is('post')) {
+			$time=array_filter(explode(':', $this->data['Project']['time']));
+			if(!isset($time[1]))
+				$time=$time[0].':00';
+			else
+				$time=$time[0].':'.$time[1];
+			$recurent=array_filter(explode(':', $this->data['Project']['recurent']));
+			if(!isset($recurent[1]))
+				$recurent=$recurent[0].':00';
+			else
+				$recurent=$recurent[0].':'.$recurent[1];
+			$new_project=array(
+			'name'=>$this->data['Project']['name'], 
+			'client'=>$this->data['Project']['client'], 
+			'remain'=>$time, 
+			'recurent'=>$recurent, 
+			'description'=>$this->data['Project']['description'],
+			'status'=>1
+			);
+			
+			$this->Project->id=$id;
+			$this->Project->save($new_project);
+			$this->redirect(array('action' => 'admin_projects'));
+			}
+		$this->set(compact('clients','project'));
+		$this->set('title','Edit project');
+		}
     
     public function admin_suspend_project($id=NULL) {
 		$this->autoRender = false;
 		$this->loadModel('Project');
-		$project=$this->Time->findById($id);
-		if($project['Time']['activ']==1)
-			$project['Time']['activ']=0;
+		$project=$this->Project->findById($id);
+		if($project['Project']['status']==1)
+			$project['Project']['status']=0;
 		else	
-			$project['Time']['activ']=1;
-		$this->Time->id=$id;
-		$this->Time->save($project);
-		$this->redirect(array('action' => 'admin_index'));
+			$project['Project']['status']=1;
+		$this->Project->id=$id;
+		$this->Project->save($project);
+		$this->redirect(array('action' => 'admin_projects'));
 		}
 
 

@@ -2,46 +2,18 @@
 	
 	<ul class="nav nav-tabs">
 		<li>
-			<a href="<?php print $this->Html->url(array('action' => 'admin_index'))?>">
+			<a href="<?php print $this->Html->url(array('action' => 'index'))?>">
 				Time
 			</a>
 		</li>
 		<li class="active">
-			<a href="<?php print $this->Html->url(array('action' => 'admin_projects'))?>">
+			<a href="<?php print $this->Html->url(array('action' => 'projects'))?>">
 				Projects
 			</a>
-		</li>
-		<li>
-			<a href="<?php print $this->Html->url(array('action' => 'admin_categories'))?>">
-				Categories
-			</a>
-		</li>
+		</li>		
 	</ul>
 	
-	<?php
-		print	
-			'<div class="actions btn-group">
-		<button class="btn">
-			Client
-		</button>
-		<button class="btn dropdown-toggle" data-toggle="dropdown">
-            <span class="caret"></span>
-        </button>
-        <ul class="dropdown-menu">';
-		foreach($clients as $client)
-			print '<li><a href="'.$this->Html->url(array('action' => 'admin_projects', $client)).'">'.$client.'</a></li>';
-		print
-        '</ul>
-      </div>';?>
-      <br><br>
 	
-	<a href="<?php print $this->Html->url(array('action' => 'admin_add_projects'))?>">
-		<button class="btn">
-			New project
-		</button>
-	</a>
-	<br>
-	<br>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
@@ -92,21 +64,7 @@
 					else print '<span style="color:green">Opened</span>';
 					?>
 				</td>
-				<td class="actions btn-group">
-					<button class="btn">Action</button>
-					<button class="btn dropdown-toggle" data-toggle="dropdown">
-						<span class="caret"></span>
-					</button>
-					<ul class="dropdown-menu">
-						<?php 
-							print '<li><a href="'.$this->Html->url(array('action' => 'admin_edit_project', $project['Project']['id'])).'">Edit</a></li>';
-							if($project['Project']['status']==1)
-								print '<li><a href="'.$this->Html->url(array('action' => 'admin_suspend_project', $project['Project']['id'])).'">Close</a></li>';
-							else
-								print '<li><a href="'.$this->Html->url(array('action' => 'admin_suspend_project', $project['Project']['id'])).'">Open</a></li>';
-								?>
-					</ul>
-				</td>
+				
 			</tr>
 			<?php 
 				endforeach;
