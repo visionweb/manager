@@ -35,6 +35,9 @@
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>
+					Date
+				</th>
+				<th>
 					Description
 				</th>
 				<th>
@@ -52,6 +55,9 @@
 			</tr>
 			<?php foreach($sessions as $session):?>
 			<tr>
+				<td>
+					<?php print $session['Timesession']['date']?>
+				</td>
 				<td>
 					<?php print $session['Timesession']['description']?>
 				</td>

@@ -42,7 +42,6 @@
 	</a>
 	<br>
 	<br>
-	<?php print $test;?>
 	<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">
 			<tr>
 				<th>

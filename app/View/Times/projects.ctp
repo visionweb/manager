@@ -64,6 +64,13 @@
 					else print '<span style="color:green">Opened</span>';
 					?>
 				</td>
+				<td>
+					<a href="<?php print $this->Html->url(array('action' => 'view_project', $project['Project']['id']))?>">
+						<button class="btn">
+							View
+						</button>
+					</a>
+				</td>
 				
 			</tr>
 			<?php 

@@ -183,8 +183,7 @@ class TimesController extends AppController{
 			);
 		$this->Paginator->settings = $this->paginate;
 		$projects = $this->Paginator->paginate('Project');
-		$test=$this->Time->timeProcessor('DURATION', '20:34','22:12');
-		$this->set(compact('projects','clients','test'));
+		$this->set(compact('projects','clients'));
 		$this->set('title','TimeMan');
 		}
 	
@@ -212,16 +211,14 @@ class TimesController extends AppController{
 			$tmp[$client['User']['username']]=$client['User']['username'];	
 		$clients=$tmp;
 		if ($this->request->is('post')) {
-			$time=array_filter(explode(':', $this->data['Project']['time']));
-			if(!isset($time[1]))
-				$time=$time[0].':00';
-			else
-				$time=$time[0].':'.$time[1];
-			$recurent=array_filter(explode(':', $this->data['Project']['recurent']));
-			if(!isset($recurent[1]))
-				$recurent=$recurent[0].':00';
-			else
-				$recurent=$recurent[0].':'.$recurent[1];
+			$time=$this->data['Project']['time'];
+			$time=$this->Time->timeProcessor('VALIDATEBIG', $time);
+			$recurent=$this->data['Project']['recurent'];
+			$recurent=$this->Time->timeProcessor('VALIDATEBIG', $recurent);
+			if($recurent=='invalid' or $time=='invalid'){
+				$this->Session->setFlash(('Invalid time!'),'flash_warning');
+				$this->redirect($this->request->here);
+				}
 			$new_project=array(
 			'name'=>$this->data['Project']['name'], 
 			'client'=>$this->data['Project']['client'], 
@@ -233,7 +230,8 @@ class TimesController extends AppController{
 			$this->Project->save($new_project);
 			$this->redirect(array('action' => 'admin_projects'));
 			}
-		$this->set(compact('clients'));
+		$test=$this->Time->timeProcessor('VALIDATEBIG', '567');
+		$this->set(compact('clients', 'test'));
 		$this->set('title','New project');
 		}
 	
@@ -247,16 +245,14 @@ class TimesController extends AppController{
 			$tmp[$client['User']['username']]=$client['User']['username'];	
 		$clients=$tmp;
 		if ($this->request->is('post')) {
-			$time=array_filter(explode(':', $this->data['Project']['time']));
-			if(!isset($time[1]))
-				$time=$time[0].':00';
-			else
-				$time=$time[0].':'.$time[1];
-			$recurent=array_filter(explode(':', $this->data['Project']['recurent']));
-			if(!isset($recurent[1]))
-				$recurent=$recurent[0].':00';
-			else
-				$recurent=$recurent[0].':'.$recurent[1];
+			$time=$this->data['Project']['time'];
+			$time=$this->Time->timeProcessor('VALIDATEBIG', $time);
+			$recurent=$this->data['Project']['recurent'];
+			$recurent=$this->Time->timeProcessor('VALIDATEBIG', $recurent);
+			if($recurent=='invalid' or $time=='invalid'){
+				$this->Session->setFlash(('Invalid time!'),'flash_warning');
+				$this->redirect($this->request->here);
+				}
 			$new_project=array(
 			'name'=>$this->data['Project']['name'], 
 			'client'=>$this->data['Project']['client'], 
@@ -304,6 +300,22 @@ class TimesController extends AppController{
 		$this->set('title','View project');
 		}
 		
+	public function view_project($id=NULL) {
+		$this->loadModel('Timesession');
+		$this->loadModel('Project');
+		$project=$this->Project->findById($id);
+		$conditions = array('Timesession.project_id LIKE' => $id);
+		$this->Paginator->settings = array(
+				'Timesession' => array(
+				'conditions'=>$conditions,
+					)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$sessions = $this->Paginator->paginate('Timesession');
+		$this->set(compact('sessions','project'));
+		$this->set('title','View project');
+		}
+		
 		
 	public function admin_add_session($id=NULL){
 		$back=$start = array_filter(explode('?', $id));
@@ -321,33 +333,40 @@ class TimesController extends AppController{
 		if ($this->request->is('post')) {
 			$start = $this->data['Time']['start'];
 			$end =$this->data['Time']['end'];
-			if($this->Time->timeProcessor('VALIDATE', $start)=='invalid' or 
-				$this->Time->timeProcessor('VALIDATE', $end)=='invalid'){
-				$this->Session->setFlash(('Invalid time!'),'flash_warning');
-				$this->redirect($this->request->here);
+			if(isset($end) and !empty($end)){
+				if($this->Time->timeProcessor('VALIDATE', $start)=='invalid' or 
+					$this->Time->timeProcessor('VALIDATE', $end)=='invalid'){
+					$this->Session->setFlash(('Invalid time!'),'flash_warning');
+					$this->redirect($this->request->here);
+					}
+				$duration=$this->Time->timeProcessor('DURATION', $start, $end);
+				$rest=$this->Time->timeProcessor('REST', $project['Project']['remain'], $duration);
+				$project['Project']['remain']=$rest;
+				$this->Project->id=$id;
+				$this->Project->save($project);
+				$newsession=array(
+					'project_id'=>$id,
+					'description'=>$this->data['Time']['description'],
+					'category'=>$this->data['Time']['category'],
+					'date'=>$this->data['Time']['date'],
+					'start'=>$this->data['Time']['start'],
+					'end'=>$this->data['Time']['end'],
+					'duration'=>$duration
+					);
 				}
-			$duration=$this->Time->timeProcessor('DURATION', $start, $end);
-			
-			$rest=array_filter(explode(':', $project['Project']['remain']));
-			$spent=array_filter(explode(':', $duration));
-			$spent=@($rest[0]*60+$rest[1])-@($spent[0]*60+$spent[1]);
-			$minutes=$spent-($spent-$spent%60);
-			if($minutes<0) 
-				$minutes=$minutes*(-1);
-			if(strlen($minutes)==1) 
-				$minutes='0'.$minutes;
-			$rest=intval($spent/60).':'.$minutes;
-			$project['Project']['remain']=$rest;
-			$this->Project->id=$id;
-			$this->Project->save($project);
-			$newsession=array(
-				'project_id'=>$id,
-				'description'=>$this->data['Time']['description'],
-				'category'=>$this->data['Time']['category'],
-				'start'=>$this->data['Time']['start'],
-				'end'=>$this->data['Time']['end'],
-				'duration'=>$duration
-				);
+			else{
+				if($this->Time->timeProcessor('VALIDATE', $start)=='invalid'){
+					$this->Session->setFlash(('Invalid time!'),'flash_warning');
+					$this->redirect($this->request->here);
+					}
+				$newsession=array(
+					'project_id'=>$id,
+					'description'=>$this->data['Time']['description'],
+					'category'=>$this->data['Time']['category'],
+					'date'=>$this->data['Time']['date'],
+					'start'=>$this->data['Time']['start'],
+					);
+				}
 			$this->Timesession->save($newsession);
 			$this->redirect(array('action' => 'admin_index',$back));
 			}
@@ -357,44 +376,60 @@ class TimesController extends AppController{
 	
 	public function admin_edit_session($id=NULL){
 		$back=$start = array_filter(explode('?', $id));
-		$id=@$back[0];
-		$back=@$back[1].'?'.@$back[2];
+		$id=$back[0];
+		$back=$back[1].'?'.$back[2];
 		$this->loadModel('Category');
+		$this->loadModel('Project');
 		$this->loadModel('Timesession');
 		$categories=$this->Category->find('all');
 		$session=$this->Timesession->findById($id);
+		$project=$this->Project->findById($session['Timesession']['project_id']);
+		$pr_id=$session['Timesession']['project_id'];
 		$tmp=array();
 		foreach($categories as $category)
 			$tmp[$category['Category']['name']]=$category['Category']['name'];
 		$categories=$tmp;
 		if ($this->request->is('post')) {
-			$start = array_filter(explode(':', $this->data['Time']['start']));
-			$end = array_filter(explode(':', $this->data['Time']['end']));
-			if(@$start[0]<0 or @$start[0]>23 or strlen(@$start[0])>2 or
-				@$start[1]<0 or $start[1]>59 or strlen(@$start[1])>2 or
-				@$end[0]<0 or @$end[0]>23 or strlen(@$end[0])>2 or
-				@$end[1]<0 or @$end[1]>59 or strlen(@$end[1])>2){
-				$this->Session->setFlash(('Invalid time!'),'flash_warning');
-				$this->redirect($this->request->here);
+			$start = $this->data['Time']['start'];
+			$end =$this->data['Time']['end'];
+			if(isset($end) and !empty($end)){
+				if($this->Time->timeProcessor('VALIDATE', $start)=='invalid' or 
+					$this->Time->timeProcessor('VALIDATE', $end)=='invalid'){
+					$this->Session->setFlash(('Invalid!'),'flash_warning');
+					$this->redirect($this->request->here);
+					}
+				$duration=$this->Time->timeProcessor('DURATION', $start, $end);
+				if(isset($session['Timesession']['duration']) and !empty($session['Timesession']['duration']))
+					if($session['Timesession']['duration']!=$duration){
+						$diff=$this->Time->timeProcessor('REST',$duration,$session['Timesession']['duration']);
+						$rest=$this->Time->timeProcessor('REST', $project['Project']['remain'], $diff);
+						$project['Project']['remain']=$rest;
+						$this->Project->id=$pr_id;
+						$this->Project->save($project);
+						}
+				$newsession=array(
+					'project_id'=>$pr_id,
+					'description'=>$this->data['Time']['description'],
+					'category'=>$this->data['Time']['category'],
+					'date'=>$this->data['Time']['date'],
+					'start'=>$this->data['Time']['start'],
+					'end'=>$this->data['Time']['end'],
+					'duration'=>$duration
+					);
 				}
-			if(@$end[0]>=@$start[0])
-				$duration=(@$end[0]*60+@$end[1])-(@$start[0]*60+@$start[1]);
-			else
-				$duration=@(24*60-($start[0]*60+$start[1]))+@($end[0]*60+$end[1]);
-			
-			if(strlen($duration-($duration-$duration%60))==1)
-				$duration=intval($duration/60).':0'.($duration-($duration-$duration%60));
-			else
-				$duration=intval($duration/60).':'.($duration-($duration-$duration%60));
-			
-			$newsession=array(
-				'project_id'=>$session['Timesession']['project_id'],
-				'description'=>$this->data['Time']['description'],
-				'category'=>$this->data['Time']['category'],
-				'start'=>$this->data['Time']['start'],
-				'end'=>$this->data['Time']['end'],
-				'duration'=>$duration
-				);
+			else{
+				if($this->Time->timeProcessor('VALIDATE', $start)=='invalid'){
+					$this->Session->setFlash(('Invalid time!'),'flash_warning');
+					$this->redirect($this->request->here);
+					}
+				$newsession=array(
+					'project_id'=>$pr_id,
+					'description'=>$this->data['Time']['description'],
+					'category'=>$this->data['Time']['category'],
+					'date'=>$this->data['Time']['date'],
+					'start'=>$this->data['Time']['start'],
+					);
+				}
 			$this->Timesession->id=$id;
 			$this->Timesession->save($newsession);
 			$this->redirect(array('action' => 'admin_index', $back));
