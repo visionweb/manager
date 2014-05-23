@@ -407,13 +407,13 @@ class TimesController extends AppController{
 	public function admin_edit_session($id=NULL){
 		$back = array_filter(explode('?', $id));
 		$toProject=false;
+		$id=$back[0];
 		if(isset($back[2])){
 			if($back[2]=='p')
 			$toProject=true;
 			$back=$back[1];
 			}
 		if(isset($back[1])){
-			$id=$back[0];
 			$back=$back[1].'?'.$back[2];
 			}
 		$this->loadModel('Category');
@@ -477,5 +477,29 @@ class TimesController extends AppController{
 			}
 		$this->set(compact('categories','session'));
 		$this->set('title','Edit work session');
+		}
+		
+	public function download_pdf() {
+		$this->viewClass = 'Media';
+		$params = array(
+			'id' => 'test.pdf',
+			'name' => 'progect_report' ,
+			'download' => true,
+			'extension' => 'pdf',
+			'path' => APP . 'files/pdf' . DS
+		);
+		$this->set($params);
+		}
+	
+	public function admin_download_pdf() {
+		$this->viewClass = 'Media';
+		$params = array(
+			'id' => 'test.pdf',
+			'name' => 'progect_report' ,
+			'download' => true,
+			'extension' => 'pdf',
+			'path' => APP . 'files/pdf' . DS
+		);
+		$this->set($params);
 		}
 }

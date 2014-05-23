@@ -56,7 +56,16 @@
 					<?php print $project['Project']['recurent'];?>
 				</td>
 				<td>
-					<?php print $project['Project']['remain'];?>
+					<?php 
+		if(substr($project['Project']['remain'], -2)<15)
+			print substr($project['Project']['remain'], 0, strlen($project['Project']['remain'])-3).'h ('.$project['Project']['remain'].')';
+		elseif(substr($project['Project']['remain'], -2)<30)
+			print substr($project['Project']['remain'], 0, strlen($project['Project']['remain'])-3).'.25h ('.$project['Project']['remain'].')';
+		elseif(substr($project['Project']['remain'], -2)<45)
+			print substr($project['Project']['remain'], 0, strlen($project['Project']['remain'])-3).'.5h ('.$project['Project']['remain'].')';
+		if(substr($project['Project']['remain'], -2)>45)
+			print substr($project['Project']['remain'], 0, strlen($project['Project']['remain'])-3).'.75h ('.$project['Project']['remain'].')';
+	?>
 				</td>
 				<td>
 					<?php

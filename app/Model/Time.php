@@ -61,6 +61,8 @@ class Time extends AppModel {
 				break;
 			case 'VALIDATEBIG':
 				$time=$value1;
+				if(substr($time, 0, 1)==':')
+					return 'invalid';
 				if(strtotime($time)==true){
 					if(strlen($time)==3)
 						return substr($time, 0, 2).'0'.substr($time, 2, 1);

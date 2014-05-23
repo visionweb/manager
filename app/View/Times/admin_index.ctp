@@ -55,8 +55,18 @@
 			Add
 		</button>
 		</a>';
-		if(isset($time_remain))
-			print '<p align="right">Time remain: '.$time_remain.'</p>';
+		if(isset($time_remain)){
+					print '<p align="right">Time reamain: ';
+					if(substr($time_remain, -2)<15)
+						print substr($time_remain, 0, strlen($time_remain)-3).'h ('.$time_remain.')';
+					elseif(substr($time_remain, -2)<30)
+						print substr($time_remain, 0, strlen($time_remain)-3).',25h ('.$time_remain.')';
+					elseif(substr($time_remain, -2)<45)
+						print substr($time_remain, 0, strlen($time_remain)-3).',5h ('.$time_remain.')';
+					if(substr($time_remain, -2)>45)
+						print substr($time_remain, 0, strlen($time_remain)-3).',75h ('.$time_remain.')';
+					print '</p>';
+					}
 		else print '<br><br>'
 		?>
 	
@@ -99,7 +109,16 @@
 					<?php print $session['Timesession']['end']?>
 				</td>
 				<td>
-					<?php print $session['Timesession']['duration']?>
+					<?php 
+					if(substr($session['Timesession']['duration'], -2)<15)
+						print substr($session['Timesession']['duration'], 0, strlen($session['Timesession']['duration'])-3).'h ('.$session['Timesession']['duration'].')';
+					elseif(substr($session['Timesession']['duration'], -2)<30)
+						print substr($session['Timesession']['duration'], 0, strlen($session['Timesession']['duration'])-3).',25h ('.$session['Timesession']['duration'].')';	
+					elseif(substr($session['Timesession']['duration'], -2)<45)
+						print substr($session['Timesession']['duration'], 0, strlen($session['Timesession']['duration'])-3).',5h ('.$session['Timesession']['duration'].')';
+					if(substr($session['Timesession']['duration'], -2)>45)
+						print substr($session['Timesession']['duration'], 0, strlen($session['Timesession']['duration'])-3).',75h ('.$session['Timesession']['duration'].')';
+					?>
 				</td>
 				<td class="actions btn-group">
 					<a href="<?php print $this->Html->url(array('action' => 'admin_edit_session', $session['Timesession']['id'].'?'.$id))?>">
