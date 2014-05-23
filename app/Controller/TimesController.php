@@ -162,7 +162,7 @@ class TimesController extends AppController{
 		$this->set('title','Edit category');
 		}
 	
-	//
+
 	public function admin_projects($id=NULL) {
 		$this->loadModel('Project');
 		$this->loadModel('User');
@@ -271,6 +271,9 @@ class TimesController extends AppController{
 		}
     
     public function admin_suspend_project($id=NULL) {
+		$back = array_filter(explode('?', $id));
+		if(isset($back[1]))
+			$id=$back[0];
 		$this->autoRender = false;
 		$this->loadModel('Project');
 		$project=$this->Project->findById($id);
@@ -280,7 +283,28 @@ class TimesController extends AppController{
 			$project['Project']['status']=1;
 		$this->Project->id=$id;
 		$this->Project->save($project);
-		$this->redirect(array('action' => 'admin_projects'));
+		if(isset($back[1]))
+			$this->redirect(array('action' => 'admin_view_project',$id));
+		else
+			$this->redirect(array('action' => 'admin_projects'));
+		}
+		
+		
+    public function admin_delete_session($id=NULL) {
+		$back = array_filter(explode('?', $id));
+		$id=$back[0];
+		$back=$back[1];
+		$this->autoRender = false;
+		$this->loadModel('Project');
+		$this->loadModel('Timesession');
+		$session=$this->Timesession->findById($id);
+		$project=$this->Project->findById($session['Timesession']['project_id']);
+		$duration='-'.$session['Timesession']['duration'];
+		$project['Project']['remain']=$this->Time->timeProcessor('REST', $project['Project']['remain'], $duration);
+		$this->Project->id=$id;
+		$this->Project->save($project);
+		$this->Timesession->delete($session['Timesession']['id']);
+		$this->redirect(array('action' => 'admin_view_project', $back));
 		}
 
 
@@ -296,7 +320,7 @@ class TimesController extends AppController{
 			);
 		$this->Paginator->settings = $this->paginate;
 		$sessions = $this->Paginator->paginate('Timesession');
-		$this->set(compact('sessions','project'));
+		$this->set(compact('sessions','project', 'id'));
 		$this->set('title','View project');
 		}
 		
@@ -318,9 +342,13 @@ class TimesController extends AppController{
 		
 		
 	public function admin_add_session($id=NULL){
-		$back=$start = array_filter(explode('?', $id));
-		$id=$back[0];
-		$back=$back[1].'?'.$back[2];
+		$back = array_filter(explode('?', $id));
+		$back_to_project=true;
+		if(isset($back[1])){
+			$id=$back[0];
+			$back=$back[1].'?'.$back[2];
+			$back_to_project=false;
+			}
 		$this->loadModel('Category');
 		$this->loadModel('Project');
 		$this->loadModel('Timesession');
@@ -368,6 +396,8 @@ class TimesController extends AppController{
 					);
 				}
 			$this->Timesession->save($newsession);
+			if($back_to_project==true)
+				$this->redirect(array('action' => 'admin_view_project',$id));
 			$this->redirect(array('action' => 'admin_index',$back));
 			}
 		$this->set(compact('categories'));
@@ -375,9 +405,17 @@ class TimesController extends AppController{
 		}
 	
 	public function admin_edit_session($id=NULL){
-		$back=$start = array_filter(explode('?', $id));
-		$id=$back[0];
-		$back=$back[1].'?'.$back[2];
+		$back = array_filter(explode('?', $id));
+		$toProject=false;
+		if(isset($back[2])){
+			if($back[2]=='p')
+			$toProject=true;
+			$back=$back[1];
+			}
+		if(isset($back[1])){
+			$id=$back[0];
+			$back=$back[1].'?'.$back[2];
+			}
 		$this->loadModel('Category');
 		$this->loadModel('Project');
 		$this->loadModel('Timesession');
@@ -432,7 +470,10 @@ class TimesController extends AppController{
 				}
 			$this->Timesession->id=$id;
 			$this->Timesession->save($newsession);
-			$this->redirect(array('action' => 'admin_index', $back));
+			if($toProject==false)
+				$this->redirect(array('action' => 'admin_index', $back));
+			else
+				$this->redirect(array('action' => 'admin_view_project', $back));
 			}
 		$this->set(compact('categories','session'));
 		$this->set('title','Edit work session');

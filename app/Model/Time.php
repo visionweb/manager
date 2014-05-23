@@ -99,14 +99,24 @@ class Time extends AppModel {
 			case 'REST':
 				$time=$value1;
 				$duration=$value2;
+				if(substr($duration,0,1)=='-'){
+					$duration=substr($duration,1);
+					$negative=true;
+					}
 				for($i=0;$i<strlen($time);$i++)
 					if(substr($time,$i,1)==':')
 						$time=substr($time,0,$i)*60+substr($time,$i+1,2);
 				for($i=0;$i<strlen($duration);$i++)
 					if(substr($duration,$i,1)==':')
 						$duration=substr($duration,0,$i)*60+substr($duration,$i+1,2);
-				$rest=$time-$duration;
-				$rest=intval($rest/60).':'.($rest-($rest-$rest%60));
+				if($negative)
+					$rest=$time+$duration;
+				else
+					$rest=$time-$duration;
+				if(strlen($rest-($rest-$rest%60))==1)
+					$rest=intval($rest/60).':0'.($rest-($rest-$rest%60));
+				else
+					$rest=intval($rest/60).':'.($rest-($rest-$rest%60));
 				return $rest;
 				break;
 			case 'DURATION':
