@@ -1,6 +1,55 @@
-<?php
+ <?php
 App::import('Vendor','tcpdf/tcpdf');
- 
-class XTCPDF extends TCPDF{
- 
+
+class XTCPDF  extends TCPDF
+{
+
+    var $xheadertext;
+    var $xheadercolor = array(0,0,200);
+    var $xfootertext  = 'Copyright Â© %d XXXXXXXXXXX. All rights reserved.';
+    var $xfooterfont  = PDF_FONT_NAME_MAIN ;
+    var $xfooterfontsize = 8 ;
+
+
+    /**
+    * Overwrites the default header
+    * set the text in the view using
+    *    $fpdf->xheadertext = 'YOUR ORGANIZATION';
+    * set the fill color in the view using
+    *    $fpdf->xheadercolor = array(0,0,100); (r, g, b)
+    * set the font in the view using
+    *    $fpdf->setHeaderFont(array('YourFont','',fontsize));
+    */
+    function Header()
+    {
+
+        list($r, $b, $g) = $this->xheadercolor;
+        $this->setY(0); // shouldn't be needed due to page margin, but helas, otherwise it's at the page top
+        $this->SetFillColor(255, 255, 255);
+        $this->SetTextColor(0 , 0, 0);
+        $style = array('width' => 0.3, 'cap' => 'butt', 'join' => 'miter', 'dash' => 0, 'color' => array(0, 0, 0));
+		$this->Line(10, 40, 200, 40, $style);
+        $this->MultiCell(0, 5, $this->xheadertext['user'], 0, 'L', 1, 1, '', '4', true);
+        $this->MultiCell(189, 5, $this->xheadertext['company'], 0, 'R', 1, 1, '', '', true);
+        $this->MultiCell(189, 5, $this->xheadertext['adress'], 0, 'R', 1, 1, '', '', true);
+        $this->MultiCell(189, 5, $this->xheadertext['city'], 0, 'R', 1, 1, '', '', true);
+        $this->MultiCell(189, 5, $this->xheadertext['phone'], 0, 'R', 1, 1, '', '', true);
+        $this->MultiCell(189, 5, $this->xheadertext['mail'], 0, 'R', 1, 1, '', '', true);
+    }
+
+    /**
+    * Overwrites the default footer
+    * set the text in the view using
+    * $fpdf->xfootertext = 'Copyright Â© %d YOUR ORGANIZATION. All rights reserved.';
+    */
+    function Footer()
+    {
+        $year = date('Y');
+        $footertext = sprintf($this->xfootertext, $year);
+        $this->SetY(-20);
+        $this->SetTextColor(0, 0, 0);
+        $this->SetFont($this->xfooterfont,'',$this->xfooterfontsize);
+        $this->Cell(0,8, $footertext,'T',1,'C');
+    }
 }
+?> 

@@ -45507,3 +45507,2851 @@ Request URL: /css/switch_button.css
 Stack Trace:
 #0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
 #1 {main}
+2014-05-23 17:16:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-23 17:16:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-23 17:16:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-23 17:16:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-23 17:16:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 09:51:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 09:51:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:15:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:15:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:18:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:19:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:23:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:26:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:27:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:31:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:31:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:32:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:34:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:35:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:35:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:37:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:38:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:39:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:40:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:41:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:43:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:43:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:43:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:49:11 Error: Fatal Error (1): Call to undefined method stdClass::setHeaderFont() in [/var/www/manager/app/View/Times/admin_view_project.ctp, line 117]
+2014-05-26 10:49:11 Error: [FatalErrorException] Call to undefined method stdClass::setHeaderFont()
+Request URL: /admin/times/view_project/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 117)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 117, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 117, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-26 10:49:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 10:49:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 11:28:36 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:00:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:00:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:00:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:00:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:00:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:03:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:03:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:04:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:04:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:05:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:05:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:05:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:06:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:06:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 12:07:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:15:03 Error: Fatal Error (4): syntax error, unexpected ';', expecting ')' in [/var/www/manager/app/Controller/TimesController.php, line 351]
+2014-05-26 13:15:03 Error: [FatalErrorException] syntax error, unexpected ';', expecting ')'
+Request URL: /admin/times/index/root%3Ftestproject?testproject=
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 351)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 351, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 351, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-26 13:15:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:15:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:16:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:16:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:16:30 Error: [MissingActionException] Action TimesController::admin_configutation() could not be found.
+Exception Attributes: array (
+  'controller' => 'TimesController',
+  'action' => 'admin_configutation',
+)
+Request URL: /admin/times/configutation
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-26 13:16:30 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:17:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:18:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:20:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:20:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:20:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:20:07 Error: [MissingViewException] View file "/var/www/manager/app/View/Times/admin_configutation.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/manager/app/View/Times/admin_configutation.ctp',
+)
+Request URL: /admin/times/configutation
+Stack Trace:
+#0 /var/www/manager/lib/Cake/View/View.php(468): View->_getViewFileName(NULL)
+#1 /var/www/manager/lib/Cake/Controller/Controller.php(948): View->render(NULL, NULL)
+#2 /var/www/manager/lib/Cake/Routing/Dispatcher.php(194): Controller->render()
+#3 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#4 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2014-05-26 13:20:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:20:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:33:44 Error: Fatal Error (4): syntax error, unexpected ',', expecting ')' in [/var/www/manager/app/View/Times/admin_configutation.ctp, line 10]
+2014-05-26 13:33:44 Error: [FatalErrorException] syntax error, unexpected ',', expecting ')'
+Request URL: /admin/times/configutation
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 10)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 10, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 10, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-26 13:33:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:34:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:41:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:42:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:43:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:45:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:45:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:46:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:47:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:47:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:47:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:48:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:48:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 13:49:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:02:27 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE, expecting ')' in [/var/www/manager/app/Controller/TimesController.php, line 361]
+2014-05-26 14:02:27 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE, expecting ')'
+Request URL: /admin/times/configutation
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 361)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 361, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 361, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-26 14:02:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:03:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:03:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:10:39 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:10:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:21:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:22:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:22:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:22:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:22:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:25:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:25:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:26:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:26:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:27:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:28:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:28:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:46:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:46:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 14:47:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:06:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:06:10 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Array' in 'field list'
+Request URL: /admin/times/configutation
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Model/Datasource/DboSource.php(460): PDOStatement->execute(Array)
+#1 /var/www/manager/lib/Cake/Model/Datasource/DboSource.php(426): DboSource->_execute('UPDATE `manager...', Array)
+#2 /var/www/manager/lib/Cake/Model/Datasource/Database/Mysql.php(379): DboSource->execute('UPDATE `manager...')
+#3 /var/www/manager/lib/Cake/Model/Model.php(1731): Mysql->update(Object(Time), Array, Array)
+#4 /var/www/manager/app/Controller/TimesController.php(362): Model->save(Array)
+#5 [internal function]: TimesController->admin_configutation()
+#6 /var/www/manager/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(TimesController), Array)
+#7 /var/www/manager/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#8 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#9 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#10 {main}
+2014-05-26 15:06:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:06:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:14:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:16:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:17:57 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:18:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:18:05 Error: Fatal Error (1): Call to undefined method XTCPDF::loadModel() in [/var/www/manager/app/Vendor/xtcpdf.php, line 41]
+2014-05-26 15:18:05 Error: [FatalErrorException] Call to undefined method XTCPDF::loadModel()
+Request URL: /admin/times/view_project/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 41)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 41, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 41, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-26 15:18:06 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:20:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:59:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:59:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 15:59:45 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 16:00:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-26 16:01:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:53 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:18:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:19:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:19:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:19:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:34:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:34:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:35:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:36:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:36:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:36:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:38:55 Error: Fatal Error (1): Call to a member function find() on a non-object in [/var/www/manager/app/Controller/TimesController.php, line 529]
+2014-05-29 09:38:55 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 529)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 529, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 529, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 09:38:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:39:23 Error: [MissingViewException] View file "/var/www/manager/app/View/Pdf/my_pdf_view.ctp" is missing.
+Exception Attributes: array (
+  'file' => '/var/www/manager/app/View/Pdf/my_pdf_view.ctp',
+)
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/View/View.php(468): View->_getViewFileName('/Pdf/my_pdf_vie...')
+#1 /var/www/manager/lib/Cake/Controller/Controller.php(948): View->render('/Pdf/my_pdf_vie...', NULL)
+#2 /var/www/manager/app/Controller/TimesController.php(532): Controller->render('/Pdf/my_pdf_vie...')
+#3 [internal function]: TimesController->admin_create_pdf()
+#4 /var/www/manager/lib/Cake/Controller/Controller.php(486): ReflectionMethod->invokeArgs(Object(TimesController), Array)
+#5 /var/www/manager/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#6 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#7 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#8 {main}
+2014-05-29 09:39:23 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:46:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:47:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 09:47:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:05:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:09:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:16:00 Error: Fatal Error (4): syntax error, unexpected T_STRING in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-29 10:16:00 Error: [FatalErrorException] syntax error, unexpected T_STRING
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 10:16:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:41:47 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/manager/app/Controller/TimesController.php, line 531]
+2014-05-29 10:41:47 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 531)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 531, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 531, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 10:41:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:55:13 Error: Fatal Error (4): syntax error, unexpected '[' in [/var/www/manager/app/Controller/TimesController.php, line 530]
+2014-05-29 10:55:13 Error: [FatalErrorException] syntax error, unexpected '['
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 530)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 530, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 530, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 10:55:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 10:55:30 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/manager/app/Controller/TimesController.php, line 533]
+2014-05-29 10:55:30 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 533)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 533, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 533, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 10:55:30 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 11:39:16 Error: Fatal Error (64): require_once() [http://php.net/function.require]: Failed opening required 'tcpdf_include.php' (include_path='/var/www/manager/lib:.:/usr/share/php:/usr/share/pear') in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 28]
+2014-05-29 11:39:16 Error: [FatalErrorException] require_once() [http://php.net/function.require]: Failed opening required 'tcpdf_include.php' (include_path='/var/www/manager/lib:.:/usr/share/php:/usr/share/pear')
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(64, 'require_once() ...', '/var/www/manage...', 28)
+#1 [internal function]: ErrorHandler::handleError(64, 'require_once() ...', '/var/www/manage...', 28, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 64, 'require_once() ...', '/var/www/manage...', 28, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 11:39:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 11:50:58 Error: Fatal Error (4): syntax error, unexpected T_VARIABLE in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 40]
+2014-05-29 11:50:58 Error: [FatalErrorException] syntax error, unexpected T_VARIABLE
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 40)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 40, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 40, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 11:50:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 12:35:40 Error: Fatal Error (1): Call to a member function find() on a non-object in [/var/www/manager/app/Controller/TimesController.php, line 530]
+2014-05-29 12:35:40 Error: [FatalErrorException] Call to a member function find() on a non-object
+Request URL: /admin/times/create_pdf
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 530)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 530, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 530, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 12:35:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 12:36:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 12:54:04 Error: Fatal Error (4): syntax error, unexpected '<' in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 14]
+2014-05-29 12:54:04 Error: [FatalErrorException] syntax error, unexpected '<'
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 14)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 14, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 14, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 12:54:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 12:56:52 Error: Fatal Error (4): syntax error, unexpected $end in [/var/www/manager/app/Controller/TimesController.php, line 565]
+2014-05-29 12:56:52 Error: [FatalErrorException] syntax error, unexpected $end
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 565)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 565, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 565, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 12:56:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:21:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:21:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:21:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:21:20 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:37:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:44:27 Error: Fatal Error (4): syntax error, unexpected T_NS_SEPARATOR in [/var/www/manager/app/Controller/TimesController.php, line 534]
+2014-05-29 13:44:27 Error: [FatalErrorException] syntax error, unexpected T_NS_SEPARATOR
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 534)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 534, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 534, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 13:44:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:44:39 Error: Fatal Error (1): Undefined constant 'n' in [/var/www/manager/app/Controller/TimesController.php, line 534]
+2014-05-29 13:44:39 Error: [FatalErrorException] Undefined constant 'n'
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Undefined const...', '/var/www/manage...', 534)
+#1 [internal function]: ErrorHandler::handleError(1, 'Undefined const...', '/var/www/manage...', 534, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Undefined const...', '/var/www/manage...', 534, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 13:44:39 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 13:45:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:03:32 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:03:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:03:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:03:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:03:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:20:20 Error: [MissingActionException] Action TimesController::admin_projects.php() could not be found.
+Exception Attributes: array (
+  'controller' => 'TimesController',
+  'action' => 'admin_projects.php',
+)
+Request URL: /admin/times/projects.php
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-29 14:20:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:20:24 Error: [MissingActionException] Action TimesController::admin_projects.phps() could not be found.
+Exception Attributes: array (
+  'controller' => 'TimesController',
+  'action' => 'admin_projects.phps',
+)
+Request URL: /admin/times/projects.phps
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Routing/Dispatcher.php(187): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/manager/lib/Cake/Routing/Dispatcher.php(162): Dispatcher->_invoke(Object(TimesController), Object(CakeRequest), Object(CakeResponse))
+#2 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2014-05-29 14:20:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:20:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:22:02 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 14:22:04 Error: Fatal Error (1): Call to a member function SetCreator() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 8]
+2014-05-29 14:22:04 Error: [FatalErrorException] Call to a member function SetCreator() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 8)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 8, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 8, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 14:22:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:35 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:36 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:46:46 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes) in [/var/www/manager/app/Controller/TimesController.php, line 578]
+2014-05-29 18:46:46 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes)
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/manage...', 578)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 18:46:47 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:47:01 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes) in [/var/www/manager/app/Controller/TimesController.php, line 578]
+2014-05-29 18:47:01 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes)
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/manage...', 578)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 18:47:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:47:09 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes) in [/var/www/manager/app/Controller/TimesController.php, line 578]
+2014-05-29 18:47:09 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes)
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/manage...', 578)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 18:47:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:47:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:47:13 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-29 18:47:16 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes) in [/var/www/manager/app/Controller/TimesController.php, line 578]
+2014-05-29 18:47:16 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes)
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/manage...', 578)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 18:47:16 Error: Fatal Error (1): Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes) in [/var/www/manager/app/Controller/TimesController.php, line 578]
+2014-05-29 18:47:16 Error: [FatalErrorException] Allowed memory size of 134217728 bytes exhausted (tried to allocate 128974849 bytes)
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Allowed memory ...', '/var/www/manage...', 578)
+#1 [internal function]: ErrorHandler::handleError(1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Allowed memory ...', '/var/www/manage...', 578, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-29 18:47:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 06:42:33 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 06:42:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 06:42:43 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 06:42:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:18:33 Error: Fatal Error (1): Call to a member function SetHeaderData() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 13]
+2014-05-30 07:18:33 Error: [FatalErrorException] Call to a member function SetHeaderData() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 13)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 13, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 13, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:18:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:18:55 Error: Fatal Error (1): Unsupported operand types in [/var/www/manager/app/Vendor/tcpdf/include/tcpdf_fonts.php, line 1891]
+2014-05-30 07:18:55 Error: [FatalErrorException] Unsupported operand types
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/var/www/manage...', 1891)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:18:56 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:22:07 Error: Fatal Error (1): Call to a member function SetTopMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:22:07 Error: [FatalErrorException] Call to a member function SetTopMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:22:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:23:04 Error: Fatal Error (1): Call to a member function SetTopMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:23:04 Error: [FatalErrorException] Call to a member function SetTopMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:23:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:23:08 Error: Fatal Error (1): Call to a member function SetTopMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:23:08 Error: [FatalErrorException] Call to a member function SetTopMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:23:08 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:23:09 Error: Fatal Error (1): Call to a member function SetTopMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:23:09 Error: [FatalErrorException] Call to a member function SetTopMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:23:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:23:10 Error: Fatal Error (1): Call to a member function SetTopMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:23:10 Error: [FatalErrorException] Call to a member function SetTopMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:23:11 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:24:19 Error: Fatal Error (1): Call to a member function SetFooterMargin() on a non-object in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:24:19 Error: [FatalErrorException] Call to a member function SetFooterMargin() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:24:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:24:44 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:24:44 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:24:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:29:18 Error: Fatal Error (1): Call to undefined method XTCPDF::SetTextMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:29:18 Error: [FatalErrorException] Call to undefined method XTCPDF::SetTextMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:29:18 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:29:42 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:29:42 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:29:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:32:28 Error: Fatal Error (1): Call to undefined method XTCPDF::SetBottomMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:32:28 Error: [FatalErrorException] Call to undefined method XTCPDF::SetBottomMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:32:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:33:03 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:33:03 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:33:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:33:13 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:33:13 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:33:14 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:33:31 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 36]
+2014-05-30 07:33:31 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 36)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 36, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:33:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 07:35:36 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 13]
+2014-05-30 07:35:36 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 13)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 13, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 13, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 07:35:36 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:06:58 Error: Fatal Error (1): Unsupported operand types in [/var/www/manager/app/Vendor/tcpdf/include/tcpdf_fonts.php, line 1891]
+2014-05-30 08:06:58 Error: [FatalErrorException] Unsupported operand types
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/var/www/manage...', 1891)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:06:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:07:15 Error: Fatal Error (1): Unsupported operand types in [/var/www/manager/app/Vendor/tcpdf/include/tcpdf_fonts.php, line 1891]
+2014-05-30 08:07:15 Error: [FatalErrorException] Unsupported operand types
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Unsupported ope...', '/var/www/manage...', 1891)
+#1 [internal function]: ErrorHandler::handleError(1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Unsupported ope...', '/var/www/manage...', 1891, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:07:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:08:52 Error: Fatal Error (1): Call to undefined method XTCPDF::SetBottomMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 12]
+2014-05-30 08:08:52 Error: [FatalErrorException] Call to undefined method XTCPDF::SetBottomMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:08:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:11:28 Error: Fatal Error (4): syntax error, unexpected '}' in [/var/www/manager/app/Controller/TimesController.php, line 571]
+2014-05-30 08:11:28 Error: [FatalErrorException] syntax error, unexpected '}'
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/manage...', 571)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/manage...', 571, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/manage...', 571, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:11:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:11:41 Error: Fatal Error (1): Call to undefined method XTCPDF::SetBottomMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 12]
+2014-05-30 08:11:41 Error: [FatalErrorException] Call to undefined method XTCPDF::SetBottomMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:11:41 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:12:09 Error: Fatal Error (1): Call to undefined method XTCPDF::SetMargin() in [/var/www/manager/app/View/Pdf/my_pdf_view.ctp, line 12]
+2014-05-30 08:12:09 Error: [FatalErrorException] Call to undefined method XTCPDF::SetMargin()
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to undefin...', '/var/www/manage...', 12)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to undefin...', '/var/www/manage...', 12, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:12:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 08:38:51 Error: Fatal Error (1): Call to a member function MultiCell() on a non-object in [/var/www/manager/app/Vendor/xtcpdf.php, line 30]
+2014-05-30 08:38:51 Error: [FatalErrorException] Call to a member function MultiCell() on a non-object
+Request URL: /admin/times/create_pdf/8
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(1, 'Call to a membe...', '/var/www/manage...', 30)
+#1 [internal function]: ErrorHandler::handleError(1, 'Call to a membe...', '/var/www/manage...', 30, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 1, 'Call to a membe...', '/var/www/manage...', 30, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 08:38:51 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 09:07:29 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 09:23:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 09:42:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:24:49 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:24:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:24:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:24:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:25:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:26:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:26:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:27:27 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:27:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:28:09 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:28:25 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:28:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:29:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:29:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:30:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:31:10 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:31:42 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 10:32:17 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:14:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:14:58 Error: Fatal Error (64): Cannot redeclare TimesController::download_pdf() in [/var/www/manager/app/Controller/TimesController.php, line 528]
+2014-05-30 11:14:58 Error: [FatalErrorException] Cannot redeclare TimesController::download_pdf()
+Request URL: /admin/times
+Stack Trace:
+#0 /var/www/manager/lib/Cake/Error/ErrorHandler.php(184): ErrorHandler::handleFatalError(64, 'Cannot redeclar...', '/var/www/manage...', 528)
+#1 [internal function]: ErrorHandler::handleError(64, 'Cannot redeclar...', '/var/www/manage...', 528, Array)
+#2 /var/www/manager/lib/Cake/Core/App.php(926): call_user_func('ErrorHandler::h...', 64, 'Cannot redeclar...', '/var/www/manage...', 528, Array)
+#3 /var/www/manager/lib/Cake/Core/App.php(899): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2014-05-30 11:14:59 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:15:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:15:30 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:15:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:07 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:16 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:21 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:16:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:17:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:17:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:17:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:18:00 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:22 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:24 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:30 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:46 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:19:52 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:20:48 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:22:38 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:22:50 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:22:54 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:22:58 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:23:01 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:23:04 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:23:12 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:23:15 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:23:28 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:24:26 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:24:31 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:24:34 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:24:37 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:26:40 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:27:44 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:27:55 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:28:03 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:32:19 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2014-05-30 11:33:05 Error: [MissingControllerException] Controller class CssController could not be found.
+Exception Attributes: array (
+  'class' => 'CssController',
+  'plugin' => NULL,
+)
+Request URL: /css/switch_button.css
+Stack Trace:
+#0 /var/www/manager/app/webroot/index.php(109): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

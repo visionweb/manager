@@ -336,11 +336,33 @@ class TimesController extends AppController{
 			);
 		$this->Paginator->settings = $this->paginate;
 		$sessions = $this->Paginator->paginate('Timesession');
-		$this->set(compact('sessions','project'));
+		$this->set(compact('sessions','project', 'id'));
 		$this->set('title','View project');
 		}
 		
 		
+	public function admin_configutation(){
+		$current=$this->Time->find('all');
+		$this->set('title','TimeMan');
+		$this->set(compact('current'));
+		if ($this->request->is('post')) {
+			$filename = WWW_ROOT. DS . 'img'.DS.'admin_logo.png'; 
+			move_uploaded_file($this->data['Time']['file']['tmp_name'],$filename);
+			$newset=array(
+				'adress'=>$this->data['Time']['adress'],
+				'company'=>$this->data['Time']['company'],
+				'phone'=>$this->data['Time']['phone'],
+				'city'=>$this->data['Time']['city'],
+				'city_code'=>$this->data['Time']['city_code'],
+				'mail'=>$this->data['Time']['mail'],
+				'footer'=>$this->data['Time']['footer']
+				);
+			$this->Time->id=1;
+			$this->Time->save($newset);
+			$this->redirect($this->request->here);
+			}
+		}
+	
 	public function admin_add_session($id=NULL){
 		$back = array_filter(explode('?', $id));
 		$back_to_project=true;
@@ -478,18 +500,7 @@ class TimesController extends AppController{
 		$this->set(compact('categories','session'));
 		$this->set('title','Edit work session');
 		}
-		
-	public function download_pdf() {
-		$this->viewClass = 'Media';
-		$params = array(
-			'id' => 'test.pdf',
-			'name' => 'progect_report' ,
-			'download' => true,
-			'extension' => 'pdf',
-			'path' => APP . 'files/pdf' . DS
-		);
-		$this->set($params);
-		}
+	
 	
 	public function admin_download_pdf() {
 		$this->viewClass = 'Media';
@@ -501,5 +512,123 @@ class TimesController extends AppController{
 			'path' => APP . 'files/pdf' . DS
 		);
 		$this->set($params);
+		}
+	
+	public function download_pdf() {
+		$this->viewClass = 'Media';
+		$params = array(
+			'id' => 'test.pdf',
+			'name' => 'progect_report' ,
+			'download' => true,
+			'extension' => 'pdf',
+			'path' => APP . 'files/pdf' . DS
+		);
+		$this->set($params);
+		}
+		
+	public function admin_create_pdf($id=Null){
+		$this->loadModel('Timesession');
+		$sessions=$this->Timesession->find('all');
+		$data=$this->Time->find('all');
+		$data=$data[0]['Time'];
+		$footer=$data['footer'];
+		$header['user']=$this->Session->read('Auth.User.username');
+		$header['company']=$data['company'];
+		$header['adress']=$data['adress'];
+		$header['city']=$data['city_code'].' '.$data['city'];
+		$header['phone']=$data['phone'];
+		$header['mail']=$data['mail'];
+		$table='<table width="100%" border="1">
+		<tr>
+				<td><b>Date</b></td>
+				<td style="width:200px;"><b>Description</b></td>
+				<td><b>Category</b></td>
+				<td style="width:50px;"><b>Start</b></td>
+				<td style="width:50px;"><b>End</b></td>
+				<td style="width:60px;"><b>Duration</b></td>
+				</tr>';
+		
+		foreach($sessions as $session)
+			if($session['Timesession']['project_id']==$id)
+				$table.="
+				<tr>
+				<td align='center'>
+				{$session['Timesession']['date']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['description']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['category']}
+				</td>
+				<td align='center' width='50'>
+				{$session['Timesession']['start']}
+				</td>
+				<td align='center' style='width:50px;'>
+				{$session['Timesession']['end']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['duration']}
+				</td>
+				</tr>
+				";
+		$table.="</table>";
+		$this->set(compact('header','footer','table'));
+		$this->layout = '/pdf/default';
+		$this->render('/Pdf/my_pdf_view');
+		$this->redirect(array('action' => 'admin_download_pdf'));
+		}
+		
+	public function create_pdf($id=Null){
+		$this->loadModel('Timesession');
+		$sessions=$this->Timesession->find('all');
+		$data=$this->Time->find('all');
+		$data=$data[0]['Time'];
+		$footer=$data['footer'];
+		$header['user']=$this->Session->read('Auth.User.username');
+		$header['company']=$data['company'];
+		$header['adress']=$data['adress'];
+		$header['city']=$data['city_code'].' '.$data['city'];
+		$header['phone']=$data['phone'];
+		$header['mail']=$data['mail'];
+		$table='<table width="100%" border="1">
+		<tr>
+				<td><b>Date</b></td>
+				<td style="width:200px;"><b>Description</b></td>
+				<td><b>Category</b></td>
+				<td style="width:50px;"><b>Start</b></td>
+				<td style="width:50px;"><b>End</b></td>
+				<td style="width:60px;"><b>Duration</b></td>
+				</tr>';
+		
+		foreach($sessions as $session)
+			if($session['Timesession']['project_id']==$id)
+				$table.="
+				<tr>
+				<td align='center'>
+				{$session['Timesession']['date']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['description']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['category']}
+				</td>
+				<td align='center' width='50'>
+				{$session['Timesession']['start']}
+				</td>
+				<td align='center' style='width:50px;'>
+				{$session['Timesession']['end']}
+				</td>
+				<td align='center'>
+				{$session['Timesession']['duration']}
+				</td>
+				</tr>
+				";
+		$table.="</table>";
+		$this->set(compact('header','footer','table'));
+		$this->layout = '/pdf/default';
+		$this->render('/Pdf/my_pdf_view');
+		$this->redirect(array('action' => 'download_pdf'));
 		}
 }

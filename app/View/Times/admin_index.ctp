@@ -16,6 +16,11 @@
 				Categories
 			</a>
 		</li>
+		<li>
+			<a href="<?php print $this->Html->url(array('action' => 'admin_configutation'))?>">
+				Configuration
+			</a>
+		</li>
 	</ul>
 		
 		<div class="actions btn-group">
