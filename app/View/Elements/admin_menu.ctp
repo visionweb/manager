@@ -154,7 +154,19 @@
                             <li>
                                 <a href="<?php echo Configure::read('root.url')?>admin/times">timeMan</a>
                             </li>
-                            <?php if(!empty($modules) and $modules[0]['Module']['activ']==0) print '-->';?>
+                            <?php if(!empty($modules) and $modules[1]['Module']['activ']==0) print '-->';?>
+                            
+                            <?php if(!empty($modules) and $modules[2]['Module']['activ']==0) print '<!--';?>
+                            <li class="dropdown-submenu">
+                                <a>Backup</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/backups/index">Listes</a></li>
+                                    <li><a href="<?php echo Configure::read('root.url')?>admin/backups/config">Configuration</a></li>
+                                </ul>
+                            </li>
+                            <?php if(!empty($modules) and $modules[2]['Module']['activ']==0) print '-->';?>
+                            
+                            
                         </ul>
                     </li>
                 </ul>

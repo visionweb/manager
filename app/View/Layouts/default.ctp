@@ -17,8 +17,6 @@
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
 ?>
-<?if(isset($this->request->data['isAjax'])): echo $this->fetch('content');?>
-<?else:?>
     <!DOCTYPE html>
     <html>
     <head>
@@ -44,8 +42,8 @@
     <body>
         <div id="container">
             <div id="header">
-                <?php echo $this->element('header'); ?>
-                <? if($this->Session->read('Auth.User.Group.id') == Configure::read('root.adminID'))
+                <?php echo $this->element('header'); 
+                 if($this->Session->read('Auth.User.Group.id') == Configure::read('root.adminID'))
                     echo $this->element('admin_menu');
                 else echo $this->element('menu');?>
             </div>
@@ -61,7 +59,7 @@
             <div id="footer"></div>
         </div>
         <?php
-        if(strpos($_SERVER['SERVER_NAME'], 'local')) echo $this->element('sql_dump');
+        //if(strpos($_SERVER['SERVER_NAME'], 'local')) echo $this->element('sql_dump');
         ?>
     </body>
     </html>
