@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.4.10.1deb1
+-- version 4.0.6
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: May 15, 2014 at 07:55 PM
--- Server version: 5.5.37
--- PHP Version: 5.3.10-1ubuntu3.11
+-- Хост: 172.16.8.17
+-- Время создания: Июн 13 2014 г., 04:07
+-- Версия сервера: 5.5.35-0+wheezy1
+-- Версия PHP: 5.4.26-1~dotdeb.1
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `manager`
+-- База данных: `managero`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `acos`
+-- Структура таблицы `acos`
 --
 
 CREATE TABLE IF NOT EXISTS `acos` (
@@ -35,14 +35,14 @@ CREATE TABLE IF NOT EXISTS `acos` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=410 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=426 ;
 
 --
--- Dumping data for table `acos`
+-- Дамп данных таблицы `acos`
 --
 
 INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(92, NULL, NULL, NULL, 'controllers', 1, 636),
+(92, NULL, NULL, NULL, 'controllers', 1, 668),
 (93, 92, NULL, NULL, 'CategorieFaqs', 2, 25),
 (94, 93, NULL, NULL, 'index', 3, 4),
 (95, 93, NULL, NULL, 'view', 5, 6),
@@ -288,7 +288,7 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (335, 332, NULL, NULL, 'admin_add', 531, 532),
 (336, 332, NULL, NULL, 'admin_edit', 533, 534),
 (337, 269, NULL, NULL, 'admin_search', 425, 426),
-(338, 92, NULL, NULL, 'Voips', 538, 593),
+(338, 92, NULL, NULL, 'Voips', 538, 595),
 (339, 338, NULL, NULL, 'index', 539, 540),
 (340, 338, NULL, NULL, 'view', 541, 542),
 (341, 338, NULL, NULL, 'admin_index', 543, 544),
@@ -307,10 +307,10 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (354, 338, NULL, NULL, 'user_account', 569, 570),
 (355, 338, NULL, NULL, 'voipView', 571, 572),
 (356, 151, NULL, NULL, 'voipList', 295, 296),
-(357, 92, NULL, NULL, 'Modules', 594, 607),
-(358, 357, NULL, NULL, 'admin_index', 595, 596),
-(359, 357, NULL, NULL, 'admin_enable', 597, 598),
-(360, 357, NULL, NULL, 'admin_disable', 599, 600),
+(357, 92, NULL, NULL, 'Modules', 596, 609),
+(358, 357, NULL, NULL, 'admin_index', 597, 598),
+(359, 357, NULL, NULL, 'admin_enable', 599, 600),
+(360, 357, NULL, NULL, 'admin_disable', 601, 602),
 (361, 338, NULL, NULL, 'admin_removenumber', 573, 574),
 (362, 338, NULL, NULL, 'admin_server', 575, 576),
 (363, 338, NULL, NULL, 'admin_listNumbers', 577, 578),
@@ -319,52 +319,68 @@ INSERT INTO `acos` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `
 (366, 338, NULL, NULL, 'admin_changeprice', 583, 584),
 (367, 338, NULL, NULL, 'admin_call_logs', 585, 586),
 (368, 338, NULL, NULL, 'admin_callLogs', 587, 588),
-(369, 184, NULL, NULL, 'sendMail', 371, 372),
-(370, 93, NULL, NULL, 'sendMail', 23, 24),
-(371, 99, NULL, NULL, 'sendMail', 47, 48),
-(372, 117, NULL, NULL, 'sendMail', 95, 96),
-(373, 123, NULL, NULL, 'sendMail', 149, 150),
-(374, 129, NULL, NULL, 'sendMail', 173, 174),
-(375, 268, NULL, NULL, 'sendMail', 397, 398),
-(376, 266, NULL, NULL, 'sendMail', 385, 386),
-(377, 269, NULL, NULL, 'sendMail', 427, 428),
-(378, 357, NULL, NULL, 'admin_logo', 601, 602),
-(379, 357, NULL, NULL, 'sendMail', 603, 604),
-(380, 135, NULL, NULL, 'sendMail', 183, 184),
-(381, 327, NULL, NULL, 'sendMail', 523, 524),
-(382, 332, NULL, NULL, 'sendMail', 535, 536),
-(383, 286, NULL, NULL, 'sendMail', 447, 448),
-(384, 307, NULL, NULL, 'sendMail', 483, 484),
-(385, 313, NULL, NULL, 'sendMail', 497, 498),
-(386, 319, NULL, NULL, 'sendMail', 511, 512),
-(387, 299, NULL, NULL, 'sendMail', 469, 470),
-(388, 139, NULL, NULL, 'sendMail', 217, 218),
-(389, 145, NULL, NULL, 'sendMail', 267, 268),
-(390, 151, NULL, NULL, 'sendMail', 297, 298),
-(391, 338, NULL, NULL, 'call_logs', 589, 590),
-(392, 338, NULL, NULL, 'sendMail', 591, 592),
+(369, 338, NULL, NULL, 'admin_logo', 589, 590),
+(370, 338, NULL, NULL, 'call_logs', 591, 592),
+(371, 184, NULL, NULL, 'sendMail', 371, 372),
+(372, 93, NULL, NULL, 'sendMail', 23, 24),
+(373, 99, NULL, NULL, 'sendMail', 47, 48),
+(374, 117, NULL, NULL, 'sendMail', 95, 96),
+(375, 123, NULL, NULL, 'sendMail', 149, 150),
+(376, 129, NULL, NULL, 'sendMail', 173, 174),
+(377, 268, NULL, NULL, 'sendMail', 397, 398),
+(378, 266, NULL, NULL, 'sendMail', 385, 386),
+(379, 269, NULL, NULL, 'sendMail', 427, 428),
+(380, 357, NULL, NULL, 'sendMail', 603, 604),
+(381, 135, NULL, NULL, 'sendMail', 183, 184),
+(382, 327, NULL, NULL, 'sendMail', 523, 524),
+(383, 332, NULL, NULL, 'sendMail', 535, 536),
+(384, 286, NULL, NULL, 'sendMail', 447, 448),
+(385, 307, NULL, NULL, 'sendMail', 483, 484),
+(386, 313, NULL, NULL, 'sendMail', 497, 498),
+(387, 319, NULL, NULL, 'sendMail', 511, 512),
+(388, 299, NULL, NULL, 'sendMail', 469, 470),
+(389, 139, NULL, NULL, 'sendMail', 217, 218),
+(390, 145, NULL, NULL, 'sendMail', 267, 268),
+(391, 151, NULL, NULL, 'sendMail', 297, 298),
+(392, 338, NULL, NULL, 'sendMail', 593, 594),
 (393, 160, NULL, NULL, 'sendMail', 308, 309),
 (394, 164, NULL, NULL, 'sendMail', 346, 347),
-(395, 357, NULL, NULL, 'admin_mail', 605, 606),
-(396, 92, NULL, NULL, 'Times', 608, 635),
-(397, 396, NULL, NULL, 'admin_index', 609, 610),
-(398, 396, NULL, NULL, 'sendMail', 611, 612),
-(399, 396, NULL, NULL, 'index', 613, 614),
-(400, 396, NULL, NULL, 'admin_projects', 615, 616),
-(401, 396, NULL, NULL, 'admin_add_categories', 617, 618),
-(402, 396, NULL, NULL, 'admin_categories', 619, 620),
-(403, 396, NULL, NULL, 'admin_del_cat', 621, 622),
-(404, 396, NULL, NULL, 'admin_edit_cat', 623, 624),
-(405, 396, NULL, NULL, 'admin_add_projects', 625, 626),
-(406, 396, NULL, NULL, 'admin_del_projects', 627, 628),
-(407, 396, NULL, NULL, 'admin_edit_projects', 629, 630),
-(408, 396, NULL, NULL, 'admin_edit_project', 631, 632),
-(409, 396, NULL, NULL, 'admin_del_project', 633, 634);
+(395, 357, NULL, NULL, 'admin_logo', 605, 606),
+(396, 357, NULL, NULL, 'admin_mail', 607, 608),
+(397, 92, NULL, NULL, 'Times', 610, 659),
+(398, 397, NULL, NULL, 'admin_index', 611, 612),
+(399, 397, NULL, NULL, 'index', 613, 614),
+(400, 397, NULL, NULL, 'admin_categories', 615, 616),
+(401, 397, NULL, NULL, 'admin_add_categories', 617, 618),
+(402, 397, NULL, NULL, 'admin_del_cat', 619, 620),
+(403, 397, NULL, NULL, 'admin_edit_cat', 621, 622),
+(404, 397, NULL, NULL, 'admin_projects', 623, 624),
+(405, 397, NULL, NULL, 'admin_add_projects', 625, 626),
+(406, 397, NULL, NULL, 'admin_del_project', 627, 628),
+(407, 397, NULL, NULL, 'admin_edit_project', 629, 630),
+(408, 397, NULL, NULL, 'sendMail', 631, 632),
+(409, 397, NULL, NULL, 'admin_start_projects', 633, 634),
+(410, 397, NULL, NULL, 'admin_suspend_project', 635, 636),
+(411, 397, NULL, NULL, 'admin_view_project', 637, 638),
+(412, 397, NULL, NULL, 'projects', 639, 640),
+(413, 397, NULL, NULL, 'admin_add_session', 641, 642),
+(414, 397, NULL, NULL, 'admin_edit_session', 643, 644),
+(415, 397, NULL, NULL, 'admin_delete_session', 645, 646),
+(416, 397, NULL, NULL, 'view_project', 647, 648),
+(417, 397, NULL, NULL, 'download_pdf', 649, 650),
+(418, 397, NULL, NULL, 'admin_download_pdf', 651, 652),
+(419, 397, NULL, NULL, 'admin_configutation', 653, 654),
+(420, 397, NULL, NULL, 'admin_create_pdf', 655, 656),
+(421, 92, NULL, NULL, 'Backups', 660, 667),
+(422, 421, NULL, NULL, 'admin_index', 661, 662),
+(423, 421, NULL, NULL, 'admin_config', 663, 664),
+(424, 421, NULL, NULL, 'sendMail', 665, 666),
+(425, 397, NULL, NULL, 'create_pdf', 657, 658);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `actualites`
+-- Структура таблицы `actualites`
 --
 
 CREATE TABLE IF NOT EXISTS `actualites` (
@@ -374,23 +390,22 @@ CREATE TABLE IF NOT EXISTS `actualites` (
   `created` datetime DEFAULT NULL,
   `actif_actu` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `actualites`
+-- Дамп данных таблицы `actualites`
 --
 
 INSERT INTO `actualites` (`id`, `titre_actu`, `contenu_actu`, `created`, `actif_actu`) VALUES
-(1, 'Lancement du manager', '<p>Ceci est la 1&egrave;re news du manager</p>', '2013-04-22 14:57:29', 1),
-(2, 'Information', '<p>A titre d''information, j''utilise un <strong>plugin</strong> <span style="text-decoration: underline;">Tinymce</span> pour <em>&eacute;diter</em> mes actualit&eacute;s</p>', '2013-04-22 15:08:46', 1),
-(3, 'test', '<p>test tset</p>', '2013-05-30 11:00:14', 0),
-(4, 'Plus d''actualité', '<p>euhh</p>', '2013-07-01 17:53:36', 1),
-(5, 'Flash', '<p>Couleur en fond vert du message vert</p>', '2013-07-08 16:58:42', 1);
+(6, 'fff', '<p>dfdfdfdf</p>', '2014-03-22 00:04:57', 0),
+(7, 'fff', '', '2014-03-25 10:37:04', 0),
+(8, 'fff', '', '2014-03-25 10:49:15', 0),
+(9, 'fff', '', '2014-03-25 10:53:29', 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros`
+-- Структура таблицы `aros`
 --
 
 CREATE TABLE IF NOT EXISTS `aros` (
@@ -402,50 +417,56 @@ CREATE TABLE IF NOT EXISTS `aros` (
   `lft` int(10) DEFAULT NULL,
   `rght` int(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=33 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=42 ;
 
 --
--- Dumping data for table `aros`
+-- Дамп данных таблицы `aros`
 --
 
 INSERT INTO `aros` (`id`, `parent_id`, `model`, `foreign_key`, `alias`, `lft`, `rght`) VALUES
-(1, NULL, 'Group', 2, NULL, 1, 14),
+(1, NULL, 'Group', 2, NULL, 1, 22),
 (2, 1, 'User', 2, NULL, 12, 13),
-(3, NULL, 'Group', 3, NULL, 15, 18),
+(3, NULL, 'Group', 3, NULL, 23, 26),
 (4, 1, 'User', 3, NULL, 2, 3),
-(5, NULL, 'Group', 4, NULL, 19, 20),
-(6, NULL, 'Group', 5, NULL, 21, 26),
-(7, NULL, 'Group', 6, NULL, 27, 28),
-(8, NULL, 'Group', 7, NULL, 29, 36),
-(9, NULL, 'Group', 8, NULL, 37, 38),
-(10, 3, 'User', 4, NULL, 16, 17),
-(11, 6, 'User', 5, NULL, 22, 23),
-(12, 6, 'User', 6, NULL, 24, 25),
-(13, NULL, 'Group', 9, NULL, 39, 40),
-(14, 8, 'User', 7, NULL, 30, 31),
-(15, 8, 'User', 8, NULL, 32, 33),
+(5, NULL, 'Group', 4, NULL, 27, 28),
+(6, NULL, 'Group', 5, NULL, 29, 34),
+(7, NULL, 'Group', 6, NULL, 35, 36),
+(8, NULL, 'Group', 7, NULL, 37, 44),
+(9, NULL, 'Group', 8, NULL, 45, 46),
+(10, 3, 'User', 4, NULL, 24, 25),
+(11, 6, 'User', 5, NULL, 30, 31),
+(12, 6, 'User', 6, NULL, 32, 33),
+(13, NULL, 'Group', 9, NULL, 47, 48),
+(14, 8, 'User', 7, NULL, 38, 39),
+(15, 8, 'User', 8, NULL, 40, 41),
 (16, 1, 'User', 9, NULL, 4, 5),
 (17, 1, 'User', 10, NULL, 6, 7),
 (18, 1, 'User', 11, NULL, 8, 9),
 (19, 1, 'User', 12, NULL, 10, 11),
-(20, NULL, 'Group', 10, NULL, 41, 42),
-(21, NULL, 'Group', 11, NULL, 43, 44),
-(22, NULL, 'Group', 12, NULL, 45, 46),
-(23, NULL, 'Group', 13, NULL, 47, 48),
-(24, NULL, 'Group', 14, NULL, 49, 50),
-(25, NULL, 'Group', 15, NULL, 51, 52),
-(26, NULL, 'Group', 16, NULL, 53, 54),
-(27, NULL, 'Group', 17, NULL, 55, 56),
-(28, NULL, 'Group', 18, NULL, 57, 58),
-(29, NULL, 'Group', 19, NULL, 59, 60),
-(30, NULL, 'Group', 20, NULL, 61, 62),
-(31, 8, 'User', 13, NULL, 34, 35),
-(32, NULL, 'Group', 10, NULL, 63, 64);
+(20, NULL, 'Group', 10, NULL, 49, 50),
+(21, NULL, 'Group', 11, NULL, 51, 52),
+(22, NULL, 'Group', 12, NULL, 53, 54),
+(23, NULL, 'Group', 13, NULL, 55, 56),
+(24, NULL, 'Group', 14, NULL, 57, 58),
+(25, NULL, 'Group', 15, NULL, 59, 60),
+(26, NULL, 'Group', 16, NULL, 61, 62),
+(27, NULL, 'Group', 17, NULL, 63, 64),
+(28, NULL, 'Group', 18, NULL, 65, 66),
+(29, NULL, 'Group', 19, NULL, 67, 68),
+(30, NULL, 'Group', 20, NULL, 69, 70),
+(31, 8, 'User', 13, NULL, 42, 43),
+(32, NULL, 'Group', 10, NULL, 71, 72),
+(33, 1, 'User', 17, NULL, 14, 15),
+(34, 1, 'User', 18, NULL, 16, 17),
+(38, 1, 'User', 22, NULL, 18, 19),
+(39, 1, 'User', 23, NULL, 20, 21),
+(40, NULL, 'Group', 11, NULL, 73, 76),
+(41, 40, 'User', 18, NULL, 74, 75);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `aros_acos`
+-- Структура таблицы `aros_acos`
 --
 
 CREATE TABLE IF NOT EXISTS `aros_acos` (
@@ -458,10 +479,10 @@ CREATE TABLE IF NOT EXISTS `aros_acos` (
   `_delete` varchar(2) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`),
   UNIQUE KEY `ARO_ACO_KEY` (`aro_id`,`aco_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=112 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=149 ;
 
 --
--- Dumping data for table `aros_acos`
+-- Дамп данных таблицы `aros_acos`
 --
 
 INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`, `_delete`) VALUES
@@ -566,12 +587,311 @@ INSERT INTO `aros_acos` (`id`, `aro_id`, `aco_id`, `_create`, `_read`, `_update`
 (107, 32, 157, '1', '1', '1', '1'),
 (108, 32, 158, '1', '1', '1', '1'),
 (109, 32, 136, '1', '1', '1', '1'),
-(111, 10, 193, '-1', '-1', '-1', '-1');
+(111, 10, 193, '-1', '-1', '-1', '-1'),
+(112, 40, 92, '-1', '-1', '-1', '-1'),
+(113, 40, 185, '1', '1', '1', '1'),
+(114, 40, 118, '1', '1', '1', '1'),
+(115, 40, 119, '1', '1', '1', '1'),
+(116, 40, 130, '1', '1', '1', '1'),
+(117, 40, 131, '1', '1', '1', '1'),
+(118, 40, 270, '1', '1', '1', '1'),
+(119, 40, 277, '1', '1', '1', '1'),
+(120, 40, 275, '1', '1', '1', '1'),
+(121, 40, 287, '1', '1', '1', '1'),
+(122, 40, 289, '1', '1', '1', '1'),
+(123, 40, 293, '1', '1', '1', '1'),
+(124, 40, 291, '1', '1', '1', '1'),
+(125, 40, 304, '1', '1', '1', '1'),
+(126, 40, 305, '1', '1', '1', '1'),
+(127, 40, 142, '1', '1', '1', '1'),
+(128, 40, 140, '1', '1', '1', '1'),
+(129, 40, 260, '1', '1', '1', '1'),
+(130, 40, 259, '1', '1', '1', '1'),
+(131, 40, 258, '1', '1', '1', '1'),
+(132, 40, 141, '1', '1', '1', '1'),
+(133, 40, 242, '1', '1', '1', '1'),
+(134, 40, 245, '1', '1', '1', '1'),
+(135, 40, 248, '1', '1', '1', '1'),
+(136, 40, 244, '1', '1', '1', '1'),
+(137, 40, 247, '1', '1', '1', '1'),
+(138, 40, 250, '1', '1', '1', '1'),
+(139, 40, 243, '1', '1', '1', '1'),
+(140, 40, 246, '1', '1', '1', '1'),
+(141, 40, 249, '1', '1', '1', '1'),
+(142, 40, 152, '1', '1', '1', '1'),
+(143, 40, 155, '1', '1', '1', '1'),
+(144, 40, 157, '1', '1', '1', '1'),
+(145, 40, 158, '1', '1', '1', '1'),
+(146, 40, 136, '1', '1', '1', '1'),
+(147, 40, 412, '1', '1', '1', '1'),
+(148, 40, 416, '1', '1', '1', '1');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categories`
+-- Структура таблицы `backups`
+--
+
+CREATE TABLE IF NOT EXISTS `backups` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `calls`
+--
+
+CREATE TABLE IF NOT EXISTS `calls` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `date` date NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `update` varchar(100) NOT NULL,
+  `caller` varchar(30) NOT NULL,
+  `called` varchar(30) NOT NULL,
+  `duration` int(11) NOT NULL,
+  `owner` varchar(50) NOT NULL,
+  `direction` varchar(20) NOT NULL,
+  `destination` varchar(50) NOT NULL,
+  `price` varchar(10) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=38046 ;
+
+--
+-- Дамп данных таблицы `calls`
+--
+
+INSERT INTO `calls` (`id`, `date`, `name`, `update`, `caller`, `called`, `duration`, `owner`, `direction`, `destination`, `price`) VALUES
+(36658, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:21:20&end_date=', '33640249737', '33972410020', 5, 'admin', 'incoming', '', '0'),
+(36659, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:22:42&end_date=', '33640249737', '33972410020', 4, 'admin', 'incoming', '', '0'),
+(36660, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:25:03&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36661, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:25:54&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36662, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:27:54&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36663, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:34:10&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36664, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:36:28&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36665, '2013-12-05', 'User 1', '?start_date=2013-12-05T14:38:15&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36666, '2013-12-05', 'User 1', '?start_date=2013-12-05T15:49:24&end_date=', '33640249737', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36667, '2013-12-05', 'User 2', '?start_date=2013-12-05T15:51:33&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36668, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:02:41&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36669, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:05:12&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36670, '2013-12-05', 'User 1', '?start_date=2013-12-05T16:05:20&end_date=', '"0972410020"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36671, '2013-12-05', 'User 1', '?start_date=2013-12-05T16:05:44&end_date=', '33972410021', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(36672, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:07:03&end_date=', '33972410020', '33972410021', 3, 'admin', 'incoming', '', '0'),
+(36673, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:07:53&end_date=', '33972410020', '33972410021', 1, 'admin', 'incoming', '', '0'),
+(36674, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:09:59&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36675, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:11:12&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36676, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:13:41&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36677, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:15:33&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36678, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:39:09&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36679, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:49:29&end_date=', '33640249737', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(36680, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:50:37&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36681, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:51:27&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36682, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:51:43&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36683, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:53:01&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36684, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:53:52&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36685, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:54:08&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36686, '2013-12-05', 'User 2', '?start_date=2013-12-05T16:54:14&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(36687, '2013-12-05', 'User 1', '?start_date=2013-12-05T16:54:56&end_date=', '"0972410020"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37852, '2013-12-05', 'User 10', '?start_date=2013-12-05T16:55:57&end_date=', '33640249737', '33972410024', 0, 'No account', 'incoming', '', '0'),
+(37853, '2013-12-05', 'User 10', '?start_date=2013-12-05T17:00:28&end_date=', '33640249737', '33972410024', 0, 'No account', 'incoming', '', '0'),
+(37854, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:00:38&end_date=', '33972410021', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37855, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:00:56&end_date=', '33972410020', '33972410021', 1, 'admin', 'incoming', '', '0'),
+(37856, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:01:55&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37857, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:04:09&end_date=', '33640249737', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37858, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:05:29&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37859, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:08:15&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37860, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:08:29&end_date=', '"0972410021"""', '331463', 2, 'admin', 'outcoming', 'France', '0'),
+(37861, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:09:02&end_date=', '"0972410021"""', '33972410028', 0, 'admin', 'outcoming', 'France', '0'),
+(37862, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:09:14&end_date=', '"0972410021"""', '33972410024', 0, 'admin', 'outcoming', 'France', '0'),
+(37863, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:12:00&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37864, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:12:27&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37865, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:12:36&end_date=', '"0972410021"""', '331254', 0, 'admin', 'outcoming', 'France', '0'),
+(37866, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:15:14&end_date=', '"0972410021"""', '33972410024', 0, 'admin', 'outcoming', 'France', '0'),
+(37867, '2013-12-05', 'User 10', '?start_date=2013-12-05T17:15:29&end_date=', '33640249737', '33972410024', 2, 'No account', 'incoming', '', '0'),
+(37868, '2013-12-05', 'User 10', '?start_date=2013-12-05T17:16:09&end_date=', '33640249737', '33972410024', 2, 'No account', 'incoming', '', '0'),
+(37869, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:18:20&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37870, '2013-12-05', 'User 10', '?start_date=2013-12-05T17:18:34&end_date=', '33640249737', '33972410024', 0, 'No account', 'incoming', '', '0'),
+(37871, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:18:54&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37872, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:20:06&end_date=', '33972410020', '33972410021', 1, 'admin', 'incoming', '', '0'),
+(37873, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:41:00&end_date=', '"0972410021"""', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37874, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:42:41&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37875, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:44:09&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37876, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:44:52&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37877, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:45:16&end_date=', '33972410021', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37878, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:48:47&end_date=', '33972410021', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37879, '2013-12-05', 'User 1', '?start_date=2013-12-05T17:51:43&end_date=', '33972410021', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(37880, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:53:19&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37881, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:53:51&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37882, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:54:10&end_date=', '33972410021', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37883, '2013-12-05', 'User 2', '?start_date=2013-12-05T17:54:28&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37884, '2013-12-05', 'User 1', '?start_date=2013-12-05T17:55:18&end_date=', '33972410021', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(37885, '2013-12-05', 'User 1', '?start_date=2013-12-05T17:55:21&end_date=', '33972410020', '33972410021', 8, 'admin', 'outcoming', 'France', '0'),
+(37886, '2013-12-05', 'User 1', '?start_date=2013-12-05T17:57:14&end_date=', '33972410020', '33972410021', 8, 'admin', 'outcoming', 'France', '0'),
+(37887, '2013-12-05', 'User 1', '?start_date=2013-12-05T18:00:21&end_date=', '33972410020', '33972410021', 5, 'admin', 'outcoming', 'France', '0'),
+(37888, '2013-12-05', 'User 2', '?start_date=2013-12-05T18:01:06&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37889, '2013-12-05', 'User 2', '?start_date=2013-12-05T18:01:24&end_date=', '33972410021', '33640249737', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37890, '2013-12-05', 'User 2', '?start_date=2013-12-05T18:01:43&end_date=', '33972410021', '33972410020', 2, 'admin', 'outcoming', 'France', '0'),
+(37891, '2013-12-05', 'User 1', '?start_date=2013-12-05T18:02:57&end_date=', '33972410021', '33972410020', 0, 'admin', 'incoming', '', '0'),
+(37892, '2013-12-05', 'User 1', '?start_date=2013-12-05T18:03:00&end_date=', '33972410020', '33972410021', 0, 'admin', 'outcoming', 'France', '0'),
+(37893, '2013-12-05', 'User 2', '?start_date=2013-12-05T18:03:18&end_date=', '33972410020', '33972410021', 0, 'admin', 'incoming', '', '0'),
+(37894, '2013-12-05', 'User 2', '?start_date=2013-12-05T18:03:20&end_date=', '33972410021', '33972410020', 0, 'admin', 'outcoming', 'France', '0'),
+(37895, '2013-12-05', 'User 1', '?start_date=2013-12-05T21:03:38&end_date=', '33972410020', '33788180590', 6, 'admin', 'outcoming', 'France - Mobile - Orange', '0.01'),
+(37896, '2013-12-06', 'User 1', '?start_date=2013-12-06T15:33:39&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37897, '2013-12-14', 'User 1', '?start_date=2013-12-14T15:41:48&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37898, '2013-12-14', 'User 1', '?start_date=2013-12-14T15:43:20&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37899, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:50:19&end_date=', '33972410020', '33753597098', 7, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37900, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:51:09&end_date=', '33972410020', '33664265987', 3, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37901, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:51:38&end_date=', '33972410020', '33664265987', 1, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37902, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:51:57&end_date=', '33972410020', '33664265987', 3, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37903, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:52:54&end_date=', '33972410020', '33753510258', 6, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37904, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:53:27&end_date=', '33972410020', '33753510258', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37905, '2013-12-18', 'User 1', '?start_date=2013-12-18T09:54:26&end_date=', '33972410020', '33753510258', 4, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37906, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:38:45&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37907, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:39:02&end_date=', '33972410020', '33753510258', 4, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37908, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:39:24&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37909, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:40:47&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37910, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:41:10&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37911, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:43:58&end_date=', '33972410020', '33753510258', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37912, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:51:13&end_date=', '33972410020', '33753510258', 4, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37913, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:51:17&end_date=', '33972410020', '33753510258', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37914, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:51:25&end_date=', '33972410020', '33753510258', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37915, '2013-12-18', 'User 1', '?start_date=2013-12-18T12:58:38&end_date=', '33972410020', '33664265987', 1, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37916, '2013-12-18', 'User 1', '?start_date=2013-12-18T16:05:21&end_date=', '33972410020', '33753510258', 5, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37917, '2013-12-18', 'User 1', '?start_date=2013-12-18T16:07:39&end_date=', '33972410020', '33664265987', 1, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37918, '2013-12-19', 'User 1', '?start_date=2013-12-19T08:50:35&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37919, '2013-12-19', 'User 1', '?start_date=2013-12-19T09:10:33&end_date=', '33972410020', '33160051575', 3, 'admin', 'outcoming', 'France', '0'),
+(37920, '2013-12-19', 'User 1', '?start_date=2013-12-19T09:21:19&end_date=', '33972410020', '33753510258', 4, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37921, '2013-12-19', 'User 1', '?start_date=2013-12-19T10:33:08&end_date=', '33972410020', '33160051572', 3, 'admin', 'outcoming', 'France', '0'),
+(37922, '2013-12-19', 'User 1', '?start_date=2013-12-19T10:36:58&end_date=', '33972410020', '33664265987', 3, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37923, '2013-12-19', 'User 1', '?start_date=2013-12-19T10:38:21&end_date=', '33972410020', '33664265987', 4, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37924, '2013-12-19', 'User 1', '?start_date=2013-12-19T10:39:33&end_date=', '33972410020', '33664265987', 6, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0.01'),
+(37925, '2013-12-19', 'User 3', '?start_date=2013-12-19T10:52:33&end_date=', '33972410022', '33972228767', 3, 'No account', 'outcoming', 'France', '0'),
+(37926, '2013-12-19', 'User 3', '?start_date=2013-12-19T10:53:09&end_date=', '33972410022', '33972228767', 2, 'No account', 'outcoming', 'France', '0'),
+(37927, '2013-12-19', 'User 3', '?start_date=2013-12-19T10:55:25&end_date=', '33972410022', '33972228767', 0, 'No account', 'outcoming', 'France', '0'),
+(37928, '2013-12-19', 'User 3', '?start_date=2013-12-19T14:19:34&end_date=', '33972410022', '33972228767', 4, 'No account', 'outcoming', 'France', '0'),
+(37929, '2013-12-19', 'User 1', '?start_date=2013-12-19T15:05:04&end_date=', '33972410020', '33753510258', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37930, '2013-12-19', 'User 1', '?start_date=2013-12-19T18:05:52&end_date=', '33972410020', '33753510258', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37931, '2013-12-19', 'User 1', '?start_date=2013-12-19T20:18:43&end_date=', '33972410020', '33753510258', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37932, '2013-12-20', 'User 1', '?start_date=2013-12-20T11:15:16&end_date=', '33972410020', '33160051572', 5, 'admin', 'outcoming', 'France', '0'),
+(37933, '2013-12-20', 'User 1', '?start_date=2013-12-20T16:26:41&end_date=', '33972410020', '33753510258', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37934, '2013-12-20', 'User 1', '?start_date=2013-12-20T16:28:27&end_date=', '33972410020', '33753510258', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37935, '2013-12-20', 'User 1', '?start_date=2013-12-20T16:28:38&end_date=', '33972410020', '33664265987', 1, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37936, '2013-12-20', 'User 1', '?start_date=2013-12-20T16:30:56&end_date=', '33972410020', '33160051572', 1, 'admin', 'outcoming', 'France', '0'),
+(37937, '2013-12-20', 'User 1', '?start_date=2013-12-20T18:48:28&end_date=', '33972410020', '33160051572', 0, 'admin', 'outcoming', 'France', '0'),
+(37938, '2013-12-20', 'User 1', '?start_date=2013-12-20T18:48:42&end_date=', '33972410020', '33753510258', 6, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37939, '2013-12-20', 'User 1', '?start_date=2013-12-20T18:48:58&end_date=', '33972410020', '33753510258', 4, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37940, '2013-12-20', 'User 1', '?start_date=2013-12-20T18:49:07&end_date=', '33972410020', '33160051572', 3, 'admin', 'outcoming', 'France', '0'),
+(37941, '2013-12-20', 'User 1', '?start_date=2013-12-20T18:50:06&end_date=', '33972410020', '33664265987', 1, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37942, '2013-12-20', 'User 1', '?start_date=2013-12-20T21:03:28&end_date=', '33972410020', '33664265987', 2, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37943, '2013-12-21', 'User 1', '?start_date=2013-12-21T19:30:45&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37944, '2013-12-23', 'User 1', '?start_date=2013-12-23T09:42:58&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37945, '2013-12-23', 'User 1', '?start_date=2013-12-23T09:45:59&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37946, '2013-12-23', 'User 10', '?start_date=2013-12-23T09:46:08&end_date=', '33972410029', '33972228767', 6, 'admin', 'outcoming', 'France', '0'),
+(37947, '2013-12-23', 'User 10', '?start_date=2013-12-23T09:46:22&end_date=', '33972410029', '33972228767', 2, 'admin', 'outcoming', 'France', '0'),
+(37948, '2013-12-23', 'User 10', '?start_date=2013-12-23T09:47:18&end_date=', '33972410029', '33618016489', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37949, '2013-12-23', 'User 10', '?start_date=2013-12-23T09:55:03&end_date=', '33972410029', '33618016489', 1, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37950, '2013-12-23', 'User 10', '?start_date=2013-12-23T11:19:30&end_date=', '33972410029', '33972228767', 0, 'admin', 'outcoming', 'France', '0'),
+(37951, '2013-12-23', 'User 1', '?start_date=2013-12-23T11:20:47&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37952, '2013-12-23', 'User 1', '?start_date=2013-12-23T11:21:29&end_date=', '33972410020', '33753510258', 3, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37953, '2013-12-23', 'User 1', '?start_date=2013-12-23T11:33:42&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37954, '2013-12-23', 'User 3', '?start_date=2013-12-23T11:34:01&end_date=', '33972410022', '33640249737', 10, 'No account', 'outcoming', 'France - Mobile - Orange', '0.01'),
+(37955, '2013-12-23', 'User 3', '?start_date=2013-12-23T11:34:28&end_date=', '33972410022', '33972228767', 0, 'No account', 'outcoming', 'France', '0'),
+(37956, '2013-12-23', 'User 3', '?start_date=2013-12-23T11:49:19&end_date=', '33972410022', '33972228767', 0, 'No account', 'outcoming', 'France', '0'),
+(37957, '2013-12-23', 'User 3', '?start_date=2013-12-23T11:54:08&end_date=', '33972410022', '33972228767', 0, 'No account', 'outcoming', 'France', '0'),
+(37958, '2013-12-23', 'User 10', '?start_date=2013-12-23T11:54:20&end_date=', '33972410029', '33972228767', 0, 'admin', 'outcoming', 'France', '0'),
+(37959, '2013-12-23', 'User 10', '?start_date=2013-12-23T16:16:38&end_date=', '33972410029', '33788180590', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37960, '2013-12-23', 'User 1', '?start_date=2013-12-23T16:30:03&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37961, '2013-12-23', 'User 1', '?start_date=2013-12-23T16:31:15&end_date=', '33972410020', '33615404797', 16, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37962, '2013-12-23', 'User 1', '?start_date=2013-12-23T16:36:40&end_date=', '33972410020', '33179993006', 214, 'admin', 'outcoming', 'France', '0.04'),
+(37963, '2013-12-23', 'User 1', '?start_date=2013-12-23T17:28:33&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37964, '2013-12-23', 'User 1', '?start_date=2013-12-23T17:57:49&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37965, '2013-12-24', 'User 1', '?start_date=2013-12-24T10:41:37&end_date=', '33972410020', '33753597098', 2, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37966, '2013-12-26', 'User 1', '?start_date=2013-12-26T11:31:51&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37967, '2013-12-30', 'User 1', '?start_date=2013-12-30T19:37:51&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37968, '2014-01-08', 'User 10', '?start_date=2014-01-08T10:55:01&end_date=', '33972410029', '33788180590', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37969, '2014-01-08', 'User 10', '?start_date=2014-01-08T11:12:34&end_date=', '33972410029', '33972228767', 0, 'admin', 'outcoming', 'France', '0'),
+(37970, '2014-01-08', 'User 8', '?start_date=2014-01-08T11:13:29&end_date=', '33972410027', '33972228767', 0, 'No account', 'outcoming', 'France', '0'),
+(37971, '2014-01-09', 'User 10', '?start_date=2014-01-09T13:47:28&end_date=', '33972410029', '33972228767', 0, 'admin', 'outcoming', 'France', '0'),
+(37972, '2014-01-09', 'User 1', '?start_date=2014-01-09T13:55:29&end_date=', '33972410020', '33141461982', 181, 'admin', 'outcoming', 'France', '0.03'),
+(37973, '2014-01-21', 'User 1', '?start_date=2014-01-21T11:22:11&end_date=', '33972410020', '33144784434', 256, 'admin', 'outcoming', 'France', '0.04'),
+(37974, '2014-01-21', 'User 1', '?start_date=2014-01-21T13:36:34&end_date=', '33972410020', '33140333358', 355, 'admin', 'outcoming', 'France', '0.06'),
+(37975, '2014-01-21', 'User 1', '?start_date=2014-01-21T16:47:26&end_date=', '33972410020', '33181070900', 151, 'admin', 'outcoming', 'France', '0.03'),
+(37976, '2014-01-22', 'User 1', '?start_date=2014-01-22T15:46:09&end_date=', '33972410020', '33614270213', 11, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37977, '2014-01-22', 'User 1', '?start_date=2014-01-22T17:06:32&end_date=', '33972410020', '33614270213', 26, 'admin', 'outcoming', 'France - Mobile - SFR', '0.02'),
+(37978, '2014-01-27', 'User 1', '?start_date=2014-01-27T15:12:44&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37979, '2014-03-21', 'User 2', '?start_date=2014-03-21T13:02:15&end_date=', '33972410021', '3396881771', 5, 'admin', 'outcoming', 'France', '0'),
+(37980, '2014-03-21', 'User 2', '?start_date=2014-03-21T13:17:31&end_date=', '33972410021', '22996881771', 41, 'admin', 'outcoming', 'Bénin', '0.18'),
+(37981, '2014-03-21', 'User 2', '?start_date=2014-03-21T13:21:45&end_date=', '33972410021', '15148129737', 32, 'admin', 'outcoming', 'Canada', '0.01'),
+(37982, '2014-03-21', 'User 2', '?start_date=2014-03-21T23:09:16&end_date=', '33972410021', '33753510258', 32, 'admin', 'outcoming', 'France - Mobile - SFR', '0.03'),
+(37983, '2014-03-21', 'User 2', '?start_date=2014-03-21T23:11:06&end_date=', '33972410021', '33753510258', 39, 'admin', 'outcoming', 'France - Mobile - SFR', '0.03'),
+(37984, '2014-03-21', 'User 1', '?start_date=2014-03-21T23:11:33&end_date=', '33972410020', '33972410021', 6, 'admin', 'outcoming', 'France', '0'),
+(37985, '2014-03-21', 'User 1', '?start_date=2014-03-21T23:36:57&end_date=', '33972410020', '33972410021', 4, 'admin', 'outcoming', 'France', '0'),
+(37986, '2014-03-21', 'User 1', '?start_date=2014-03-21T23:37:08&end_date=', '33972410020', '33972410021', 27, 'admin', 'outcoming', 'France', '0'),
+(37987, '2014-03-26', 'User 1', '?start_date=2014-03-26T12:33:37&end_date=', '33972410020', '22994860006', 0, 'admin', 'outcoming', 'Bénin', '0'),
+(37988, '2014-03-26', 'User 2', '?start_date=2014-03-26T22:57:17&end_date=', '33972410021', '33753510258', 45, 'admin', 'outcoming', 'France - Mobile - SFR', '0.04'),
+(37989, '2014-03-26', 'User 1', '?start_date=2014-03-26T23:29:49&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37990, '2014-03-26', 'User 1', '?start_date=2014-03-26T23:35:40&end_date=', '33972410020', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(37991, '2014-03-27', 'User 1', '?start_date=2014-03-27T16:26:22&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37992, '2014-03-27', 'User 2', '?start_date=2014-03-27T21:29:38&end_date=', '33972410021', '33753510258', 33, 'admin', 'outcoming', 'France - Mobile - SFR', '0.03'),
+(37993, '2014-03-31', 'User 2', '?start_date=2014-03-31T12:11:29&end_date=', '33972410021', '33753510258', 38, 'admin', 'outcoming', 'France - Mobile - SFR', '0.03'),
+(37994, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:49:29&end_date=', '33972410020', '886266200886', 0, 'admin', 'outcoming', 'Taïwan', '0'),
+(37995, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:50:24&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(37996, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:50:41&end_date=', '33972410020', '33674758730', 0, 'admin', 'outcoming', 'France - Mobile - Orange', '0'),
+(37997, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:53:38&end_date=', '33972410020', '33674758730', 13, 'admin', 'outcoming', 'France - Mobile - Orange', '0.01'),
+(37998, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:54:26&end_date=', '33972410020', '33625084359', 11, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(37999, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:54:55&end_date=', '33972410020', '33625084359', 8, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(38000, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:55:57&end_date=', '33972410020', '33625084359', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(38001, '2014-03-31', 'User 1', '?start_date=2014-03-31T21:56:07&end_date=', '33972410020', '33625084359', 71, 'admin', 'outcoming', 'France - Mobile - SFR', '0.06'),
+(38002, '2014-04-01', 'User 2', '?start_date=2014-04-01T12:51:36&end_date=', '33972410021', '33753510258', 0, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(38003, '2014-04-01', 'User 1', '?start_date=2014-04-01T12:52:11&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(38004, '2014-04-01', 'User 1', '?start_date=2014-04-01T15:29:43&end_date=', '33972410020', '33674758730', 27, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38005, '2014-04-01', 'User 1', '?start_date=2014-04-01T15:30:59&end_date=', '33972410020', '33148174596', 14, 'admin', 'outcoming', 'France', '0'),
+(38006, '2014-04-01', 'User 1', '?start_date=2014-04-01T15:31:59&end_date=', '33972410020', '33148174596', 41, 'admin', 'outcoming', 'France', '0.01'),
+(38007, '2014-04-01', 'User 1', '?start_date=2014-04-01T19:45:34&end_date=', '33972410020', '33148174596', 276, 'admin', 'outcoming', 'France', '0.05'),
+(38008, '2014-04-01', 'User 1', '?start_date=2014-04-01T21:27:27&end_date=', '33972410020', '33664265987', 144, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0.12'),
+(38009, '2014-04-01', 'User 1', '?start_date=2014-04-01T21:53:36&end_date=', '33972410020', '33610293089', 102, 'admin', 'outcoming', 'France - Mobile - SFR', '0.09'),
+(38010, '2014-04-02', 'User 1', '?start_date=2014-04-02T10:48:03&end_date=', '33972410020', '33625084359', 316, 'admin', 'outcoming', 'France - Mobile - SFR', '0.26'),
+(38011, '2014-04-03', 'User 1', '?start_date=2014-04-03T15:17:00&end_date=', '33972410020', '33664265987', 13, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0.01'),
+(38012, '2014-04-03', 'User 1', '?start_date=2014-04-03T17:45:03&end_date=', '33972410020', '33674758730', 24, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38013, '2014-04-07', 'User 2', '?start_date=2014-04-07T09:31:56&end_date=', '33972410021', '33753510258', 13, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(38014, '2014-04-07', 'User 2', '?start_date=2014-04-07T12:51:36&end_date=', '33972410021', '33753510258', 98, 'admin', 'outcoming', 'France - Mobile - SFR', '0.08'),
+(38015, '2014-04-08', 'User 9', '?start_date=2014-04-08T15:26:53&end_date=', '33972410028', '33753510258', 0, 'No account', 'outcoming', 'France - Mobile - SFR', '0'),
+(38016, '2014-04-08', 'User 9', '?start_date=2014-04-08T15:31:37&end_date=', '33972410028', '33753510258', 0, 'No account', 'outcoming', 'France - Mobile - SFR', '0'),
+(38017, '2014-04-08', 'User 1', '?start_date=2014-04-08T15:33:05&end_date=', '33972410020', '33664265987', 0, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(38018, '2014-04-08', 'User 9', '?start_date=2014-04-08T18:11:26&end_date=', '33972410028', '33753510258', 9, 'No account', 'outcoming', 'France - Mobile - SFR', '0.01'),
+(38019, '2014-04-08', 'User 9', '?start_date=2014-04-08T18:12:51&end_date=', '33972410028', '33981474137', 17, 'No account', 'outcoming', 'France', '0'),
+(38020, '2014-04-08', 'User 9', '?start_date=2014-04-08T18:21:46&end_date=', '33972410028', '33981474137', 15, 'No account', 'outcoming', 'France', '0'),
+(38021, '2014-04-08', 'User 9', '?start_date=2014-04-08T18:33:45&end_date=', '33972410028', '33751117479', 32, 'No account', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(38022, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:06:52&end_date=', '33972410028', '33785421147', 6, 'No account', 'outcoming', 'France - Mobile - Orange', '0.01'),
+(38023, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:07:25&end_date=', '33972410028', '33751117479', 0, 'No account', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(38024, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:09:16&end_date=', '33972410028', '224664496199', 0, 'No account', 'outcoming', 'Guinée', '0'),
+(38025, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:10:06&end_date=', '33972410028', '224664417223', 17, 'No account', 'outcoming', 'Guinée', '0.15'),
+(38026, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:54:28&end_date=', '33972410028', '224664417223', 19, 'No account', 'outcoming', 'Guinée', '0.17'),
+(38027, '2014-04-08', 'User 9', '?start_date=2014-04-08T19:55:55&end_date=', '33972410028', '22505048853', 0, 'No account', 'outcoming', 'Côte d''Ivoire - Mobile', '0'),
+(38028, '2014-04-08', 'User 9', '?start_date=2014-04-08T21:40:57&end_date=', '33972410028', '22505048853', 32, 'No account', 'outcoming', 'Côte d''Ivoire - Mobile', '0.14'),
+(38029, '2014-04-09', 'User 2', '?start_date=2014-04-09T00:20:46&end_date=', '33972410021', '33753510258', 273, 'admin', 'outcoming', 'France - Mobile - SFR', '0.23'),
+(38030, '2014-04-09', 'User 2', '?start_date=2014-04-09T00:22:34&end_date=', '33972410021', '33630549198', 25, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38031, '2014-04-09', 'User 2', '?start_date=2014-04-09T00:23:42&end_date=', '33972410021', '33630549198', 13, 'admin', 'outcoming', 'France - Mobile - Orange', '0.01'),
+(38032, '2014-04-09', 'User 2', '?start_date=2014-04-09T00:24:54&end_date=', '33972410021', '33630549198', 27, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38033, '2014-04-09', 'User 2', '?start_date=2014-04-09T16:23:29&end_date=', '33972410021', '33752532915', 5, 'admin', 'outcoming', 'France - Mobile - SFR', '0'),
+(38034, '2014-04-09', 'User 9', '?start_date=2014-04-09T22:54:28&end_date=', '33972410028', '33148174598', 24, 'No account', 'outcoming', 'France', '0'),
+(38035, '2014-04-10', 'User 2', '?start_date=2014-04-10T09:48:34&end_date=', '33972410021', '33630549198', 26, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38036, '2014-04-14', 'User 1', '?start_date=2014-04-14T12:58:15&end_date=', '33972410020', '441618326969', 0, 'admin', 'outcoming', 'Royaume-Uni', '0'),
+(38037, '2014-04-16', 'User 1', '?start_date=2014-04-16T14:53:58&end_date=', '33972410020', '33695380439', 14, 'admin', 'outcoming', 'France - Mobile - Free', '0.01'),
+(38038, '2014-04-16', 'User 1', '?start_date=2014-04-16T14:54:37&end_date=', '33972410020', '33695380439', 16, 'admin', 'outcoming', 'France - Mobile - Free', '0.01'),
+(38039, '2014-04-16', 'User 1', '?start_date=2014-04-16T14:54:49&end_date=', '33972410020', '33695380439', 0, 'admin', 'outcoming', 'France - Mobile - Free', '0'),
+(38040, '2014-04-17', 'User 1', '?start_date=2014-04-17T10:35:43&end_date=', '33972410020', '33695380439', 9, 'admin', 'outcoming', 'France - Mobile - Free', '0.01'),
+(38041, '2014-04-23', 'User 2', '?start_date=2014-04-23T20:15:26&end_date=', '33972410021', '33630549198', 20, 'admin', 'outcoming', 'France - Mobile - Orange', '0.02'),
+(38042, '2014-04-24', 'User 2', '?start_date=2014-04-24T14:35:22&end_date=', '33972410021', '33630549198', 34, 'admin', 'outcoming', 'France - Mobile - Orange', '0.03'),
+(38043, '2014-04-24', 'User 9', '?start_date=2014-04-24T17:59:55&end_date=', '224631214067', '33972410028', 6, 'No account', 'incoming', '', '0'),
+(38044, '2014-04-24', 'User 2', '?start_date=2014-04-24T18:04:11&end_date=', '33972410021', '33664265987', 5, 'admin', 'outcoming', 'France - Mobile - Bouygues', '0'),
+(38045, '2014-04-24', 'User 2', '?start_date=2014-04-24T18:20:12&end_date=', '33972410021', '33753510258', 8, 'admin', 'outcoming', 'France - Mobile - SFR', '0.01');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `categories`
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
@@ -582,18 +902,18 @@ CREATE TABLE IF NOT EXISTS `categories` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `categories`
+-- Дамп данных таблицы `categories`
 --
 
 INSERT INTO `categories` (`id`, `name`, `description`) VALUES
-(3, 'Cat', 'yghjnkl'),
-(4, 'jhnk88', 'jg kjbnhikb bii binkjlmgfrytghbu utfvbukhb ubvb urvygbjhkjhvghdc ygvjhnbjgcvjhbb fchgvjhbn'),
-(5, 'Alexander Block', 'The night. The street. Street-lamp. Drugstore.\r\n\r\nA meaningless dull light about.\r\n\r\nYou may live twenty-five years more;\r\n\r\nAll will still be there. No way out.\r\n\r\n-\r\n\r\nYou die. You start again and all\r\n\r\nWill be repeated as before:\r\n\r\nThe cold rippling of a canal.\r\n\r\nThe night. The street. Street-lamp. Drugstore.');
+(3, 'Development', 'yghjnkl'),
+(4, 'Debug', 'jg kjbnhikb bii binkjlmgfrytghbu utfvbukhb ubvb urvygbjhkjhvghdc ygvjhnbjgcvjhbb fchgvjhbn'),
+(5, 'Support', 'The night. The street. Street-lamp. Drugstore.\r\n\r\nA meaningless dull light about.\r\n\r\nYou may live twenty-five years more;\r\n\r\nAll will still be there. No way out.\r\n\r\n-\r\n\r\nYou die. You start again and all\r\n\r\nWill be repeated as before:\r\n\r\nThe cold rippling of a canal.\r\n\r\nThe night. The street. Street-lamp. Drugstore.');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_faqs`
+-- Структура таблицы `categorie_faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_faqs` (
@@ -605,7 +925,7 @@ CREATE TABLE IF NOT EXISTS `categorie_faqs` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `categorie_faqs`
+-- Дамп данных таблицы `categorie_faqs`
 --
 
 INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, `actif_cat_faq`) VALUES
@@ -616,7 +936,7 @@ INSERT INTO `categorie_faqs` (`id`, `titre_categorie`, `description_categorie`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categorie_tickets`
+-- Структура таблицы `categorie_tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `categorie_tickets` (
@@ -624,20 +944,21 @@ CREATE TABLE IF NOT EXISTS `categorie_tickets` (
   `titre_categorie` varchar(45) NOT NULL,
   `actif_cat_ticket` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `categorie_tickets`
+-- Дамп данных таблицы `categorie_tickets`
 --
 
 INSERT INTO `categorie_tickets` (`id`, `titre_categorie`, `actif_cat_ticket`) VALUES
 (1, 'Téléphonie', 1),
-(2, 'Autre', 1);
+(2, 'Autre', 1),
+(3, 'test', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `commentaires`
+-- Структура таблицы `commentaires`
 --
 
 CREATE TABLE IF NOT EXISTS `commentaires` (
@@ -651,97 +972,19 @@ CREATE TABLE IF NOT EXISTS `commentaires` (
   PRIMARY KEY (`id`),
   KEY `fk_commentaires_tickets1_idx` (`ticket_id`),
   KEY `fk_commentaires_users1_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=86 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=46 ;
 
 --
--- Dumping data for table `commentaires`
+-- Дамп данных таблицы `commentaires`
 --
 
 INSERT INTO `commentaires` (`id`, `text_commentaire`, `created`, `actif_commentaire`, `ticket_id`, `user_id`, `task_id`) VALUES
-(1, 'un test', '2013-05-16 14:16:39', 1, 2, 2, 0),
-(3, 'ticket admin tel', '2013-05-16 14:44:40', 1, 4, 2, 0),
-(4, 'admin ticket autre', '2013-05-16 14:47:20', 1, 5, 2, 0),
-(7, 'sefs', '2013-05-17 10:53:50', 1, 8, 2, 0),
-(8, 'tes new add', '2013-05-17 10:54:33', 0, 9, 2, 0),
-(9, 'test 2', '2013-05-17 15:54:57', 1, 5, 2, 0),
-(10, 'text 3', '2013-05-17 15:55:37', 1, 5, 4, 0),
-(11, 'ser', '2013-05-20 09:29:10', 1, 5, 2, 0),
-(12, 'ert', '2013-05-20 09:30:13', 1, 5, 2, 0),
-(13, 'test commentaire\r\navec un saut ', '2013-05-20 09:48:42', 1, 1, 2, 0),
-(14, 'test commentaire<br />\r\navec un saut<br />\r\nv2', '2013-05-20 09:57:26', 1, 1, 2, 0),
-(15, 'test verif status', '2013-05-20 14:08:12', 0, 11, 2, 0),
-(16, 'fef', '2013-05-20 14:52:37', 1, 12, 2, 0),
-(17, 'comms v3', '2013-05-21 16:40:30', 1, 1, 2, 0),
-(18, 'comment4', '2013-05-21 17:15:02', 1, 1, 2, 0),
-(19, 'comment 5 flag', '2013-05-24 14:59:14', 1, 1, 2, 0),
-(20, 'comment 5 flag', '2013-05-24 15:01:11', 1, 1, 2, 0),
-(21, 'comment 6 flag', '2013-05-24 15:01:28', 1, 1, 2, 0),
-(22, 'rere', '2013-05-24 15:17:32', 1, 5, 2, 0),
-(23, 'titre long', '2013-05-24 15:17:59', 1, 12, 2, 0),
-(24, 'test', '2013-05-24 15:19:45', 1, 11, 2, 0),
-(25, 'comment 7<br />\r\n', '2013-05-24 15:20:33', 1, 1, 2, 0),
-(26, 'comment 8', '2013-05-24 15:20:56', 1, 1, 2, 0),
-(27, 'apre s. comm', '2013-05-28 11:12:22', 0, 13, 2, 0),
-(28, 'reponse', '2013-05-28 11:13:25', 0, 13, 2, 0),
-(29, 'testestsestst', '2013-05-29 16:15:32', 1, 11, 2, 0),
-(30, 'test ticket', '2013-06-04 10:48:09', 1, 14, 3, 0),
-(31, 'ok. ca marche', '2013-06-19 18:03:47', 1, 11, 2, 0),
-(32, 'dsfsd', '2013-07-16 14:20:25', 1, 15, 4, 0),
-(34, 'comment depuis que task int&egrave;gre les commentaires', '2013-07-16 15:32:09', 1, 1, 12, 0),
-(36, 'First commentaire Task', '2013-07-16 15:34:49', 1, 1, 12, 14),
-(37, 'Test', '2013-07-16 15:35:35', 1, 1, 12, 0),
-(39, 'Allez fonctionne', '2013-07-16 15:42:13', 1, NULL, 12, 14),
-(40, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:17', 1, NULL, 12, 14),
-(41, 'Allez re-test une derni&egrave;re fois', '2013-07-16 15:43:37', 1, 1, 12, 0),
-(42, 'Communication coupé', '2013-08-16 09:49:34', 1, 16, 4, 0),
-(43, 'BLABLA', '2013-08-16 10:16:48', 0, 17, 4, 0),
-(44, 'Avec l''id de l''user saved', '2013-08-16 10:56:56', 1, 18, 4, 0),
-(45, 'testmail', '2014-03-17 17:30:14', 1, 19, 4, 0),
-(46, 'testmail', '2014-03-17 17:31:01', 1, 20, 4, 0),
-(47, 'testmail', '2014-03-17 17:33:46', 1, 21, 4, 0),
-(48, 'testmail', '2014-03-17 17:36:25', 1, 22, 4, 0),
-(49, 'testmail', '2014-03-17 17:38:31', 1, 23, 4, 0),
-(50, 'kjnkjn', '2014-03-17 17:41:38', 0, 24, 4, 0),
-(51, 'kjnkjn', '2014-03-17 17:42:10', 1, 25, 4, 0),
-(52, 'kjnkjn', '2014-03-17 17:44:36', 1, 26, 4, 0),
-(53, 'kjnkjn', '2014-03-17 17:46:01', 1, 27, 4, 0),
-(54, 'kjnkjncxc', '2014-03-17 18:07:59', 1, 28, 4, 0),
-(55, 'kjnkjncxc', '2014-03-17 18:08:21', 1, 29, 4, 0),
-(56, 'kjnkjncxc', '2014-03-17 18:08:47', 1, 30, 4, 0),
-(57, 'kjnkjncxc', '2014-03-17 18:09:28', 1, 31, 4, 0),
-(58, 'kjnkjncxc', '2014-03-17 18:12:41', 1, 32, 4, 0),
-(59, 'kjnkjncxc', '2014-03-17 18:12:45', 1, 33, 4, 0),
-(60, 'zxczxc', '2014-03-17 18:13:21', 1, 34, 4, 0),
-(61, 'zxczxc', '2014-03-17 18:14:13', 1, 35, 4, 0),
-(62, 'zxczxc', '2014-03-17 18:14:23', 1, 36, 4, 0),
-(63, 'zxczxc', '2014-03-17 18:15:17', 1, 37, 4, 0),
-(64, 'zxczxc', '2014-03-17 18:16:29', 1, 38, 4, 0),
-(65, 'zxczxc', '2014-03-17 18:17:11', 1, 39, 4, 0),
-(66, 'zxczxc', '2014-03-17 18:21:44', 1, 40, 4, 0),
-(67, 'zxczxc', '2014-03-17 18:22:22', 1, 41, 4, 0),
-(68, 'xacas', '2014-03-17 18:23:01', 1, 42, 4, 0),
-(69, 'sdcsdc', '2014-03-17 18:41:46', 1, 43, 4, 0),
-(70, 'sdcsdc', '2014-03-17 18:45:29', 1, 44, 4, 0),
-(71, 'Test', '2014-03-17 18:59:11', 1, 45, 4, 0),
-(72, 'lets test', '2014-03-17 18:59:45', 1, 46, 4, 0),
-(73, 'comment', '2014-03-17 19:03:03', 1, 25, 4, 0),
-(74, 'lmkn', '2014-03-17 19:05:56', 1, 25, 4, 0),
-(75, 'km', '2014-03-17 19:13:11', 1, 12, 2, 0),
-(76, 'sdfsdfsdf', '2014-03-17 19:27:26', 1, 25, 2, 0),
-(77, 'xcvxcv', '2014-03-17 19:28:17', 1, 23, 4, 0),
-(78, 'xcvxcv', '2014-03-17 19:28:48', 1, 23, 4, 0),
-(79, 'xcvxcv', '2014-03-17 19:29:12', 1, 23, 4, 0),
-(80, 'asd', '2014-03-17 19:33:42', 1, 23, 4, 0),
-(81, 'asd', '2014-03-17 19:33:59', 1, 23, 4, 0),
-(82, 'asd', '2014-03-17 19:34:34', 1, 23, 4, 0),
-(83, 'asd', '2014-03-17 19:34:48', 1, 23, 4, 0),
-(84, 'fasfasdsdasd', '2014-03-17 19:35:22', 1, 23, 4, 0),
-(85, 'sdfsdfsdfsf', '2014-03-17 19:42:50', 1, 47, 4, 0);
+(45, 'lkkljbkjb', '2014-03-17 20:15:21', 1, 19, 17, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faqs`
+-- Структура таблицы `faqs`
 --
 
 CREATE TABLE IF NOT EXISTS `faqs` (
@@ -752,21 +995,12 @@ CREATE TABLE IF NOT EXISTS `faqs` (
   `categorie_faq_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_faqs_categorie_faqs1_idx` (`categorie_faq_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
-
---
--- Dumping data for table `faqs`
---
-
-INSERT INTO `faqs` (`id`, `question`, `reponse`, `actif_faq`, `categorie_faq_id`) VALUES
-(15, 'Qu''est-ce que la téléphonie sur IP ?', '<p><span style="color: #444444; font-family: arial, sans-serif; font-size: small; line-height: 16px;">C''est tout simplement la possibilit&eacute; de passer et de recevoir les appels t&eacute;l&eacute;phoniques via le r&eacute;seau qui sert aux transmissions de donn&eacute;es.</span></p>', 1, 1),
-(16, 'Qu''est-ce que la VoIP ?', '<p><span style="color: #333333; font-family: ''Lucida Grande'', ''Trebuchet MS'', Verdana, Helvetica, Arial, sans-serif; font-size: 13px; line-height: 18.1875px; background-color: #fefefe;">La Voip c''est du "t&eacute;l&eacute;phone par le modem".</span></p>', 1, 2),
-(18, 'ert', '<p>ert</p>', 0, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `groups`
+-- Структура таблицы `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -775,26 +1009,20 @@ CREATE TABLE IF NOT EXISTS `groups` (
   `nom_group` varchar(45) NOT NULL,
   `actif_group` tinyint(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `groups`
+-- Дамп данных таблицы `groups`
 --
 
 INSERT INTO `groups` (`id`, `type_group`, `nom_group`, `actif_group`) VALUES
 (2, 'Administrator', 'Administrator', 1),
-(3, 'Association', 'bo', 1),
-(4, 'Association', 'CakePhp', 1),
-(5, 'Association', 'OVH', 0),
-(6, 'Entreprise', 'venus', 1),
-(7, 'Particulier', 'Test', 1),
-(8, 'Entreprise', 'venus', 1),
-(9, 'Entreprise', 'pluton', 1);
+(11, 'Entreprise', 'test', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `group_details`
+-- Структура таблицы `group_details`
 --
 
 CREATE TABLE IF NOT EXISTS `group_details` (
@@ -807,64 +1035,12 @@ CREATE TABLE IF NOT EXISTS `group_details` (
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_group_details_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=52 ;
-
---
--- Dumping data for table `group_details`
---
-
-INSERT INTO `group_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_group_detail`, `group_id`) VALUES
-(1, 'Rue', '25 chemin du bois', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(2, 'NPA', '74000', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(3, 'Ville', 'Annecy', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(4, 'Pays', 'France', 'fa365fe85f417764219cb434a7870423', '2013-04-29 11:16:54', 1, 8),
-(9, 'Email', 'yt4h@jtg.fr', '', '2013-04-29 14:36:54', 1, 8),
-(11, 'Email', 'abc@fr.fr', '', '2013-04-29 14:39:59', 0, 8),
-(12, 'Rue', '7 rue de la paix', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(13, 'NPA', '74000', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(14, 'Ville', 'Evian', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(15, 'Pays', 'France', 'e55840884dac3635e9caa6d58d84571d', '2013-04-29 14:41:02', 1, 8),
-(16, 'NumeroFixe', '0450203040', '', '2013-04-30 09:58:22', 1, 8),
-(17, 'NumeroMobile', '0610252414', '', '2013-04-30 09:58:52', 1, 8),
-(18, 'NumeroFax', '0101010101', '', '2013-04-30 09:59:18', 0, 8),
-(19, 'NumeroFixe', '0450468750', '', '2013-04-30 09:59:29', 0, 8),
-(20, 'Email', 'bobo@jlh.hyu', '', '2013-04-30 10:55:19', 0, 6),
-(21, 'NumeroMobile', '04504587', '', '2013-04-30 14:53:03', 0, 6),
-(22, 'Rue', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(23, 'NPA', 'bob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(24, 'Ville', 'bobo', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(25, 'Pays', 'bobob', '1211aa09be4c37763616b9229a7a4611', '2013-05-02 10:10:22', 0, 8),
-(26, 'Email', 'admin@admin.fr', '', '2013-05-02 14:41:11', 1, 2),
-(27, 'Email', 'tedrgst@ges.rr', '', '2013-05-02 14:53:57', 1, 2),
-(28, 'Email', 'uy@ihug.fyg', '', '2013-05-02 14:56:56', 0, 2),
-(29, 'Email', 'srg@fgu.gt', '', '2013-05-02 14:57:19', 0, 2),
-(30, 'NumeroFixe', '0450845488', '', '2013-05-02 15:31:41', 1, 2),
-(31, 'NumeroFax', '573434533698', '', '2013-05-02 15:31:58', 0, 2),
-(32, 'Rue', '15 rue d''albigny', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(33, 'NPA', '74000', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(34, 'Ville', 'Annecy', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(35, 'Pays', 'France', '50dab187cdd37dd26803ed1f099f19d8', '2013-05-02 15:42:19', 1, 2),
-(36, 'Rue', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(37, 'NPA', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(38, 'Ville', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(39, 'Pays', 't', 'ad2d9bdd08a1d2fda1d95858078f0776', '2013-05-02 15:42:44', 0, 2),
-(40, 'Rue', '15 rue de la jeunesse', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(41, 'NPA', '38000', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(42, 'Ville', 'Grenoble', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(43, 'Pays', 'France', '833c4fc4db361397c8ff97cef109b54e', '2013-05-03 17:20:43', 0, 7),
-(44, 'Email', 'dfrg@fj', '', '2013-05-16 16:00:48', 0, 2),
-(45, 'Rue', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(46, 'NPA', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(47, 'Ville', 'sr', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(48, 'Pays', 'test', 'a9e831b9965b643957cac8af7510be58', '2013-05-31 17:05:30', 1, 2),
-(49, 'NumeroFixe', '34343141414134314134', '', '2013-06-04 14:57:43', 0, 2),
-(50, 'Email', 'etrg@rtg', '', '2013-06-04 15:28:43', 0, 8),
-(51, 'NumeroFixe', 'rtqrtqzrtzert', '', '2013-06-05 17:16:55', 0, 6);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoices`
+-- Структура таблицы `invoices`
 --
 
 CREATE TABLE IF NOT EXISTS `invoices` (
@@ -884,7 +1060,7 @@ CREATE TABLE IF NOT EXISTS `invoices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=41 ;
 
 --
--- Dumping data for table `invoices`
+-- Дамп данных таблицы `invoices`
 --
 
 INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `period_begin`, `period_end`, `created`, `active_invoice`, `group_id`, `invoice_type_id`, `invoice_statut_id`) VALUES
@@ -901,12 +1077,12 @@ INSERT INTO `invoices` (`id`, `name`, `name_file`, `link`, `description`, `perio
 (37, 'free.pdf', 'invoice_2_1373295925.pdf', '/home/visionweb/PhpstormProjects/manager/Source/data/2-Administrateur/Invoices/invoice_2_1373295925.pdf', 'Description', '2013-07-08', '2013-07-08', '2013-07-08 17:05:25', 1, 2, 2, 2),
 (38, 'free.pdf', 'invoice_2_1373296004.pdf', '/home/visionweb/PhpstormProjects/manager/Source/data/2-Administrateur/Invoices/invoice_2_1373296004.pdf', 'Description', '2013-07-08', '2013-07-08', '2013-07-08 17:06:44', 1, 2, 3, 4),
 (39, 'free.pdf', 'invoice_7_1373377573.pdf', '/home/visionweb/PhpstormProjects/manager/Source/data/7-bo/Invoices/invoice_7_1373377573.pdf', '', '2013-07-09', '2013-07-09', '2013-07-09 15:46:13', 1, 7, 2, 2),
-(40, 'free.pdf', 'invoice_7_1373377597.pdf', '/home/visionweb/PhpstormProjects/manager/Source/data/7-bo/Invoices/invoice_7_1373377597.pdf', '', '2013-07-09', '2013-07-09', '2013-07-09 15:46:37', 1, 7, 2, 4);
+(40, 'free.pdf', 'invoice_7_1373377597.pdf', '/home/visionweb/PhpstormProjects/manager/Source/data/7-bo/Invoices/invoice_7_1373377597.pdf', '', '2013-07-09', '2013-07-09', '2013-07-09 15:46:37', 0, 7, 2, 4);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_statuts`
+-- Структура таблицы `invoice_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_statuts` (
@@ -917,7 +1093,7 @@ CREATE TABLE IF NOT EXISTS `invoice_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `invoice_statuts`
+-- Дамп данных таблицы `invoice_statuts`
 --
 
 INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
@@ -928,7 +1104,7 @@ INSERT INTO `invoice_statuts` (`id`, `label`, `active_invoice_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `invoice_types`
+-- Структура таблицы `invoice_types`
 --
 
 CREATE TABLE IF NOT EXISTS `invoice_types` (
@@ -939,7 +1115,7 @@ CREATE TABLE IF NOT EXISTS `invoice_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `invoice_types`
+-- Дамп данных таблицы `invoice_types`
 --
 
 INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
@@ -952,7 +1128,7 @@ INSERT INTO `invoice_types` (`id`, `label`, `active_invoice_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `modules`
+-- Структура таблицы `modules`
 --
 
 CREATE TABLE IF NOT EXISTS `modules` (
@@ -963,17 +1139,18 @@ CREATE TABLE IF NOT EXISTS `modules` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `modules`
+-- Дамп данных таблицы `modules`
 --
 
 INSERT INTO `modules` (`id`, `name`, `activ`) VALUES
 (1, 'Voip', 1),
-(2, 'timeMam', 1);
+(2, 'timeMan', 1),
+(3, 'Backup', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `numbers`
+-- Структура таблицы `numbers`
 --
 
 CREATE TABLE IF NOT EXISTS `numbers` (
@@ -983,149 +1160,34 @@ CREATE TABLE IF NOT EXISTS `numbers` (
   `owner` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `short` varchar(5) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=253 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=572 ;
 
 --
--- Dumping data for table `numbers`
+-- Дамп данных таблицы `numbers`
 --
 
 INSERT INTO `numbers` (`id`, `prefix`, `phone_number`, `owner`, `short`) VALUES
-(27, 33, '0970756112', '', ''),
-(28, 33, '0970756113', '', ''),
-(29, 33, '0970756114', '', ''),
-(30, 33, '0970756115', '', ''),
-(32, 33, '1970756117', '', ''),
-(126, 33, '0970700000', '', ''),
-(127, 33, '0970700001', '', ''),
-(128, 33, '0970700002', '', ''),
-(129, 33, '0970700003', '', ''),
-(130, 33, '0970700004', '', ''),
-(131, 33, '0970700005', '', ''),
-(132, 33, '0970700006', '', ''),
-(133, 33, '0970700007', '', ''),
-(134, 33, '0970700008', '', ''),
-(135, 33, '0970700009', '', ''),
-(136, 33, '0970700010', '', ''),
-(137, 33, '1970700011', '', ''),
-(138, 33, '1970700012', '', ''),
-(139, 33, '1970700013', '', ''),
-(140, 33, '1970700014', '', ''),
-(141, 33, '1970700015', 'admin', '1048'),
-(142, 33, '1970700016', 'admin', '1001'),
-(143, 33, '1970700017', '', ''),
-(144, 33, '1970700018', '', ''),
-(145, 33, '1970700019', '', ''),
-(146, 33, '1970700020', '', ''),
-(147, 33, '1970700021', '', ''),
-(148, 33, '1970700022', '', ''),
-(149, 33, '1970700023', '', ''),
-(150, 33, '1970700024', '', ''),
-(151, 33, '1970700025', '', ''),
-(152, 33, '1970700026', '', ''),
-(153, 33, '1970700027', '', ''),
-(154, 33, '1970700028', '', ''),
-(155, 33, '1970700029', '', ''),
-(157, 33, '1970700030', '', ''),
-(158, 33, '1970700031', '', ''),
-(159, 33, '1970700032', '', ''),
-(160, 33, '1970700033', '', ''),
-(161, 33, '1970700034', '', ''),
-(162, 33, '1970700035', '', ''),
-(163, 33, '1970700036', '', ''),
-(164, 33, '1970700037', '', ''),
-(165, 33, '1970700038', '', ''),
-(166, 33, '1970700039', '', ''),
-(167, 33, '1970700040', '', ''),
-(168, 33, '1970700041', '', ''),
-(169, 33, '1970700042', '', ''),
-(170, 33, '1970700043', '', ''),
-(171, 33, '1970700044', '', ''),
-(172, 33, '1970700045', '', ''),
-(173, 33, '1970700046', '', ''),
-(174, 33, '1970700047', '', ''),
-(175, 33, '1970700048', '', ''),
-(176, 33, '1970700049', '', ''),
-(177, 33, '1970700050', '', ''),
-(178, 33, '1970700051', '', ''),
-(179, 33, '1970700052', '', ''),
-(180, 33, '1970700053', '', ''),
-(181, 33, '1970700054', '', ''),
-(182, 33, '1970700055', '', ''),
-(183, 33, '1970700056', '', ''),
-(184, 33, '1970700057', '', ''),
-(185, 33, '1970700058', '', ''),
-(186, 33, '1970700059', '', ''),
-(187, 33, '1970700060', '', ''),
-(188, 33, '1970700061', '', ''),
-(189, 33, '1970700062', '', ''),
-(190, 33, '1970700063', '', ''),
-(191, 33, '1970700064', '', ''),
-(192, 33, '1970700065', '', ''),
-(193, 33, '1970700066', '', ''),
-(194, 33, '1970700067', '', ''),
-(195, 33, '1970700068', '', ''),
-(196, 33, '1970700069', '', ''),
-(197, 33, '1970700070', '', ''),
-(198, 33, '1970700071', '', ''),
-(199, 33, '1970700072', '', ''),
-(200, 33, '1970700073', '', ''),
-(201, 33, '1970700074', '', ''),
-(202, 33, '1970700075', '', ''),
-(203, 33, '1970700076', '', ''),
-(204, 33, '1970700077', '', ''),
-(205, 33, '1970700078', '', ''),
-(206, 33, '1970700079', '', ''),
-(207, 33, '1970700080', '', ''),
-(208, 33, '1970700081', '', ''),
-(209, 33, '1970700082', '', ''),
-(210, 33, '1970700083', '', ''),
-(211, 33, '1970700084', '', ''),
-(212, 33, '1970700085', '', ''),
-(213, 33, '1970700086', '', ''),
-(214, 33, '1970700087', '', ''),
-(215, 33, '1970700088', '', ''),
-(216, 33, '1970700089', '', ''),
-(217, 33, '1970700090', '', ''),
-(218, 33, '1970700091', '', ''),
-(219, 33, '1970700092', '', ''),
-(220, 33, '1970700093', '', ''),
-(221, 33, '1970700094', '', ''),
-(222, 33, '1970700095', '', ''),
-(223, 33, '1970700096', '', ''),
-(224, 33, '1970700097', '', ''),
-(225, 33, '1970700098', '', ''),
-(226, 33, '1970700099', '', ''),
-(227, 33, '1970700100', '', ''),
-(228, 33, '1970700101', '', ''),
-(229, 33, '1970700102', '', ''),
-(230, 33, '1970700103', '', ''),
-(231, 33, '1970700104', '', ''),
-(232, 33, '1970700105', '', ''),
-(233, 33, '1970700106', '', ''),
-(234, 33, '1970700107', '', ''),
-(235, 33, '1970700108', '', ''),
-(236, 33, '1970700109', '', ''),
-(237, 33, '1970700110', '', ''),
-(238, 33, '1970700111', '', ''),
-(239, 33, '1970700112', '', ''),
-(240, 33, '1970700113', '', ''),
-(241, 33, '1970700114', '', ''),
-(242, 33, '1970700115', '', ''),
-(243, 33, '1970700116', '', ''),
-(244, 33, '1970700117', '', ''),
-(245, 33, '1970700118', '', ''),
-(246, 33, '1970700119', '', ''),
-(247, 33, '1970700120', '', ''),
-(248, 33, '1970700121', '', ''),
-(249, 33, '1970700122', '', ''),
-(250, 33, '1970700123', '', ''),
-(251, 32, '973737373', 'admin', '1099'),
-(252, 32, '972727272', 'test', '1098');
+(552, 3397, '2410020', 'admin', '1000'),
+(553, 3397, '2410029', 'admin', '1009'),
+(554, 3397, '2410021', 'admin', '1001'),
+(555, 3397, '2410022', 'No account', '1002'),
+(556, 3397, '2410023', 'No account', '1003'),
+(557, 3397, '2410024', 'No account', '1004'),
+(558, 3397, '2410025', 'No account', '1005'),
+(559, 3397, '2410026', 'No account', '1006'),
+(560, 3397, '2410027', 'No account', '1007'),
+(561, 3397, '2410028', 'No account', '1008'),
+(562, 33, '111111111', 'No account', '1012'),
+(563, 33, '', 'admin', '1100'),
+(568, 33, '', 'No account', '1100'),
+(569, 33, '', 'No account', '1100'),
+(570, 33, '', 'No account', '1100'),
+(571, 33, '', 'No account', '1100');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `passwords`
+-- Структура таблицы `passwords`
 --
 
 CREATE TABLE IF NOT EXISTS `passwords` (
@@ -1141,7 +1203,7 @@ CREATE TABLE IF NOT EXISTS `passwords` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `passwords`
+-- Дамп данных таблицы `passwords`
 --
 
 INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`, `password_service_id`, `password_type_id`, `group_id`) VALUES
@@ -1162,7 +1224,7 @@ INSERT INTO `passwords` (`id`, `login`, `password`, `created`, `active_password`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_services`
+-- Структура таблицы `password_services`
 --
 
 CREATE TABLE IF NOT EXISTS `password_services` (
@@ -1173,7 +1235,7 @@ CREATE TABLE IF NOT EXISTS `password_services` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_services`
+-- Дамп данных таблицы `password_services`
 --
 
 INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUES
@@ -1182,7 +1244,7 @@ INSERT INTO `password_services` (`id`, `label`, `active_password_service`) VALUE
 -- --------------------------------------------------------
 
 --
--- Table structure for table `password_types`
+-- Структура таблицы `password_types`
 --
 
 CREATE TABLE IF NOT EXISTS `password_types` (
@@ -1193,7 +1255,7 @@ CREATE TABLE IF NOT EXISTS `password_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `password_types`
+-- Дамп данных таблицы `password_types`
 --
 
 INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
@@ -1202,7 +1264,7 @@ INSERT INTO `password_types` (`id`, `label`, `active_password_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prices`
+-- Структура таблицы `prices`
 --
 
 CREATE TABLE IF NOT EXISTS `prices` (
@@ -1218,7 +1280,7 @@ CREATE TABLE IF NOT EXISTS `prices` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5058 ;
 
 --
--- Dumping data for table `prices`
+-- Дамп данных таблицы `prices`
 --
 
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
@@ -5358,14 +5420,14 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (4130, 996517, 'KGZ', 'KIMO', 'Kirghizistan - Mobile', 0, 0, 0),
 (4131, 99652, 'KGZ', 'KIMO', 'Kirghizistan - Mobile', 0, 0, 0),
 (4132, 998, 'UZB', 'UZBE', 'Ouzbékistan', 0, 0, 0),
-(4133, 9999, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
-(4134, 1, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
-(4135, 2, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4133, 339999, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4134, 331, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4135, 332, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
 (4136, 262, 'REU', 'REUN', 'Réunion', 0.05, 0, 0),
 (4137, 262692, 'REU', 'REUMO', 'Réunion - Mobile', 0.15, 0, 0),
-(4138, 3, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
-(4139, 4, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
-(4140, 5, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4138, 333, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4139, 334, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4140, 335, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
 (4141, 590, 'GLP', 'GUAD', 'Guadeloupe', 0, 0, 0),
 (4142, 2147483647, 'GLP', 'GUADMOB', 'Guadeloupe - Mobile', 0, 0, 0),
 (4143, 590690, 'GLP', 'GUADMOB', 'Guadeloupe - Mobile', 0.2, 0, 0),
@@ -5376,939 +5438,948 @@ INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description
 (4148, 596, 'MTQ', 'MART', 'Martinique', 0, 0, 0),
 (4149, 2147483647, 'MTQ', 'MARMOBI', 'Martinique - Mobile', 0, 0, 0),
 (4150, 596696, 'MTQ', 'MARMOBI', 'Martinique - Mobile', 0, 0, 0),
-(4151, 6000, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4152, 6001, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4153, 6002, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4154, 6003, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4155, 60041, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4156, 60042, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4157, 60043, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4158, 60044, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4159, 60045, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4160, 60051, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4161, 60052, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4162, 60053, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4163, 60054, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4164, 6006, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4165, 6007, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4166, 6008, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4167, 6009, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4168, 601, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4169, 6020, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4170, 6021, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4171, 6022, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4172, 6023, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4173, 6026, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4174, 6027, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4175, 6028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0);
+(4151, 336000, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4152, 336001, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4153, 336002, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4154, 336003, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4155, 3360041, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4156, 3360042, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4157, 3360043, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4158, 3360044, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4159, 3360045, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4160, 3360051, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4161, 3360052, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4162, 3360053, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4163, 3360054, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4164, 336006, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4165, 336007, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4166, 336008, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4167, 336009, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4168, 33601, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4169, 336020, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4170, 336021, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4171, 336022, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4172, 336023, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4173, 336026, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4174, 336027, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
-(4176, 6029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4177, 603, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4178, 6040, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4179, 6041, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4180, 6042, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4181, 6043, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4182, 6044, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4183, 6045, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4184, 6046, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4185, 6047, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4186, 6048, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4187, 6049, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4188, 6050, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4189, 6051, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4190, 6052, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4191, 6053, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4192, 6054, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4193, 6055, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4194, 6056, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4195, 6057, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4196, 6058, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4197, 6059, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4198, 6060, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4199, 6061, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4200, 6062, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4201, 6063, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4202, 6064, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4203, 60650, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4204, 60651, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4205, 60652, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4206, 60653, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4207, 60654, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4208, 60655, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4209, 60656, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4210, 60657, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4211, 60658, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4212, 60659, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4213, 60660, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4214, 60661, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4215, 60662, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4216, 60663, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4217, 60664, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4218, 60665, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4219, 60666, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4220, 60667, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4221, 60668, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4222, 60669, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4223, 60670, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4224, 60671, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4225, 60672, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4226, 60673, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4227, 60674, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4228, 60675, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4229, 60676, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4230, 60677, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4231, 60678, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4232, 60679, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4233, 60680, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4234, 60681, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4235, 60682, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4236, 60683, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4237, 60684, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4238, 60685, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4239, 60686, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4240, 60687, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4241, 60688, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4242, 60689, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4243, 60690, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4244, 60691, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4245, 60692, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4246, 60693, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4247, 60694, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4248, 60695, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4249, 60696, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4250, 60697, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4251, 60698, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4252, 60699, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4253, 607, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4254, 608, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4255, 609, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4256, 610, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4257, 611, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4258, 612, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4259, 613, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4260, 614, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4261, 615, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4262, 616, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4263, 617, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4264, 618, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4265, 619, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4266, 620, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4267, 621, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4268, 622, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4269, 623, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4270, 624, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4271, 625, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4272, 626, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4273, 627, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4274, 628, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4275, 629, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4276, 630, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4277, 631, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4278, 632, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4279, 633, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4280, 634, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4281, 635, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4282, 63600, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4283, 63601, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4284, 63602, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4285, 63603, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4286, 63604, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4287, 63605, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4288, 63606, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4289, 63607, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4290, 63608, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4291, 63609, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4292, 63610, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4293, 63611, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4294, 63612, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4295, 63613, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4296, 63614, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4297, 63615, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4298, 63616, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4299, 63617, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4300, 63618, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4301, 63619, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4302, 63620, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4303, 63621, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4304, 63622, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4305, 63623, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4306, 63624, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4307, 63625, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4308, 63626, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4309, 63627, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4310, 63628, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4311, 63629, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4312, 63630, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4313, 63631, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4314, 63632, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4315, 63633, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4316, 63634, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4317, 63635, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4318, 63636, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4319, 63637, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4320, 63638, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4321, 63639, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4322, 63640, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4323, 63641, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4324, 63642, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4325, 63643, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4326, 63644, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4327, 63645, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4328, 63646, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4329, 63647, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4330, 63648, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4331, 63649, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4332, 6365, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4333, 6366, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4334, 6367, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4335, 6368, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4336, 6369, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4337, 637, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4338, 638, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4339, 63900, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4340, 63903, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4341, 63904, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4342, 63905, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4343, 63906, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4344, 63907, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4345, 63909, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4346, 63910, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4347, 63911, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4348, 63919, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4349, 63920, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4350, 63921, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4351, 63922, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4352, 63923, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4353, 63924, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4354, 63925, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4355, 63926, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4356, 63927, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4357, 63928, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4358, 63929, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4359, 63930, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4360, 63939, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4361, 63940, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4362, 63950, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4363, 63960, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4364, 63961, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4365, 63965, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4366, 63966, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4367, 63967, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4368, 63968, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4369, 63969, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4370, 63970, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4371, 63990, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4372, 63994, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4373, 63995, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4374, 63996, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4375, 63997, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4376, 64000, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4377, 64001, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4378, 64002, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4379, 64003, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4380, 64004, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4381, 64005, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4382, 64006, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4383, 64007, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4384, 64008, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4385, 64009, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4386, 6401, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4387, 6402, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4388, 6403, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4389, 6404, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4390, 6405, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4391, 6406, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4392, 6407, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4393, 6408, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4394, 6409, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4395, 6410, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4396, 6411, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4397, 6412, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4398, 6413, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4399, 6414, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4400, 6415, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4401, 64160, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4402, 64161, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4403, 64162, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4404, 64163, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4405, 64164, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4406, 64165, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4407, 64166, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4408, 64167, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4409, 64168, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4410, 64169, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4411, 6417, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4412, 6418, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4413, 6419, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4414, 642, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4415, 643, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4416, 6440, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4417, 6441, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4418, 6442, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4419, 6443, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4420, 6444, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4421, 6445, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4422, 6446, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4423, 6447, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4424, 6448, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4425, 6449, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4426, 645, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4427, 646, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4428, 647, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4429, 648, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4430, 6490, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4431, 6491, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4432, 6492, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4433, 6493, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4434, 6494, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4435, 64950, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4436, 64951, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4437, 64952, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4438, 64953, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4439, 64954, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4440, 64955, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4441, 64956, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4442, 64957, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4443, 64958, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4444, 64959, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4445, 6496, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4446, 6497, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4447, 6498, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4448, 64990, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4449, 64991, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4450, 64992, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4451, 64993, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4452, 64994, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4453, 64995, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4454, 64996, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4455, 64997, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4456, 64998, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4457, 64999, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4458, 650, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4459, 651, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4460, 652, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4461, 6530, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4462, 6531, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4463, 6532, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4464, 6533, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4465, 6534, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4466, 6535, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4467, 6536, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4468, 6537, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4469, 6538, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4470, 6539, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4471, 654, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4472, 655, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4473, 6560, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4474, 6561, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4475, 6562, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4476, 6563, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4477, 6564, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4478, 6565, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4479, 65660, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4480, 65661, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4481, 65666, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4482, 65667, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4483, 65668, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4484, 65669, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4485, 6567, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4486, 6568, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4487, 6569, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4488, 657, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4489, 658, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4490, 659, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4491, 660, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4492, 661, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4493, 662, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4494, 663, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4495, 664, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4496, 665, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4497, 666, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4498, 667, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4499, 668, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4500, 6690, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4501, 6691, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4502, 6692, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4503, 6693, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4504, 6694, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4505, 6695, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4506, 6696, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4507, 6697, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4508, 6698, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4509, 6699, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4510, 670, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4511, 671, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4512, 672, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4513, 673, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4514, 674, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4515, 675, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4516, 676, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4517, 677, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4518, 678, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4519, 679, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4520, 680, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4521, 681, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4522, 682, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4523, 683, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4524, 684, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4525, 685, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4526, 686, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4527, 687, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4528, 688, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4529, 689, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4530, 69000, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4531, 69001, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4532, 69002, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4533, 69003, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4534, 69004, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4535, 69005, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4536, 69006, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4537, 69007, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4538, 69010, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4539, 69011, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4540, 69012, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4541, 69013, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4542, 69014, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4543, 69015, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4544, 69016, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4545, 69017, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4546, 69018, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4547, 69019, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4548, 69020, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4549, 69021, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4550, 69022, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4551, 69023, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4552, 69024, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4553, 69025, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4554, 69026, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4555, 69027, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4556, 69028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4557, 69029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4558, 69030, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4559, 69031, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4560, 69032, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4561, 69033, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4562, 69034, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4563, 69035, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4564, 69036, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4565, 69037, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4566, 69038, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4567, 69039, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4568, 69040, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4569, 69041, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4570, 69042, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4571, 69043, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4572, 69044, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4573, 69045, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4574, 69046, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4575, 69047, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4576, 69048, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4577, 69049, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4578, 69050, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4579, 69051, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4580, 69052, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4581, 69053, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4582, 69054, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4583, 69055, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4584, 69056, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4585, 69057, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4586, 69058, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4587, 69059, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4588, 69060, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4589, 69061, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4590, 69062, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4591, 69063, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4592, 69064, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4593, 69065, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4594, 69066, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4595, 69067, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4596, 69068, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4597, 69069, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4598, 69070, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4599, 69071, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4600, 69072, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4601, 69073, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4602, 69074, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4603, 69075, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4604, 69076, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4605, 69077, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4606, 69080, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4607, 69081, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4608, 69082, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4609, 69083, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4610, 69084, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4611, 69085, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4612, 69086, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4613, 69087, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4614, 69088, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4615, 69090, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4616, 69091, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4617, 69092, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4618, 69093, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4619, 69094, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4620, 69095, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4621, 69096, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4622, 69097, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4623, 69098, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4624, 69099, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4625, 69200, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4626, 69201, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4627, 69202, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4628, 69203, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4629, 69204, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4630, 69205, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4631, 69206, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4632, 69207, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4633, 69208, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4634, 69209, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4635, 69210, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4636, 69211, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4637, 69212, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4638, 69213, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4639, 69214, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4640, 69215, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4641, 69216, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4642, 69217, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4643, 69218, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4644, 69219, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4645, 69220, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4646, 69221, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4647, 69222, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4648, 69223, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4649, 69224, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4650, 69225, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4651, 69226, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4652, 69227, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4653, 69228, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4654, 69229, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4655, 69230, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4656, 69231, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4657, 69232, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4658, 69233, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4659, 69234, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4660, 69235, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4661, 69236, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4662, 69237, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4663, 69238, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4664, 69239, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4665, 69240, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4666, 69241, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4667, 69242, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4668, 69243, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4669, 69244, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4670, 69245, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4671, 69246, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4672, 69247, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4673, 69248, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4674, 69249, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4675, 69250, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4676, 69251, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4677, 69252, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4678, 69253, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4679, 69254, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4680, 69255, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4681, 69256, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4682, 69257, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4683, 69258, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4684, 69259, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4685, 69260, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4686, 69261, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4687, 69262, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4688, 69263, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4689, 69264, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4690, 69265, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4691, 69266, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4692, 69267, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4693, 69268, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4694, 69269, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4695, 69270, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4696, 69271, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4697, 69272, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4698, 69273, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4699, 69274, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4700, 69275, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4701, 69276, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4702, 69277, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4703, 69278, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4704, 69279, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4705, 69280, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4706, 69281, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4707, 69282, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4708, 69283, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4709, 69284, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4710, 69285, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4711, 69286, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4712, 69287, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4713, 69288, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4714, 69289, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4715, 69290, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4716, 69291, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4717, 69292, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4718, 69293, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4719, 69294, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4720, 69295, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4721, 69296, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4722, 69297, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4723, 69298, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4724, 69299, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4725, 69300, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4726, 69301, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4727, 69302, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4728, 69303, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4729, 69304, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4730, 69310, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4731, 69313, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4732, 69320, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4733, 69330, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4734, 69333, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4735, 69340, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4736, 69341, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4737, 69342, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4738, 69343, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4739, 69344, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4740, 69345, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4741, 69346, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4742, 69347, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4743, 69350, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4744, 69360, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4745, 69370, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4746, 69380, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4747, 69381, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4748, 69382, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4749, 69383, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4750, 69390, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4751, 69391, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4752, 69392, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4753, 69393, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4754, 69394, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4755, 69397, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4756, 69400, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4757, 69401, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4758, 69402, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4759, 69403, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4760, 69404, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4761, 69405, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4762, 69406, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4763, 69407, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4764, 69410, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4765, 69411, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4766, 69412, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4767, 69413, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4768, 69414, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4769, 69415, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4770, 69416, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4771, 69420, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4772, 69421, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4773, 69422, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4774, 69423, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4775, 69424, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4776, 69425, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4777, 69426, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4778, 69427, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4779, 69428, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4780, 69429, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4781, 69430, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4782, 69431, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4783, 69438, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4784, 69440, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4785, 69441, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4786, 69442, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4787, 69443, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4788, 69444, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4789, 69445, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4790, 69446, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4791, 69447, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4792, 69490, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4793, 69491, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4794, 69492, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4795, 69493, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4796, 69494, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4797, 69495, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4798, 69496, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4799, 69497, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4800, 69498, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4801, 69499, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4802, 695, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4803, 69600, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4804, 69601, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4805, 69602, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4806, 69603, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4807, 69604, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4808, 69605, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4809, 69606, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4810, 69607, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4811, 69608, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4812, 69609, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4813, 69610, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4814, 69611, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4815, 69612, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4816, 69613, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4817, 69614, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4818, 69615, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4819, 69616, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4820, 69617, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4821, 69618, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4822, 69619, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4823, 69620, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4824, 69621, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4825, 69622, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4826, 69623, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4827, 69624, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4828, 69625, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4829, 69626, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4830, 69627, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4831, 69628, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4832, 69629, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4833, 69630, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4834, 69631, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4835, 69632, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4836, 69633, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4837, 69634, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4838, 69635, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4839, 69636, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4840, 69637, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4841, 69638, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4842, 69639, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4843, 69640, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4844, 69641, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4845, 69642, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4846, 69643, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4847, 69644, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4848, 69645, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4849, 69646, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4850, 69647, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4851, 69648, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4852, 69649, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4853, 69650, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4854, 69651, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4855, 69652, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4856, 69660, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4857, 69661, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4858, 69670, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4859, 69671, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4860, 69672, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4861, 69673, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4862, 69674, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4863, 69675, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4864, 69676, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4865, 69677, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4866, 69678, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4867, 69679, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4868, 69680, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4869, 69681, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4870, 69682, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4871, 69683, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4872, 69684, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4873, 69685, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4874, 69686, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4875, 69687, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4876, 69688, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4877, 69689, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4878, 69690, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4879, 69691, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4880, 69692, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4881, 69693, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4882, 69694, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4883, 69695, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4884, 69696, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4885, 69697, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4886, 69698, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4887, 69699, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4888, 698, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4889, 699, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4890, 700, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(4891, 730, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(4892, 745, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(4893, 7500, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4894, 7501, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4895, 7502, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4896, 7503, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4897, 7504, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4898, 7505, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4899, 75060, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4900, 75061, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4901, 75062, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4902, 75063, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4903, 75064, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4904, 75065, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4905, 75066, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4906, 75067, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4907, 75068, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4908, 75069, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4909, 75070, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4910, 75071, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4911, 75072, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4912, 7508, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4913, 7509, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0);
+(4175, 336028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4176, 336029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4177, 33603, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4178, 336040, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4179, 336041, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4180, 336042, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4181, 336043, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4182, 336044, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4183, 336045, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4184, 336046, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4185, 336047, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4186, 336048, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4187, 336049, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4188, 336050, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4189, 336051, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4190, 336052, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4191, 336053, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4192, 336054, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4193, 336055, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4194, 336056, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4195, 336057, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4196, 336058, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4197, 336059, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4198, 336060, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4199, 336061, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4200, 336062, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4201, 336063, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4202, 336064, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4203, 3360650, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4204, 3360651, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4205, 3360652, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4206, 3360653, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4207, 3360654, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4208, 3360655, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4209, 3360656, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4210, 3360657, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4211, 3360658, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4212, 3360659, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4213, 3360660, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4214, 3360661, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4215, 3360662, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4216, 3360663, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4217, 3360664, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4218, 3360665, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4219, 3360666, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4220, 3360667, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4221, 3360668, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4222, 3360669, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4223, 3360670, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4224, 3360671, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4225, 3360672, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4226, 3360673, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4227, 3360674, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4228, 3360675, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4229, 3360676, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4230, 3360677, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4231, 3360678, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4232, 3360679, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4233, 3360680, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4234, 3360681, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4235, 3360682, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4236, 3360683, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4237, 3360684, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4238, 3360685, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4239, 3360686, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4240, 3360687, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4241, 3360688, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4242, 3360689, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4243, 3360690, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4244, 3360691, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4245, 3360692, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4246, 3360693, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4247, 3360694, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4248, 3360695, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4249, 3360696, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4250, 3360697, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4251, 3360698, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4252, 3360699, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4253, 33607, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4254, 33608, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4255, 33609, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4256, 33610, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4257, 33611, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4258, 33612, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4259, 33613, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4260, 33614, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4261, 33615, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4262, 33616, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4263, 33617, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4264, 33618, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4265, 33619, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4266, 33620, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4267, 33621, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4268, 33622, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4269, 33623, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4270, 33624, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4271, 33625, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4272, 33626, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4273, 33627, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4274, 33628, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4275, 33629, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4276, 33630, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4277, 33631, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4278, 33632, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4279, 33633, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4280, 33634, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4281, 33635, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4282, 3363600, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4283, 3363601, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4284, 3363602, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4285, 3363603, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4286, 3363604, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4287, 3363605, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4288, 3363606, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4289, 3363607, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4290, 3363608, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4291, 3363609, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4292, 3363610, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4293, 3363611, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4294, 3363612, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4295, 3363613, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4296, 3363614, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4297, 3363615, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4298, 3363616, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4299, 3363617, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4300, 3363618, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4301, 3363619, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4302, 3363620, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4303, 3363621, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4304, 3363622, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4305, 3363623, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4306, 3363624, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4307, 3363625, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4308, 3363626, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4309, 3363627, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4310, 3363628, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4311, 3363629, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4312, 3363630, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4313, 3363631, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4314, 3363632, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4315, 3363633, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4316, 3363634, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4317, 3363635, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4318, 3363636, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4319, 3363637, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4320, 3363638, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4321, 3363639, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4322, 3363640, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4323, 3363641, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4324, 3363642, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4325, 3363643, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4326, 3363644, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4327, 3363645, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4328, 3363646, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4329, 3363647, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4330, 3363648, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4331, 3363649, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4332, 336365, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4333, 336366, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4334, 336367, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4335, 336368, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4336, 336369, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4337, 33637, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4338, 33638, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4339, 3363900, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4340, 3363903, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4341, 3363904, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4342, 3363905, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4343, 3363906, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4344, 3363907, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4345, 3363909, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4346, 3363910, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4347, 3363911, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4348, 3363919, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4349, 3363920, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4350, 3363921, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4351, 3363922, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4352, 3363923, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4353, 3363924, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4354, 3363925, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4355, 3363926, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4356, 3363927, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4357, 3363928, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4358, 3363929, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4359, 3363930, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4360, 3363939, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4361, 3363940, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4362, 3363950, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4363, 3363960, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4364, 3363961, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4365, 3363965, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4366, 3363966, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4367, 3363967, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4368, 3363968, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4369, 3363969, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4370, 3363970, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4371, 3363990, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4372, 3363994, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4373, 3363995, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4374, 3363996, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4375, 3363997, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4376, 3364000, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4377, 3364001, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4378, 3364002, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4379, 3364003, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4380, 3364004, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4381, 3364005, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4382, 3364006, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4383, 3364007, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4384, 3364008, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4385, 3364009, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4386, 336401, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4387, 336402, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4388, 336403, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4389, 336404, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4390, 336405, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4391, 336406, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4392, 336407, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4393, 336408, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4394, 336409, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4395, 336410, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4396, 336411, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4397, 336412, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4398, 336413, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4399, 336414, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4400, 336415, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4401, 3364160, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4402, 3364161, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4403, 3364162, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4404, 3364163, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4405, 3364164, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4406, 3364165, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4407, 3364166, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4408, 3364167, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4409, 3364168, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4410, 3364169, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4411, 336417, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4412, 336418, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4413, 336419, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4414, 33642, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4415, 33643, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4416, 336440, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4417, 336441, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4418, 336442, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4419, 336443, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4420, 336444, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4421, 336445, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4422, 336446, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4423, 336447, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4424, 336448, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4425, 336449, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4426, 33645, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4427, 33646, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4428, 33647, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4429, 33648, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4430, 336490, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4431, 336491, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4432, 336492, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4433, 336493, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4434, 336494, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4435, 3364950, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4436, 3364951, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4437, 3364952, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4438, 3364953, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4439, 3364954, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4440, 3364955, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4441, 3364956, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4442, 3364957, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4443, 3364958, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4444, 3364959, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4445, 336496, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4446, 336497, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4447, 336498, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4448, 3364990, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4449, 3364991, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4450, 3364992, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4451, 3364993, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4452, 3364994, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4453, 3364995, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4454, 3364996, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4455, 3364997, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4456, 3364998, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4457, 3364999, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4458, 33650, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4459, 33651, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4460, 33652, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4461, 336530, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4462, 336531, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4463, 336532, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4464, 336533, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4465, 336534, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4466, 336535, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4467, 336536, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4468, 336537, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4469, 336538, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4470, 336539, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4471, 33654, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4472, 33655, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4473, 336560, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4474, 336561, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4475, 336562, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4476, 336563, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4477, 336564, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4478, 336565, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4479, 3365660, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4480, 3365661, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4481, 3365666, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4482, 3365667, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4483, 3365668, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4484, 3365669, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4485, 336567, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4486, 336568, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4487, 336569, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4488, 33657, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4489, 33658, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4490, 33659, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4491, 33660, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4492, 33661, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4493, 33662, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4494, 33663, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4495, 33664, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4496, 33665, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4497, 33666, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4498, 33667, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4499, 33668, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4500, 336690, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4501, 336691, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4502, 336692, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4503, 336693, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4504, 336694, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4505, 336695, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4506, 336696, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4507, 336697, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4508, 336698, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4509, 336699, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4510, 33670, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4511, 33671, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4512, 33672, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4513, 33673, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4514, 33674, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4515, 33675, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4516, 33676, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4517, 33677, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4518, 33678, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4519, 33679, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4520, 33680, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4521, 33681, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4522, 33682, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4523, 33683, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4524, 33684, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4525, 33685, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4526, 33686, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4527, 33687, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4528, 33688, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4529, 33689, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4530, 3369000, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4531, 3369001, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4532, 3369002, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4533, 3369003, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4534, 3369004, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4535, 3369005, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4536, 3369006, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4537, 3369007, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4538, 3369010, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4539, 3369011, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4540, 3369012, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4541, 3369013, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4542, 3369014, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4543, 3369015, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4544, 3369016, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4545, 3369017, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4546, 3369018, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4547, 3369019, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4548, 3369020, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4549, 3369021, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4550, 3369022, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4551, 3369023, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4552, 3369024, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4553, 3369025, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4554, 3369026, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4555, 3369027, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4556, 3369028, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4557, 3369029, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4558, 3369030, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4559, 3369031, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4560, 3369032, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4561, 3369033, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4562, 3369034, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4563, 3369035, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4564, 3369036, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4565, 3369037, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4566, 3369038, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4567, 3369039, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4568, 3369040, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4569, 3369041, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4570, 3369042, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4571, 3369043, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4572, 3369044, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4573, 3369045, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4574, 3369046, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4575, 3369047, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4576, 3369048, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4577, 3369049, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4578, 3369050, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4579, 3369051, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4580, 3369052, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4581, 3369053, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4582, 3369054, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4583, 3369055, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4584, 3369056, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4585, 3369057, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4586, 3369058, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4587, 3369059, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4588, 3369060, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4589, 3369061, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4590, 3369062, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4591, 3369063, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4592, 3369064, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4593, 3369065, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4594, 3369066, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4595, 3369067, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4596, 3369068, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4597, 3369069, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4598, 3369070, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4599, 3369071, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4600, 3369072, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4601, 3369073, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4602, 3369074, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4603, 3369075, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4604, 3369076, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4605, 3369077, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4606, 3369080, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4607, 3369081, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4608, 3369082, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4609, 3369083, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4610, 3369084, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4611, 3369085, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4612, 3369086, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4613, 3369087, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4614, 3369088, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4615, 3369090, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4616, 3369091, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4617, 3369092, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4618, 3369093, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4619, 3369094, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4620, 3369095, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4621, 3369096, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4622, 3369097, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4623, 3369098, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4624, 3369099, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4625, 3369200, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4626, 3369201, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4627, 3369202, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4628, 3369203, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4629, 3369204, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4630, 3369205, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4631, 3369206, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4632, 3369207, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4633, 3369208, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4634, 3369209, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4635, 3369210, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4636, 3369211, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4637, 3369212, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4638, 3369213, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4639, 3369214, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4640, 3369215, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4641, 3369216, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4642, 3369217, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4643, 3369218, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4644, 3369219, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4645, 3369220, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4646, 3369221, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4647, 3369222, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4648, 3369223, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4649, 3369224, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4650, 3369225, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4651, 3369226, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4652, 3369227, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4653, 3369228, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4654, 3369229, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4655, 3369230, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4656, 3369231, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4657, 3369232, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4658, 3369233, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4659, 3369234, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4660, 3369235, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4661, 3369236, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4662, 3369237, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4663, 3369238, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4664, 3369239, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4665, 3369240, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4666, 3369241, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4667, 3369242, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4668, 3369243, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4669, 3369244, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4670, 3369245, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4671, 3369246, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4672, 3369247, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4673, 3369248, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4674, 3369249, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4675, 3369250, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4676, 3369251, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4677, 3369252, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4678, 3369253, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4679, 3369254, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4680, 3369255, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4681, 3369256, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4682, 3369257, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4683, 3369258, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4684, 3369259, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4685, 3369260, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4686, 3369261, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4687, 3369262, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4688, 3369263, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4689, 3369264, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4690, 3369265, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4691, 3369266, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4692, 3369267, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4693, 3369268, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4694, 3369269, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4695, 3369270, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4696, 3369271, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4697, 3369272, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4698, 3369273, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4699, 3369274, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4700, 3369275, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4701, 3369276, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4702, 3369277, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4703, 3369278, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4704, 3369279, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4705, 3369280, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4706, 3369281, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4707, 3369282, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4708, 3369283, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4709, 3369284, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4710, 3369285, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4711, 3369286, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4712, 3369287, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4713, 3369288, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4714, 3369289, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4715, 3369290, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4716, 3369291, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4717, 3369292, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4718, 3369293, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4719, 3369294, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4720, 3369295, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4721, 3369296, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4722, 3369297, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4723, 3369298, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4724, 3369299, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4725, 3369300, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4726, 3369301, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4727, 3369302, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4728, 3369303, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4729, 3369304, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4730, 3369310, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4731, 3369313, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4732, 3369320, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4733, 3369330, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4734, 3369333, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4735, 3369340, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4736, 3369341, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4737, 3369342, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4738, 3369343, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4739, 3369344, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4740, 3369345, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4741, 3369346, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4742, 3369347, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4743, 3369350, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4744, 3369360, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4745, 3369370, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4746, 3369380, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4747, 3369381, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4748, 3369382, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4749, 3369383, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4750, 3369390, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4751, 3369391, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4752, 3369392, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4753, 3369393, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4754, 3369394, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4755, 3369397, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4756, 3369400, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4757, 3369401, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4758, 3369402, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4759, 3369403, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4760, 3369404, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4761, 3369405, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4762, 3369406, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4763, 3369407, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4764, 3369410, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4765, 3369411, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4766, 3369412, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4767, 3369413, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4768, 3369414, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4769, 3369415, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4770, 3369416, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4771, 3369420, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4772, 3369421, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4773, 3369422, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4774, 3369423, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4775, 3369424, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4776, 3369425, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4777, 3369426, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4778, 3369427, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4779, 3369428, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4780, 3369429, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4781, 3369430, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4782, 3369431, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4783, 3369438, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4784, 3369440, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4785, 3369441, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4786, 3369442, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4787, 3369443, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4788, 3369444, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4789, 3369445, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4790, 3369446, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4791, 3369447, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4792, 3369490, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4793, 3369491, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4794, 3369492, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4795, 3369493, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4796, 3369494, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4797, 3369495, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4798, 3369496, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4799, 3369497, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4800, 3369498, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4801, 3369499, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4802, 33695, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4803, 3369600, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4804, 3369601, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4805, 3369602, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4806, 3369603, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4807, 3369604, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4808, 3369605, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4809, 3369606, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4810, 3369607, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4811, 3369608, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4812, 3369609, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4813, 3369610, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4814, 3369611, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4815, 3369612, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4816, 3369613, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4817, 3369614, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4818, 3369615, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4819, 3369616, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4820, 3369617, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4821, 3369618, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4822, 3369619, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4823, 3369620, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4824, 3369621, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4825, 3369622, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4826, 3369623, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4827, 3369624, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4828, 3369625, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4829, 3369626, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4830, 3369627, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4831, 3369628, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4832, 3369629, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4833, 3369630, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4834, 3369631, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4835, 3369632, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4836, 3369633, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4837, 3369634, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4838, 3369635, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4839, 3369636, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4840, 3369637, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4841, 3369638, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4842, 3369639, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4843, 3369640, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4844, 3369641, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4845, 3369642, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4846, 3369643, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4847, 3369644, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4848, 3369645, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4849, 3369646, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4850, 3369647, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4851, 3369648, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4852, 3369649, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4853, 3369650, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4854, 3369651, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4855, 3369652, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4856, 3369660, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4857, 3369661, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4858, 3369670, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4859, 3369671, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4860, 3369672, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4861, 3369673, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4862, 3369674, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4863, 3369675, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4864, 3369676, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4865, 3369677, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4866, 3369678, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4867, 3369679, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4868, 3369680, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4869, 3369681, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4870, 3369682, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4871, 3369683, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4872, 3369684, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4873, 3369685, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4874, 3369686, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4875, 3369687, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4876, 3369688, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4877, 3369689, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4878, 3369690, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4879, 3369691, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4880, 3369692, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4881, 3369693, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4882, 3369694, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4883, 3369695, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4884, 3369696, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4885, 3369697, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4886, 3369698, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4887, 3369699, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4888, 33698, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4889, 33699, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4890, 33700, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0);
 INSERT INTO `prices` (`id`, `prefix`, `country_zone`, `local_zone`, `description`, `pp`, `pa`, `mer`) VALUES
-(4914, 7510, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4915, 7511, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4916, 7512, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4917, 7513, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4918, 7514, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4919, 7515, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
-(4920, 7516, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4921, 7517, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4922, 7518, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4923, 7519, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4924, 752, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4925, 753, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4926, 754, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4927, 7555, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4928, 75566, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4929, 75567, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4930, 75568, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4931, 75569, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4932, 75707, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4933, 75717, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4934, 7575, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4935, 7576, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4936, 75777, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4937, 75778, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4938, 75787, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4939, 758, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4940, 760, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4941, 761, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4942, 762, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4943, 763, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4944, 764, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
-(4945, 7700, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4946, 7701, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4947, 7702, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
-(4948, 7703, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4949, 7704, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
-(4950, 7705, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4951, 7706, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4952, 7707, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4953, 7708, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4954, 7709, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
-(4955, 771, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4956, 777, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4957, 778, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4958, 779, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
-(4959, 780, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4960, 7800, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
-(4961, 781, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4962, 782, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4963, 783, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
-(4964, 785, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4965, 786, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4966, 787, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4967, 788, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4968, 789, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
-(4969, 800, 'FR', 'FRASPE800805', 'France - Spécial - 0800', 0, 0, 0),
-(4970, 801, 'FR', 'FRASPE800805', 'France - Spécial - 0801', 0, 0, 0),
-(4971, 802, 'FR', 'FRASPE800805', 'France - Spécial - 0802', 0, 0, 0),
-(4972, 805, 'FR', 'FRASPE800805', 'France - Spécial - 0805', 0, 0, 0),
-(4973, 806, 'FR', 'FRASPE806808', 'France - Spécial - 0806', 0, 0, 0),
-(4974, 807, 'FR', 'FRASPE806808', 'France - Spécial - 0807', 0, 0, 0),
-(4975, 808, 'FR', 'FRASPE806808', 'France - Spécial - 0808', 0, 0, 0),
-(4976, 809, 'FR', 'FRASPE800805', 'France - Spécial - 0809', 0, 0, 0),
-(4977, 810, 'FR', 'FRASPE810811', 'France - Spécial - 0810', 0.05, 0, 0),
-(4978, 811, 'FR', 'FRASPE810811', 'France - Spécial - 0811', 0.0025, 0, 0.068),
-(4979, 819, 'FR', 'FRASPE810811', 'France - Spécial - 0819', 0, 0, 0),
-(4980, 820, 'FR', 'FRASPE806808', 'France - Spécial - 0820', 0.11, 0, 0.12),
-(4981, 821, 'FR', 'FRASPE806808', 'France - Spécial - 0821', 0.11, 0, 0.12),
-(4982, 825, 'FR', 'FRASPE806808', 'France - Spécial - 0825', 0.1254, 0, 0.095),
-(4983, 826, 'FR', 'FRASPE806808', 'France - Spécial - 0826', 0, 0, 0),
-(4984, 836, 'FR', 'FRASPE806808', 'France - Spécial - 0836', 0, 0, 0),
-(4985, 83664, 'FR', 'FRASPE806808', 'France - Spécial - 083664', 0, 0, 0),
-(4986, 860, 'FR', 'FRASPE810811', 'France - Spécial - 0860', 0, 0, 0),
-(4987, 884, 'FR', 'FRASPE806808', 'France - Spécial - 0884', 0, 0, 0),
-(4988, 890, 'FR', 'FRASPE806808', 'France - Spécial - 0890', 0.15, 0, 0),
-(4989, 89064, 'FR', 'FRASPE806808', 'France - Spécial - 089064', 0, 0, 0),
-(4990, 89071, 'FR', 'FRASPE806808', 'France - Spécial - 089071', 0.14, 0, 0),
-(4991, 891, 'FR', 'FRASPE892', 'France - Spécial - 0891', 0, 0, 0),
-(4992, 892, 'FR', 'FRASPE892', 'France - Spécial - 0892', 0.45, 0, 0),
-(4993, 893, 'FR', 'FRASPE893', 'France - Spécial - 0893', 0, 0, 0),
-(4994, 897, 'FR', 'FRASPE897', 'France - Spécial - 0897', 0, 0, 0),
-(4995, 898, 'FR', 'FRASPE898', 'France - Spécial - 0898', 0, 0, 0),
-(4996, 899, 'FR', 'FRASPE899', 'France - Spécial - 0899', 0.34, 0, 1.349),
-(4997, 9, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
-(4998, 1005, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(4999, 1011, 'FR', 'FRAFREE', 'France - Mobile - Free', 0, 0, 0),
-(5000, 1012, 'FR', 'FRAFREE', 'France - Mobile - Free', 0, 0, 0),
-(5001, 1014, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5002, 1022, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5003, 1023, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5004, 1024, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5005, 1034, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5006, 1055, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5007, 1061, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
-(5008, 1064, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5009, 1066, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5010, 1068, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5011, 1077, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
-(5012, 118, 'FR', 'FRASPERENS', 'France - Spécial - Renseignements', 0, 0, 0),
-(5013, 30, 'FR', 'FRACOURT0', 'France - Spécial - court (gratuit)', 0, 0, 0),
-(5014, 31, 'FR', 'FRACOURT0', 'France - Spécial - court (gratuit)', 0, 0, 0),
-(5015, 3103, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5016, 3131, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5017, 32, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.55, 0, 0),
-(5018, 3203, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.05, 0, 0),
-(5019, 3205, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5020, 3232, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.34, 0, 1.35),
-(5021, 3243, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5022, 3245, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5023, 3266, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5024, 3269, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5025, 3280, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5026, 3281, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5028, 3611, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.028, 0, 0.078),
-(5029, 3615, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5030, 3617, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5031, 3626, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5032, 3632, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5033, 3634, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5034, 3635, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5035, 3638, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5036, 3639, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5037, 3646, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5038, 3650, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5039, 3664, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5040, 3665, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5041, 3680, 'FR', 'FRASURT', 'France', 0, 0, 0),
-(5042, 3699, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5043, 39, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5044, 3900, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5045, 3901, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5046, 3932, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5047, 3933, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5048, 3949, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
-(5049, 3959, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5050, 3960, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5051, 3970, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
-(5052, 3980, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5053, 3990, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
-(5054, 3995, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
-(5055, 3931, 'FR', 'FRA', 'France - numéro court', 0.15, 0, 11.2),
-(5056, 6, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0),
-(5057, 7, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0);
+(4891, 33730, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(4892, 33745, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(4893, 337500, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4894, 337501, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4895, 337502, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4896, 337503, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4897, 337504, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4898, 337505, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4899, 3375060, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4900, 3375061, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4901, 3375062, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4902, 3375063, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4903, 3375064, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4904, 3375065, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4905, 3375066, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4906, 3375067, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4907, 3375068, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4908, 3375069, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4909, 3375070, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4910, 3375071, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4911, 3375072, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4912, 337508, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4913, 337509, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4914, 337510, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4915, 337511, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4916, 337512, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4917, 337513, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4918, 337514, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4919, 337515, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0, 0, 0),
+(4920, 337516, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4921, 337517, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4922, 337518, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4923, 337519, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4924, 33752, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4925, 33753, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4926, 33754, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4927, 337555, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4928, 3375566, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4929, 3375567, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4930, 3375568, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4931, 3375569, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4932, 3375707, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4933, 3375717, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4934, 337575, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4935, 337576, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4936, 3375777, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4937, 3375778, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4938, 3375787, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4939, 33758, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4940, 33760, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4941, 33761, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4942, 33762, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4943, 33763, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4944, 33764, 'FR', 'FRABOU', 'France - Mobile - Bouygues', 0.05, 0, 0),
+(4945, 337700, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4946, 337701, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4947, 337702, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0.05, 0, 0),
+(4948, 337703, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4949, 337704, 'FR', 'DOMMOB', 'France - Mobile - DOM/TOM', 0, 0, 0),
+(4950, 337705, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4951, 337706, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4952, 337707, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4953, 337708, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4954, 337709, 'FR', 'FRAORA', 'France - Mobile - Orange', 0, 0, 0),
+(4955, 33771, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4956, 33777, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4957, 33778, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4958, 33779, 'FR', 'FRASFR', 'France - Mobile - SFR', 0.05, 0, 0),
+(4959, 33780, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4960, 337800, 'FR', 'FRASFR', 'France - Mobile - SFR', 0, 0, 0),
+(4961, 33781, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4962, 33782, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4963, 33783, 'FR', 'FRAFREE', 'France - Mobile - Free', 0.05, 0, 0),
+(4964, 33785, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4965, 33786, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4966, 33787, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4967, 33788, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4968, 33789, 'FR', 'FRAORA', 'France - Mobile - Orange', 0.05, 0, 0),
+(4969, 33800, 'FR', 'FRASPE800805', 'France - Spécial - 0800', 0, 0, 0),
+(4970, 33801, 'FR', 'FRASPE800805', 'France - Spécial - 0801', 0, 0, 0),
+(4971, 33802, 'FR', 'FRASPE800805', 'France - Spécial - 0802', 0, 0, 0),
+(4972, 33805, 'FR', 'FRASPE800805', 'France - Spécial - 0805', 0, 0, 0),
+(4973, 33806, 'FR', 'FRASPE806808', 'France - Spécial - 0806', 0, 0, 0),
+(4974, 33807, 'FR', 'FRASPE806808', 'France - Spécial - 0807', 0, 0, 0),
+(4975, 33808, 'FR', 'FRASPE806808', 'France - Spécial - 0808', 0, 0, 0),
+(4976, 33809, 'FR', 'FRASPE800805', 'France - Spécial - 0809', 0, 0, 0),
+(4977, 33810, 'FR', 'FRASPE810811', 'France - Spécial - 0810', 0.05, 0, 0),
+(4978, 33811, 'FR', 'FRASPE810811', 'France - Spécial - 0811', 0.0025, 0, 0.068),
+(4979, 33819, 'FR', 'FRASPE810811', 'France - Spécial - 0819', 0, 0, 0),
+(4980, 33820, 'FR', 'FRASPE806808', 'France - Spécial - 0820', 0.11, 0, 0.12),
+(4981, 33821, 'FR', 'FRASPE806808', 'France - Spécial - 0821', 0.11, 0, 0.12),
+(4982, 33825, 'FR', 'FRASPE806808', 'France - Spécial - 0825', 0.1254, 0, 0.095),
+(4983, 33826, 'FR', 'FRASPE806808', 'France - Spécial - 0826', 0, 0, 0),
+(4984, 33836, 'FR', 'FRASPE806808', 'France - Spécial - 0836', 0, 0, 0),
+(4985, 3383664, 'FR', 'FRASPE806808', 'France - Spécial - 083664', 0, 0, 0),
+(4986, 33860, 'FR', 'FRASPE810811', 'France - Spécial - 0860', 0, 0, 0),
+(4987, 33884, 'FR', 'FRASPE806808', 'France - Spécial - 0884', 0, 0, 0),
+(4988, 33890, 'FR', 'FRASPE806808', 'France - Spécial - 0890', 0.15, 0, 0),
+(4989, 3389064, 'FR', 'FRASPE806808', 'France - Spécial - 089064', 0, 0, 0),
+(4990, 3389071, 'FR', 'FRASPE806808', 'France - Spécial - 089071', 0.14, 0, 0),
+(4991, 33891, 'FR', 'FRASPE892', 'France - Spécial - 0891', 0, 0, 0),
+(4992, 33892, 'FR', 'FRASPE892', 'France - Spécial - 0892', 0.45, 0, 0),
+(4993, 33893, 'FR', 'FRASPE893', 'France - Spécial - 0893', 0, 0, 0),
+(4994, 33897, 'FR', 'FRASPE897', 'France - Spécial - 0897', 0, 0, 0),
+(4995, 33898, 'FR', 'FRASPE898', 'France - Spécial - 0898', 0, 0, 0),
+(4996, 33899, 'FR', 'FRASPE899', 'France - Spécial - 0899', 0.34, 0, 1.349),
+(4997, 339, 'FR', 'FRAFIXE', 'France', 0.01, 0, 0),
+(4998, 331005, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(4999, 331011, 'FR', 'FRAFREE', 'France - Mobile - Free', 0, 0, 0),
+(5000, 331012, 'FR', 'FRAFREE', 'France - Mobile - Free', 0, 0, 0),
+(5001, 331014, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5002, 331022, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5003, 331023, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5004, 331024, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5005, 331034, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5006, 331055, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5007, 331061, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
+(5008, 331064, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5009, 331066, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5010, 331068, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5011, 331077, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
+(5012, 33118, 'FR', 'FRASPERENS', 'France - Spécial - Renseignements', 0, 0, 0),
+(5013, 3330, 'FR', 'FRACOURT0', 'France - Spécial - court (gratuit)', 0, 0, 0),
+(5014, 3331, 'FR', 'FRACOURT0', 'France - Spécial - court (gratuit)', 0, 0, 0),
+(5015, 333103, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5016, 333131, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5017, 3332, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.55, 0, 0),
+(5018, 333203, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.05, 0, 0),
+(5019, 333205, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5020, 333232, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.34, 0, 1.35),
+(5021, 333243, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5022, 333245, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5023, 333266, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5024, 333269, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5025, 333280, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5026, 333281, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5028, 333611, 'FR', 'FRACOURT1', 'France - Spécial - court', 0.028, 0, 0.078),
+(5029, 333615, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5030, 333617, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5031, 333626, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5032, 333632, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5033, 333634, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5034, 333635, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5035, 333638, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5036, 333639, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5037, 333646, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5038, 333650, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5039, 333664, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5040, 333665, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5041, 333680, 'FR', 'FRASURT', 'France', 0, 0, 0),
+(5042, 333699, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5043, 3339, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5044, 333900, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5045, 333901, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5046, 333932, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5047, 333933, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5048, 333949, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
+(5049, 333959, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5050, 333960, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5051, 333970, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
+(5052, 333980, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5053, 333990, 'FR', 'FRAFIXE', 'France', 0, 0, 0),
+(5054, 333995, 'FR', 'FRACOURT1', 'France - Spécial - court', 0, 0, 0),
+(5055, 333931, 'FR', 'FRA', 'France - numéro court', 0.15, 0, 11.2),
+(5056, 336, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0),
+(5057, 337, 'FR', 'FRAMOB', 'France - Mobile', 0.05, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `projects`
+-- Структура таблицы `projects`
 --
 
 CREATE TABLE IF NOT EXISTS `projects` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(200) NOT NULL,
   `description` text NOT NULL,
+  `recurent` varchar(10) NOT NULL,
+  `remain` varchar(10) NOT NULL,
+  `client` varchar(100) NOT NULL,
+  `status` tinyint(1) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `projects`
+-- Дамп данных таблицы `projects`
 --
 
-INSERT INTO `projects` (`id`, `name`, `description`) VALUES
-(2, 'kmh', 'ghjklhutvbkn');
+INSERT INTO `projects` (`id`, `name`, `description`, `recurent`, `remain`, `client`, `status`) VALUES
+(8, 'testproject', 'This test project to test how system work.', '2:00', '39:10', 'admin', 1),
+(9, 'Test Olivier', 'Test', '3:00', '20:00', 'superuser', 1),
+(10, 'test', 'test', '1:00', '15:00', 'admin', 1),
+(11, 'test', 'test', '10:00', '15:00', 'admin', 0),
+(12, 'Test 00', 'test', '0:00', '10:00', 'test00', 1),
+(13, 'testproject', 'testtest', '0:00', '60:00', 'admin', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `supports`
+-- Структура таблицы `supports`
 --
 
 CREATE TABLE IF NOT EXISTS `supports` (
@@ -6316,23 +6387,22 @@ CREATE TABLE IF NOT EXISTS `supports` (
   `mail_from` varchar(100) NOT NULL,
   `mail_to` varchar(100) NOT NULL,
   `host` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
   `port` varchar(100) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `id` (`id`)
+  `password` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `supports`
+-- Дамп данных таблицы `supports`
 --
 
-INSERT INTO `supports` (`id`, `mail_from`, `mail_to`, `host`, `password`, `port`) VALUES
-(1, 'test@mail.ru', 'test@mail.ru', 'ssl://smtp.gmail.com', 'password', '465');
+INSERT INTO `supports` (`id`, `mail_from`, `mail_to`, `host`, `port`, `password`) VALUES
+(1, 'test', '', '', '', '');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tasks`
+-- Структура таблицы `tasks`
 --
 
 CREATE TABLE IF NOT EXISTS `tasks` (
@@ -6346,32 +6416,12 @@ CREATE TABLE IF NOT EXISTS `tasks` (
   `task_statut_id` int(11) NOT NULL,
   `active_task` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
-
---
--- Dumping data for table `tasks`
---
-
-INSERT INTO `tasks` (`id`, `description`, `subject`, `created`, `last_update`, `task_project_id`, `task_type_id`, `task_statut_id`, `active_task`) VALUES
-(1, 'Edition de la description de cette tâche', 'Résumé de la tâche', '2013-07-10 14:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(2, 'C''est le premier projet enregistré depuis l''application.', '1er Projet', '2013-07-10 17:43:49', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(3, '', 'ngg', '2013-07-10 17:46:05', '0000-00-00 00:00:00', 1, 1, 2, 0),
-(4, 'C''est le deuxième projet enregistré.', '2eme Projet', '2013-07-10 17:57:43', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(5, 'C''est le troisième projet enregistré', '3eme Projet', '2013-07-10 18:00:00', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(6, 'Test Description', 'Test', '2013-07-10 18:02:50', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(7, 'Encore un test, ça fait beaucoup de test comme même', 'Test Again', '2013-07-11 09:17:09', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(8, 'azerty', 'azerty', '2013-07-11 09:40:45', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(9, 'description', 'summary 2', '2013-07-11 09:45:35', '0000-00-00 00:00:00', 1, 1, 2, 1),
-(10, 'Re description', 'Test', '2013-07-11 10:22:01', '2013-07-11 10:22:01', 1, 1, 2, 1),
-(11, 'C''est la 1er tâche VoIP, avec le type Maintenance et aucune valeur de test.\r\nA part la description qui est bidon évidemment', '1er tâche VoIP', '2013-07-11 17:51:23', '2013-07-11 17:51:23', 2, 2, 3, 1),
-(12, 'lalalala', 'First ADSL', '2013-07-12 17:12:03', '2013-07-12 17:12:03', 3, 2, 2, 1),
-(13, 'lolololo', 'Second ADSL', '2013-07-12 17:12:40', '2013-07-12 17:12:40', 3, 3, 1, 1),
-(14, 'lululululu', 'Third ADSL', '2013-07-12 17:13:05', '2013-07-12 17:13:05', 3, 2, 1, 1);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_projects`
+-- Структура таблицы `task_projects`
 --
 
 CREATE TABLE IF NOT EXISTS `task_projects` (
@@ -6382,7 +6432,7 @@ CREATE TABLE IF NOT EXISTS `task_projects` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_projects`
+-- Дамп данных таблицы `task_projects`
 --
 
 INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
@@ -6393,7 +6443,7 @@ INSERT INTO `task_projects` (`id`, `label`, `active_task_project`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_statuts`
+-- Структура таблицы `task_statuts`
 --
 
 CREATE TABLE IF NOT EXISTS `task_statuts` (
@@ -6404,7 +6454,7 @@ CREATE TABLE IF NOT EXISTS `task_statuts` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `task_statuts`
+-- Дамп данных таблицы `task_statuts`
 --
 
 INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
@@ -6415,7 +6465,7 @@ INSERT INTO `task_statuts` (`id`, `label`, `active_task_statut`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `task_types`
+-- Структура таблицы `task_types`
 --
 
 CREATE TABLE IF NOT EXISTS `task_types` (
@@ -6426,7 +6476,7 @@ CREATE TABLE IF NOT EXISTS `task_types` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `task_types`
+-- Дамп данных таблицы `task_types`
 --
 
 INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
@@ -6438,7 +6488,7 @@ INSERT INTO `task_types` (`id`, `label`, `active_task_type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tickets`
+-- Структура таблицы `tickets`
 --
 
 CREATE TABLE IF NOT EXISTS `tickets` (
@@ -6454,72 +6504,75 @@ CREATE TABLE IF NOT EXISTS `tickets` (
   PRIMARY KEY (`id`),
   KEY `fk_tickets_categorie_tickets1_idx` (`categorie_ticket_id`),
   KEY `fk_tickets_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=48 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=20 ;
 
 --
--- Dumping data for table `tickets`
+-- Дамп данных таблицы `tickets`
 --
 
 INSERT INTO `tickets` (`id`, `titre`, `flag`, `status`, `created`, `actif_ticket`, `categorie_ticket_id`, `group_id`, `user_id`) VALUES
-(1, 'a', 'admin_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(2, 'testest', 'admin_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(4, 'ticket admin tel', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 1, 2, 2),
-(5, 'ticket admin autree', 'user_read', 'opened', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(8, 'esf', 'admin_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(9, 'new add ', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 1, 2, 2),
-(11, 'test', 'user_read', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(12, 'créer un ticket avec un titre long pour faire un exemple', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(13, 'test sans commm', 'admin_answer', 'closed', '0000-00-00 00:00:00', 0, 1, 2, 2),
-(14, 'ticket admin1', 'user_answer', 'closed', '0000-00-00 00:00:00', 1, 2, 2, 2),
-(15, 'sfgs', 'admin_read', 'opened', '0000-00-00 00:00:00', 1, 2, 3, 2),
-(16, 'Problème VoIP', 'admin_read', 'opened', '2013-08-16 09:49:34', 1, 1, 3, 2),
-(17, 'BLABLA', 'admin_read', 'closed', '2013-08-16 10:16:48', 0, 2, 3, 0),
-(18, 'New Ticket', 'user_answer', 'opened', '2013-08-16 10:56:56', 1, 2, 3, 4),
-(19, 'Test', 'user_answer', 'opened', '2014-03-17 17:30:14', 1, 2, 3, 4),
-(20, 'Test', 'user_answer', 'opened', '2014-03-17 17:31:01', 1, 2, 3, 4),
-(21, 'Test', 'user_answer', 'opened', '2014-03-17 17:33:46', 1, 2, 3, 4),
-(22, 'Testj', 'user_answer', 'opened', '2014-03-17 17:36:24', 1, 2, 3, 4),
-(23, '888', 'user_answer', 'opened', '2014-03-17 17:38:31', 1, 2, 3, 4),
-(24, '888', 'user_answer', 'closed', '2014-03-17 17:41:38', 0, 2, 3, 4),
-(25, '888', 'admin_answer', 'opened', '2014-03-17 17:42:10', 1, 2, 3, 4),
-(26, '888', 'user_answer', 'closed', '2014-03-17 17:44:36', 1, 2, 3, 4),
-(27, '888k', 'user_answer', 'opened', '2014-03-17 17:46:01', 1, 2, 3, 4),
-(28, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:07:59', 1, 2, 3, 4),
-(29, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:08:21', 1, 2, 3, 4),
-(30, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:08:47', 1, 2, 3, 4),
-(31, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:09:28', 1, 2, 3, 4),
-(32, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:12:41', 1, 2, 3, 4),
-(33, '888kxczxc', 'user_answer', 'opened', '2014-03-17 18:12:45', 1, 2, 3, 4),
-(34, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:13:21', 1, 2, 3, 4),
-(35, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:14:13', 1, 2, 3, 4),
-(36, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:14:23', 1, 2, 3, 4),
-(37, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:15:17', 1, 2, 3, 4),
-(38, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:16:29', 1, 2, 3, 4),
-(39, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:17:11', 1, 2, 3, 4),
-(40, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:21:44', 1, 2, 3, 4),
-(41, 'zxcz', 'user_answer', 'opened', '2014-03-17 18:22:22', 1, 2, 3, 4),
-(42, '888k', 'user_answer', 'opened', '2014-03-17 18:23:01', 1, 2, 3, 4),
-(43, 'sdf', 'user_answer', 'opened', '2014-03-17 18:41:46', 1, 2, 3, 4),
-(44, 'sdf', 'user_answer', 'opened', '2014-03-17 18:45:29', 1, 2, 3, 4),
-(45, 'Test', 'user_answer', 'opened', '2014-03-17 18:59:11', 1, 2, 3, 4),
-(46, 'Test ticket alarm', 'user_answer', 'opened', '2014-03-17 18:59:45', 1, 2, 3, 4),
-(47, 'zxczxcddsf', 'user_answer', 'opened', '2014-03-17 19:42:50', 1, 2, 3, 4);
+(19, 'hgjhg', 'admin_read', 'opened', '2014-03-17 20:15:21', 1, 2, 2, 17);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `times`
+-- Структура таблицы `times`
 --
 
 CREATE TABLE IF NOT EXISTS `times` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `adress` text NOT NULL,
+  `company` varchar(100) NOT NULL,
+  `phone` varchar(150) NOT NULL,
+  `city` varchar(20) NOT NULL,
+  `city_code` varchar(20) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `footer` text NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+
+--
+-- Дамп данных таблицы `times`
+--
+
+INSERT INTO `times` (`id`, `adress`, `company`, `phone`, `city`, `city_code`, `mail`, `footer`) VALUES
+(1, 'dfgfhjkl;', 'Test company', '23324234', 'Testcity', '23432425', 'test@test.com', ' nhgjhkjnkm\r\nghbjbjhb');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tmps`
+-- Структура таблицы `timesessions`
+--
+
+CREATE TABLE IF NOT EXISTS `timesessions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `project_id` int(11) NOT NULL,
+  `description` text NOT NULL,
+  `category` varchar(100) NOT NULL,
+  `start` varchar(5) NOT NULL,
+  `end` varchar(5) NOT NULL,
+  `duration` varchar(6) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
+
+--
+-- Дамп данных таблицы `timesessions`
+--
+
+INSERT INTO `timesessions` (`id`, `project_id`, `description`, `category`, `start`, `end`, `duration`, `date`) VALUES
+(39, 8, 'This is test work session for test project. ', 'Development', '11:00', '18:00', '7:00', '2014-05-21'),
+(40, 8, 'test Olivier', 'Development', '11:05', '17:00', '5:55', '0000-00-00'),
+(41, 8, 'test 2', 'Development', '12:00', '13:00', '1:00', '0000-00-00'),
+(42, 8, 'Test', 'Debug', '12:00', '13:00', '1:00', '2014-05-23'),
+(43, 8, 'Test33', 'Development', '13:00', '19:35', '6:35', '2014-05-23'),
+(44, 8, 'test', 'Development', '12:07', '12:27', '0:20', '2014-05-23'),
+(45, 12, 'coucou', 'Development', '12:50', '13:44', '0:54', '2014-05-23');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `tmps`
 --
 
 CREATE TABLE IF NOT EXISTS `tmps` (
@@ -6529,7 +6582,7 @@ CREATE TABLE IF NOT EXISTS `tmps` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
--- Dumping data for table `tmps`
+-- Дамп данных таблицы `tmps`
 --
 
 INSERT INTO `tmps` (`id`, `variable`) VALUES
@@ -6538,7 +6591,7 @@ INSERT INTO `tmps` (`id`, `variable`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Структура таблицы `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -6552,31 +6605,21 @@ CREATE TABLE IF NOT EXISTS `users` (
   `group_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_users_groups1_idx` (`group_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `users`
+-- Дамп данных таблицы `users`
 --
 
 INSERT INTO `users` (`id`, `civilite`, `nom_user`, `prenom`, `username`, `password`, `actif_user`, `group_id`) VALUES
-(1, 'root', 'root', 'root', 'root', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
 (2, 'Monsieur', 'ADMIN', 'Admin', 'admin', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
-(3, 'Monsieur', 'Admin1', 'Admin1', 'admin1', '312d8342d46992766b13ac33cf3c74e0d2d8f87b', 1, 2),
-(4, 'Monsieur', 'TEST', 'test', 'test', 'ea4bbbe3a4eb9cf92868a36ca25e57d84f4edb5a', 1, 3),
-(5, 'Monsieur', 'tte', 'teest', 'c', '9b739ec4e41b4a3323925c207d5bde0809408709', 0, 5),
-(6, 'Mademoiselle', 'm', 'm', 'm', '7fbad67f5bfb24fca9b76a706bd0058d256ec5c6', 0, 5),
-(7, 'Monsieur', 'Babou', 'babou', 'babou', '53bc05bd019eec2d2af99326421069a7ebac1665', 1, 7),
-(8, 'Monsieur', 'jht', 'ruyj', 'azerty', '14f9c01c07060c37c7b41f368c8bd6cc4641e370', 0, 7),
-(9, 'Monsieur', 'r', 'dry', 'totototo', '7a953dbaf66ebc9a0827797eb4845f9b3df37aa7', 0, 2),
-(10, 'Monsieur', 'r', 'dry', 'tatatata', 'acac338d555b0013a31dbbc2d52fe6d9ad974ed1', 0, 2),
-(11, 'Monsieur', 'r', 'dry', 'titititi', 'c058554194fb5a5d346a44ad76399f47c8f51146', 0, 2),
-(12, 'Monsieur', 'Jr', 'Jr', 'Chiffe', '5ee78b7948d8fbb1646731133ced20e85bd94b87', 1, 2),
-(13, 'Monsieur', 'Mon nom', 'Mon prénom', 'rayane', 'bf6fbd2fa01ac019dd0214cd8c1b213905315b1c', 1, 7);
+(17, 'Monsieur', 'Superuser', 'Superuser', 'superuser', '898b83ce5b21ef413c941144d049c17fa8bc049a', 1, 2),
+(18, 'Monsieur', 'test', 'test', 'test00', '8e000f986439eddb99632ffd66f2d6bccf40700c', 1, 11);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user_details`
+-- Структура таблицы `user_details`
 --
 
 CREATE TABLE IF NOT EXISTS `user_details` (
@@ -6589,45 +6632,12 @@ CREATE TABLE IF NOT EXISTS `user_details` (
   `user_id` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_user_details_users1_idx` (`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=36 ;
-
---
--- Dumping data for table `user_details`
---
-
-INSERT INTO `user_details` (`id`, `type`, `valeur`, `key`, `created`, `actif_user_detail`, `user_id`) VALUES
-(1, 'Email', 'gh@y.gt', '', '2013-05-07 09:11:45', 0, 7),
-(2, 'Email', 'ete@ske.fr', '', '2013-05-07 09:29:18', 0, 7),
-(3, 'Email', 'babou@sfr.fr', '', '2013-05-07 09:39:38', 1, 7),
-(4, 'Email', '1245', '', '2013-05-07 09:39:57', 0, 7),
-(5, 'Email', '528', '', '2013-05-07 09:47:04', 0, 7),
-(6, 'NumeroFixe', '0450121244', '', '2013-05-07 10:37:27', 1, 7),
-(7, 'NumeroFax', '538725', '', '2013-05-07 11:02:02', 0, 7),
-(8, 'NumeroFixe', '4354', '', '2013-05-07 11:04:19', 0, 7),
-(9, 'NumeroFixe', 'e', '', '2013-05-07 11:04:53', 0, 7),
-(10, 'NumeroFixe', 'rt', '', '2013-05-07 11:07:11', 0, 7),
-(11, 'NumeroFixe', '1234536531', '', '2013-05-07 11:23:00', 0, 7),
-(14, 'Rue', '15 rue de la paix', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
-(15, 'NPA', '85350', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
-(16, 'Ville', 'Saint Etienne', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
-(17, 'Pays', 'France', '079f7c8b48dc746e9ebb8cf68b6c615f', '2013-05-07 16:41:07', 1, 7),
-(18, 'Rue', '20 rue mongolfier', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
-(19, 'NPA', '45200', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
-(20, 'Ville', 'Lille', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
-(21, 'Pays', 'France', '99a73053a1818e7104c1c736cd10565b', '2013-05-07 16:41:31', 1, 7),
-(22, 'Rue', 'gyj', '3f972fb0ce80ee31cb3b81eb189a863a', '2013-05-10 09:09:45', 0, 7),
-(26, 'Rue', '81 place de Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(27, 'NPA', '74550', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(28, 'Ville', 'Perrignier', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(29, 'Pays', 'France', 'fd75549e3792b6eb44ccf12da8415f07', '2013-05-10 10:05:13', 1, 2),
-(33, 'Pays', 'France', 'be91821ac2c769990486fd09c729d808', '2013-05-10 10:05:42', 0, 2),
-(34, 'Email', 'ku@drg.fr', '', '2013-05-10 10:19:30', 0, 2),
-(35, 'Email', 'sduret@visionweb-online.fr', '', '2013-05-10 10:19:45', 1, 2);
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `voips`
+-- Структура таблицы `voips`
 --
 
 CREATE TABLE IF NOT EXISTS `voips` (
@@ -6635,54 +6645,57 @@ CREATE TABLE IF NOT EXISTS `voips` (
   `login` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `pass` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
   `ip` varchar(30) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `port` int(11) NOT NULL,
+  `pr_adress` varchar(20) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `pr_port` varchar(11) COLLATE utf8mb4_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `voips`
+-- Дамп данных таблицы `voips`
 --
 
-INSERT INTO `voips` (`id`, `login`, `pass`, `ip`) VALUES
-(1, 'managero', 'UBIBOzULRSuh', '172.16.1.2');
+INSERT INTO `voips` (`id`, `login`, `pass`, `ip`, `port`, `pr_adress`, `pr_port`) VALUES
+(1, 'managero', 'UBIBOzULRSuh', '172.16.1.1', 5061, '000.000.000.000', '5062');
 
 --
--- Constraints for dumped tables
+-- Ограничения внешнего ключа сохраненных таблиц
 --
 
 --
--- Constraints for table `commentaires`
+-- Ограничения внешнего ключа таблицы `commentaires`
 --
 ALTER TABLE `commentaires`
   ADD CONSTRAINT `fk_commentaires_tickets1` FOREIGN KEY (`ticket_id`) REFERENCES `tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_commentaires_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `faqs`
+-- Ограничения внешнего ключа таблицы `faqs`
 --
 ALTER TABLE `faqs`
   ADD CONSTRAINT `fk_faqs_categorie_faqs1` FOREIGN KEY (`categorie_faq_id`) REFERENCES `categorie_faqs` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `group_details`
+-- Ограничения внешнего ключа таблицы `group_details`
 --
 ALTER TABLE `group_details`
   ADD CONSTRAINT `fk_group_details_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `tickets`
+-- Ограничения внешнего ключа таблицы `tickets`
 --
 ALTER TABLE `tickets`
   ADD CONSTRAINT `fk_tickets_categorie_tickets1` FOREIGN KEY (`categorie_ticket_id`) REFERENCES `categorie_tickets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_tickets_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `users`
+-- Ограничения внешнего ключа таблицы `users`
 --
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_groups1` FOREIGN KEY (`group_id`) REFERENCES `groups` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 --
--- Constraints for table `user_details`
+-- Ограничения внешнего ключа таблицы `user_details`
 --
 ALTER TABLE `user_details`
   ADD CONSTRAINT `fk_user_details_users1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;

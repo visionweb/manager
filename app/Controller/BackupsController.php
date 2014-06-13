@@ -13,7 +13,7 @@ class BackupsController extends AppController{
 
 	public function admin_index() {
 	
-		$this->set('title','Backup');
+		$this->set('title','Listes des backups');
 		}
 	
 	public function admin_config() {

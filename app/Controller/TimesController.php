@@ -27,6 +27,8 @@ class TimesController extends AppController{
 		$sessions=$this->Timesession->find('all');
 		$times=$this->Time->find('all');
 		$array = array_filter(explode('?', $id));
+		if(!isset($array[1]))
+			$array=array();
 		$prname=array();
 		if(empty($array)){
 			$display['client']='0';
@@ -44,11 +46,21 @@ class TimesController extends AppController{
 					array_push($projectlist, $project['Project']['id']);
 					array_push($prname, $project['Project']['name']);
 					}
-			foreach($projectlist as $list)
-				foreach($sessions as $session)
-					if($session['Timesession']['project_id']==$list)
-						array_push($sessionlist, $session);
-			$sessions=$sessionlist;
+			if(count($projectlist)==0){
+				$display['client']='0';
+				$display['project']='all';
+				}
+			else{
+				foreach($projectlist as $list)
+					foreach($sessions as $session)
+						if($session['Timesession']['project_id']==$list)
+							array_push($sessionlist, $session);
+				$sessions=$sessionlist;
+				if(count($session)==0){
+					$display['client']='0';
+					$display['project']='all';
+					}
+				}
 			}
 		if($display['project']!='all'){	
 			$projectlist=array();
@@ -65,6 +77,7 @@ class TimesController extends AppController{
 						array_push($sessionlist, $session);
 			$sessions=$sessionlist;
 			}
+			
 		$this->set(compact('id','prname','times','users','display','sessions','time_remain','current'));
 		$this->set('title','TimeMan');
 		}

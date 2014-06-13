@@ -21,7 +21,7 @@
 		<a href="<?php print $this->Html->url(array('action' => 'projects'))?>">
 		<button class="btn">Back</button>
 		</a>
-		<a href="<?php print $this->Html->url(array('action' => 'download_pdf', $id))?>">
+		<a href="<?php print $this->Html->url(array('action' => 'create_pdf', $id))?>">
 		<button class="btn">Create PDF</button>
 		</a>
 		<table class="table-hover table-condensed" cellpadding="0" cellspacing="0">

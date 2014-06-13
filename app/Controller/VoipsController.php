@@ -2,9 +2,9 @@
 App::uses('AppController', 'Controller');
 App::uses('CakeEmail', 'Network/Email');
 /**
- * Faqs Controller
+ * Voips Controller
  *
- * @property Faq $Faq
+ * @property Voips $Voips
  */
 class VoipsController extends AppController {
    
@@ -17,16 +17,16 @@ class VoipsController extends AppController {
     }
 
 /**
- * index method - Display categories
+ * index method - Display user's accounts
  *
  * @return void
  */
 	public function index() {
 	$this->loadModel('Password');
-	$server=$this->Voip->getAccess();
 	$this->loadModel('Number');
 	$numbers=$this->Number->find('all');
 	$password=$this->Password->find('all');
+	$server=$this->Voip->getAccess();
 	$dataBrut=$this->Voip->xivo("GET", "/1.1/users");
 	$sip=$this->Voip->xivo("GET", "/1.1/lines_sip");
 	$extension=$this->Voip->xivo("GET", "/1.1/extensions");
@@ -66,43 +66,6 @@ class VoipsController extends AppController {
 	$this->set('title','VoIP');
 	$this->set('legend','Liste compte');
 }
-
-/**
- * view method - Display faqs
- *
- * @param string $id - Id of the category
- * @return void
- */
-	public function view() {
-
-	}
-
-    /**
-     * admin_index method - Displays Faqs
-     *
-     * @return void
-     */
-    public function admin_index() {
-    }
-
-    /**
-     * admin_add method - Add a Faq in the database
-     *
-     * @return void
-     */
-    public function admin_add() {
-		
-    }
-
-    /**
-     *admin_ view method - Display a Faq with more details
-     *
-     * @param string $id - Id of the Faq
-     * @return void
-     */
-    public function admin_view($id = null) {
-
-    }
 
 	//remove number from numbers list
 	public function admin_removenumber($id = null) {
@@ -404,12 +367,7 @@ class VoipsController extends AppController {
 		$this->set('title','VoIP');
 		$this->set('legend','Nouveau compte');
 		}
-
-    public function admin_consommation(){
-		
-		}
-	
-    
+	   
     public function admin_server($id=NULL){
 		$voipdata=$this->Voip->find('all');
 		$this->set("voipdata", $voipdata);
