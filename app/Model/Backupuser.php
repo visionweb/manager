@@ -2,11 +2,11 @@
 
 App::uses('AppModel', 'Model');
 
-class Backupconfig extends AppModel {
-	public $name = 'Backupconfig';
+class Backupuser extends AppModel {
+	public $name = 'Backupuser';
 	
 	public $validate = array(
-		'name' => array(
+		'login' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -17,7 +17,7 @@ class Backupconfig extends AppModel {
 			),
 		),
 		
-		'ip' => array(
+		'server' => array(
 			'notempty' => array(
 				'rule' => array('notempty'),
 				//'message' => 'Your custom message here',
@@ -27,7 +27,5 @@ class Backupconfig extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			)
 		));
-	
-	
 		
 }
