@@ -71,13 +71,14 @@ class TimesController extends AppController{
 					array_push($projectlist, $project['Project']['id']);
 					$current=$project['Project']['id'];
 					}
+			if(!isset($current))
+				$this->redirect(array('action'=>'admin_index'));	
 			foreach($projectlist as $list)
 				foreach($sessions as $session)
 					if($session['Timesession']['project_id']==$list)
 						array_push($sessionlist, $session);
 			$sessions=$sessionlist;
 			}
-			
 		$this->set(compact('id','prname','times','users','display','sessions','time_remain','current'));
 		$this->set('title','TimeMan');
 		}
@@ -155,6 +156,8 @@ class TimesController extends AppController{
 		}
     
     public function admin_del_cat($id=NULL) {
+		if($id==null)
+			$this->redirect(array('action'=>'admin_categories'));
 		$this->autoRender = false;
 		$this->loadModel('Category');
 		$this->Category->delete($id);
@@ -165,6 +168,8 @@ class TimesController extends AppController{
 	public function admin_edit_cat($id=NULL) {
 		$this->loadModel('Category');
 		$current=$this->Category->findById($id);
+		if(empty($current))
+			$this->redirect(array('action'=>'admin_categories'));
 		if ($this->request->is('post')) {
 			$new_cat=array('name'=>$this->data['Category']['name'], 'description'=>$this->data['Category']['description']);
 			$this->Category->id=$id;
@@ -259,6 +264,8 @@ class TimesController extends AppController{
 		$this->loadModel('User');
 		$clients=$this->User->find('all');
 		$project=$this->Project->findById($id);
+		if(empty($project))
+			$this->redirect(array('action'=>'admin_projects'));
 		$tmp=array();
 		foreach($clients as $client)
 			$tmp[$client['User']['username']]=$client['User']['username'];	
@@ -331,6 +338,8 @@ class TimesController extends AppController{
 		$this->loadModel('Timesession');
 		$this->loadModel('Project');
 		$project=$this->Project->findById($id);
+		if(empty($project))
+			$this->redirect(array('action' => 'admin_projects'));
 		$conditions = array('Timesession.project_id LIKE' => $id);
 		$this->Paginator->settings = array(
 				'Timesession' => array(
@@ -346,7 +355,14 @@ class TimesController extends AppController{
 	public function view_project($id=NULL) {
 		$this->loadModel('Timesession');
 		$this->loadModel('Project');
+		if($id==null){
+			$this->redirect(array('action'=>'projects'));
+			}
 		$project=$this->Project->findById($id);
+		if($project['Project']['client']!=$this->Session->read('Auth.User.username')){
+			$this->Session->setFlash(('This project does not belong to account '.$this->Session->read('Auth.User.username')),'flash_warning');
+			$this->redirect(array('action'=>'projects'));
+			}
 		$conditions = array('Timesession.project_id LIKE' => $id);
 		$this->Paginator->settings = array(
 				'Timesession' => array(
