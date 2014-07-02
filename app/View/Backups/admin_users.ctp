@@ -26,7 +26,7 @@
         <tr>
 			<th>
 				<?php 
-					print $this->Paginator->sort('login', 'Domain');
+					print $this->Paginator->sort('login', 'Login');
 				?>
 			</th>
             <th>

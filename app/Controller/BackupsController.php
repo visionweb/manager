@@ -12,7 +12,14 @@ class BackupsController extends AppController{
     }
 
 	public function admin_index() {
-	
+		$this->Paginator->settings = array(
+				'Backup' => array(
+				'limit' => 30
+					)
+			);
+		$this->Paginator->settings = $this->paginate;
+		$backups = $this->Paginator->paginate('Backup');
+		$this->set(compact('backups'));
 		$this->set('title','Listes des backups');
 		}
 	

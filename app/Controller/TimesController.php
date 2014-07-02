@@ -219,11 +219,17 @@ class TimesController extends AppController{
 		$this->loadModel('Project');
 		$this->loadModel('User');
 		$clients=$this->User->find('all');
+		$projects=$this->Project->find('all');
 		$tmp=array();
 		foreach($clients as $client)
 			$tmp[$client['User']['username']]=$client['User']['username'];	
 		$clients=$tmp;
 		if ($this->request->is('post')) {
+			foreach($projects as $project)
+				if($project['Project']['name']==$this->data['Project']['name']){
+					$this->Session->setFlash(('Project '.$this->data['Project']['name'].' already exist!'),'flash_warning');
+					$this->redirect($this->request->here);
+					}
 			$time=$this->data['Project']['time'];
 			$time=$this->Time->timeProcessor('VALIDATEBIG', $time);
 			$recurent=$this->data['Project']['recurent'];

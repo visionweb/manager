@@ -2,7 +2,6 @@
 
 	<fieldset>
 		<?php
-			print $test;
 			print $this->Form->create('Project');
 			print $this->Form->input('client', array('label'=>'Client', 'options'=>$clients));
 			print $this->Form->input('name', array('label'=>'Project name'));
