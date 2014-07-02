@@ -109,34 +109,122 @@
 		*/
 		public function admin_mail(){
 
-			/*load model and get all data from table "supports"*/
+			/*load model and get all data from tables*/
 			$this->loadModel("Support");
-			$support=$this->Support->find('all');
+			$this->loadModel("MailDest");
+			$support=$this->Support->findById(1);
+			$support=$support['Support'];
+			$this->Paginator->settings = array(
+				'MailDest' => array(
+				'limit' => 30
+				)
+			);
+			$this->Paginator->settings = $this->paginate;
+			$dests = $this->Paginator->paginate('MailDest');
 
+			/*set variables of page*/
+			$this->set(compact('support','dests'));
+			$this->set("title", "Configuration");
+			$this->set("legend", "Support email setting");
+			}
+			
+		public function admin_add_mail(){
+			/*load model MailDest*/
+			$this->loadModel("MailDest");
+			
 			/*if data sended by form*/
 			if ($this->request->is('post')) {
 
 				/*get new parameters from form*/
-				$new=array('mail_from'=>$this->data['mail_from'],
-							'mail_to'=>$this->data['mail_to'],
-							'port'=>$this->data['portmail'],
-							'host'=>$this->data['host'],
-							'password'=>$this->data['pass'],
+				$new=array(	'adress'=>$this->data['Module']['adress'],
 							);
 
-				/*save new settings to table "supports"*/
-				$this->Support->id='1';
+				/*save new adress to table "mail_dests"*/
+				$this->MailDest->save($new);
+
+				/*back*/
+				$this->redirect(array('action'=>'admin_mail'));
+				}
+				
+			/*set variables of page*/
+			$this->set("title", "Configuration");
+			$this->set("legend", "Add new adress");
+			}
+			
+		public function admin_del_mail($id=null){
+			/*prevent rendering*/
+			$this->autoRender=false;
+			
+			/*prevent error*/
+			if($id==null)
+				$this->redirect(array('action'=>'admin_mail'));
+			
+			/*load model MailDest*/
+			$this->loadModel("MailDest");
+			
+			/*remove adress from database*/
+			$this->MailDest->id=$id;
+			$this->MailDest->delete();
+			$this->redirect(array('action'=>'admin_mail'));
+			}
+			
+		public function admin_edit_mail($id=null){
+			/*load model MailDest and get data*/
+			$this->loadModel("MailDest");
+			$mail=$this->MailDest->findById($id);
+			
+			/*check is this mail exist*/
+			if(empty($mail))
+				$this->redirect(array('action'=>'admin_mail'));
+			
+			/*if data sended by form*/
+			if ($this->request->is('post')) {
+
+				/*get new parameters from form*/
+				$new=array(	'adress'=>$this->data['Module']['adress'],
+							);
+
+				/*save new adress to table "mail_dests"*/
+				$this->MailDest->id=$id;
+				$this->MailDest->save($new);
+
+				/*back*/
+				$this->redirect(array('action'=>'admin_mail'));
+				}
+				
+			/*set variables of page*/
+			$this->set("title", "Configuration");
+			$this->set("legend", "Edit adress");
+			$this->set(compact('mail'));
+			}
+			
+		public function admin_edit_mainmail(){
+			/*load model Support and get data*/
+			$this->loadModel("Support");
+			$mail=$this->Support->findById(1);
+			
+			/*if data sended by form*/
+			if ($this->request->is('post')) {
+
+				/*get new parameters from form*/
+				$new=array(	'mail_from'=>$this->data['Module']['adress'],
+							'host'=>$this->data['Module']['host'],
+							'password'=>$this->data['Module']['password'],
+							'port'=>$this->data['Module']['port'],
+							);
+
+				/*save new adress to table "mail_dests"*/
+				$this->Support->id=1;
 				$this->Support->save($new);
 
-				/*reload page*/
-				$this->redirect($this->request->here);
+				/*back*/
+				$this->redirect(array('action'=>'admin_mail'));
 				}
-
+				
 			/*set variables of page*/
-			$this->set(compact('support'));
 			$this->set("title", "Configuration");
-			$this->set("legend", "Support email setting");
+			$this->set("legend", "Edit adress");
+			$this->set(compact('mail'));
 			}
-
 	}
 ?>

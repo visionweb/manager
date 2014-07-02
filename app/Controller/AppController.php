@@ -64,13 +64,17 @@ class AppController extends Controller {
     
    public function sendMail($subject, $message){
 	   $this->loadModel('Support');
+	   $this->loadModel('MailDest');
+	   $dests=$this->MailDest->find('all');
 	   $support=$this->Support->find('all');
 	   $from=$support[0]['Support']['mail_from'];
-	   $to=$support[0]['Support']['mail_to'];
 	   $host=$support[0]['Support']['host'];
 	   $password=$support[0]['Support']['password'];
 	   $port=$support[0]['Support']['port'];
-		$default = array(
+	   $bcc=array();
+	   foreach($dests as $dest)
+			array_push($bcc, $dest['MailDest']['adress']);
+	   $default = array(
 			'host' => $host,
 			'port' => $port,
 			'username' => $from,
@@ -79,7 +83,7 @@ class AppController extends Controller {
 			);
 		$Email = new CakeEmail($default);
 		$Email->from(array($from => $from));
-		$Email->to($to);
+		$Email->bcc($bcc);
 		$Email->subject($subject);
 		$Email->send($message);
 		}

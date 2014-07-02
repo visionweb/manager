@@ -58,9 +58,5 @@
             </div>
             <div id="footer"></div>
         </div>
-        <?php
-        //if(strpos($_SERVER['SERVER_NAME'], 'local')) echo $this->element('sql_dump');
-        ?>
     </body>
     </html>
-<?endif;?>
