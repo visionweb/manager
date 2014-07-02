@@ -67,6 +67,8 @@ class AppController extends Controller {
 	   $this->loadModel('MailDest');
 	   $dests=$this->MailDest->find('all');
 	   $support=$this->Support->find('all');
+	   if(empty($dests) or empty($support))
+			return 0;
 	   $from=$support[0]['Support']['mail_from'];
 	   $host=$support[0]['Support']['host'];
 	   $password=$support[0]['Support']['password'];
