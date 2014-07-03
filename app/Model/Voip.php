@@ -359,8 +359,11 @@ class Voip extends AppModel {
 		$server=$this->getAccess();
 		if($method=='GET'){
 			exec("curl --digest --insecure -u ".$server['login'].":".$server['pass']." 'https://".$server['ip'].":50051".$request."'", $value);
+			if(empty($value) or !isset($value))
+				return 0;
 			$value=json_decode($value[0], true);
-			if(isset($value['items']))	$value=$value['items'];
+			if(isset($value['items']))
+				$value=$value['items'];
 			return $value;
 			}
 		else{
@@ -380,6 +383,8 @@ class Voip extends AppModel {
 			if($method!='DELETE') curl_setopt($curlHandler, CURLOPT_POSTFIELDS, json_encode($data)); 
 			$result = curl_exec($curlHandler);
 			curl_close($curlHandler);
+			if(empty($result) or !isset($result))
+				return 0;
 			return $result;
 			}
 		}

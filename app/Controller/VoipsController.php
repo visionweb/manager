@@ -167,89 +167,112 @@ class VoipsController extends AppController {
 		$users=$this->Voip->xivo("GET", "/1.1/users");
 		$lines=$this->Voip->xivo("GET", "/1.1/lines_sip");
 		$extensions=$this->Voip->xivo("GET", "/1.1/extensions");
-		$listUser=array();
-		$i=0;
-		$new_numbers=array();
-		foreach($users as $user){
-			$listUser[$i]['firstname']=$user['firstname'];
-			$listUser[$i]['lastname']=$user['lastname'];
-			$listUser[$i]['userfield']=$user['userfield'];
-			$new=true;
-			foreach($numbers as $number){
-				if('00'.$number['Number']['prefix'].$number['Number']['phone_number']==$user['userfield']){
-					$new=false;
-					break;
-					}
-				if(substr($user['userfield'],0,3)=='097')
-					if('00'.$number['Number']['prefix'].$number['Number']['phone_number']=='003397'.substr($user['userfield'],3)){
+		if($users==0 or $lines==0 or $extensions==0)
+			$this->Session->setFlash(("Can not connect to XiVO server, check server settings."), 'flash_warning');
+		else{
+			$listUser=array();
+			$i=0;
+			$new_numbers=array();
+			foreach($users as $user){
+				$listUser[$i]['firstname']=$user['firstname'];
+				$listUser[$i]['lastname']=$user['lastname'];
+				$listUser[$i]['userfield']=$user['userfield'];
+				$new=true;
+				foreach($numbers as $number){
+					if('00'.$number['Number']['prefix'].$number['Number']['phone_number']==$user['userfield']){
 						$new=false;
 						break;
 						}
-				}
+					if(substr($user['userfield'],0,3)=='097')
+						if('00'.$number['Number']['prefix'].$number['Number']['phone_number']=='003397'.substr($user['userfield'],3)){
+							$new=false;
+							break;
+							}
+					}
 
-			$listUser[$i]['id']=$user['id'];
-			$links=$this->Voip->xivo("GET", "/1.1/users/".$user['id']."/lines");
-			$line_id=$links[0]['line_id'];
-			$links=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
-			$exten_id=$links['extension_id'];
-			foreach($lines as $line){
-				if ($line_id==$line['id']){
-					$listUser[$i]['username']=$line['username'];
-					$listUser[$i]['password']=$line['secret'];
-					break;
+				$listUser[$i]['id']=$user['id'];
+				$links=$this->Voip->xivo("GET", "/1.1/users/".$user['id']."/lines");
+				$line_id=$links[0]['line_id'];
+				$links=$this->Voip->xivo("GET", "/1.1/lines/".$line_id."/extension");
+				$exten_id=$links['extension_id'];
+				foreach($lines as $line){
+					if ($line_id==$line['id']){
+						$listUser[$i]['username']=$line['username'];
+						$listUser[$i]['password']=$line['secret'];
+						break;
+						}
 					}
-				}
-			foreach($extensions as $extension){
-				if ($exten_id==$extension['id']){
-					$listUser[$i]['short']=$extension['exten'];
-					break;
+				foreach($extensions as $extension){
+					if ($exten_id==$extension['id']){
+						$listUser[$i]['short']=$extension['exten'];
+						break;
+						}
 					}
-				}
+					
+				if($new==true){
+					if(substr($user['userfield'],0 ,3)=='097'){
+						$prefix='3397';
+						$number=substr($user['userfield'],3);
+						}
+					else{
+						$prefix='33';
+						$number=substr($user['userfield'],4);
+						}
+					$new=array(
+						'prefix'=>$prefix,
+						'phone_number'=>$number,
+						'owner'=>'No account',
+						'short'=>$listUser[$i]['short']
+						);
+					array_push($new_numbers, $new);
+					$new=true;
+					}
 				
-			if($new==true){
-				if(substr($user['userfield'],0 ,3)=='097'){
-					$prefix='3397';
-					$number=substr($user['userfield'],3);
+				foreach($numbers as $number){
+					if ($listUser[$i]['short']==$number['Number']['short']){
+						$listUser[$i]['owner']=$number['Number']['owner'];
+						break;
+						}
 					}
-				else{
-					$prefix='33';
-					$number=substr($user['userfield'],4);
-					}
-				$new=array(
-					'prefix'=>$prefix,
-					'phone_number'=>$number,
-					'owner'=>'No account',
-					'short'=>$listUser[$i]['short']
-					);
-				array_push($new_numbers, $new);
-				$new=true;
+				if(!isset($listUser[$i]['owner'])) $listUser[$i]['owner']='No account';
+				$i++;
 				}
-			
-			foreach($numbers as $number){
-				if ($listUser[$i]['short']==$number['Number']['short']){
-					$listUser[$i]['owner']=$number['Number']['owner'];
-					break;
-					}
+			if ($this->request->is('post') and !empty($this->data['search'])){
+				$tmp=array();
+				foreach($listUser as $single)
+					if(isset($this->data['by']) and $single[$this->data['by']]==$this->data['search'])
+						array_push($tmp,$single);
+				$listUser=$tmp;
 				}
-			if(!isset($listUser[$i]['owner'])) $listUser[$i]['owner']='No account';
-			$i++;
+			$new=@array_unique($new);
+			$this->Number->saveAll($new_numbers);
+			$this->set(compact('listUser'));
 			}
-		if ($this->request->is('post') and !empty($this->data['search'])){
-			$tmp=array();
-			foreach($listUser as $single)
-				if(isset($this->data['by']) and $single[$this->data['by']]==$this->data['search'])
-					array_push($tmp,$single);
-			$listUser=$tmp;
-			}
-		$new=@array_unique($new);
-		$this->Number->saveAll($new_numbers);
-		$this->set(compact('listUser'));
 		$this->set('title','VoIP');
 		$this->set('legend','Liste compte');
 		$this->set('ajax_on',true);
     }
 
     public function admin_newAccount(){
+		/*check phone numbers*/
+		$error='';
+		$this->loadModel("Number");
+		$nums_owns=$this->Number->find("all");
+		if(count($nums_owns)==0){
+			$error.="No single phone number available, set number first. ";
+			$connect=0;
+			}
+			
+		/*check server connection*/
+		if($this->Voip->xivo("GET", "/1.1/users")==0){
+			$connect=0;
+			$error.="Can not connect to XiVO server, check server settings.";
+			}
+		else
+			$connect=1;
+		
+		if($connect==0) $this->Session->setFlash(($error), 'flash_warning');
+			
 		//If there is data send by a form
 		if ($this->request->is('post')) {
 			//create user
@@ -264,8 +287,6 @@ class VoipsController extends AppController {
 			$test=$this->Voip->xivo("POST", "/1.1/users", $data);
 			$this->set(compact('test'));
 			//set owner of number
-			$this->loadModel("Number");
-			$nums_owns=$this->Number->find("all");
 			for($i=0; $i<sizeof($nums_owns); $i++){
 				$value="00".$nums_owns[$i]['Number']['prefix'].substr($nums_owns[$i]['Number']['phone_number'],1);
 				if($this->data['User']['external_phone_number']==$value){
@@ -360,10 +381,7 @@ class VoipsController extends AppController {
 		for ($i=0; $i<sizeof($owners); $i++){
 			$userlist[$owners[$i]['User']['username']]=$owners[$i]['User']['username'];
 			}
-		$this->set(array(
-			'ex_num' => $ex_num,
-			'userlist' => $userlist,
-			'short' => $short));
+		$this->set(compact('ex_num', 'userlist', 'short', 'connect'));
 		$this->set('title','VoIP');
 		$this->set('legend','Nouveau compte');
 		}

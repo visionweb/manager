@@ -54,7 +54,7 @@
         <tr>
 			<th>
 				<?php 
-					print $this->Paginator->sort('adress', 'Address for sending');
+					print $this->Paginator->sort('adress', 'Destination');
 				?>
 			</th>
         </tr>

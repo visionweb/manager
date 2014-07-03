@@ -1,5 +1,3 @@
-
-
 <?php print $this->element('subheader');?>
 	    <fieldset>
 			<?php 
@@ -39,42 +37,32 @@
 				Password
 			</th>
         </tr>
-        <?php foreach($listUser as $user): ?>
-		<tr>
+        <?php if(isset($listUser))
+			foreach($listUser as $user){
+		print 
+		'<tr>
 			<td>
-				<?php 
-					print $user["firstname"] 
-				?>
+				'.$user["firstname"].' 
+				
+			</td>
+			<td> 
+				'.$user["lastname"].' 
+				
+			</td>
+			<td> 
+				'.$user["owner"].'
 			</td>
 			<td>
-				<?php 
-					print $user["lastname"] 
-				?>
+				'.$user["short"].'
 			</td>
 			<td>
-				<?php 
-					print $user["owner"] 
-				?>
+				'.$user["userfield"].'
 			</td>
 			<td>
-				<?php 
-					print $user["short"] 
-				?>
+				'.$user["username"].'
 			</td>
 			<td>
-				<?php 
-					print $user["userfield"] 
-				?>
-			</td>
-			<td>
-				<?php 
-					print $user["username"] 
-				?>
-			</td>
-			<td>
-				<?php 
-					print $user["password"] 
-				?>
+				'.$user["password"].'
 			</td>
 			<td class="actions btn-group">
 				<button class="btn">
@@ -84,11 +72,11 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu">
-					<li><a href="<?php print $this->Html->url(array('action' => 'edit', $user['id'])) ?>">Edit</a></li>
-					<li><a class="delete" href="<?php print $this->Html->url(array('action' => 'delete', $user['id'])) ?>">Delete</a></li>
+					<li><a href="'.$this->Html->url(array('action' => 'edit', $user['id'])).'">Edit</a></li>
+					<li><a class="delete" href="'.$this->Html->url(array('action' => 'delete', $user['id'])).'">Delete</a></li>
 				</ul>
 			</td>
-        </tr>         
-		<?php endforeach; ?>
+        </tr>';       
+		}?>
     </table>
 	<?php print $this->element('end_view'); ?>

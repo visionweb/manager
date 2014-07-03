@@ -1,9 +1,9 @@
-<div class="span10 form">
+<?php print $this->element('subheader');?>
 	<br><br>
 	<fieldset>
-	<?php echo $this->Form->create('User'); ?>
-		<legend><?php echo __($title); ?></legend>
-		<?php
+	<?php 
+		if($connect==1){
+			echo $this->Form->create('User');
 			$time = array('Europe/Paris' => 'Europe/Paris');
 			$lang = array('fr_FR' => 'French');
 			$music = array('default' => 'Default');
@@ -15,9 +15,9 @@
 			echo $this->Form->input('owner',array('options'=>$userlist,'default'=>$this->Session->read('Auth.User.username')));
 			echo $this->Form->input('short_phone_number',array('options'=>$short,'default'=>'Default'));
 			echo $this->Form->input('external_phone_number', array('options'=>$ex_num));
+			echo $this->Form->end(__('Ajouter'));
+			}
 		?>
-	</fieldset>
-	 <?php //print_r($test)?>
-	 
-<?php echo $this->Form->end(__('Ajouter'));?>
-</div>
+	</fieldset>	 
+
+<?php print $this->element('end_view'); ?>

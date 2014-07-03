@@ -56,10 +56,6 @@ class TimesController extends AppController{
 						if($session['Timesession']['project_id']==$list)
 							array_push($sessionlist, $session);
 				$sessions=$sessionlist;
-				if(count($session)==0){
-					$display['client']='0';
-					$display['project']='all';
-					}
 				}
 			}
 		if($display['project']!='all'){	
@@ -379,6 +375,8 @@ class TimesController extends AppController{
 	public function admin_configutation(){
 		$current=$this->Time->find('all');
 		$this->set('title','TimeMan');
+		if(!empty($current))
+			$current=$current[count($current)-1]['Time'];
 		$this->set(compact('current'));
 		if ($this->request->is('post')) {
 			$filename = WWW_ROOT. DS . 'img'.DS.'admin_logo.png'; 
@@ -392,7 +390,6 @@ class TimesController extends AppController{
 				'mail'=>$this->data['Time']['mail'],
 				'footer'=>$this->data['Time']['footer']
 				);
-			$this->Time->id=1;
 			$this->Time->save($newset);
 			$this->redirect($this->request->here);
 			}
