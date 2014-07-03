@@ -77,8 +77,12 @@ class VoipsController extends AppController {
 
 	//edit user account data, ID - current ID of editable user
     public function admin_edit($id = null) {
+		if($id==null)
+			$this->redirect(array('action'=>'admin_listAccount'));
 		$access=$this->Voip->getAccess();
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
+		if(empty($userdata))
+			$this->redirect(array('action'=>'admin_listAccount'));
 		$this->loadModel("User");
 		$this->loadModel("Number");
 		$numbers=$this->Number->find("all");
@@ -134,6 +138,8 @@ class VoipsController extends AppController {
      * @return void
      */
     public function admin_delete($id = null) {
+		if($id==null)
+			$this->redirect(array('action'=>'admin_listAccount'));
 		$this->autoRender = false;
 		$userdata=$this->Voip->xivo("GET", "/1.1/users/".$id);
 		$user_line=$this->Voip->xivo("GET", "/1.1/users/".$id."/lines");
@@ -258,10 +264,12 @@ class VoipsController extends AppController {
 		$error='';
 		$this->loadModel("Number");
 		$nums_owns=$this->Number->find("all");
-		if(count($nums_owns)==0){
+		$availible_number=0;
+		foreach($nums_owns as $num)
+			if(empty($num['Number']['owner']))
+				$availible_number=1;
+		if($availible_number==0)
 			$error.="No single phone number available, set number first. ";
-			$connect=0;
-			}
 			
 		/*check server connection*/
 		if($this->Voip->xivo("GET", "/1.1/users")==0){
@@ -270,6 +278,9 @@ class VoipsController extends AppController {
 			}
 		else
 			$connect=1;
+			
+		if($availible_number==0) 
+			$connect=0;
 		
 		if($connect==0) $this->Session->setFlash(($error), 'flash_warning');
 			
@@ -562,8 +573,11 @@ class VoipsController extends AppController {
 	public function admin_call_logs() {
 		$this->loadModel('Call');
 		$this->request->is('ajax');
-		$logs = $this->Call->find('all');
-		if(empty($logs)){
+		$logs = $this->Call->find('all');	
+			
+		if(empty($logs) and $this->Voip->xivo("GET", "/1.1/users")==0)
+			$this->Session->setFlash(("Can not connect to XiVO server, check server settings."), 'flash_warning');
+		elseif(empty($logs)){
 			$this->loadModel('Number');
 			$numbers=$this->Number->find('all');
 			$logs=$this->Voip->getLog($numbers);
@@ -644,9 +658,12 @@ class VoipsController extends AppController {
 					
 			$show_name=true;
 			}
-			
-		$date = array_filter(explode('-', $logs[0]['Call']['date']));
-		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
+		if(isset($date) and !empty($date)){
+			$date = array_filter(explode('-', $logs[0]['Call']['date']));
+			$begin=$date[0].'-'.$date[1].'-'.$date[2];
+			}	
+		else
+			$begin=date('Y-m-d');
 			
 		if(isset($this->data['start']) and isset($this->data['end'])){
 			$start=$this->data['start'];
@@ -689,7 +706,9 @@ class VoipsController extends AppController {
 		$this->loadModel('Call');
 		$this->request->is('ajax');
 		$logs = $this->Call->find('all');
-		if(empty($logs)){
+		if(empty($logs) and $this->Voip->xivo("GET", "/1.1/users")==0)
+			$this->Session->setFlash(("Can not connect to XiVO server, check server settings."), 'flash_warning');
+		elseif(empty($logs)){
 			$this->loadModel('Number');
 			$numbers=$this->Number->find('all');
 			$logs=$this->Voip->getLog($numbers);
@@ -764,8 +783,12 @@ class VoipsController extends AppController {
 			$conditions['Call.caller LIKE']='%'.$id.'%';	
 			$conditions['Call.direction LIKE']='outcoming';	
 			}
-		$date = array_filter(explode('-', $logs[0]['Call']['date']));
-		$begin=$date[0].'-'.$date[1].'-'.$date[2];	
+		if(isset($date) and !empty($date)){
+			$date = array_filter(explode('-', $logs[0]['Call']['date']));
+			$begin=$date[0].'-'.$date[1].'-'.$date[2];
+			}	
+		else
+			$begin=date('Y-m-d');	
 			
 		if(isset($this->data['start']) and isset($this->data['end'])){
 			$start=$this->data['start'];
